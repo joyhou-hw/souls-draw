@@ -216,11 +216,17 @@ button.primary:hover { background: #3a80a0; }
 
 .log-line .age {
   color: var(--ink-fg-muted);
-  min-width: 3.5em;
   flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 0.82rem;
 }
 
-.log-line .log-text { flex: 1; }
+.log-line .log-text {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+  line-height: 1.6;
+}
 
 .log-line.milestone .age,
 .log-line.milestone .log-text { color: var(--ink-gold); }
@@ -646,11 +652,21 @@ button.primary:hover { background: #3a80a0; }
 
 /* ── 推进场景 — 双栏面板布局 ── */
 .life-scene {
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   align-items: stretch;
-  gap: var(--gap-lg);
   max-width: 960px;
   margin: 0 auto;
+  min-height: auto;
+  justify-content: flex-start;
+  padding-bottom: var(--gap-lg);
+}
+
+.life-body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--gap-lg);
 }
 
 .life-sidebar {
@@ -687,7 +703,7 @@ button.primary:hover { background: #3a80a0; }
 
 /* 手机：单栏 */
 @media (max-width: 768px) {
-  .life-scene { flex-direction: column; }
+  .life-body { flex-direction: column; }
   .life-sidebar { flex: none; }
 }
 

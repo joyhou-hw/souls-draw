@@ -329,13 +329,16 @@ function buildLifeScene(r: LifeResult): HTMLElement {
   const scene = el('section', 'scene life-scene');
   // 顶部 sticky banner：播放控制 + 速度 + 进度条
   scene.append(buildControlBanner(r));
+  // 双栏主体
+  const body = el('div', 'life-body');
   // 左侧面板：场景图 + 身份卡 + 状态指数
   const sidebar = el('div', 'life-sidebar');
   sidebar.append(buildSceneImage(r), buildBirthCard(), buildAttrsBar(r));
   // 右侧面板：人生记录流
   const main = el('div', 'life-main');
   main.append(buildLogStream(r));
-  scene.append(sidebar, main);
+  body.append(sidebar, main);
+  scene.append(body);
   return scene;
 }
 
@@ -595,6 +598,12 @@ function buildChoiceScene(r: LifeResult): HTMLElement {
       state.picked.push(idx);
       state.result = runSegment(world, state.seed!, state.picked);
       persist();
+      // 跳过当前抉择 prompt 行，从下一条叙事继续播放
+      const lines = narrativeLines(state.result!);
+      // pointer 当前指向抉择 prompt 的下一条，但如果新 result 在此位置仍是 prompt，则跳过
+      while (state.pointer < lines.length && lines[state.pointer]?.isPrompt) {
+        state.pointer++;
+      }
       // 抉择后自动恢复播放
       state.autoPlay = true;
       rerender();
