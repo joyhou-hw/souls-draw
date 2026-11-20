@@ -53,12 +53,604 @@
   ],
   "actors": [
     {
+      "id": "human_child_plain_robe_standing",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/human/child/plain_robe/standing.png"
+    },
+    {
+      "id": "human_child_plain_robe_walking",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/human/child/plain_robe/walking.png"
+    },
+    {
+      "id": "human_child_plain_robe_sitting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/human/child/plain_robe/sitting.png"
+    },
+    {
+      "id": "human_child_plain_robe_meditating",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/human/child/plain_robe/meditating.png"
+    },
+    {
+      "id": "human_child_plain_robe_fighting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/human/child/plain_robe/fighting.png"
+    },
+    {
+      "id": "human_child_plain_robe_resting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/human/child/plain_robe/resting.png"
+    },
+    {
+      "id": "human_child_guild_uniform_standing",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/human/child/guild_uniform/standing.png"
+    },
+    {
+      "id": "human_child_guild_uniform_walking",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/human/child/guild_uniform/walking.png"
+    },
+    {
+      "id": "human_child_guild_uniform_sitting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/human/child/guild_uniform/sitting.png"
+    },
+    {
+      "id": "human_child_guild_uniform_meditating",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/human/child/guild_uniform/meditating.png"
+    },
+    {
+      "id": "human_child_guild_uniform_fighting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/human/child/guild_uniform/fighting.png"
+    },
+    {
+      "id": "human_child_guild_uniform_resting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/human/child/guild_uniform/resting.png"
+    },
+    {
+      "id": "human_child_hermit_garb_standing",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/human/child/hermit_garb/standing.png"
+    },
+    {
+      "id": "human_child_hermit_garb_walking",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/human/child/hermit_garb/walking.png"
+    },
+    {
+      "id": "human_child_hermit_garb_sitting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/human/child/hermit_garb/sitting.png"
+    },
+    {
+      "id": "human_child_hermit_garb_meditating",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/human/child/hermit_garb/meditating.png"
+    },
+    {
+      "id": "human_child_hermit_garb_fighting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/human/child/hermit_garb/fighting.png"
+    },
+    {
+      "id": "human_child_hermit_garb_resting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/human/child/hermit_garb/resting.png"
+    },
+    {
+      "id": "human_child_mortal_clothes_standing",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/human/child/mortal_clothes/standing.png"
+    },
+    {
+      "id": "human_child_mortal_clothes_walking",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/human/child/mortal_clothes/walking.png"
+    },
+    {
+      "id": "human_child_mortal_clothes_sitting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/human/child/mortal_clothes/sitting.png"
+    },
+    {
+      "id": "human_child_mortal_clothes_meditating",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/human/child/mortal_clothes/meditating.png"
+    },
+    {
+      "id": "human_child_mortal_clothes_fighting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/human/child/mortal_clothes/fighting.png"
+    },
+    {
+      "id": "human_child_mortal_clothes_resting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/human/child/mortal_clothes/resting.png"
+    },
+    {
+      "id": "human_child_ritual_dress_standing",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/human/child/ritual_dress/standing.png"
+    },
+    {
+      "id": "human_child_ritual_dress_walking",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/human/child/ritual_dress/walking.png"
+    },
+    {
+      "id": "human_child_ritual_dress_sitting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/human/child/ritual_dress/sitting.png"
+    },
+    {
+      "id": "human_child_ritual_dress_meditating",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/human/child/ritual_dress/meditating.png"
+    },
+    {
+      "id": "human_child_ritual_dress_fighting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/human/child/ritual_dress/fighting.png"
+    },
+    {
+      "id": "human_child_ritual_dress_resting",
+      "race": "human",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/human/child/ritual_dress/resting.png"
+    },
+    {
       "id": "human_youth_plain_robe_standing",
       "race": "human",
       "age_band": "youth",
       "outfit": "plain_robe",
       "pose": "standing",
       "file": "actors/human/youth/plain_robe/standing.png"
+    },
+    {
+      "id": "human_youth_plain_robe_walking",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/human/youth/plain_robe/walking.png"
+    },
+    {
+      "id": "human_youth_plain_robe_sitting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/human/youth/plain_robe/sitting.png"
+    },
+    {
+      "id": "human_youth_plain_robe_meditating",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/human/youth/plain_robe/meditating.png"
+    },
+    {
+      "id": "human_youth_plain_robe_fighting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/human/youth/plain_robe/fighting.png"
+    },
+    {
+      "id": "human_youth_plain_robe_resting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/human/youth/plain_robe/resting.png"
+    },
+    {
+      "id": "human_youth_guild_uniform_standing",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/human/youth/guild_uniform/standing.png"
+    },
+    {
+      "id": "human_youth_guild_uniform_walking",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/human/youth/guild_uniform/walking.png"
+    },
+    {
+      "id": "human_youth_guild_uniform_sitting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/human/youth/guild_uniform/sitting.png"
+    },
+    {
+      "id": "human_youth_guild_uniform_meditating",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/human/youth/guild_uniform/meditating.png"
+    },
+    {
+      "id": "human_youth_guild_uniform_fighting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/human/youth/guild_uniform/fighting.png"
+    },
+    {
+      "id": "human_youth_guild_uniform_resting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/human/youth/guild_uniform/resting.png"
+    },
+    {
+      "id": "human_youth_hermit_garb_standing",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/human/youth/hermit_garb/standing.png"
+    },
+    {
+      "id": "human_youth_hermit_garb_walking",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/human/youth/hermit_garb/walking.png"
+    },
+    {
+      "id": "human_youth_hermit_garb_sitting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/human/youth/hermit_garb/sitting.png"
+    },
+    {
+      "id": "human_youth_hermit_garb_meditating",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/human/youth/hermit_garb/meditating.png"
+    },
+    {
+      "id": "human_youth_hermit_garb_fighting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/human/youth/hermit_garb/fighting.png"
+    },
+    {
+      "id": "human_youth_hermit_garb_resting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/human/youth/hermit_garb/resting.png"
+    },
+    {
+      "id": "human_youth_mortal_clothes_standing",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/human/youth/mortal_clothes/standing.png"
+    },
+    {
+      "id": "human_youth_mortal_clothes_walking",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/human/youth/mortal_clothes/walking.png"
+    },
+    {
+      "id": "human_youth_mortal_clothes_sitting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/human/youth/mortal_clothes/sitting.png"
+    },
+    {
+      "id": "human_youth_mortal_clothes_meditating",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/human/youth/mortal_clothes/meditating.png"
+    },
+    {
+      "id": "human_youth_mortal_clothes_fighting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/human/youth/mortal_clothes/fighting.png"
+    },
+    {
+      "id": "human_youth_mortal_clothes_resting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/human/youth/mortal_clothes/resting.png"
+    },
+    {
+      "id": "human_youth_ritual_dress_standing",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/human/youth/ritual_dress/standing.png"
+    },
+    {
+      "id": "human_youth_ritual_dress_walking",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/human/youth/ritual_dress/walking.png"
+    },
+    {
+      "id": "human_youth_ritual_dress_sitting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/human/youth/ritual_dress/sitting.png"
+    },
+    {
+      "id": "human_youth_ritual_dress_meditating",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/human/youth/ritual_dress/meditating.png"
+    },
+    {
+      "id": "human_youth_ritual_dress_fighting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/human/youth/ritual_dress/fighting.png"
+    },
+    {
+      "id": "human_youth_ritual_dress_resting",
+      "race": "human",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/human/youth/ritual_dress/resting.png"
+    },
+    {
+      "id": "human_adult_plain_robe_standing",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/human/adult/plain_robe/standing.png"
+    },
+    {
+      "id": "human_adult_plain_robe_walking",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/human/adult/plain_robe/walking.png"
+    },
+    {
+      "id": "human_adult_plain_robe_sitting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/human/adult/plain_robe/sitting.png"
+    },
+    {
+      "id": "human_adult_plain_robe_meditating",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/human/adult/plain_robe/meditating.png"
+    },
+    {
+      "id": "human_adult_plain_robe_fighting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/human/adult/plain_robe/fighting.png"
+    },
+    {
+      "id": "human_adult_plain_robe_resting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/human/adult/plain_robe/resting.png"
+    },
+    {
+      "id": "human_adult_guild_uniform_standing",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/human/adult/guild_uniform/standing.png"
+    },
+    {
+      "id": "human_adult_guild_uniform_walking",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/human/adult/guild_uniform/walking.png"
+    },
+    {
+      "id": "human_adult_guild_uniform_sitting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/human/adult/guild_uniform/sitting.png"
+    },
+    {
+      "id": "human_adult_guild_uniform_meditating",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/human/adult/guild_uniform/meditating.png"
+    },
+    {
+      "id": "human_adult_guild_uniform_fighting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/human/adult/guild_uniform/fighting.png"
+    },
+    {
+      "id": "human_adult_guild_uniform_resting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/human/adult/guild_uniform/resting.png"
+    },
+    {
+      "id": "human_adult_hermit_garb_standing",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/human/adult/hermit_garb/standing.png"
+    },
+    {
+      "id": "human_adult_hermit_garb_walking",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/human/adult/hermit_garb/walking.png"
+    },
+    {
+      "id": "human_adult_hermit_garb_sitting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/human/adult/hermit_garb/sitting.png"
     },
     {
       "id": "human_adult_hermit_garb_meditating",
@@ -69,12 +661,654 @@
       "file": "actors/human/adult/hermit_garb/meditating.png"
     },
     {
+      "id": "human_adult_hermit_garb_fighting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/human/adult/hermit_garb/fighting.png"
+    },
+    {
+      "id": "human_adult_hermit_garb_resting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/human/adult/hermit_garb/resting.png"
+    },
+    {
+      "id": "human_adult_mortal_clothes_standing",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/human/adult/mortal_clothes/standing.png"
+    },
+    {
+      "id": "human_adult_mortal_clothes_walking",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/human/adult/mortal_clothes/walking.png"
+    },
+    {
+      "id": "human_adult_mortal_clothes_sitting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/human/adult/mortal_clothes/sitting.png"
+    },
+    {
+      "id": "human_adult_mortal_clothes_meditating",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/human/adult/mortal_clothes/meditating.png"
+    },
+    {
+      "id": "human_adult_mortal_clothes_fighting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/human/adult/mortal_clothes/fighting.png"
+    },
+    {
+      "id": "human_adult_mortal_clothes_resting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/human/adult/mortal_clothes/resting.png"
+    },
+    {
+      "id": "human_adult_ritual_dress_standing",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/human/adult/ritual_dress/standing.png"
+    },
+    {
+      "id": "human_adult_ritual_dress_walking",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/human/adult/ritual_dress/walking.png"
+    },
+    {
+      "id": "human_adult_ritual_dress_sitting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/human/adult/ritual_dress/sitting.png"
+    },
+    {
+      "id": "human_adult_ritual_dress_meditating",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/human/adult/ritual_dress/meditating.png"
+    },
+    {
+      "id": "human_adult_ritual_dress_fighting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/human/adult/ritual_dress/fighting.png"
+    },
+    {
+      "id": "human_adult_ritual_dress_resting",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/human/adult/ritual_dress/resting.png"
+    },
+    {
+      "id": "human_elder_plain_robe_standing",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/human/elder/plain_robe/standing.png"
+    },
+    {
+      "id": "human_elder_plain_robe_walking",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/human/elder/plain_robe/walking.png"
+    },
+    {
+      "id": "human_elder_plain_robe_sitting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/human/elder/plain_robe/sitting.png"
+    },
+    {
+      "id": "human_elder_plain_robe_meditating",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/human/elder/plain_robe/meditating.png"
+    },
+    {
+      "id": "human_elder_plain_robe_fighting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/human/elder/plain_robe/fighting.png"
+    },
+    {
+      "id": "human_elder_plain_robe_resting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/human/elder/plain_robe/resting.png"
+    },
+    {
+      "id": "human_elder_guild_uniform_standing",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/human/elder/guild_uniform/standing.png"
+    },
+    {
+      "id": "human_elder_guild_uniform_walking",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/human/elder/guild_uniform/walking.png"
+    },
+    {
+      "id": "human_elder_guild_uniform_sitting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/human/elder/guild_uniform/sitting.png"
+    },
+    {
+      "id": "human_elder_guild_uniform_meditating",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/human/elder/guild_uniform/meditating.png"
+    },
+    {
+      "id": "human_elder_guild_uniform_fighting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/human/elder/guild_uniform/fighting.png"
+    },
+    {
+      "id": "human_elder_guild_uniform_resting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/human/elder/guild_uniform/resting.png"
+    },
+    {
+      "id": "human_elder_hermit_garb_standing",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/human/elder/hermit_garb/standing.png"
+    },
+    {
+      "id": "human_elder_hermit_garb_walking",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/human/elder/hermit_garb/walking.png"
+    },
+    {
+      "id": "human_elder_hermit_garb_sitting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/human/elder/hermit_garb/sitting.png"
+    },
+    {
+      "id": "human_elder_hermit_garb_meditating",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/human/elder/hermit_garb/meditating.png"
+    },
+    {
+      "id": "human_elder_hermit_garb_fighting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/human/elder/hermit_garb/fighting.png"
+    },
+    {
+      "id": "human_elder_hermit_garb_resting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/human/elder/hermit_garb/resting.png"
+    },
+    {
+      "id": "human_elder_mortal_clothes_standing",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/human/elder/mortal_clothes/standing.png"
+    },
+    {
+      "id": "human_elder_mortal_clothes_walking",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/human/elder/mortal_clothes/walking.png"
+    },
+    {
+      "id": "human_elder_mortal_clothes_sitting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/human/elder/mortal_clothes/sitting.png"
+    },
+    {
+      "id": "human_elder_mortal_clothes_meditating",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/human/elder/mortal_clothes/meditating.png"
+    },
+    {
+      "id": "human_elder_mortal_clothes_fighting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/human/elder/mortal_clothes/fighting.png"
+    },
+    {
+      "id": "human_elder_mortal_clothes_resting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/human/elder/mortal_clothes/resting.png"
+    },
+    {
+      "id": "human_elder_ritual_dress_standing",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/human/elder/ritual_dress/standing.png"
+    },
+    {
+      "id": "human_elder_ritual_dress_walking",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/human/elder/ritual_dress/walking.png"
+    },
+    {
+      "id": "human_elder_ritual_dress_sitting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/human/elder/ritual_dress/sitting.png"
+    },
+    {
+      "id": "human_elder_ritual_dress_meditating",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/human/elder/ritual_dress/meditating.png"
+    },
+    {
+      "id": "human_elder_ritual_dress_fighting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/human/elder/ritual_dress/fighting.png"
+    },
+    {
+      "id": "human_elder_ritual_dress_resting",
+      "race": "human",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/human/elder/ritual_dress/resting.png"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/child/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/child/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/child/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/child/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/child/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/child/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/child/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/child/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
       "id": "animal_yao_cat_orange_cat_child_guild_uniform_sitting",
       "race": "animal_yao",
       "age_band": "child",
       "outfit": "guild_uniform",
       "pose": "sitting",
       "file": "actors/animal_yao/cat/orange_cat/child/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/child/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/child/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/child/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/child/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/child/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/child/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/child/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/child/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/child/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/child/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/child/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/child/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/child/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/child/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/child/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/child/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/child/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/child/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/child/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/child/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/child/ritual_dress/resting.png",
       "form": "cat",
       "variety": "orange_cat"
     },
@@ -89,6 +1323,1196 @@
       "variety": "orange_cat"
     },
     {
+      "id": "animal_yao_cat_orange_cat_youth_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/youth/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/youth/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/youth/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/youth/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/youth/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/youth/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/youth/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/youth/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/youth/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/youth/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/youth/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/youth/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/youth/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/youth/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_youth_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/youth/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/adult/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/adult/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/adult/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/adult/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/adult/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/adult/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/adult/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/adult/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/adult/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/adult/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/adult/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/adult/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/adult/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/adult/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/adult/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_adult_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/adult/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/elder/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/elder/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/elder/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/elder/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/elder/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/elder/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/elder/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/elder/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/elder/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/elder/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/elder/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/elder/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/elder/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/orange_cat/elder/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/orange_cat/elder/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_elder_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/orange_cat/elder/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/child/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/child/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/child/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/child/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/child/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/child/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/child/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/child/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/child/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/child/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/child/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/child/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/child/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/child/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/child/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/child/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/child/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/child/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/child/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/child/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/child/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/child/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/child/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/child/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/child/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/child/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/child/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/child/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/child/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_child_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/child/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
       "id": "animal_yao_cat_black_cat_youth_plain_robe_standing",
       "race": "animal_yao",
       "age_band": "youth",
@@ -97,6 +2521,1196 @@
       "file": "actors/animal_yao/cat/black_cat/youth/plain_robe/standing.png",
       "form": "cat",
       "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/youth/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/youth/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/youth/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/youth/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/youth/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/youth/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/youth/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/youth/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/youth/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/youth/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/youth/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/youth/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/youth/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/youth/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/youth/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/youth/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/youth/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/youth/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/youth/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/youth/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/youth/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/youth/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/youth/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/youth/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/youth/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/youth/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/youth/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/youth/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_youth_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/youth/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/adult/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/adult/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/adult/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/adult/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/adult/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/adult/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/adult/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/adult/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/adult/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/adult/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/adult/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/adult/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/adult/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/adult/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/adult/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/adult/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/adult/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/adult/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/adult/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/adult/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/adult/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/adult/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/adult/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/adult/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/adult/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/adult/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/adult/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/adult/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/adult/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_adult_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/adult/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/elder/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/elder/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/elder/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/elder/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/elder/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/elder/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/elder/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/elder/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/elder/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/elder/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/elder/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/elder/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/elder/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/elder/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/elder/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/elder/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/elder/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/elder/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/elder/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/elder/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/elder/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/elder/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/elder/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/elder/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/elder/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/black_cat/elder/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/black_cat/elder/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/black_cat/elder/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/black_cat/elder/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_black_cat_elder_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/black_cat/elder/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/child/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/child/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/child/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/child/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/child/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/child/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/child/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/child/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/child/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/child/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/child/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/child/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/child/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/child/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/child/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_child_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/child/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
     },
     {
       "id": "animal_yao_cat_tabby_cat_youth_plain_robe_standing",
@@ -109,12 +3723,1952 @@
       "variety": "tabby_cat"
     },
     {
+      "id": "animal_yao_cat_tabby_cat_youth_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_adult_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/adult/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_elder_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/tabby_cat/elder/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/child/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/child/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/child/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/child/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/child/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/child/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/child/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/child/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/child/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/child/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/child/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/child/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/child/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/child/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/child/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/child/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/child/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/child/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/child/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/child/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/child/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/child/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/child/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/child/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/child/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/child/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/child/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/child/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/child/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_child_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/child/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
       "id": "animal_yao_cat_calico_youth_plain_robe_standing",
       "race": "animal_yao",
       "age_band": "youth",
       "outfit": "plain_robe",
       "pose": "standing",
       "file": "actors/animal_yao/cat/calico/youth/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/youth/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/youth/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/youth/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/youth/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/youth/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/youth/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/youth/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/youth/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/youth/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/youth/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/youth/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/youth/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/youth/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/youth/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/youth/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/youth/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/youth/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/youth/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/youth/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/youth/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/youth/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/youth/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/youth/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/youth/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/youth/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/youth/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/youth/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/youth/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/youth/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/adult/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/adult/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/adult/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/adult/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/adult/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/adult/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/adult/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/adult/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/adult/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/adult/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/adult/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/adult/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/adult/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/adult/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/adult/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/adult/hermit_garb/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/adult/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/adult/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/adult/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/adult/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/adult/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/adult/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/adult/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/adult/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/adult/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/adult/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/adult/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/adult/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/adult/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_adult_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/adult/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/elder/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/elder/plain_robe/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/elder/plain_robe/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/elder/plain_robe/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/elder/plain_robe/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/elder/plain_robe/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/elder/guild_uniform/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/elder/guild_uniform/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/elder/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/elder/guild_uniform/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/elder/guild_uniform/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/elder/guild_uniform/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/elder/hermit_garb/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/elder/hermit_garb/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/elder/hermit_garb/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/elder/hermit_garb/meditating.png",
       "form": "cat",
       "variety": "calico"
     },
