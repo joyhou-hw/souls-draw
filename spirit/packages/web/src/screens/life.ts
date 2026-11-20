@@ -30,9 +30,45 @@ interface LifeUiState {
   result: LifeResult | null;
   review: boolean;
   drawing: boolean;
+  autoPlay: boolean;
+  speedIdx: number;
+  starredLines: Set<number>;
 }
 
-const state: LifeUiState = { seed: null, picked: [], pointer: 0, result: null, review: false, drawing: false };
+const state: LifeUiState = {
+  seed: null, picked: [], pointer: 0, result: null, review: false, drawing: false,
+  autoPlay: false, speedIdx: 1, starredLines: new Set(),
+};
+
+/** 速度档位：标签 → 间隔毫秒 */
+const SPEED_LABELS: Array<[string, number]> = [
+  ['慢', 2000],
+  ['中', 1000],
+  ['快', 400],
+];
+
+let autoTimer: ReturnType<typeof setInterval> | null = null;
+
+function clearAutoTimer(): void {
+  if (autoTimer !== null) { clearInterval(autoTimer); autoTimer = null; }
+}
+
+/** 自动播放单步：推进1行，遇抉择 prompt 或末尾自动暂停 */
+function tickAdvance(r: LifeResult): void {
+  const lines = narrativeLines(r);
+  if (state.pointer >= lines.length) {
+    state.autoPlay = false;
+    clearAutoTimer();
+    rerender();
+    return;
+  }
+  state.pointer++;
+  if (lines[state.pointer - 1]?.isPrompt) {
+    state.autoPlay = false;
+    clearAutoTimer();
+  }
+  rerender();
+}
 
 /** 叙事渲染缓存——同一 LifeResult 只渲染一次（renderLifeLog 本身确定性） */
 let renderMemo: { result: LifeResult; lines: RenderedLogLine[] } | null = null;
@@ -70,10 +106,13 @@ function persist(): void {
 }
 
 function resumeFromSave(data: SaveData): void {
+  clearAutoTimer();
   state.seed = data.seed;
   state.picked = [...data.picked];
   state.pointer = 0;
   state.review = false;
+  state.autoPlay = false;
+  state.starredLines.clear();
   state.result = runSegment(world, state.seed, data.picked);
   state.pointer = state.result.log.length;
   persist();
@@ -119,10 +158,16 @@ function buildScene(): HTMLElement {
   const atEnd = state.pointer >= r.log.length;
 
   // 抉择暂停 → 抉择场景
-  if (atEnd && r.pausedChoice) return buildChoiceScene(r);
+  if (atEnd && r.pausedChoice) {
+    if (state.autoPlay) { state.autoPlay = false; clearAutoTimer(); }
+    return buildChoiceScene(r);
+  }
 
   // 终局 → 终局场景
-  if (atEnd) return buildEndScene(r);
+  if (atEnd) {
+    if (state.autoPlay) { state.autoPlay = false; clearAutoTimer(); }
+    return buildEndScene(r);
+  }
 
   // 推进中 → 推进场景（含出生卡 + 日志）
   return buildLifeScene(r);
@@ -168,10 +213,13 @@ function buildDrawScene(): HTMLElement {
   btn.textContent = '抽一签 · 开始此生';
   btn.addEventListener('click', () => {
     resetFlowUi();
+    clearAutoTimer();
     state.seed = drawSeed();
     state.picked = [];
     state.pointer = 0;
     state.review = false;
+    state.autoPlay = false;
+    state.starredLines.clear();
     state.result = runSegment(world, state.seed, state.picked);
     persist();
     // 触发命签抽选动画，动画结束后自动进入人生场景
@@ -311,29 +359,45 @@ function buildAttrsBar(r: LifeResult): HTMLElement {
 
 function buildLogStream(r: LifeResult): HTMLElement {
   const stream = el('div', 'log-stream');
-  const shown = narrativeLines(r).slice(0, state.pointer);
-  for (let i = 0; i < shown.length; i++) {
+  const lines = narrativeLines(r);
+  const shown = lines.slice(0, state.pointer);
+  // 倒序：最新展开的在最前
+  for (let i = shown.length - 1; i >= 0; i--) {
     const line = shown[i]!;
     const row = el('div', 'log-line');
     // 最新展开的一行加淡入动画
     if (i === shown.length - 1 && state.pointer > 0) row.classList.add('log-fresh');
     if (worldMilestones.includes(line.eventId)) row.classList.add('milestone');
     if (line.isPrompt) row.classList.add('prompt');
+    if (state.starredLines.has(i)) row.classList.add('starred');
+    row.dataset.idx = String(i);
+    // 星标按钮
+    const star = el('span', 'star-btn');
+    star.textContent = state.starredLines.has(i) ? '★' : '☆';
+    star.title = '点选加星';
+    // 年龄
     const age = el('span', 'age');
     age.textContent = `${line.tick}岁`;
-    const text = el('span');
+    const text = el('span', 'log-text');
     text.textContent = line.isPrompt ? `❈ ${line.text}` : line.text;
     if (line.picked) {
       const pick = el('span', 'picked');
       pick.textContent = `（抉择：${line.picked}）`;
       text.append(pick);
     }
-    row.append(age, text);
+    row.append(star, age, text);
     if (line.caption) {
       const cap = el('span', 'milestone-caption');
       cap.textContent = `〔${line.caption}〕`;
       row.append(cap);
     }
+    // 点击整行切换星标
+    row.addEventListener('click', () => {
+      const idx = Number(row.dataset.idx);
+      if (state.starredLines.has(idx)) state.starredLines.delete(idx);
+      else state.starredLines.add(idx);
+      rerender();
+    });
     stream.append(row);
   }
   const remain = r.log.length - state.pointer;
@@ -359,9 +423,45 @@ function advancePointer(r: LifeResult): void {
 
 function buildActionArea(r: LifeResult): HTMLElement {
   const area = el('div', 'actions');
-  const btn = el('button', 'primary');
+  // 播放/暂停按钮
+  const playBtn = el('button', state.autoPlay ? '' : 'primary');
+  playBtn.textContent = state.autoPlay ? '⏸ 暂停' : '▶ 自动播放';
+  playBtn.addEventListener('click', () => {
+    if (state.autoPlay) {
+      state.autoPlay = false;
+      clearAutoTimer();
+    } else {
+      startAutoPlay(r);
+    }
+    rerender();
+  });
+  area.append(playBtn);
+  // 速度档位
+  const speedWrap = el('span', 'speed-ctrl');
+  const speedLabel = el('span', 'muted');
+  speedLabel.textContent = '速度';
+  speedWrap.append(speedLabel);
+  for (let i = 0; i < SPEED_LABELS.length; i++) {
+    const [label] = SPEED_LABELS[i]!;
+    const sb = el('button', i === state.speedIdx ? 'active' : '');
+    sb.textContent = label;
+    sb.addEventListener('click', () => {
+      state.speedIdx = i;
+      if (state.autoPlay) {
+        clearAutoTimer();
+        startAutoPlay(r);
+      }
+      rerender();
+    });
+    speedWrap.append(sb);
+  }
+  area.append(speedWrap);
+  // 手动翻页
+  const btn = el('button');
   btn.textContent = '翻过一页';
   btn.addEventListener('click', () => {
+    // 手动翻页时暂停自动播放
+    if (state.autoPlay) { state.autoPlay = false; clearAutoTimer(); }
     advancePointer(r);
     rerender();
   });
@@ -369,11 +469,20 @@ function buildActionArea(r: LifeResult): HTMLElement {
   const skip = el('button');
   skip.textContent = '直抵当下';
   skip.addEventListener('click', () => {
+    if (state.autoPlay) { state.autoPlay = false; clearAutoTimer(); }
     state.pointer = r.log.length;
     rerender();
   });
   area.append(skip, buildSaveButtons());
   return area;
+}
+
+/** 启动自动播放定时器 */
+function startAutoPlay(r: LifeResult): void {
+  const [, ms] = SPEED_LABELS[state.speedIdx]!;
+  state.autoPlay = true;
+  clearAutoTimer();
+  autoTimer = setInterval(() => tickAdvance(r), ms);
 }
 
 function buildSaveButtons(): HTMLElement {
@@ -464,9 +573,12 @@ function buildEndScene(r: LifeResult): HTMLElement {
   const redoBtn = el('button');
   redoBtn.textContent = '重开此生（同签重掷）';
   redoBtn.addEventListener('click', () => {
+    clearAutoTimer();
     state.picked = [];
     state.pointer = 0;
     state.review = false;
+    state.autoPlay = false;
+    state.starredLines.clear();
     state.seed = drawSeed();
     state.result = runSegment(world, state.seed, state.picked);
     persist();
@@ -477,11 +589,14 @@ function buildEndScene(r: LifeResult): HTMLElement {
   const newBtn = el('button');
   newBtn.textContent = '另抽一签';
   newBtn.addEventListener('click', () => {
+    clearAutoTimer();
     state.seed = null;
     state.result = null;
     state.picked = [];
     state.pointer = 0;
     state.review = false;
+    state.autoPlay = false;
+    state.starredLines.clear();
     resetFlowUi();
     clearGame();
     rerender();

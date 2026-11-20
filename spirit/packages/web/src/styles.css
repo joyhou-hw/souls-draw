@@ -195,7 +195,24 @@ button.primary:hover { background: #3a80a0; }
   gap: var(--gap-sm);
   padding: 3px 0;
   font-size: 0.92rem;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background var(--dur-fast) var(--ease);
 }
+
+.log-line:hover { background: rgba(159, 200, 232, 0.06); }
+
+.log-line .star-btn {
+  color: var(--ink-fg-muted);
+  flex-shrink: 0;
+  min-width: 1.2em;
+  text-align: center;
+  font-size: 1rem;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.log-line.starred .star-btn { color: var(--ink-gold); }
+.log-line.starred { background: rgba(232, 194, 106, 0.06); }
 
 .log-line .age {
   color: var(--ink-fg-muted);
@@ -203,10 +220,12 @@ button.primary:hover { background: #3a80a0; }
   flex-shrink: 0;
 }
 
-.log-line.milestone .age,
-.log-line.milestone span:nth-child(2) { color: var(--ink-gold); }
+.log-line .log-text { flex: 1; }
 
-.log-line.prompt span:nth-child(2) { color: var(--ink-accent); }
+.log-line.milestone .age,
+.log-line.milestone .log-text { color: var(--ink-gold); }
+
+.log-line.prompt .log-text { color: var(--ink-accent); }
 
 /* 最新展开的一行——淡入动画 */
 .log-line.log-fresh {
@@ -224,6 +243,25 @@ button.primary:hover { background: #3a80a0; }
 }
 
 .picked { color: var(--ink-jade); }
+
+/* ── 速度控制 ── */
+.speed-ctrl {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-xs);
+}
+
+.speed-ctrl button {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+.speed-ctrl button.active {
+  background: var(--ink-accent-btn);
+  border-color: var(--ink-accent-btn);
+  color: #fff;
+}
 
 /* ── 抉择 ── */
 .actions {
