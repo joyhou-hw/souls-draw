@@ -1,0 +1,10 @@
+{
+  "name": "@spirit/engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "世界无关核心引擎：PRNG / tick / 事件池掷骰 / choice 概率位移 / death_check（零 DOM、零网络、零依赖）",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

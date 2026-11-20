@@ -1,0 +1,129 @@
+# 玩具世界 v0.1 —— M1 验收用最小世界包（10 事件 + 1 抉择点 + 生命表）
+# 规范：04-开发计划.md §3 T1.7；机制概念：01 §4.3 / §4.4
+name: 玩具世界
+tickName: 年
+startTick: 0
+endTick: 80
+initAttrs:
+  health: 100
+  spirit: 0
+  fame: 0
+  wealth: 10
+
+events:
+  - id: quiet_year
+    label: 静默的一年
+    weight: 8
+
+  - id: fever
+    label: 幼年风寒
+    weight: 3
+    cond:
+      minTick: 1
+      maxTick: 10
+    effects:
+      health: -15
+
+  - id: meet_master
+    label: 遇见一位独居的老修士
+    weight: 1.5
+    cond:
+      minTick: 8
+      maxTick: 24
+    gainFlags:
+      - met_master
+    choice:
+      prompt: 老修士愿收你为徒。拜师吗？
+      options:
+        - label: 拜师
+          desc: 灵力大开，此后苦修不断
+          effects:
+            spirit: 15
+          weightShifts:
+            hard_training: 2
+        - label: 婉拒
+          desc: 各自珍重，江湖再见
+          effects:
+            spirit: 2
+          weightShifts:
+            hard_training: 0.1
+
+  - id: hard_training
+    label: 苦修的一年
+    weight: 3
+    cond:
+      flags: [met_master]
+    effects:
+      spirit: 6
+      health: -2
+
+  - id: street_fight
+    label: 巷中斗殴
+    weight: 2
+    cond:
+      attrs:
+        spirit:
+          gte: 30
+    effects:
+      health: -10
+      fame: 3
+
+  - id: lucky_find
+    label: 拾得一件遗物
+    weight: 1
+    effects:
+      wealth: 20
+
+  - id: wander
+    label: 远游行游
+    weight: 2
+    cond:
+      minTick: 16
+    effects:
+      spirit: 3
+      wealth: -5
+
+  - id: illness
+    label: 沉疴缠身
+    weight: 2.5
+    cond:
+      minTick: 50
+    effects:
+      health: -25
+
+  - id: story_told
+    label: 你的故事被人传唱
+    weight: 1
+    cond:
+      attrs:
+        fame:
+          gte: 15
+    effects:
+      fame: 5
+
+  - id: apprentice
+    label: 有人拜你为师
+    weight: 1
+    cond:
+      minTick: 40
+      attrs:
+        spirit:
+          gte: 60
+    effects:
+      fame: 8
+    gainFlags:
+      - has_disciple
+
+deathRule:
+  bands:
+    - { fromTick: 0, hazard: 0.008 }
+    - { fromTick: 40, hazard: 0.02 }
+    - { fromTick: 60, hazard: 0.06 }
+    - { fromTick: 75, hazard: 0.12 }
+  attrDeath:
+    attr: health
+    below: 1
+  attrMod:
+    attr: health
+    below: 40
+    multiplier: 2

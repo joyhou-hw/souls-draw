@@ -1,0 +1,452 @@
+# 罗小黑世界包 v0.3 —— M2 全量世界（16 块 + events/scenes/shocks 三事件池）
+# 权威：01-人生模拟框架设计文档.md §4.3/§7；03-世界观对比与合并方案.md §5/§6
+# T2.7 已校准：出生形态妖精体验主导（02 §3.6 案例池派生，人类 0.25 演示底线）+ hazard 曲线软化（02 §3.2 妖精寿长）
+name: 罗小黑世界
+tickName: 年
+startTick: 0
+endTick: 120
+initAttrs:
+  liquality: 100
+  health: 80
+  wealth: 10
+deathModel: liquality_balance
+
+# ── 基础事件池（时代日常 + 修行线 + 灵力阶梯突破链 + 夺灵）──
+events:
+  - id: quiet_year
+    label: 平静的一年
+    weight: 8
+    effects:
+      liquality: 1
+      health: 1
+
+  - id: liqi_drain
+    label: 灵质损耗的一年
+    weight: 2
+    effects:
+      liquality: -3
+
+  - id: liqi_feast
+    label: 觅得灵质丰美之地
+    weight: 1.5
+    effects:
+      liquality: 6
+
+  - id: mortal_labor
+    label: 营生奔波的一年
+    weight: 4
+    cond:
+      minTick: 16
+    effects:
+      health: -2
+      wealth: 5
+
+  - id: beast_conflict
+    label: 与妖兽的冲突
+    weight: 1.5
+    cond:
+      minTick: 12
+    effects:
+      health: -8
+      liquality: -5
+
+  - id: guild_recruit
+    label: 会馆招募（抉择点）
+    weight: 2
+    cond:
+      flags: [liqi_manifest]
+      minTick: 8
+      maxTick: 24
+    choice:
+      prompt: 会馆妖精师向你伸出橄榄枝。加入会馆吗？
+      options:
+        - label: 加入会馆
+          desc: 资源与人脉，规矩与庇护
+          effects:
+            liquality: 5
+            wealth: 10
+          gainFlags:
+            - org:guild_registered
+        - label: 婉拒
+          desc: 自由身，风雨自担
+          effects:
+            liquality: 2
+
+  - id: witness_exile
+    label: 目睹妖精被驱逐（抉择点）
+    weight: 2
+    cond:
+      minTick: 6
+    choice:
+      prompt: 城郊的同类被强制迁离，求助的目光落在你身上。怎么做？
+      options:
+        - label: 暗中相助
+          desc: 藏起 TA，分一口灵气
+          effects:
+            liquality: 4
+            health: -3
+        - label: 袖手旁观
+          desc: 自身难保，不敢惹麻烦
+          effects:
+            liquality: -2
+
+  - id: rich_land_offer
+    label: 丰美灵地的前路抉择
+    weight: 1.5
+    cond:
+      minTick: 15
+    choice:
+      prompt: 一处灵质丰美的山林愿意收留你，但需交出积蓄安家。去吗？
+      options:
+        - label: 驻留灵地
+          desc: 安顿，扎根
+          effects:
+            liquality: 8
+            wealth: -5
+        - label: 继续漂泊
+          desc: 天地为家
+          effects:
+            health: -2
+            liquality: 2
+
+  - id: injured_yao
+    label: 遇见受伤的小妖（抉择点）
+    weight: 1.5
+    cond:
+      minTick: 10
+    choice:
+      prompt: 路边蜷着一只重伤小妖。停下来救的话，你的岁月和气血都会被分走一些。
+      options:
+        - label: 倾力救助
+          desc: 分灵气与口粮
+          effects:
+            health: -5
+            liquality: 6
+        - label: 匆匆而过
+          desc: 各安天命
+          effects:
+            liquality: -1
+
+  - id: cultivation_year
+    label: 修行的一年
+    weight: 3
+    cond:
+      flags: [cultivator]
+    effects:
+      liquality: 5
+      health: -1
+
+  - id: init_tier
+    label: 修行入门，定为凡体
+    weight: 4
+    cond:
+      flags: [cultivator]
+    gainFlags:
+      - tier:fanti
+
+  - id: gate_ningxing
+    label: 突破凝形
+    weight: 1.2
+    cond:
+      flags: [tier:fanti]
+    gainFlags:
+      - tier:ningxing
+    lossFlags:
+      - tier:fanti
+    effects:
+      liquality: 3
+
+  - id: gate_yuwu
+    label: 突破御物
+    weight: 1.0
+    cond:
+      flags: [tier:ningxing]
+    gainFlags:
+      - tier:yuwu
+    lossFlags:
+      - tier:ningxing
+    effects:
+      liquality: 3
+
+  - id: gate_lingyu
+    label: 突破灵域
+    weight: 0.8
+    cond:
+      flags: [tier:yuwu]
+    gainFlags:
+      - tier:lingyu
+    lossFlags:
+      - tier:yuwu
+    effects:
+      liquality: 4
+
+  - id: gate_dayao
+    label: 突破大妖
+    weight: 0.5
+    cond:
+      flags: [tier:lingyu]
+    gainFlags:
+      - tier:dayao
+    lossFlags:
+      - tier:lingyu
+    effects:
+      liquality: 4
+
+  - id: gate_shengling
+    label: 突破圣灵
+    weight: 0.3
+    cond:
+      flags: [tier:dayao]
+    gainFlags:
+      - tier:shengling
+    lossFlags:
+      - tier:dayao
+    effects:
+      liquality: 5
+
+  - id: ascend_trigger
+    label: 圣灵圆满，飞升离陆
+    weight: 0.2
+    cond:
+      flags: [tier:shengling]
+    gainFlags:
+      - tier:ascend
+    terminal: true
+
+  - id: lixi_lost_space
+    label: 夺灵者重创，空间系灵质被夺
+    weight: 0.4
+    cond:
+      flags: [lixi:space]
+    lossFlags:
+      - lixi:space
+    effects:
+      liquality: -25
+
+  - id: lixi_lost_yuling
+    label: 御灵系灵质受创
+    weight: 0.6
+    cond:
+      flags: [lixi:yuling]
+    lossFlags:
+      - lixi:yuling
+    effects:
+      liquality: -20
+
+# ── 场景模板池（触发条件轴组合：地区/形态/组织/年龄窗）──
+scenes:
+  - id: scene_forest_childhood
+    label: 森林童年的嬉戏时光
+    weight: 3
+    cond:
+      flags: [region:forest]
+      maxTick: 15
+    effects:
+      liquality: 4
+      health: 2
+
+  - id: scene_first_transform
+    label: 第一次化形（里程碑）
+    weight: 1
+    cond:
+      flags: [form:animal_yao, cultivator]
+      minTick: 6
+    effects:
+      liquality: 8
+
+  - id: scene_city_drift
+    label: 城市里的漂泊生计
+    weight: 2
+    cond:
+      flags: [region:city]
+    effects:
+      liquality: -3
+      wealth: 6
+
+  - id: scene_guild_life
+    label: 会馆领地的日常
+    weight: 2
+    cond:
+      flags: [org:guild_registered]
+    effects:
+      wealth: 5
+      liquality: 2
+
+  - id: scene_hermit_chance
+    label: 隐修岛上遇隐修者指点
+    weight: 1.2
+    cond:
+      flags: [region:hermit_island, liqi_manifest]
+    effects:
+      liquality: 10
+
+# ── 时代冲击波池（era 轴 × 地区轴的灾害/危机/战争）──
+shocks:
+  - id: shock_war
+    label: 战乱波及，流离失所
+    weight: 1
+    cond:
+      flags: [era:ancient]
+    effects:
+      liquality: -20
+      health: -10
+      wealth: -15
+
+  - id: shock_urban_dev
+    label: 城市开发，原生林被毁
+    weight: 0.8
+    cond:
+      flags: [era:modern, region:forest]
+    lossFlags:
+      - region:forest
+    effects:
+      liquality: -12
+
+  - id: shock_liqi_tide
+    label: 灵气潮汐涌动
+    weight: 0.5
+    cond:
+      flags: [cultivator]
+    effects:
+      liquality: 15
+
+  - id: shock_plague
+    label: 疫病流行之年
+    weight: 0.6
+    cond:
+      minTick: 30
+    effects:
+      health: -20
+
+# ── 出生前置链（01 §7.7 四阶段）──
+preBirthChain:
+  stages: [shengling, jingling, condense, birth]
+  shengling:
+    p: {forest: 0.4, city: 0.1, guild_land: 0.25, hermit_island: 0.5}
+  jingling:
+    fate: [drift, liqi_doll, absorbed, natural_condense]
+  condense:
+    prototype: [cat, wolf, flower, mushroom, wisp, paper_creature]
+  rareLine:
+    reincarnatedSoulP: 0.001
+  humanLine: human
+
+# ── 出生形态轴（01 §7.1；T2.7 校准：妖精体验主导——人类 0.25 演示底线，妖精内部分布按 02 §3.6 案例池 7:4:2:5:1 派生）──
+birthForm:
+  weights: {human: 0.25, animal_yao: 0.28, plant_yao: 0.16, fungus_yao: 0.08, spirit_yao: 0.19, painted_yao: 0.04}
+  speciesPrototype:
+    animal_yao: [cat, wolf, dog, bull, goat]
+    plant_yao: [flower, grass, tree]
+    fungus_yao: [mushroom]
+    spirit_yao: [wisp]
+    painted_yao: [paper_creature]
+  speciesVariety:
+    cat: [orange_cat, black_cat, tabby_cat, calico]
+    wolf: [snow_wolf, grey_wolf, black_wolf]
+    dog: [rural_dog, shiba, shorthair]
+    bull: [water_buffalo, ox]
+    goat: [mountain_goat, dairy_goat]
+    flower: [peony, peach_blossom, orchid, epiphyllum, moonveil]
+    grass: [mugwort, mimosa, reed]
+    tree: [pine, ginkgo, locust]
+    mushroom: [lingzhi, fly_agaric]
+    wisp: [lantern_flame, creek_mist, firefly_glow]
+  niche: [village_yao, guild_servant, unregistered_yao, assistant_yao, laborer_yao]
+
+birthAxes:
+  region: [forest, city, guild_land, hermit_island]
+  era: [ancient, modern]
+
+# ── 修行入口双闸（01 §7.1.1）──
+cultivationGate:
+  step1LiqiManifestP: 0.25
+  step2EntryEventP: 0.15
+  entryEventAgeWindow: [8, 24]
+
+# ── 天赋灵系（03 §5.1 量化）──
+talent:
+  lixi: {yuling: 0.55, shengling: 0.20, suoyu: 0.10, xinling: 0.07, zaowu: 0.07, space: 0.01}
+  dualLiqualityP: 0.001
+  spaceLixi:
+    acquired: false
+  envModifier:
+    forest: {shengling: 1.5}
+
+# ── 死亡规则（灵质收支表 01 §7.3；T2.7 校准：hazard 曲线软化，妖精寿长于人类 02 §3.2）──
+deathRule:
+  bands:
+    - { fromTick: 0, hazard: 0.003 }
+    - { fromTick: 40, hazard: 0.008 }
+    - { fromTick: 80, hazard: 0.025 }
+    - { fromTick: 100, hazard: 0.05 }
+    - { fromTick: 115, hazard: 0.12 }
+  attrDeath:
+    attr: health
+    below: 1
+  attrMod:
+    attr: liquality
+    below: 20
+    multiplier: 2
+
+# ── 灵力阶梯七档 + 突破门（03 §5.1）──
+powerLadder:
+  tiers: [fanti, ningxing, yuwu, lingyu, dayao, shengling, ascend]
+  tierGates:
+    fanti: {event: init_tier}
+    ningxing: {event: gate_ningxing}
+    yuwu: {event: gate_yuwu}
+    lingyu: {event: gate_lingyu}
+    dayao: {event: gate_dayao}
+    shengling: {event: gate_shengling}
+    ascend: {event: ascend_trigger, terminal: true}
+  quantTables:
+    scaleCap: 1000
+
+# ── 硬门槛分级（02 §4.3.1 / 03 §6）──
+hardThresholds:
+  t1SubabilityLocked:
+    rule: same_system_subability_immutable
+  t2SpaceDeathBound:
+    rule: space_loss_equals_death
+    exception: dual_essence
+  t3DualEssence:
+    rarity: two_known_cases
+  multiSystemCap: {1: common, 2: elite, 3: dayao_cap}
+  healSystemWorldwide: 7
+
+# ── 组织光谱（03 §6：会馆籍/黑户/师承线/隐修网络等六类）──
+orgAffiliation:
+  guild_registered: {resourceAccess: plus, shelter: plus}
+  unregistered: {riskEventWeight: plus}
+  master_lineage: {training: plus}
+  hermit_network: {seclusion: plus}
+  mutual_aid: {livelihood: plus}
+  trade_guild: {wealth: plus}
+
+# ── 命名皮肤（render_only，03 §6）──
+namingSkins:
+  rule: render_only
+  tierGate: {min: dayao}
+  skins:
+    fox_nine_tails: {race: fox_yao, tierMin: dayao, p: 0.02}
+
+# ── 里程碑叙事流（render_only，M3 管线）──
+narrativeFeed:
+  rule: render_only
+  trigger: milestone_events
+  milestones: [scene_first_transform, guild_recruit, init_tier, gate_ningxing, gate_dayao, ascend_trigger, scene_hermit_chance, shock_war]
+  payload: [location, event_type, companion, state_tags]
+
+# ── 灵气浓度地标（03 §6 尾段权威值）──
+spiritDensity:
+  landmarks: {laojun_alchemy_site: 5.0, hermit_island: 3.0, forest: 2.0, guild_land: 1.5, city: 0.5}
+  effect: pre_birth_chain_shengling_p
+
+choiceAxes: [cultivation, livelihood, bond, home, spirit_care, stance]
+grainAxes: [rooted_vs_drifting, kin_vs_recluse, order_vs_radical, coexist_vs_solo]
+
+# ── 演示比例明示（01 §9-1：出生形态权重为演示级，UI 必须明示；真实占比见 02 §3.4）──
+presentation:
+  demoWeights: true
+  realRatio: '1/20000'
+  uiNote: 出生形态权重为演示比例；真实妖精/人类约 1/20000（龙游市 1,000 万人口 / 500 登记妖精）

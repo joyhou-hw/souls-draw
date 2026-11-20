@@ -1,0 +1,7 @@
+{
+  "name": "@spirit/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "M1-M3 命令行载体：一条人生 → 结构化日志 + 概要 JSON（相对路径导入 engine/dsl，零依赖）"
+}

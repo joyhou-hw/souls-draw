@@ -1,0 +1,23 @@
+{
+  "name": "shenglingyin",
+  "private": true,
+  "version": "0.1.0",
+  "description": "《生灵引》——通用人生模拟框架（引擎世界无关，首个世界包：罗小黑战记）",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "node --check packages/engine/src/engine.ts && node --check packages/dsl/src/parse.ts",
+    "test": "node --test packages/engine/src/rng.test.ts packages/engine/src/engine.test.ts packages/dsl/src/validate.test.ts",
+    "life": "node packages/cli/src/main.ts --world worlds/toy/world.yaml"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}

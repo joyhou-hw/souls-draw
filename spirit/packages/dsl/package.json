@@ -1,0 +1,10 @@
+{
+  "name": "@spirit/dsl",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "World Pack DSL：YAML→JSON 编译 + schema 校验（可读错误）；内置迷你 YAML 解析器，零依赖",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}
