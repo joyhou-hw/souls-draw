@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "style_lock": "luoxiaohei_style",
+  "scenes": [
+    {
+      "id": "forest_ancient",
+      "place": "forest",
+      "era": "ancient",
+      "file": "scenes/forest_ancient.png"
+    },
+    {
+      "id": "forest_modern",
+      "place": "forest",
+      "era": "modern",
+      "file": "scenes/forest_modern.png"
+    },
+    {
+      "id": "city_ancient",
+      "place": "city",
+      "era": "ancient",
+      "file": "scenes/city_ancient.png"
+    },
+    {
+      "id": "city_modern",
+      "place": "city",
+      "era": "modern",
+      "file": "scenes/city_modern.png"
+    },
+    {
+      "id": "guild_land_ancient",
+      "place": "guild_land",
+      "era": "ancient",
+      "file": "scenes/guild_land_ancient.png"
+    },
+    {
+      "id": "guild_land_modern",
+      "place": "guild_land",
+      "era": "modern",
+      "file": "scenes/guild_land_modern.png"
+    },
+    {
+      "id": "hermit_island_ancient",
+      "place": "hermit_island",
+      "era": "ancient",
+      "file": "scenes/hermit_island_ancient.png"
+    },
+    {
+      "id": "hermit_island_modern",
+      "place": "hermit_island",
+      "era": "modern",
+      "file": "scenes/hermit_island_modern.png"
+    }
+  ],
+  "actors": [
+    {
+      "id": "animal_yao_cat_black_cat_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/black_cat/youth/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_orange_cat_child_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/orange_cat/child/guild_uniform/sitting.png",
+      "form": "cat",
+      "variety": "orange_cat"
+    },
+    {
+      "id": "human_adult_hermit_garb_meditating",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/human/adult/hermit_garb/meditating.png"
+    },
+    {
+      "id": "plant_yao_flower_peony_adult_ritual_dress_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peony/adult/ritual_dress/standing.png",
+      "form": "flower",
+      "variety": "peony"
+    }
+  ],
+  "companions": [],
+  "effects": [
+    {
+      "id": "scene_first_transform",
+      "milestone": "scene_first_transform",
+      "file": "effects/scene_first_transform.png"
+    },
+    {
+      "id": "guild_recruit",
+      "milestone": "guild_recruit",
+      "file": "effects/guild_recruit.png"
+    },
+    {
+      "id": "init_tier",
+      "milestone": "init_tier",
+      "file": "effects/init_tier.png"
+    },
+    {
+      "id": "gate_ningxing",
+      "milestone": "gate_ningxing",
+      "file": "effects/gate_ningxing.png"
+    },
+    {
+      "id": "gate_dayao",
+      "milestone": "gate_dayao",
+      "file": "effects/gate_dayao.png"
+    },
+    {
+      "id": "ascend_trigger",
+      "milestone": "ascend_trigger",
+      "file": "effects/ascend_trigger.png"
+    },
+    {
+      "id": "scene_hermit_chance",
+      "milestone": "scene_hermit_chance",
+      "file": "effects/scene_hermit_chance.png"
+    },
+    {
+      "id": "shock_war",
+      "milestone": "shock_war",
+      "file": "effects/shock_war.png"
+    }
+  ]
+}
