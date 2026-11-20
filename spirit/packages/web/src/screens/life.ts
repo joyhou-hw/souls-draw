@@ -4,6 +4,7 @@ import type { LifeResult } from '../../../engine/src/types.ts';
 import { runSegment } from '../game.ts';
 import { world, worldMilestones } from '../world.ts';
 import { saveGame, loadGame, clearGame, parseSave, downloadSave, type SaveData } from '../save.ts';
+import { composeScene, deriveParams } from '../imaging/composer.ts';
 
 const FORM_LABELS: Record<string, string> = {
   human: '凡人',
@@ -47,6 +48,15 @@ const SPEED_LABELS: Array<[string, number]> = [
   ['4×', 800],
   ['8×', 400],
 ];
+
+/** 无限纪元年——出生时为无限418年 */
+const BIRTH_YEAR = 418;
+const ERA_NAME = '无限';
+
+/** 根据 tick 计算日历年 */
+function calendarYear(tick: number): string {
+  return `${ERA_NAME}${BIRTH_YEAR + tick}年`;
+}
 
 let autoTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -317,35 +327,44 @@ function buildImportBox(): HTMLElement {
 
 function buildLifeScene(r: LifeResult): HTMLElement {
   const scene = el('section', 'scene life-scene');
+  // 顶部 sticky banner：播放控制 + 速度 + 进度条
+  scene.append(buildControlBanner(r));
   // 左侧面板：场景图 + 身份卡 + 状态指数
   const sidebar = el('div', 'life-sidebar');
   sidebar.append(buildSceneImage(r), buildBirthCard(), buildAttrsBar(r));
-  // 右侧面板：人生记录流 + 播放控制
+  // 右侧面板：人生记录流
   const main = el('div', 'life-main');
-  main.append(buildLogStream(r), buildActionArea(r));
+  main.append(buildLogStream(r));
   scene.append(sidebar, main);
   return scene;
 }
 
-/** 根据 birth 信息匹配场景底图 */
+/** 根据 birth 信息合成场景图片（场景底图 + 主角图层 + 特效图层） */
 function buildSceneImage(r: LifeResult): HTMLElement {
   const wrap = el('div', 'scene-image');
   const b = r.birth;
   if (!b) return wrap;
-  // 从 manifest 匹配场景：place + era
-  // region → place 映射（简化）
-  const placeMap: Record<string, string> = {
-    '森林': 'forest', '城': 'city', '公会领地': 'guild_land', '隐士岛': 'hermit_island',
-  };
-  const place = Object.entries(placeMap).find(([k]) => b.region.includes(k))?.[1] ?? 'forest';
-  const era = b.era.includes('古') ? 'ancient' : 'modern';
-  const img = el('img');
-  img.alt = `${b.region} · ${b.era}`;
-  img.loading = 'lazy';
-  // 使用相对路径（适配 GitHub Pages 子路径）
-  img.src = `./assets/images/scenes/${place}_${era}.png`;
-  img.onerror = () => { wrap.style.display = 'none'; };
-  wrap.append(img);
+  // 异步合成：Canvas 纸娃娃合成器
+  const params = deriveParams(b, r.log?.[0]?.tick ?? 0);
+  composeScene(params).then((canvas) => {
+    if (canvas) {
+      canvas.alt = `${b.region} · ${b.era}`;
+      wrap.append(canvas);
+    } else {
+      // 合成失败：回退到纯场景底图
+      const placeMap: Record<string, string> = {
+        '森林': 'forest', '城': 'city', '公会领地': 'guild_land', '隐士岛': 'hermit_island',
+      };
+      const place = Object.entries(placeMap).find(([k]) => b.region.includes(k))?.[1] ?? 'forest';
+      const era = b.era.includes('古') ? 'ancient' : 'modern';
+      const img = el('img');
+      img.alt = `${b.region} · ${b.era}`;
+      img.loading = 'lazy';
+      img.src = `./assets/images/scenes/${place}_${era}.png`;
+      img.onerror = () => { wrap.style.display = 'none'; };
+      wrap.append(img);
+    }
+  }).catch(() => { wrap.style.display = 'none'; });
   return wrap;
 }
 
@@ -426,9 +445,9 @@ function buildLogStream(r: LifeResult): HTMLElement {
     const star = el('span', 'star-btn');
     star.textContent = state.starredLines.has(i) ? '★' : '☆';
     star.title = '点选加星';
-    // 年龄
+    // 年龄 + 日历年
     const age = el('span', 'age');
-    age.textContent = `${line.tick}岁`;
+    age.textContent = `${line.tick}岁 · ${calendarYear(line.tick)}`;
     const text = el('span', 'log-text');
     text.textContent = line.isPrompt ? `❈ ${line.text}` : line.text;
     if (line.picked) {
@@ -472,11 +491,13 @@ function advancePointer(r: LifeResult): void {
   }
 }
 
-function buildActionArea(r: LifeResult): HTMLElement {
-  const area = el('div', 'actions');
-  // 播放/暂停按钮
-  const playBtn = el('button', state.autoPlay ? '' : 'primary');
-  playBtn.textContent = state.autoPlay ? '⏸ 暂停' : '▶ 自动播放';
+/** 顶部 sticky 控制条——播放/暂停 + 速度 + 日历年 + 进度条 + 存档 */
+function buildControlBanner(r: LifeResult): HTMLElement {
+  const banner = el('div', 'control-banner');
+  // 左侧：播放/暂停 + 速度
+  const left = el('div', 'ctrl-left');
+  const playBtn = el('button', state.autoPlay ? 'pause-btn' : 'primary');
+  playBtn.textContent = state.autoPlay ? '⏸ 暂停' : '▶ 播放';
   playBtn.addEventListener('click', () => {
     if (state.autoPlay) {
       state.autoPlay = false;
@@ -486,12 +507,9 @@ function buildActionArea(r: LifeResult): HTMLElement {
     }
     rerender();
   });
-  area.append(playBtn);
+  left.append(playBtn);
   // 速度档位
   const speedWrap = el('span', 'speed-ctrl');
-  const speedLabel = el('span', 'muted');
-  speedLabel.textContent = '速度';
-  speedWrap.append(speedLabel);
   for (let i = 0; i < SPEED_LABELS.length; i++) {
     const [label] = SPEED_LABELS[i]!;
     const sb = el('button', i === state.speedIdx ? 'active' : '');
@@ -506,26 +524,26 @@ function buildActionArea(r: LifeResult): HTMLElement {
     });
     speedWrap.append(sb);
   }
-  area.append(speedWrap);
-  // 手动翻页
-  const btn = el('button');
-  btn.textContent = '翻过一页';
-  btn.addEventListener('click', () => {
-    // 手动翻页时暂停自动播放
-    if (state.autoPlay) { state.autoPlay = false; clearAutoTimer(); }
-    advancePointer(r);
-    rerender();
-  });
-  area.append(btn);
-  const skip = el('button');
-  skip.textContent = '直抵当下';
-  skip.addEventListener('click', () => {
-    if (state.autoPlay) { state.autoPlay = false; clearAutoTimer(); }
-    state.pointer = r.log.length;
-    rerender();
-  });
-  area.append(skip, buildSaveButtons());
-  return area;
+  left.append(speedWrap);
+  banner.append(left);
+  // 中间：日历年 + 进度条
+  const center = el('div', 'ctrl-center');
+  const yearLabel = el('span', 'year-label');
+  const curTick = state.pointer > 0 ? narrativeLines(r)[state.pointer - 1]!.tick : 0;
+  yearLabel.textContent = calendarYear(curTick);
+  center.append(yearLabel);
+  // 进度条
+  const progressBar = el('div', 'progress-bar');
+  const progressFill = el('div', 'progress-fill');
+  const totalLines = r.log.length;
+  const pct = totalLines > 0 ? (state.pointer / totalLines) * 100 : 0;
+  progressFill.style.width = `${pct}%`;
+  progressBar.append(progressFill);
+  center.append(progressBar);
+  banner.append(center);
+  // 右侧：存档
+  banner.append(buildSaveButtons());
+  return banner;
 }
 
 /** 启动自动播放——链式 setTimeout，每步延迟根据内容变化 */
@@ -750,7 +768,7 @@ function buildReviewScene(): HTMLElement {
     const hasMilestone = decades.get(dec)!.some((e) => e.milestone);
     if (hasMilestone) seg.classList.add('milestone');
     const h4 = el('h4');
-    h4.textContent = dec === 0 ? '童年（0-9 岁）' : `${dec} 岁段`;
+    h4.textContent = dec === 0 ? `童年（0-9 岁 · ${calendarYear(0)}起）` : `${dec} 岁段 · ${calendarYear(dec)}起`;
     const ul = el('ul');
     for (const entry of decades.get(dec)!) {
       const li = el('li');
@@ -784,23 +802,27 @@ function buildReviewScene(): HTMLElement {
 function rerender(): void {
   const app = document.querySelector<HTMLElement>('#app');
   if (!app) return;
-  // 推进场景下的自动播放——增量更新日志流和属性条，不重建整个 DOM，避免滚动抖动
+  // 推进场景下的自动播放——增量更新控制栏+日志流+属性条，不重建整个 DOM，避免滚动抖动
   const r = state.result;
   const lifeMain = app.querySelector<HTMLElement>('.life-main');
   if (r && !state.review && !state.drawing && lifeMain) {
     const atEnd = state.pointer >= r.log.length;
-    if (!atEnd || !r.pausedChoice) {
-      // 只更新日志流和属性条
+    // 只在未到末尾时走增量更新；到末尾需全量重建以切换到抉择/终局场景
+    if (!atEnd) {
+      // 更新控制栏
+      const oldBanner = app.querySelector('.control-banner');
+      if (oldBanner) oldBanner.replaceWith(buildControlBanner(r));
+      // 更新日志流
       const oldStream = lifeMain.querySelector('.log-stream');
       const newStream = buildLogStream(r);
       if (oldStream) oldStream.replaceWith(newStream);
+      // 更新属性条
       const sidebar = app.querySelector<HTMLElement>('.life-sidebar');
       if (sidebar) {
         const oldAttrs = sidebar.querySelector('.attrs');
         const newAttrs = buildAttrsBar(r);
         if (oldAttrs) oldAttrs.replaceWith(newAttrs);
       }
-      // 保持日志流滚动在顶部（最新条目在顶部）
       newStream.scrollTop = 0;
       return;
     }

@@ -422,6 +422,100 @@ button.primary:hover { background: #3a80a0; }
 }
 
 /* ═══════════════════════════════════════════════
+   顶部 sticky 控制条——播放/暂停 + 速度 + 日历年 + 进度条
+   ═══════════════════════════════════════════════ */
+
+.control-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-md);
+  padding: 10px 16px;
+  background: rgba(26, 23, 20, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--ink-border);
+}
+
+.ctrl-left {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  flex-shrink: 0;
+}
+
+.ctrl-left .pause-btn {
+  background: var(--ink-bg-elevated);
+  color: var(--ink-fg);
+  border-color: var(--ink-border-hi);
+}
+
+.speed-ctrl {
+  display: inline-flex;
+  gap: 2px;
+  background: var(--ink-bg-inset);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+}
+
+.speed-ctrl button {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink-fg-muted);
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+}
+
+.speed-ctrl button.active {
+  background: var(--ink-accent-btn);
+  color: var(--ink-fg);
+}
+
+.speed-ctrl button:hover:not(.active) {
+  color: var(--ink-fg);
+}
+
+.ctrl-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  min-width: 0;
+}
+
+.year-label {
+  font-family: var(--font-serif);
+  color: var(--ink-gold);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--ink-bg-inset);
+  overflow: hidden;
+  min-width: 60px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--ink-accent-btn), var(--ink-gold));
+  border-radius: 3px;
+  transition: width var(--dur) var(--ease);
+}
+
+.save-actions {
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════
    场景系统 — 全屏独占视口 + 过渡动画
    ═══════════════════════════════════════════════ */
 
