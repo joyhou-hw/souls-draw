@@ -1,6 +1,7 @@
 import { hashLife } from '../../../engine/src/engine.ts';
 import { NarrativeRenderer, renderLifeLog, type RenderedLogLine } from '../../../engine/src/narrative.ts';
-import type { LifeResult } from '../../../engine/src/types.ts';
+import type { BirthOutcome, LifeResult } from '../../../engine/src/types.ts';
+import { createRng } from '../../../engine/src/rng.ts';
 import { runSegment } from '../game.ts';
 import { world, worldMilestones } from '../world.ts';
 import { saveGame, loadGame, clearGame, parseSave, downloadSave, type SaveData } from '../save.ts';
@@ -8,11 +9,11 @@ import { composeScene, deriveParams, normalizePlace, normalizeEra } from '../ima
 
 const FORM_LABELS: Record<string, string> = {
   human: '凡人',
-  animal_yao: '妖（动物系）',
-  plant_yao: '妖（植物系）',
-  fungus_yao: '妖（菌菇系）',
-  spirit_yao: '精怪',
-  painted_yao: '妖（器物系）',
+  animal_yao: '兽妖',
+  plant_yao: '草木妖',
+  fungus_yao: '菌蕈妖',
+  spirit_yao: '游灵',
+  painted_yao: '器灵',
 };
 
 const DEATH_LABELS: Record<string, string> = {
@@ -22,6 +23,52 @@ const DEATH_LABELS: Record<string, string> = {
   space_lixi_lost: '灵质被夺（空间系绑定）',
   'terminal:ascend_trigger': '羽化飞升（修行终点）',
   alive_end: '天年将尽（岁月尽头）',
+};
+
+const LIXI_LABELS: Record<string, string> = {
+  yuling: '御灵',
+  shengling: '生灵',
+  suoyu: '锁御',
+  xinling: '信灵',
+  zaowu: '造物',
+  space: '宇隙',
+  none: '无形',
+};
+
+const FATE_LABELS: Record<string, string> = {
+  drift: '如游丝一缕，随风漂荡',
+  liqi_doll: '被灵力塑作人形，徘徊无主',
+  absorbed: '几被外物吞纳，险得留存',
+  natural_condense: '依天地自然之机，缓慢凝聚',
+};
+
+const ATTR_LABELS: Record<string, string> = {
+  health: '生命',
+  liquality: '灵质',
+  spirit: '灵力',
+  wealth: '财帛',
+};
+
+const SURNAMES = [
+  '沈', '陆', '顾', '苏', '谢', '萧', '林', '白', '温', '裴',
+  '柳', '楚', '云', '洛', '江', '安', '叶', '许', '岑', '闻',
+];
+
+const GIVEN_MALE = [
+  '临渊', '照雪', '无咎', '清商', '砚秋', '停云', '既明', '怀瑾',
+  '听澜', '归鸿', '见微', '凌霄', '扶光', '辞镜', '寒川',
+];
+
+const GIVEN_FEMALE = [
+  '溪月', '照花', '疏影', '青黛', '聆风', '栖梧', '未晞', '鹿鸣',
+  '沐晴', '晚照', '含章', '云岫', '棠梨', '若初', '清欢',
+];
+
+const LOCALITY_BY_REGION: Record<string, string[]> = {
+  forest: ['幽篁谷', '白鹿岭', '松涛原', '青崖涧', '听风坡'],
+  city: ['长街', '鼓楼巷', '旧城门', '青石里', '灯市口'],
+  guild_land: ['借灵院', '西厢', '青石坊', '藏经廊', '练法坪'],
+  hermit_island: ['听涛崖', '望海台', '云栈', '观潮亭', '枕石滩'],
 };
 
 interface LifeUiState {
@@ -56,6 +103,13 @@ const ERA_NAME = '无限';
 /** 根据 tick 计算日历年 */
 function calendarYear(tick: number): string {
   return `${ERA_NAME}${BIRTH_YEAR + tick}年`;
+}
+
+/** 日志行年龄标注——出生前/降生/岁数 */
+function ageLabel(tick: number): string {
+  if (tick < 0) return '入世前';
+  if (tick === 0) return '降生';
+  return `${tick}岁`;
 }
 
 let autoTimer: ReturnType<typeof setTimeout> | null = null;
@@ -110,10 +164,95 @@ function narrativeLines(r: LifeResult): RenderedLogLine[] {
   return renderMemo.lines;
 }
 
-/** 出生形态呈现——形态 + 品种 + 生态位 */
+/** 查叙事槽位映射，缺省回退原始枚举值 */
+function slotText(slot: string, key: string): string {
+  return world.narratives?.slots?.[slot]?.[key] ?? key;
+}
+
+function lixiText(lixi: string, dual: boolean): string {
+  const label = LIXI_LABELS[lixi] ?? lixi;
+  return dual ? `${label}（双灵相济）` : label;
+}
+
+/** 属性效果 → 中文提示（省略为 0 的项） */
+function formatEffects(effects: Record<string, number> | undefined): string {
+  if (!effects) return '';
+  const parts: string[] = [];
+  for (const [key, val] of Object.entries(effects)) {
+    if (!val) continue;
+    const label = ATTR_LABELS[key] ?? key;
+    parts.push(`${label}${val > 0 ? '+' : ''}${val}`);
+  }
+  return parts.join(' · ');
+}
+
+interface BirthIdentity {
+  name: string;
+  gender: string;
+  birthplace: string;
+}
+
+let identityMemo: { seed: number; identity: BirthIdentity } | null = null;
+
+/** 由 seed 确定性地派生姓名、性别与出生地名（与 runLife 掷骰隔离） */
+function identityFor(birth: BirthOutcome): BirthIdentity {
+  const seed = state.seed ?? 0;
+  if (identityMemo?.seed === seed) return identityMemo.identity;
+  const rng = createRng((seed ^ 0x9e3779b9) >>> 0);
+  const gender = rng.pick(['男', '女']);
+  const surname = rng.pick(SURNAMES);
+  const given = gender === '男' ? rng.pick(GIVEN_MALE) : rng.pick(GIVEN_FEMALE);
+  const place = slotText('place', birth.region);
+  const locality = rng.pick(LOCALITY_BY_REGION[birth.region] ?? ['无名之地']);
+  const era = slotText('era', birth.era);
+  const identity: BirthIdentity = {
+    name: `${surname}${given}`,
+    gender,
+    birthplace: `${place} · ${locality} · ${era}`,
+  };
+  identityMemo = { seed, identity };
+  return identity;
+}
+
+/** 出生前链 → 诗意中文呈现（隐藏开发者门控文本） */
+function preBirthText(b: BirthOutcome, eventId: string, label: string, id: BirthIdentity): string {
+  const place = slotText('place', b.region);
+  const era = slotText('era', b.era);
+  switch (eventId) {
+    case 'pre_birth/human_line':
+      return b.reincarnatedSoul
+        ? `一缕前世魂灵凝而不散，携旧忆投胎于${place}`
+        : `一缕魂灵投胎于${place}（${era}）`;
+    case 'pre_birth/shengling':
+      return label.includes('顺遂')
+        ? `生灵于${place}顺遂凝聚，灵气充盈`
+        : `生灵于${place}凝聚坎坷，灵气稀薄，漂泊辗转方成`;
+    case 'pre_birth/jingling': {
+      const fate = label.slice('精灵期（无实体）：'.length);
+      return `精灵期（无实体）：${FATE_LABELS[fate] ?? fate}`;
+    }
+    case 'pre_birth/condense':
+      if (b.species) {
+        const s = slotText('species', b.species);
+        const v = b.variety ? `（${slotText('variety', b.variety)}）` : '';
+        return `凝形为${s}${v}之相，结合物质灵降生`;
+      }
+      return `凝形为${FORM_LABELS[b.form] ?? b.form}，结合物质灵降生`;
+    case 'birth':
+      return `${id.name}自此入世，降生于${id.birthplace}`;
+    default:
+      return label;
+  }
+}
+
+/** 出生形态呈现——形态 + 品种 + 生态位（全部中文化） */
 function formText(form: string, species?: string, variety?: string, niche?: string): string {
   const label = FORM_LABELS[form] ?? form;
-  const detail = [species, variety, niche].filter(Boolean).join(' · ');
+  const detail = [
+    species ? slotText('species', species) : undefined,
+    variety ? slotText('variety', variety) : undefined,
+    niche ? slotText('niche', niche) : undefined,
+  ].filter(Boolean).join(' · ');
   return detail ? `${label} · ${detail}` : label;
 }
 
@@ -351,14 +490,14 @@ function buildSceneImage(r: LifeResult): HTMLElement {
   const params = deriveParams(b, r.log?.[0]?.tick ?? 0);
   composeScene(params).then((canvas) => {
     if (canvas) {
-      canvas.setAttribute('aria-label', `${b.region} · ${b.era}`);
+      canvas.setAttribute('aria-label', identityFor(b).birthplace);
       wrap.append(canvas);
     } else {
       // 合成失败：回退到纯场景底图
       const place = normalizePlace(b.region);
       const era = normalizeEra(b.era);
       const img = el('img');
-      img.alt = `${b.region} · ${b.era}`;
+      img.alt = identityFor(b).birthplace;
       img.loading = 'lazy';
       img.src = `./assets/images/scenes/${place}_${era}.png`;
       img.onerror = () => { wrap.style.display = 'none'; };
@@ -378,11 +517,14 @@ function buildBirthCard(): HTMLElement {
   card.append(h3);
   const b = state.result?.birth;
   if (!b) return card;
+  const id = identityFor(b);
   const rows: Array<[string, string]> = [
+    ['姓名', id.name],
+    ['性别', id.gender],
     ['形态', formText(b.form, b.species, b.variety, b.niche)],
-    ['降生之地', `${b.region} · ${b.era}`],
+    ['降生之地', id.birthplace],
   ];
-  if (b.lixi) rows.push(['灵系显性', b.dualLixi ? `${b.lixi}（双灵质）` : b.lixi]);
+  if (b.lixi) rows.push(['灵系显性', lixiText(b.lixi, b.dualLixi)]);
   if (b.liqiManifest) rows.push(['灵气感应', '已显']);
   if (b.cultivator) rows.push(['修行机缘', '已开启']);
   if (b.reincarnatedSoul) rows.push(['异兆', '转世魂灵']);
@@ -401,7 +543,7 @@ function buildBirthCard(): HTMLElement {
     const pre = el('ul', 'pre-birth');
     for (const entry of b.preBirthLog) {
       const li = el('li');
-      li.textContent = entry.label;
+      li.textContent = preBirthText(b, entry.eventId, entry.label, id);
       pre.append(li);
     }
     card.append(pre);
@@ -431,6 +573,8 @@ function buildLogStream(r: LifeResult): HTMLElement {
   const stream = el('div', 'log-stream');
   const lines = narrativeLines(r);
   const shown = lines.slice(0, state.pointer);
+  const birth = r.birth;
+  const id = birth ? identityFor(birth) : null;
   // 倒序：最新展开的在最前
   for (let i = shown.length - 1; i >= 0; i--) {
     const line = shown[i]!;
@@ -445,22 +589,32 @@ function buildLogStream(r: LifeResult): HTMLElement {
     const star = el('span', 'star-btn');
     star.textContent = state.starredLines.has(i) ? '★' : '☆';
     star.title = '点选加星';
-    // 年龄 + 日历年
+    // 年龄（出生前/降生/岁数，不再显示日历年）
     const age = el('span', 'age');
-    age.textContent = `${line.tick}岁 · ${calendarYear(line.tick)}`;
+    age.textContent = ageLabel(line.tick);
     const text = el('span', 'log-text');
-    text.textContent = line.isPrompt ? `❈ ${line.text}` : line.text;
+    const isPreBirth = birth !== undefined && id !== null
+      && (line.eventId === 'birth' || line.eventId.startsWith('pre_birth/'));
+    text.textContent = isPreBirth
+      ? preBirthText(birth, line.eventId, line.rawLabel, id)
+      : (line.isPrompt ? `❈ ${line.text}` : line.text);
     if (line.picked) {
       const pick = el('span', 'picked');
       pick.textContent = `（抉择：${line.picked}）`;
       text.append(pick);
     }
-    row.append(star, age, text);
+    const fx = formatEffects(line.effects);
+    if (fx) {
+      const eff = el('span', 'effects-hint');
+      eff.textContent = `〔${fx}〕`;
+      text.append(eff);
+    }
     if (line.caption) {
       const cap = el('span', 'milestone-caption');
       cap.textContent = `〔${line.caption}〕`;
-      row.append(cap);
+      text.append(cap);
     }
+    row.append(star, age, text);
     // 点击整行切换星标
     row.addEventListener('click', () => {
       const idx = Number(row.dataset.idx);
@@ -526,20 +680,12 @@ function buildControlBanner(r: LifeResult): HTMLElement {
   }
   left.append(speedWrap);
   banner.append(left);
-  // 中间：日历年 + 进度条
+  // 中间：日历年（保留纪年，移除进度条）
   const center = el('div', 'ctrl-center');
   const yearLabel = el('span', 'year-label');
   const curTick = state.pointer > 0 ? narrativeLines(r)[state.pointer - 1]!.tick : 0;
   yearLabel.textContent = calendarYear(curTick);
   center.append(yearLabel);
-  // 进度条
-  const progressBar = el('div', 'progress-bar');
-  const progressFill = el('div', 'progress-fill');
-  const totalLines = r.log.length;
-  const pct = totalLines > 0 ? (state.pointer / totalLines) * 100 : 0;
-  progressFill.style.width = `${pct}%`;
-  progressBar.append(progressFill);
-  center.append(progressBar);
   banner.append(center);
   // 右侧：存档
   banner.append(buildSaveButtons());
@@ -689,8 +835,9 @@ function buildShareText(r: LifeResult): string {
   const lines: string[] = ["【Souls' Draw · 生灵引 · 罗小黑世界】一签一命"];
   const b = r.birth;
   if (b) {
-    lines.push(`命签 #${state.seed} · ${formText(b.form, b.species, b.variety, b.niche)}`);
-    lines.push(`生于 ${b.region} · ${b.era}`);
+    const id = identityFor(b);
+    lines.push(`命签 #${state.seed} · ${id.name} · ${formText(b.form, b.species, b.variety, b.niche)}`);
+    lines.push(`降生于 ${id.birthplace}`);
   }
   const finalTick = r.deathTick ?? r.state.tick;
   lines.push(`终年 ${finalTick} · ${deathLabel(r)}`);
@@ -754,7 +901,8 @@ function buildReviewScene(): HTMLElement {
   const sub = el('p', 'muted');
   const finalTick = r.deathTick ?? r.state.tick;
   const b = r.birth;
-  sub.textContent = `终年 ${finalTick} · ${deathLabel(r)}${b ? ` · 生于 ${b.region} · ${b.era} · ${formText(b.form, b.species, b.variety, b.niche)}` : ''} · 共历 ${r.log.length} 段岁月`;
+  const id = b ? identityFor(b) : null;
+  sub.textContent = `终年 ${finalTick} · ${deathLabel(r)}${b && id ? ` · ${id.name} · 降生于 ${id.birthplace} · ${formText(b.form, b.species, b.variety, b.niche)}` : ''} · 共历 ${r.log.length} 段岁月`;
   header.append(h2, sub);
   scene.append(header);
 

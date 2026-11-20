@@ -181,8 +181,6 @@ button.primary:hover { background: #3a80a0; }
 
 /* ── 日志流 ── */
 .log-stream {
-  max-height: 340px;
-  overflow-y: auto;
   border: 1px solid var(--ink-border);
   border-radius: var(--radius-sm);
   padding: 10px;
@@ -249,6 +247,12 @@ button.primary:hover { background: #3a80a0; }
 }
 
 .picked { color: var(--ink-jade); }
+
+.effects-hint {
+  color: var(--ink-jade);
+  font-size: 0.82rem;
+  margin-left: var(--gap-xs);
+}
 
 /* ── 速度控制 ── */
 .speed-ctrl {
@@ -816,7 +820,7 @@ button.primary:hover { background: #3a80a0; }
 
   .card { padding: var(--gap-sm); }
 
-  .log-stream { max-height: 50vh; }
+  .log-stream { max-height: 50vh; overflow-y: auto; }
 
   .choice-opt {
     flex-direction: column;

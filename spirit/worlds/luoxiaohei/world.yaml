@@ -41,6 +41,7 @@ events:
     cooldownTicks: 2
     cond:
       minTick: 16
+      excludeFlags: [rooted, intangible]
     effects:
       health: -2
       wealth: 5
@@ -104,6 +105,7 @@ events:
     once: true
     cond:
       minTick: 15
+      excludeFlags: [rooted, intangible]
     choice:
       prompt: 一处灵质丰美的山林愿意收留你，但需交出积蓄安家。去吗？
       options:
@@ -259,7 +261,7 @@ events:
     cond:
       minTick: 5
       maxTick: 12
-      excludeFlags: [form:human]
+      excludeFlags: [form:human, rooted, intangible]
     choice:
       prompt: 你隐约感到灵质在体内涌动，是否尝试化形入世？
       options:
@@ -345,6 +347,7 @@ events:
     cond:
       minTick: 12
       maxTick: 25
+      excludeFlags: [rooted, intangible]
     choice:
       prompt: 一只游历的妖精邀请你结伴同行。结伴还是独行？
       options:
@@ -489,6 +492,7 @@ scenes:
     cond:
       flags: [region:forest]
       maxTick: 15
+      excludeFlags: [rooted, intangible]
     effects:
       liquality: 4
       health: 2
@@ -509,6 +513,7 @@ scenes:
     cooldownTicks: 3
     cond:
       flags: [region:city]
+      excludeFlags: [rooted, intangible]
     effects:
       liquality: -3
       wealth: 6
@@ -687,6 +692,8 @@ scenes:
     effects:
       liquality: 3
       health: 1
+    lossFlags:
+      - rooted
 
   - id: plant_root_spread
     label: 根系扩张
@@ -758,6 +765,8 @@ scenes:
     effects:
       liquality: 2
       health: 1
+    lossFlags:
+      - rooted
 
   - id: fungus_mycelium
     label: 菌丝网络扩展
@@ -818,6 +827,8 @@ scenes:
     effects:
       liquality: 3
       health: -1
+    lossFlags:
+      - intangible
 
   - id: spirit_attach
     label: 附着地缚
@@ -894,6 +905,8 @@ scenes:
       health: 2
     gainFlags:
       - flag:painted_named
+    lossFlags:
+      - flag:painted_unnamed
 
   - id: painted_ink_renew
     label: 补墨修纸身
@@ -1031,6 +1044,12 @@ deathRule:
     attr: liquality
     below: 20
     multiplier: 2
+  forms:
+    animal_yao: { multiplier: 0.7 }
+    plant_yao: { multiplier: 0.4 }
+    fungus_yao: { multiplier: 0.5 }
+    spirit_yao: { multiplier: 0.35 }
+    painted_yao: { multiplier: 0.45 }
 
 # ── 灵力阶梯七档 + 突破门（03 §5.1）──
 powerLadder:

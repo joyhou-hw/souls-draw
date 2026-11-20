@@ -152,5 +152,8 @@ export function birthFlags(birth: BirthOutcome): string[] {
   if (birth.reincarnatedSoul) flags.push('reincarnated_soul');
   if (birth.liqiManifest) flags.push('liqi_manifest');
   if (birth.cultivator) flags.push('cultivator');
+  if (birth.form === 'plant_yao' || birth.form === 'fungus_yao') flags.push('rooted');
+  if (birth.form === 'spirit_yao') flags.push('intangible');
+  if (birth.form === 'painted_yao') flags.push('flag:painted_unnamed');
   return flags;
 }

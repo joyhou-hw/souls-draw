@@ -64,6 +64,48 @@ test('YAML 文本编译：合法样例通过、YAML 语法错误给可读信息'
   assert.throws(() => compileWorldText('name: [broken\n  bad'), /YAML 解析失败/);
 });
 
+test('B deathRule.forms：合法形态规则通过 + 非法字段给路径化错误', () => {
+  const w = validateWorld({
+    ...validWorld,
+    deathRule: {
+      bands: [{ fromTick: 0, hazard: 0.01 }],
+      forms: {
+        plant_yao: { multiplier: 0.4 },
+        animal_yao: {
+          bands: [{ fromTick: 10, hazard: 0.02 }],
+          attrMod: { attr: 'liquality', below: 20, multiplier: 2 },
+        },
+      },
+    },
+  });
+  assert.equal(w.deathRule.forms?.plant_yao?.multiplier, 0.4);
+  assert.equal(w.deathRule.forms?.animal_yao?.attrMod?.multiplier, 2);
+
+  assert.throws(
+    () =>
+      validateWorld({
+        ...validWorld,
+        deathRule: {
+          bands: [{ fromTick: 0, hazard: 0.01 }],
+          forms: { plant_yao: { multiplier: 'fast' } },
+        },
+      }),
+    /\[\$\.deathRule\.forms\.plant_yao\.multiplier\]/,
+  );
+
+  assert.throws(
+    () =>
+      validateWorld({
+        ...validWorld,
+        deathRule: {
+          bands: [{ fromTick: 0, hazard: 0.01 }],
+          forms: { fungus_yao: { bands: [] } },
+        },
+      }),
+    /\[\$\.deathRule\.forms\.fungus_yao\.bands\]/,
+  );
+});
+
 test('T2.7 presentation 顶层块：合法通过 + 字段类型错误给路径化错误', () => {
   const w = validateWorld({
     ...validWorld,

@@ -1,7 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { runLife, tierOf } from './engine.ts';
+import { deathCheck, runLife, tierOf } from './engine.ts';
 import type { PersonState, World } from './types.ts';
+import type { Rng } from './rng.ts';
 
 function deathWorld(extra: Partial<World>): World {
   return {
@@ -14,6 +15,29 @@ function deathWorld(extra: Partial<World>): World {
     deathRule: { bands: [{ fromTick: 99, hazard: 0 }] },
     deathModel: 'liquality_balance',
     ...extra,
+  };
+}
+
+function stubRng(next: number): Rng {
+  const seed = 0;
+  return {
+    seed,
+    next: () => next,
+    int: (max) => Math.floor(next * max),
+    pick: (items) => items[Math.floor(next * items.length)] as (typeof items)[number],
+    weightedPick: (entries) => entries[entries.length - 1]!.item,
+  };
+}
+
+function personOf(tick: number, form: string): PersonState {
+  return {
+    tick,
+    alive: true,
+    attrs: { health: 50, liquality: 50 },
+    flags: [`form:${form}`],
+    shifts: {},
+    firedEvents: new Set(),
+    cooldownUntil: {},
   };
 }
 
@@ -135,4 +159,39 @@ test('T2.4 tierOf：取人物最新阶梯档', () => {
   assert.equal(tierOf(r.state), 'ningxing');
   const noTier: PersonState = { tick: 0, alive: true, attrs: {}, flags: [], shifts: {}, firedEvents: new Set<string>(), cooldownUntil: {} };
   assert.equal(tierOf(noTier), undefined);
+});
+
+test('B 形态化寿命：形态专属 bands 完全覆盖全局危害曲线', () => {
+  const w = deathWorld({
+    deathRule: {
+      bands: [{ fromTick: 40, hazard: 0.1 }],
+      forms: { plant_yao: { bands: [{ fromTick: 40, hazard: 0.9 }] } },
+    },
+  });
+  assert.equal(deathCheck(w, personOf(50, 'plant_yao'), stubRng(0.5)), 'hazard');
+  assert.equal(deathCheck(w, personOf(50, 'human'), stubRng(0.5)), null);
+});
+
+test('B 形态化寿命：multiplier <1 降低 hazard（妖精寿长于人类）', () => {
+  const w = deathWorld({
+    deathRule: {
+      bands: [{ fromTick: 40, hazard: 0.5 }],
+      forms: { plant_yao: { multiplier: 0.4 }, animal_yao: { multiplier: 0.7 } },
+    },
+  });
+  assert.equal(deathCheck(w, personOf(50, 'plant_yao'), stubRng(0.3)), null);
+  assert.equal(deathCheck(w, personOf(50, 'animal_yao'), stubRng(0.3)), 'hazard');
+});
+
+test('B 形态化寿命：无匹配形态回退全局 bands 与 attrDeath', () => {
+  const w = deathWorld({
+    deathRule: {
+      bands: [{ fromTick: 40, hazard: 0.5 }],
+      attrDeath: { attr: 'health', below: 10 },
+      forms: { plant_yao: { multiplier: 0.4 } },
+    },
+  });
+  assert.equal(deathCheck(w, personOf(50, 'human'), stubRng(0.3)), 'hazard');
+  const dying: PersonState = { ...personOf(50, 'human'), attrs: { health: 5, liquality: 50 } };
+  assert.equal(deathCheck(w, dying, stubRng(0.0)), 'health');
 });

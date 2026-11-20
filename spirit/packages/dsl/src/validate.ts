@@ -23,6 +23,42 @@ function checkNumber(v: unknown, path: string): number {
   return v;
 }
 
+function validateHazardBands(v: unknown, path: string): void {
+  if (!Array.isArray(v) || v.length === 0) {
+    throw new WorldValidateError('bands 必须为非空数组', path);
+  }
+  for (let i = 0; i < v.length; i++) {
+    const b = v[i] as Record<string, unknown>;
+    checkNumber(b['fromTick'], `${path}[${i}].fromTick`);
+    checkNumber(b['hazard'], `${path}[${i}].hazard`);
+  }
+}
+
+function validateAttrDeath(v: unknown, path: string): void {
+  if (!isObj(v)) throw new WorldValidateError('attrDeath 必须为映射对象', path);
+  if (typeof v['attr'] !== 'string' || v['attr'].length === 0) {
+    throw new WorldValidateError('attr 必须为非空字符串', `${path}.attr`);
+  }
+  checkNumber(v['below'], `${path}.below`);
+}
+
+function validateAttrMod(v: unknown, path: string): void {
+  if (!isObj(v)) throw new WorldValidateError('attrMod 必须为映射对象', path);
+  if (typeof v['attr'] !== 'string' || v['attr'].length === 0) {
+    throw new WorldValidateError('attr 必须为非空字符串', `${path}.attr`);
+  }
+  checkNumber(v['below'], `${path}.below`);
+  checkNumber(v['multiplier'], `${path}.multiplier`);
+}
+
+function validateFormDeathRule(v: unknown, path: string): void {
+  if (!isObj(v)) throw new WorldValidateError('形态死亡规则必须为映射对象', path);
+  if (v['bands'] !== undefined) validateHazardBands(v['bands'], `${path}.bands`);
+  if (v['attrDeath'] !== undefined) validateAttrDeath(v['attrDeath'], `${path}.attrDeath`);
+  if (v['attrMod'] !== undefined) validateAttrMod(v['attrMod'], `${path}.attrMod`);
+  if (v['multiplier'] !== undefined) checkNumber(v['multiplier'], `${path}.multiplier`);
+}
+
 export function validateWorld(raw: unknown): World {
   if (!isObj(raw)) throw new WorldValidateError('世界必须为映射对象', '$');
   const name = raw['name'];
@@ -51,14 +87,15 @@ export function validateWorld(raw: unknown): World {
   ];
   const deathRule = raw['deathRule'];
   if (!isObj(deathRule)) throw new WorldValidateError('deathRule 必须为映射对象', '$.deathRule');
-  const bands = deathRule['bands'];
-  if (!Array.isArray(bands) || bands.length === 0) {
-    throw new WorldValidateError('bands 必须为非空数组', '$.deathRule.bands');
-  }
-  for (let i = 0; i < bands.length; i++) {
-    const b = bands[i]!;
-    checkNumber(b['fromTick'], `$.deathRule.bands[${i}].fromTick`);
-    checkNumber(b['hazard'], `$.deathRule.bands[${i}].hazard`);
+  validateHazardBands(deathRule['bands'], '$.deathRule.bands');
+  if (deathRule['attrDeath'] !== undefined) validateAttrDeath(deathRule['attrDeath'], '$.deathRule.attrDeath');
+  if (deathRule['attrMod'] !== undefined) validateAttrMod(deathRule['attrMod'], '$.deathRule.attrMod');
+  if (deathRule['forms'] !== undefined) {
+    const forms = deathRule['forms'];
+    if (!isObj(forms)) throw new WorldValidateError('forms 必须为映射对象', '$.deathRule.forms');
+    for (const [form, sub] of Object.entries(forms)) {
+      validateFormDeathRule(sub, `$.deathRule.forms.${form}`);
+    }
   }
   let deathModel: World['deathModel'];
   if (raw['deathModel'] !== undefined) {

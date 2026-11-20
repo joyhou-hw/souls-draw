@@ -57,6 +57,13 @@ export function tierOf(state: PersonState): string | undefined {
   return tier;
 }
 
+function formOf(state: PersonState): string | undefined {
+  for (const f of state.flags) {
+    if (f.startsWith('form:')) return f.slice(5);
+  }
+  return undefined;
+}
+
 export function deathCheck(world: World, state: PersonState, rng: Rng): string | null {
   const rule = world.deathRule;
   if (world.deathModel === 'liquality_balance') {
@@ -66,15 +73,23 @@ export function deathCheck(world: World, state: PersonState, rng: Rng): string |
     }
   }
   const health = state.attrs['health'];
-  if (rule.attrDeath && health !== undefined && health < rule.attrDeath.below) {
+  const form = formOf(state);
+  const override = form ? rule.forms?.[form] : undefined;
+  const attrDeath = override?.attrDeath ?? rule.attrDeath;
+  if (attrDeath && health !== undefined && health < attrDeath.below) {
     return 'health';
   }
-  let hazard = rule.bands.reduce((acc, b) => (state.tick >= b.fromTick ? b.hazard : acc), 0);
-  if (rule.attrMod) {
-    const v = state.attrs[rule.attrMod.attr] ?? health;
-    if (v !== undefined && v < rule.attrMod.below) {
-      hazard *= rule.attrMod.multiplier;
+  const bands = override?.bands ?? rule.bands;
+  let hazard = bands.reduce((acc, b) => (state.tick >= b.fromTick ? b.hazard : acc), 0);
+  const attrMod = override?.attrMod ?? rule.attrMod;
+  if (attrMod) {
+    const v = state.attrs[attrMod.attr] ?? health;
+    if (v !== undefined && v < attrMod.below) {
+      hazard *= attrMod.multiplier;
     }
+  }
+  if (override?.multiplier !== undefined) {
+    hazard *= override.multiplier;
   }
   if (rng.next() < hazard) return 'hazard';
   return null;
@@ -160,7 +175,10 @@ export function runLife(world: World, opts: RunLifeOptions = {}): LifeResult {
         }
         const opt = ev.choice.options[idx]!;
         entry.choice = { prompt: ev.choice.prompt, picked: opt.label };
-        if (opt.effects) applyAttrs(state, opt.effects);
+        if (opt.effects) {
+          applyAttrs(state, opt.effects);
+          entry.effects = { ...(entry.effects ?? {}), ...opt.effects };
+        }
         if (opt.gainFlags) {
           for (const f of opt.gainFlags) {
             if (!state.flags.includes(f)) state.flags.push(f);

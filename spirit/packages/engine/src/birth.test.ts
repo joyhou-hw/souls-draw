@@ -163,6 +163,39 @@ test('转世魂灵稀有：3,000 条中占比 < 1%（名义 p=0.001）', () => {
   assert.ok(count < 30, `转世数超预期：${count}`);
 });
 
+function flagsForForm(form: string): string[] {
+  return birthFlags({
+    form,
+    region: 'forest',
+    era: '现代',
+    dualLixi: false,
+    reincarnatedSoul: false,
+    liqiManifest: false,
+    cultivator: false,
+    preBirthLog: [],
+  });
+}
+
+test('A 生理特例：出生即按形态种下 rooted/intangible/画灵未命名', () => {
+  assert.ok(!flagsForForm('human').includes('rooted'));
+  assert.ok(!flagsForForm('human').includes('intangible'));
+  assert.ok(!flagsForForm('human').includes('flag:painted_unnamed'));
+
+  assert.ok(!flagsForForm('animal_yao').includes('rooted'));
+  assert.ok(!flagsForForm('animal_yao').includes('intangible'));
+
+  assert.ok(flagsForForm('plant_yao').includes('rooted'));
+  assert.ok(flagsForForm('fungus_yao').includes('rooted'));
+  assert.ok(!flagsForForm('plant_yao').includes('intangible'));
+  assert.ok(!flagsForForm('fungus_yao').includes('intangible'));
+
+  assert.ok(flagsForForm('spirit_yao').includes('intangible'));
+  assert.ok(!flagsForForm('spirit_yao').includes('rooted'));
+
+  assert.ok(flagsForForm('painted_yao').includes('flag:painted_unnamed'));
+  assert.ok(!flagsForForm('painted_yao').includes('flag:painted_named'));
+});
+
 test('无 birthForm 世界：birth 为 undefined（toy 世界兼容）', () => {
   const w: World = {
     name: '最小世界',

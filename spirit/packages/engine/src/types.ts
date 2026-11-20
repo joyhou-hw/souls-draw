@@ -53,10 +53,21 @@ export interface HazardBand {
   hazard: number;
 }
 
+export interface FormDeathRule {
+  /** 完全覆盖全局 bands 的形态专属危害曲线 */
+  bands?: HazardBand[];
+  attrDeath?: { attr: string; below: number };
+  attrMod?: { attr: string; below: number; multiplier: number };
+  /** 形态寿命系数：作用于计算后的 hazard，<1 表示寿长 */
+  multiplier?: number;
+}
+
 export interface DeathRule {
   bands: HazardBand[];
   attrDeath?: { attr: string; below: number };
   attrMod?: { attr: string; below: number; multiplier: number };
+  /** 按形态覆盖/缩放危害曲线（key 为出生形态，如 plant_yao） */
+  forms?: Record<string, FormDeathRule>;
 }
 
 export interface World {

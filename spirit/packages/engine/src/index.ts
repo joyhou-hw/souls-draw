@@ -30,6 +30,7 @@ export type {
   WorldEvent,
   HazardBand,
   DeathRule,
+  FormDeathRule,
   World,
   LogEntry,
   PersonState,
