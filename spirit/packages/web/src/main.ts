@@ -20,8 +20,11 @@ function show(screen: ScreenId): void {
 for (const btn of navButtons) {
   btn.addEventListener('click', () => {
     const s = btn.dataset.screen;
-    if (s === 'life' || s === 'board') show(s);
+    if (s === 'life') location.href = './';
+    else if (s === 'board') location.href = './board.html';
   });
 }
 
-show('life');
+// 根据当前页面决定渲染哪个 screen
+const isBoard = location.pathname.endsWith('/board.html');
+show(isBoard ? 'board' : 'life');

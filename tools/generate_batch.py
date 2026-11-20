@@ -12,8 +12,9 @@ import matte as matte_mod
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMAGES = os.path.join(ROOT, "spirit", "assets", "images")
+PLAN_JSON = os.path.join(ROOT, "tools", "batch_plan.json")
 
-MODEL = "doubao-seedream-5.0-flash"
+MODEL = "doubao-seedream-5-0-flash"
 
 STYLE = (
     "东方水墨动画风格，参考《罗小黑战记》画风。"
@@ -277,9 +278,11 @@ def effect_prompt(label, desc):
 
 def actor_rel_path(a):
     if a["form"]:
-        return os.path.join(
-            "actors", a["race"], a["form"], a["variety"], a["age_band"], a["outfit"], a["pose"] + ".png"
-        )
+        segs = ["actors", a["race"], a["form"]]
+        if a["variety"]:
+            segs.append(a["variety"])
+        segs += [a["age_band"], a["outfit"], a["pose"] + ".png"]
+        return os.path.join(*segs)
     return os.path.join("actors", a["race"], a["age_band"], a["outfit"], a["pose"] + ".png")
 
 
@@ -337,31 +340,101 @@ def build_items():
     return items
 
 
+def load_plan(path=PLAN_JSON):
+    if not os.path.exists(path):
+        return None
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def write_manifest_from_plan(plan):
+    manifest = {
+        "version": 1,
+        "style_lock": plan.get("style_lock", "luoxiaohei_style"),
+        "scenes": [],
+        "actors": [],
+        "companions": [],
+        "effects": [],
+    }
+    for it in plan.get("items", []):
+        final = os.path.join(IMAGES, it["rel"])
+        if not os.path.exists(final):
+            continue
+        rel = it["rel"].replace(os.sep, "/")
+        kind = it["kind"]
+        if kind == "scene":
+            sid = it["id"]
+            if "_" in sid:
+                place, era = sid.rsplit("_", 1)
+            else:
+                place, era = sid, ""
+            manifest["scenes"].append({"id": sid, "place": place, "era": era, "file": rel})
+        elif kind == "effect":
+            manifest["effects"].append({"id": it["id"], "milestone": it["id"], "file": rel})
+        elif kind == "actor":
+            entry = {
+                "id": it["id"],
+                "race": it["race"],
+                "age_band": it["age_band"],
+                "outfit": it["outfit"],
+                "pose": it["pose"],
+                "file": rel,
+            }
+            if it.get("form"):
+                entry["form"] = it["form"]
+            if it.get("variety"):
+                entry["variety"] = it["variety"]
+            manifest["actors"].append(entry)
+    with open(os.path.join(IMAGES, "manifest.json"), "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+    return manifest
+
+
 def main():
     import argparse
 
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--only", default="")
+    ap.add_argument("--plan", default=PLAN_JSON)
+    ap.add_argument("--phase", default="")
+    ap.add_argument("--max-images", type=int, default=50)
     args = ap.parse_args()
 
-    items = build_items()
+    plan = None
+    if os.path.exists(args.plan):
+        plan = load_plan(args.plan)
+    use_plan = plan is not None
+
+    if use_plan:
+        items = list(plan.get("items", []))
+        if args.phase:
+            items = [it for it in items if it.get("phase") == args.phase]
+    else:
+        items = build_items()
+
     if args.only:
-        wanted = set(args.only.split(","))
+        wanted = set(x for x in args.only.split(",") if x)
         items = [it for it in items if it["id"] in wanted]
     if args.limit:
         items = items[: args.limit]
 
-    manifest = {"version": 1, "style_lock": "luoxiaohei_style", "scenes": [], "actors": [], "companions": [], "effects": []}
-
-    ok = 0
+    done = 0
+    gen = 0
     fail = 0
     for i, it in enumerate(items, 1):
         final = os.path.join(IMAGES, it["rel"])
         if os.path.exists(final):
             print(f"[{i}/{len(items)}] SKIP (exists) {it['rel']}", flush=True)
-            ok += 1
+            done += 1
             continue
+
+        if args.max_images > 0 and gen >= args.max_images:
+            print(
+                f"[{i}/{len(items)}] HOLD (max-images={args.max_images} reached) {it['rel']}",
+                flush=True,
+            )
+            break
 
         os.makedirs(os.path.dirname(final), exist_ok=True)
 
@@ -401,36 +474,40 @@ def main():
 
         write_prompt_record(final + ".prompt.txt", it["prompt"], params)
         print(f"  OK {it['rel']} ({len(png)} bytes)", flush=True)
-        ok += 1
+        done += 1
+        gen += 1
 
-    if os.path.exists(os.path.join(IMAGES, "scenes")):
-        for sid, place, era in SCENES:
-            manifest["scenes"].append(
-                {"id": sid, "place": place, "era": era, "file": f"scenes/{sid}.png"}
+    if use_plan:
+        write_manifest_from_plan(plan)
+    else:
+        manifest = {"version": 1, "style_lock": "luoxiaohei_style", "scenes": [], "actors": [], "companions": [], "effects": []}
+        if os.path.exists(os.path.join(IMAGES, "scenes")):
+            for sid, place, era in SCENES:
+                manifest["scenes"].append(
+                    {"id": sid, "place": place, "era": era, "file": f"scenes/{sid}.png"}
+                )
+        for a in ACTORS:
+            entry = {
+                "id": a["id"],
+                "race": a["race"],
+                "age_band": a["age_band"],
+                "outfit": a["outfit"],
+                "pose": a["pose"],
+                "file": actor_rel_path(a).replace(os.sep, "/"),
+            }
+            if a["form"]:
+                entry["form"] = a["form"]
+            if a["variety"]:
+                entry["variety"] = a["variety"]
+            manifest["actors"].append(entry)
+        for mid, _label, _desc in EFFECTS:
+            manifest["effects"].append(
+                {"id": mid, "milestone": mid, "file": f"effects/{mid}.png"}
             )
-    for a in ACTORS:
-        entry = {
-            "id": a["id"],
-            "race": a["race"],
-            "age_band": a["age_band"],
-            "outfit": a["outfit"],
-            "pose": a["pose"],
-            "file": actor_rel_path(a).replace(os.sep, "/"),
-        }
-        if a["form"]:
-            entry["form"] = a["form"]
-        if a["variety"]:
-            entry["variety"] = a["variety"]
-        manifest["actors"].append(entry)
-    for mid, _label, _desc in EFFECTS:
-        manifest["effects"].append(
-            {"id": mid, "milestone": mid, "file": f"effects/{mid}.png"}
-        )
+        with open(os.path.join(IMAGES, "manifest.json"), "w", encoding="utf-8") as f:
+            json.dump(manifest, f, ensure_ascii=False, indent=2)
 
-    with open(os.path.join(IMAGES, "manifest.json"), "w", encoding="utf-8") as f:
-        json.dump(manifest, f, ensure_ascii=False, indent=2)
-
-    print(f"\nDONE ok={ok} fail={fail} total={len(items)}", flush=True)
+    print(f"\nDONE done={done} gen={gen} fail={fail} total={len(items)}", flush=True)
     sys.exit(1 if fail else 0)
 
 

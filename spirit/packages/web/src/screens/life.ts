@@ -37,14 +37,15 @@ interface LifeUiState {
 
 const state: LifeUiState = {
   seed: null, picked: [], pointer: 0, result: null, review: false, drawing: false,
-  autoPlay: false, speedIdx: 1, starredLines: new Set(),
+  autoPlay: false, speedIdx: 2, starredLines: new Set(),
 };
 
-/** 速度档位：标签 → 间隔毫秒 */
+/** 速度档位：标签 → 间隔毫秒（对标 80亿分之一 1x~8x） */
 const SPEED_LABELS: Array<[string, number]> = [
-  ['慢', 2000],
-  ['中', 1000],
-  ['快', 400],
+  ['1×', 3000],
+  ['2×', 1500],
+  ['4×', 800],
+  ['8×', 400],
 ];
 
 let autoTimer: ReturnType<typeof setInterval> | null = null;
@@ -184,10 +185,13 @@ function buildDrawAnim(): HTMLElement {
   const text = el('div', 'seal-text');
   text.textContent = '命签已落';
   anim.append(seal, text);
-  // 动画播完后切换到人生场景
+  // 动画播完后切换到人生场景并自动开始播放
   setTimeout(() => {
     state.drawing = false;
+    state.autoPlay = true;
     rerender();
+    // 启动自动播放定时器
+    if (state.result) startAutoPlay(state.result);
   }, 1300);
   return anim;
 }
@@ -294,8 +298,36 @@ function buildImportBox(): HTMLElement {
 
 function buildLifeScene(r: LifeResult): HTMLElement {
   const scene = el('section', 'scene life-scene');
-  scene.append(buildBirthCard(), buildAttrsBar(r), buildLogStream(r), buildActionArea(r));
+  // 左侧面板：场景图 + 身份卡 + 状态指数
+  const sidebar = el('div', 'life-sidebar');
+  sidebar.append(buildSceneImage(r), buildBirthCard(), buildAttrsBar(r));
+  // 右侧面板：人生记录流 + 播放控制
+  const main = el('div', 'life-main');
+  main.append(buildLogStream(r), buildActionArea(r));
+  scene.append(sidebar, main);
   return scene;
+}
+
+/** 根据 birth 信息匹配场景底图 */
+function buildSceneImage(r: LifeResult): HTMLElement {
+  const wrap = el('div', 'scene-image');
+  const b = r.birth;
+  if (!b) return wrap;
+  // 从 manifest 匹配场景：place + era
+  // region → place 映射（简化）
+  const placeMap: Record<string, string> = {
+    '森林': 'forest', '城': 'city', '公会领地': 'guild_land', '隐士岛': 'hermit_island',
+  };
+  const place = Object.entries(placeMap).find(([k]) => b.region.includes(k))?.[1] ?? 'forest';
+  const era = b.era.includes('古') ? 'ancient' : 'modern';
+  const img = el('img');
+  img.alt = `${b.region} · ${b.era}`;
+  img.loading = 'lazy';
+  // 使用相对路径（适配 GitHub Pages 子路径）
+  img.src = `./assets/images/scenes/${place}_${era}.png`;
+  img.onerror = () => { wrap.style.display = 'none'; };
+  wrap.append(img);
+  return wrap;
 }
 
 function buildBirthCard(): HTMLElement {
@@ -527,7 +559,10 @@ function buildChoiceScene(r: LifeResult): HTMLElement {
       state.picked.push(idx);
       state.result = runSegment(world, state.seed!, state.picked);
       persist();
+      // 抉择后自动恢复播放
+      state.autoPlay = true;
       rerender();
+      if (state.result) startAutoPlay(state.result);
     });
     options.append(btn);
   });

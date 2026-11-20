@@ -251,6 +251,235 @@ events:
     effects:
       liquality: -20
 
+  # ── 新增抉择事件（8 个，覆盖 cultivation/identity/companion/crisis/breakthrough/disciple/end 轴线）──
+  - id: first_transform_choice
+    label: 化形时机抉择
+    weight: 1.5
+    once: true
+    cond:
+      minTick: 5
+      maxTick: 12
+      excludeFlags: [form:human]
+    choice:
+      prompt: 你隐约感到灵质在体内涌动，是否尝试化形入世？
+      options:
+        - label: 早化形入世
+          desc: 融入人间，了解世俗
+          effects:
+            liquality: -3
+            wealth: 3
+          gainFlags:
+            - form_transformed
+          weightShifts:
+            scene_city_drift: 1.5
+        - label: 保持原形潜修
+          desc: 留在自然中积蓄灵质
+          effects:
+            liquality: 5
+            health: 2
+          weightShifts:
+            cultivation_year: 1.3
+
+  - id: mentor_offer
+    label: 拜师抉择
+    weight: 1.2
+    once: true
+    cond:
+      minTick: 10
+      maxTick: 20
+      flags: [cultivator]
+    choice:
+      prompt: 一位云游的老妖精愿意收你为徒，但要求你随他苦修十年。跟还是不跟？
+      options:
+        - label: 跟随师修
+          desc: 资源快但受约束
+          effects:
+            liquality: 10
+            health: -5
+          gainFlags:
+            - org:apprenticed
+          weightShifts:
+            cultivation_year: 2.0
+            scene_city_drift: 0.3
+        - label: 自悟修行
+          desc: 慢但自由
+          effects:
+            liquality: 4
+            health: 1
+          weightShifts:
+            gate_ningxing: 0.6
+
+  - id: identity_exposure
+    label: 身份暴露抉择
+    weight: 1.2
+    once: true
+    cond:
+      minTick: 15
+      maxTick: 25
+      excludeFlags: [form:human]
+    choice:
+      prompt: 有人在人群中认出了你的妖精真身。承认还是否认？
+      options:
+        - label: 坦然承认
+          desc: 不再躲藏，但可能招来麻烦
+          effects:
+            liquality: 3
+            health: -5
+            wealth: -3
+          gainFlags:
+            - flag:identity_revealed
+          weightShifts:
+            beast_conflict: 2.0
+        - label: 隐瞒伪装
+          desc: 继续藏身人间
+          effects:
+            liquality: -2
+            health: 1
+          weightShifts:
+            quiet_year: 1.5
+
+  - id: companion_invite
+    label: 同伴邀约抉择
+    weight: 1.5
+    once: true
+    cond:
+      minTick: 12
+      maxTick: 25
+    choice:
+      prompt: 一只游历的妖精邀请你结伴同行。结伴还是独行？
+      options:
+        - label: 结伴游历
+          desc: 有伴相照，路也宽了
+          effects:
+            liquality: 4
+            health: 2
+            wealth: -2
+          gainFlags:
+            - flag:has_companion
+          weightShifts:
+            scene_city_drift: 1.3
+            beast_conflict: 0.5
+        - label: 独行天下
+          desc: 自在无拘
+          effects:
+            liquality: 2
+            health: -1
+          weightShifts:
+            scene_hermit_chance: 1.5
+
+  - id: liqi_crisis
+    label: 灵质枯竭抉择
+    weight: 1.0
+    once: true
+    cond:
+      minTick: 15
+      maxTick: 30
+      flags: [cultivator]
+      attrs:
+        liquality:
+          lte: 50
+    choice:
+      prompt: 你的灵质将竭，面前有一个选择：汲取他人灵质续命，还是顺其自然？
+      options:
+        - label: 吸取他人灵质
+          desc: 强行续命，但有代价
+          effects:
+            liquality: 30
+            health: -10
+          gainFlags:
+            - flag:liqi_predator
+          weightShifts:
+            beast_conflict: 3.0
+            witness_exile: 0.3
+        - label: 顺其自然
+          desc: 灵质低就低，守住底线
+          effects:
+            liquality: -5
+            health: -3
+          weightShifts:
+            cultivation_year: 0.8
+
+  - id: breakthrough_choice
+    label: 突破时机抉择
+    weight: 0.8
+    once: true
+    cond:
+      minTick: 25
+      flags: [cultivator]
+    choice:
+      prompt: 你感到突破的契机已至，但强行突破有反噬风险。冒进还是稳妥？
+      options:
+        - label: 冒险强突
+          desc: 高收益高风险
+          effects:
+            liquality: 15
+            health: -15
+          weightShifts:
+            gate_lingyu: 2.0
+            gate_dayao: 1.5
+        - label: 稳妥渐进
+          desc: 水到渠成
+          effects:
+            liquality: 5
+            health: 1
+          weightShifts:
+            cultivation_year: 1.5
+
+  - id: take_disciple
+    label: 收徒抉择
+    weight: 0.8
+    once: true
+    cond:
+      minTick: 30
+      flags: [cultivator]
+      attrs:
+        liquality:
+          gte: 80
+    choice:
+      prompt: 一只幼妖仰慕你的修为，想拜你为师。收还是不收？
+      options:
+        - label: 传道授业
+          desc: 灵质传承，但也有损耗
+          effects:
+            liquality: -8
+            health: -2
+            wealth: 3
+          gainFlags:
+            - flag:has_disciple
+          weightShifts:
+            cultivation_year: 0.8
+        - label: 息隐不收
+          desc: 独善其身
+          effects:
+            liquality: 2
+            health: 1
+          weightShifts:
+            scene_hermit_chance: 1.5
+
+  - id: end_of_road
+    label: 终途抉择
+    weight: 0.6
+    once: true
+    cond:
+      minTick: 40
+    choice:
+      prompt: 你感到大限将至。是坦然接受终局，还是耗尽余力续命？
+      options:
+        - label: 坦然受终
+          desc: 把最后的光留给世间
+          effects:
+            liquality: 5
+            health: -5
+          weightShifts:
+            quiet_year: 2.0
+        - label: 耗力续命
+          desc: 多活几年，但代价沉重
+          effects:
+            liquality: -15
+            health: 5
+          weightShifts:
+            liqi_drain: 3.0
+
 # ── 场景模板池（触发条件轴组合：地区/形态/组织/年龄窗）──
 scenes:
   - id: scene_forest_childhood
@@ -302,6 +531,392 @@ scenes:
       flags: [region:hermit_island, liqi_manifest]
     effects:
       liquality: 10
+
+  # ── 种族×阶段专属事件（6 form × 童年/青年/成年/老年）──
+  # 人类专属
+  - id: human_school_days
+    label: 上学学艺
+    weight: 3
+    cooldownTicks: 3
+    cond:
+      flags: [form:human]
+      minTick: 6
+      maxTick: 12
+    effects:
+      wealth: -2
+      health: 1
+
+  - id: human_first_job
+    label: 第一份营生
+    weight: 2.5
+    once: true
+    cond:
+      flags: [form:human]
+      minTick: 16
+      maxTick: 22
+    effects:
+      wealth: 5
+      health: -1
+
+  - id: human_marriage
+    label: 成家
+    weight: 1.5
+    once: true
+    cond:
+      flags: [form:human]
+      minTick: 18
+      maxTick: 30
+    effects:
+      wealth: -5
+      health: 2
+
+  - id: human_midlife
+    label: 中年操劳
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [form:human]
+      minTick: 35
+      maxTick: 50
+    effects:
+      health: -3
+      wealth: -3
+
+  - id: human_retirement
+    label: 告老还乡
+    weight: 1.5
+    once: true
+    cond:
+      flags: [form:human]
+      minTick: 55
+    effects:
+      health: 1
+      wealth: -2
+
+  - id: human_old_age
+    label: 暮年回忆
+    weight: 2
+    cooldownTicks: 3
+    cond:
+      flags: [form:human]
+      minTick: 65
+    effects:
+      health: -2
+
+  # 动物妖专属
+  - id: animal_first_hunt
+    label: 第一次独立捕猎
+    weight: 2.5
+    once: true
+    cond:
+      flags: [form:animal_yao]
+      minTick: 3
+      maxTick: 8
+    effects:
+      health: 2
+      liquality: -1
+
+  - id: animal_territory
+    label: 争夺领地
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [form:animal_yao]
+      minTick: 10
+      maxTick: 20
+    effects:
+      health: -3
+      liquality: 2
+
+  - id: animal_mating_season
+    label: 发情寻偶
+    weight: 1.5
+    cooldownTicks: 5
+    cond:
+      flags: [form:animal_yao]
+      minTick: 12
+      maxTick: 25
+    effects:
+      health: -2
+      liquality: 3
+
+  - id: animal_pack_duty
+    label: 群体职责
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [form:animal_yao]
+      minTick: 20
+      maxTick: 50
+    effects:
+      liquality: 3
+      health: -1
+
+  - id: animal_den_making
+    label: 筑巢安家
+    weight: 1.5
+    cooldownTicks: 5
+    cond:
+      flags: [form:animal_yao]
+      minTick: 25
+      maxTick: 60
+    effects:
+      wealth: 3
+      health: -1
+
+  - id: animal_old_alpha
+    label: 老首领让位
+    weight: 1.2
+    once: true
+    cond:
+      flags: [form:animal_yao]
+      minTick: 50
+    effects:
+      health: -3
+      liquality: -2
+
+  # 植物妖专属
+  - id: plant_first_bloom
+    label: 初次开花
+    weight: 2
+    once: true
+    cond:
+      flags: [form:plant_yao]
+      minTick: 5
+      maxTick: 15
+    effects:
+      liquality: 3
+      health: 1
+
+  - id: plant_root_spread
+    label: 根系扩张
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [form:plant_yao]
+      minTick: 10
+      maxTick: 25
+    effects:
+      liquality: 2
+      health: -1
+
+  - id: plant_pollination
+    label: 授粉季
+    weight: 1.5
+    cooldownTicks: 3
+    cond:
+      flags: [form:plant_yao]
+      minTick: 15
+      maxTick: 50
+    effects:
+      liquality: 4
+      health: 1
+
+  - id: plant_deep_root
+    label: 扎深根触灵脉
+    weight: 1
+    once: true
+    cond:
+      flags: [form:plant_yao]
+      minTick: 30
+      maxTick: 60
+    effects:
+      liquality: 6
+      health: 2
+
+  - id: plant_wither_cycle
+    label: 枯荣循环
+    weight: 1.5
+    cooldownTicks: 4
+    cond:
+      flags: [form:plant_yao]
+      minTick: 50
+    effects:
+      health: -3
+      liquality: -1
+
+  - id: plant_seed_scatter
+    label: 播撒种子
+    weight: 1
+    once: true
+    cond:
+      flags: [form:plant_yao]
+      minTick: 60
+    effects:
+      liquality: -5
+      health: 1
+
+  # 真菌妖专属
+  - id: fungus_spore_burst
+    label: 第一次喷孢子
+    weight: 2
+    once: true
+    cond:
+      flags: [form:fungus_yao]
+      minTick: 3
+      maxTick: 10
+    effects:
+      liquality: 2
+      health: 1
+
+  - id: fungus_mycelium
+    label: 菌丝网络扩展
+    weight: 1.5
+    cooldownTicks: 4
+    cond:
+      flags: [form:fungus_yao]
+      minTick: 10
+      maxTick: 25
+    effects:
+      liquality: 4
+      health: 1
+
+  - id: fungus_fruiting
+    label: 结出子实体
+    weight: 1.5
+    cooldownTicks: 5
+    cond:
+      flags: [form:fungus_yao]
+      minTick: 20
+      maxTick: 50
+    effects:
+      liquality: 3
+      wealth: 2
+
+  - id: fungus_decompose
+    label: 分解枯木汲取灵质
+    weight: 1.2
+    cooldownTicks: 5
+    cond:
+      flags: [form:fungus_yao]
+      minTick: 30
+      maxTick: 60
+    effects:
+      liquality: 5
+      health: -1
+
+  - id: fungus_dormancy
+    label: 休眠期
+    weight: 1.5
+    cooldownTicks: 4
+    cond:
+      flags: [form:fungus_yao]
+      minTick: 50
+    effects:
+      health: -2
+      liquality: 1
+
+  # 灵体妖专属
+  - id: spirit_first_manifest
+    label: 第一次显形
+    weight: 2
+    once: true
+    cond:
+      flags: [form:spirit_yao]
+      minTick: 1
+      maxTick: 8
+    effects:
+      liquality: 3
+      health: -1
+
+  - id: spirit_attach
+    label: 附着地缚
+    weight: 1.5
+    once: true
+    cond:
+      flags: [form:spirit_yao]
+      minTick: 8
+      maxTick: 20
+    effects:
+      liquality: 4
+      health: 1
+    gainFlags:
+      - flag:spirit_bound
+
+  - id: spirit_drift
+    label: 游荡四方
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [form:spirit_yao]
+      minTick: 20
+      maxTick: 50
+    effects:
+      liquality: 2
+      health: -1
+
+  - id: spirit_possession
+    label: 短暂附身
+    weight: 1
+    cooldownTicks: 6
+    cond:
+      flags: [form:spirit_yao]
+      minTick: 25
+      maxTick: 60
+    effects:
+      liquality: 5
+      health: -3
+
+  - id: spirit_dissolve
+    label: 灵体渐薄
+    weight: 1.5
+    cooldownTicks: 3
+    cond:
+      flags: [form:spirit_yao]
+      minTick: 60
+    effects:
+      health: -4
+      liquality: -3
+
+  # 器物妖专属
+  - id: painted_first_fold
+    label: 第一次折纸成形
+    weight: 2
+    once: true
+    cond:
+      flags: [form:painted_yao]
+      minTick: 1
+      maxTick: 8
+    effects:
+      liquality: 2
+      health: 1
+
+  - id: painted_master_bond
+    label: 与画师主人建立羁绊
+    weight: 1.5
+    once: true
+    cond:
+      flags: [form:painted_yao]
+      minTick: 8
+      maxTick: 20
+    effects:
+      liquality: 5
+      health: 2
+    gainFlags:
+      - flag:painted_named
+
+  - id: painted_ink_renew
+    label: 补墨修纸身
+    weight: 1.5
+    cooldownTicks: 5
+    cond:
+      flags: [form:painted_yao]
+      minTick: 20
+      maxTick: 50
+    effects:
+      liquality: 3
+      health: 3
+
+  - id: painted_fading
+    label: 墨迹褪色
+    weight: 1.5
+    cooldownTicks: 4
+    cond:
+      flags: [form:painted_yao]
+      minTick: 40
+    effects:
+      health: -3
+      liquality: -2
 
 # ── 时代冲击波池（era 轴 × 地区轴的灾害/危机/战争）──
 shocks:

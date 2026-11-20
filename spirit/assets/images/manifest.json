@@ -53,14 +53,20 @@
   ],
   "actors": [
     {
-      "id": "animal_yao_cat_black_cat_youth_plain_robe_standing",
-      "race": "animal_yao",
+      "id": "human_youth_plain_robe_standing",
+      "race": "human",
       "age_band": "youth",
       "outfit": "plain_robe",
       "pose": "standing",
-      "file": "actors/animal_yao/cat/black_cat/youth/plain_robe/standing.png",
-      "form": "cat",
-      "variety": "black_cat"
+      "file": "actors/human/youth/plain_robe/standing.png"
+    },
+    {
+      "id": "human_adult_hermit_garb_meditating",
+      "race": "human",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/human/adult/hermit_garb/meditating.png"
     },
     {
       "id": "animal_yao_cat_orange_cat_child_guild_uniform_sitting",
@@ -73,22 +79,313 @@
       "variety": "orange_cat"
     },
     {
-      "id": "human_adult_hermit_garb_meditating",
-      "race": "human",
-      "age_band": "adult",
-      "outfit": "hermit_garb",
-      "pose": "meditating",
-      "file": "actors/human/adult/hermit_garb/meditating.png"
+      "id": "animal_yao_cat_orange_cat_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/orange_cat/youth/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "orange_cat"
     },
     {
-      "id": "plant_yao_flower_peony_adult_ritual_dress_standing",
-      "race": "plant_yao",
-      "age_band": "adult",
-      "outfit": "ritual_dress",
+      "id": "animal_yao_cat_black_cat_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
       "pose": "standing",
-      "file": "actors/plant_yao/flower/peony/adult/ritual_dress/standing.png",
+      "file": "actors/animal_yao/cat/black_cat/youth/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "black_cat"
+    },
+    {
+      "id": "animal_yao_cat_tabby_cat_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/tabby_cat/youth/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "tabby_cat"
+    },
+    {
+      "id": "animal_yao_cat_calico_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/youth/plain_robe/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/plain_robe/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/plain_robe/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/plain_robe/standing.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/rural_dog/youth/plain_robe/standing.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_shiba_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shiba/youth/plain_robe/standing.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shorthair/youth/plain_robe/standing.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_bull_water_buffalo_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/water_buffalo/youth/plain_robe/standing.png",
+      "form": "bull",
+      "variety": "water_buffalo"
+    },
+    {
+      "id": "animal_yao_bull_ox_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/ox/youth/plain_robe/standing.png",
+      "form": "bull",
+      "variety": "ox"
+    },
+    {
+      "id": "animal_yao_goat_mountain_goat_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/mountain_goat/youth/plain_robe/standing.png",
+      "form": "goat",
+      "variety": "mountain_goat"
+    },
+    {
+      "id": "animal_yao_goat_dairy_goat_youth_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/dairy_goat/youth/plain_robe/standing.png",
+      "form": "goat",
+      "variety": "dairy_goat"
+    },
+    {
+      "id": "plant_yao_flower_peony_youth_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peony/youth/plain_robe/standing.png",
       "form": "flower",
       "variety": "peony"
+    },
+    {
+      "id": "plant_yao_flower_peach_blossom_youth_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peach_blossom/youth/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "peach_blossom"
+    },
+    {
+      "id": "plant_yao_flower_orchid_youth_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/orchid/youth/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "orchid"
+    },
+    {
+      "id": "plant_yao_flower_epiphyllum_youth_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/epiphyllum/youth/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "epiphyllum"
+    },
+    {
+      "id": "plant_yao_flower_moonveil_youth_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/moonveil/youth/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "moonveil"
+    },
+    {
+      "id": "plant_yao_grass_mugwort_youth_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mugwort/youth/plain_robe/standing.png",
+      "form": "grass",
+      "variety": "mugwort"
+    },
+    {
+      "id": "plant_yao_grass_mimosa_youth_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mimosa/youth/plain_robe/standing.png",
+      "form": "grass",
+      "variety": "mimosa"
+    },
+    {
+      "id": "plant_yao_grass_reed_youth_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/reed/youth/plain_robe/standing.png",
+      "form": "grass",
+      "variety": "reed"
+    },
+    {
+      "id": "plant_yao_tree_pine_youth_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/pine/youth/plain_robe/standing.png",
+      "form": "tree",
+      "variety": "pine"
+    },
+    {
+      "id": "plant_yao_tree_ginkgo_youth_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/ginkgo/youth/plain_robe/standing.png",
+      "form": "tree",
+      "variety": "ginkgo"
+    },
+    {
+      "id": "plant_yao_tree_locust_youth_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/locust/youth/plain_robe/standing.png",
+      "form": "tree",
+      "variety": "locust"
+    },
+    {
+      "id": "fungus_yao_mushroom_lingzhi_youth_plain_robe_standing",
+      "race": "fungus_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/fungus_yao/mushroom/lingzhi/youth/plain_robe/standing.png",
+      "form": "mushroom",
+      "variety": "lingzhi"
+    },
+    {
+      "id": "fungus_yao_mushroom_fly_agaric_youth_plain_robe_standing",
+      "race": "fungus_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/fungus_yao/mushroom/fly_agaric/youth/plain_robe/standing.png",
+      "form": "mushroom",
+      "variety": "fly_agaric"
+    },
+    {
+      "id": "spirit_yao_wisp_lantern_flame_youth_plain_robe_standing",
+      "race": "spirit_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/spirit_yao/wisp/lantern_flame/youth/plain_robe/standing.png",
+      "form": "wisp",
+      "variety": "lantern_flame"
+    },
+    {
+      "id": "spirit_yao_wisp_creek_mist_youth_plain_robe_standing",
+      "race": "spirit_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/spirit_yao/wisp/creek_mist/youth/plain_robe/standing.png",
+      "form": "wisp",
+      "variety": "creek_mist"
+    },
+    {
+      "id": "spirit_yao_wisp_firefly_glow_youth_plain_robe_standing",
+      "race": "spirit_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/spirit_yao/wisp/firefly_glow/youth/plain_robe/standing.png",
+      "form": "wisp",
+      "variety": "firefly_glow"
+    },
+    {
+      "id": "painted_yao_paper_creature_youth_plain_robe_standing",
+      "race": "painted_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/painted_yao/paper_creature/youth/plain_robe/standing.png",
+      "form": "paper_creature"
     }
   ],
   "companions": [],
