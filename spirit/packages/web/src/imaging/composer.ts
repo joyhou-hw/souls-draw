@@ -92,9 +92,46 @@ export async function composeScene(params: ComposeParams): Promise<HTMLCanvasEle
 }
 
 /**
+ * 出生轴枚举归一化——引擎原始值为英文枚举（world.yaml birthAxes），
+ * 此处同时容忍历史/测试用的中文标签，统一归一为 manifest 英文枚举。
+ */
+const PLACE_ALIASES: Record<string, string> = {
+  forest: 'forest',
+  city: 'city',
+  guild_land: 'guild_land',
+  hermit_island: 'hermit_island',
+  '森林': 'forest',
+  '城': 'city',
+  '城市': 'city',
+  '会馆领地': 'guild_land',
+  '公会领地': 'guild_land',
+  '隐修岛': 'hermit_island',
+  '隐士岛': 'hermit_island',
+};
+
+const ERA_ALIASES: Record<string, string> = {
+  ancient: 'ancient',
+  modern: 'modern',
+  '古代': 'ancient',
+  '现代': 'modern',
+};
+
+/** region 枚举 → place 英文枚举（缺省 forest） */
+export function normalizePlace(region: string): string {
+  const key = Object.keys(PLACE_ALIASES).find((k) => region.includes(k));
+  return key ? PLACE_ALIASES[key]! : 'forest';
+}
+
+/** era 枚举 → era 英文枚举（缺省 modern） */
+export function normalizeEra(era: string): string {
+  const key = Object.keys(ERA_ALIASES).find((k) => era.includes(k));
+  return key ? ERA_ALIASES[key]! : 'modern';
+}
+
+/**
  * 从 BirthOutcome + PersonState 推导合成参数
  *
- * 将引擎的中文 region/era/form 转换为 manifest 的英文枚举值
+ * 将引擎 region/era 归一为 manifest 的英文枚举值
  */
 export function deriveParams(birth: {
   form: string;
@@ -103,12 +140,8 @@ export function deriveParams(birth: {
   region: string;
   era: string;
 }, tick: number, milestone?: string): ComposeParams {
-  // region 中文 → place 英文
-  const placeMap: Record<string, string> = {
-    '森林': 'forest', '城': 'city', '公会领地': 'guild_land', '隐士岛': 'hermit_island',
-  };
-  const place = Object.entries(placeMap).find(([k]) => birth.region.includes(k))?.[1] ?? 'forest';
-  const era = birth.era.includes('古') ? 'ancient' : 'modern';
+  const place = normalizePlace(birth.region);
+  const era = normalizeEra(birth.era);
 
   // tick → age_band
   let age_band = 'youth';

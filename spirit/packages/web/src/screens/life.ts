@@ -4,7 +4,7 @@ import type { LifeResult } from '../../../engine/src/types.ts';
 import { runSegment } from '../game.ts';
 import { world, worldMilestones } from '../world.ts';
 import { saveGame, loadGame, clearGame, parseSave, downloadSave, type SaveData } from '../save.ts';
-import { composeScene, deriveParams } from '../imaging/composer.ts';
+import { composeScene, deriveParams, normalizePlace, normalizeEra } from '../imaging/composer.ts';
 
 const FORM_LABELS: Record<string, string> = {
   human: '凡人',
@@ -355,11 +355,8 @@ function buildSceneImage(r: LifeResult): HTMLElement {
       wrap.append(canvas);
     } else {
       // 合成失败：回退到纯场景底图
-      const placeMap: Record<string, string> = {
-        '森林': 'forest', '城': 'city', '公会领地': 'guild_land', '隐士岛': 'hermit_island',
-      };
-      const place = Object.entries(placeMap).find(([k]) => b.region.includes(k))?.[1] ?? 'forest';
-      const era = b.era.includes('古') ? 'ancient' : 'modern';
+      const place = normalizePlace(b.region);
+      const era = normalizeEra(b.era);
       const img = el('img');
       img.alt = `${b.region} · ${b.era}`;
       img.loading = 'lazy';
