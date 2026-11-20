@@ -15,8 +15,8 @@ test('T2.5 世界包加载：19 块全量 + 三事件池合并（source 标记�
   const base = world.events.filter((e) => e.source === 'events').length;
   const scenes = world.events.filter((e) => e.source === 'scenes').length;
   const shocks = world.events.filter((e) => e.source === 'shocks').length;
-  assert.equal(base, 19);
-  assert.equal(scenes, 5);
+  assert.equal(base, 27);
+  assert.equal(scenes, 37);
   assert.equal(shocks, 4);
   assert.equal(world.events.length, base + scenes + shocks);
   assert.equal(world.spiritDensity?.landmarks.laojun_alchemy_site, 5);
