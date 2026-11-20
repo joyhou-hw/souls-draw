@@ -81,19 +81,21 @@ interface LifeUiState {
   autoPlay: boolean;
   speedIdx: number;
   starredLines: Set<number>;
+  /** 抽签过渡动画阶段：0=无, 1=跳动中, 2=卡片展示 */
+  drawPhase: number;
 }
 
 const state: LifeUiState = {
   seed: null, picked: [], pointer: 0, result: null, review: false, drawing: false,
-  autoPlay: false, speedIdx: 0, starredLines: new Set(),
+  autoPlay: false, speedIdx: 0, starredLines: new Set(), drawPhase: 0,
 };
 
 /** 速度档位：标签 → 间隔毫秒（对标 80亿分之一 1x~8x） */
 const SPEED_LABELS: Array<[string, number]> = [
-  ['1×', 3000],
-  ['2×', 1500],
-  ['4×', 800],
-  ['8×', 400],
+  ['1×', 5000],
+  ['2×', 2500],
+  ['4×', 1200],
+  ['8×', 600],
 ];
 
 /** 无限纪元年——出生时为无限418年 */
@@ -343,24 +345,150 @@ function buildScene(): HTMLElement {
 }
 
 // ═══════════════════════════════════════════════
-// 命签抽选动画
+// 命签抽选动画——名字/性别/形态/降生地跳动 → 生灵卡片 → 点击"引"
 // ═══════════════════════════════════════════════
+
+let drawAnimTimer: ReturnType<typeof setTimeout> | null = null;
+let drawAnimStep = 0;
+
+const DRAW_ANIM_STEPS = ['名字', '性别', '形态', '降生地'] as const;
+
+/** 跳动用的随机池 */
+function shufflePool(arr: string[]): string[] {
+  const out = [...arr];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [out[i], out[j]] = [out[j]!, out[i]!];
+  }
+  return out;
+}
 
 function buildDrawAnim(): HTMLElement {
   const anim = el('section', 'draw-anim');
-  const seal = el('div', 'seal');
-  seal.textContent = '簽';
-  const text = el('div', 'seal-text');
-  text.textContent = '命签已落';
-  anim.append(seal, text);
-  // 动画播完后切换到人生场景并自动开始播放
-  setTimeout(() => {
+  drawAnimStep = 0;
+
+  const b = state.result?.birth;
+  if (!b) {
+    // 异常回退：直接进入人生场景
     state.drawing = false;
     state.autoPlay = true;
-    rerender();
-    // 启动自动播放定时器
-    if (state.result) startAutoPlay(state.result);
-  }, 1300);
+    setTimeout(() => { rerender(); if (state.result) startAutoPlay(state.result); }, 100);
+    return anim;
+  }
+  const id = identityFor(b);
+
+  // 跳动容器
+  const rollArea = el('div', 'roll-area');
+  // 簽印章
+  const seal = el('div', 'seal');
+  seal.textContent = '簽';
+  rollArea.append(seal);
+
+  // 四个跳动字段
+  const fields: Array<{ label: string; pool: string[]; final: string }> = [
+    { label: '名字', pool: shufflePool([...SURNAMES, ...GIVEN_MALE, ...GIVEN_FEMALE]), final: id.name },
+    { label: '性别', pool: ['男', '女', '男', '女'], final: id.gender },
+    { label: '形态', pool: Object.values(FORM_LABELS), final: FORM_LABELS[b.form] ?? b.form },
+    { label: '降生地', pool: Object.values(LOCALITY_BY_REGION).flat(), final: id.birthplace },
+  ];
+
+  for (const f of fields) {
+    const row = el('div', 'roll-field');
+    row.dataset.label = f.label;
+    row.dataset.final = f.final;
+    // 池中随机抽取，跳到最终值
+    let poolIdx = 0;
+    const label = el('span', 'roll-label');
+    label.textContent = f.label;
+    const val = el('span', 'roll-val');
+    val.textContent = f.pool[0]!;
+    row.append(label, val);
+    rollArea.append(row);
+  }
+  anim.append(rollArea);
+
+  // 逐字段跳动动画
+  let stepDelay = 400;
+  function animateStep(): void {
+    if (drawAnimStep >= fields.length) {
+      // 全部跳动完毕 → 显示生灵卡片
+      drawAnimTimer = setTimeout(() => showSoulCard(), 600);
+      return;
+    }
+    const field = fields[drawAnimStep]!;
+    const rows = rollArea.querySelectorAll('.roll-field');
+    const row = rows[drawAnimStep]!;
+    const valEl = row.querySelector('.roll-val')!;
+    let flickCount = 0;
+    const flickInterval = setInterval(() => {
+      if (flickCount >= 6) {
+        clearInterval(flickInterval);
+        valEl.textContent = field.final;
+        row.classList.add('roll-done');
+        drawAnimStep++;
+        drawAnimTimer = setTimeout(animateStep, stepDelay);
+        return;
+      }
+      valEl.textContent = field.pool[Math.floor(Math.random() * field.pool.length)]!;
+      flickCount++;
+    }, 80);
+  }
+  drawAnimTimer = setTimeout(animateStep, 500);
+
+  /** 显示生灵卡片 + "引"按钮 */
+  function showSoulCard(): void {
+    const birth = state.result?.birth;
+    if (!birth) return;
+    state.drawPhase = 2;
+    const card = el('div', 'soul-card');
+    // 场景图
+    const imgWrap = buildSceneImage(state.result!);
+    card.append(imgWrap);
+    // 命签
+    const seal = el('div', 'soul-seal');
+    seal.textContent = `命签 #${state.seed}`;
+    card.append(seal);
+    // 姓名
+    const nameEl = el('h2', 'soul-name');
+    nameEl.textContent = id.name;
+    card.append(nameEl);
+    // 信息表
+    const infoRows: Array<[string, string]> = [
+      ['性别', id.gender],
+      ['形态', formText(birth.form, birth.species, birth.variety, birth.niche)],
+      ['降生之地', id.birthplace],
+    ];
+    if (birth.lixi) infoRows.push(['灵系显性', birth.dualLixi ? `${birth.lixi}（双灵质）` : birth.lixi]);
+    if (birth.liqiManifest) infoRows.push(['灵气感应', '已显']);
+    if (birth.cultivator) infoRows.push(['修行机缘', '已开启']);
+    if (birth.reincarnatedSoul) infoRows.push(['异兆', '转世魂灵']);
+    const table = el('table', 'soul-table');
+    for (const [k, v] of infoRows) {
+      const tr = el('tr');
+      const td1 = el('td', 'k');
+      td1.textContent = k;
+      const td2 = el('td');
+      td2.textContent = v;
+      tr.append(td1, td2);
+      table.append(tr);
+    }
+    card.append(table);
+    // "引"按钮
+    const enterBtn = el('button', 'primary soul-enter');
+    enterBtn.textContent = '引 · 开启此生';
+    enterBtn.addEventListener('click', () => {
+      state.drawing = false;
+      state.drawPhase = 0;
+      state.autoPlay = true;
+      rerender();
+      if (state.result) startAutoPlay(state.result);
+    });
+    card.append(enterBtn);
+    // 替换跳动区域
+    const oldRoll = anim.querySelector('.roll-area');
+    if (oldRoll) oldRoll.replaceWith(card);
+  }
+
   return anim;
 }
 
@@ -509,17 +637,22 @@ function buildSceneImage(r: LifeResult): HTMLElement {
 
 function buildBirthCard(): HTMLElement {
   const card = el('div', 'birth-card');
+  // 卡片头部：命签 + 入世标题 一体化设计
+  const header = el('div', 'birth-header');
   const seal = el('div', 'birth-seal');
   seal.textContent = `命签 #${state.seed}`;
-  card.append(seal);
-  const h3 = el('h3');
-  h3.textContent = '入世';
-  card.append(h3);
+  const title = el('div', 'birth-title');
+  title.textContent = '入世';
+  header.append(seal, title);
+  card.append(header);
   const b = state.result?.birth;
   if (!b) return card;
   const id = identityFor(b);
+  // 角色名
+  const nameEl = el('div', 'birth-name');
+  nameEl.textContent = id.name;
+  card.append(nameEl);
   const rows: Array<[string, string]> = [
-    ['姓名', id.name],
     ['性别', id.gender],
     ['形态', formText(b.form, b.species, b.variety, b.niche)],
     ['降生之地', id.birthplace],
