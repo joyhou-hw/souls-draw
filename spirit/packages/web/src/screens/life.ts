@@ -348,7 +348,7 @@ function buildSceneImage(r: LifeResult): HTMLElement {
   const params = deriveParams(b, r.log?.[0]?.tick ?? 0);
   composeScene(params).then((canvas) => {
     if (canvas) {
-      canvas.alt = `${b.region} · ${b.era}`;
+      canvas.setAttribute('aria-label', `${b.region} · ${b.era}`);
       wrap.append(canvas);
     } else {
       // 合成失败：回退到纯场景底图
