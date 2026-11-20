@@ -285,8 +285,11 @@ function buildAttrsBar(r: LifeResult): HTMLElement {
 function buildLogStream(r: LifeResult): HTMLElement {
   const stream = el('div', 'log-stream');
   const shown = narrativeLines(r).slice(0, state.pointer);
-  for (const line of shown) {
+  for (let i = 0; i < shown.length; i++) {
+    const line = shown[i]!;
     const row = el('div', 'log-line');
+    // 最新展开的一行加淡入动画
+    if (i === shown.length - 1 && state.pointer > 0) row.classList.add('log-fresh');
     if (worldMilestones.includes(line.eventId)) row.classList.add('milestone');
     if (line.isPrompt) row.classList.add('prompt');
     const age = el('span', 'age');
@@ -315,12 +318,24 @@ function buildLogStream(r: LifeResult): HTMLElement {
   return stream;
 }
 
+/** 每次翻页展开的条数：1-3 条，遇到抉择点自动停止 */
+function advancePointer(r: LifeResult): void {
+  const lines = narrativeLines(r);
+  const max = Math.min(state.pointer + 3, lines.length);
+  // 逐条推进，遇到抉择 prompt 则在此停下（下一帧自动切到抉择场景）
+  while (state.pointer < max) {
+    state.pointer++;
+    // 如果刚展开的条目是抉择 prompt，停止翻页（下一次 rerender 会进入抉择场景）
+    if (lines[state.pointer - 1]?.isPrompt) break;
+  }
+}
+
 function buildActionArea(r: LifeResult): HTMLElement {
   const area = el('div', 'actions');
   const btn = el('button', 'primary');
-  btn.textContent = '走过一段岁月';
+  btn.textContent = '翻过一页';
   btn.addEventListener('click', () => {
-    state.pointer = Math.min(state.pointer + 10, r.log.length);
+    advancePointer(r);
     rerender();
   });
   area.append(btn);

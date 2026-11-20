@@ -208,6 +208,16 @@ button.primary:hover { background: #3a80a0; }
 
 .log-line.prompt span:nth-child(2) { color: var(--ink-accent); }
 
+/* 最新展开的一行——淡入动画 */
+.log-line.log-fresh {
+  animation: line-fade-in var(--dur) var(--ease);
+}
+
+@keyframes line-fade-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
 .milestone-caption {
   color: var(--ink-gold);
   font-size: 0.85rem;
