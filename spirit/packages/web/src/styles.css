@@ -6,28 +6,28 @@
 :root {
   color-scheme: dark;
 
-  /* 背景层 */
-  --ink-bg-deep:    #0d1117;
-  --ink-bg:         #14171c;
-  --ink-bg-card:    #1b2028;
-  --ink-bg-inset:   #171b22;
-  --ink-bg-elevated:#1d2733;
+  /* 背景层——暖色基调，参考 80亿分之一的沉静暖灰 */
+  --ink-bg-deep:    #1a1714;
+  --ink-bg:         #221e1a;
+  --ink-bg-card:    #2a2520;
+  --ink-bg-inset:   #24201c;
+  --ink-bg-elevated:#302a24;
 
   /* 前景 */
-  --ink-fg:         #dfe6ee;
-  --ink-fg-mid:     #b8c2d0;
-  --ink-fg-muted:   #8a93a3;
+  --ink-fg:         #e8e0d4;
+  --ink-fg-mid:     #c4b8a8;
+  --ink-fg-muted:   #8a8070;
 
-  /* 强调 */
-  --ink-accent:     #9fc8e8;
-  --ink-accent-btn: #2f6f8f;
+  /* 强调——暖金色系 */
+  --ink-accent:     #d4a868;
+  --ink-accent-btn: #8a6a3a;
   --ink-gold:       #e8c26a;
   --ink-jade:       #7fd4a8;
   --ink-rose:       #e87a7a;
 
   /* 边框 */
-  --ink-border:     #2a2f38;
-  --ink-border-hi:  #4a5468;
+  --ink-border:     #3a342c;
+  --ink-border-hi:  #5a5044;
 
   /* 字体 */
   --font-serif: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
@@ -59,10 +59,10 @@ body {
   font-family: var(--font-serif);
   background: var(--ink-bg);
   color: var(--ink-fg);
-  /* 水墨纹理：多层径向渐变模拟墨韵晕染 */
+  /* 水墨纹理：多层径向渐变模拟墨韵晕染——暖色基调 */
   background-image:
-    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(60, 80, 110, 0.12), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(40, 55, 75, 0.10), transparent),
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(80, 65, 45, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(60, 50, 40, 0.12), transparent),
     radial-gradient(circle at 50% 50%, transparent 60%, rgba(0, 0, 0, 0.15));
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -76,7 +76,7 @@ body {
   border-bottom: 1px solid var(--ink-border);
   position: sticky;
   top: 0;
-  background: rgba(13, 17, 23, 0.85);
+  background: rgba(26, 23, 20, 0.85);
   backdrop-filter: blur(8px);
   z-index: 10;
 }
@@ -650,19 +650,19 @@ button.primary:hover { background: #3a80a0; }
 }
 
 /* 死因氛围色——覆盖终局场景标题色 */
-.end-scene.death-health { background: radial-gradient(ellipse at center, rgba(80, 30, 30, 0.15), transparent 70%); }
-.end-scene.death-health .end-title { color: #c87a6a; }
+.end-scene.death-health { background: radial-gradient(ellipse at center, rgba(100, 50, 40, 0.18), transparent 70%); }
+.end-scene.death-health .end-title { color: #d88a6a; }
 
-.end-scene.death-hazard { background: radial-gradient(ellipse at center, rgba(60, 40, 20, 0.15), transparent 70%); }
-.end-scene.death-hazard .end-title { color: #c8a86a; }
+.end-scene.death-hazard { background: radial-gradient(ellipse at center, rgba(80, 60, 30, 0.18), transparent 70%); }
+.end-scene.death-hazard .end-title { color: #d8b86a; }
 
-.end-scene.death-ascend { background: radial-gradient(ellipse at center, rgba(120, 100, 40, 0.18), transparent 70%); }
+.end-scene.death-ascend { background: radial-gradient(ellipse at center, rgba(140, 110, 50, 0.20), transparent 70%); }
 .end-scene.death-ascend .end-title { color: #f0d878; }
 
-.end-scene.death-liquality_exhausted { background: radial-gradient(ellipse at center, rgba(40, 50, 70, 0.15), transparent 70%); }
-.end-scene.death-liquality_exhausted .end-title { color: #8ab8e8; }
+.end-scene.death-liquality_exhausted { background: radial-gradient(ellipse at center, rgba(50, 60, 80, 0.15), transparent 70%); }
+.end-scene.death-liquality_exhausted .end-title { color: #8ab8d8; }
 
-.end-scene.death-alive_end { background: radial-gradient(ellipse at center, rgba(50, 60, 50, 0.12), transparent 70%); }
+.end-scene.death-alive_end { background: radial-gradient(ellipse at center, rgba(60, 70, 50, 0.14), transparent 70%); }
 .end-scene.death-alive_end .end-title { color: #a8c8a8; }
 
 /* ── 回顾场景 ── */

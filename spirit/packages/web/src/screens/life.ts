@@ -37,7 +37,7 @@ interface LifeUiState {
 
 const state: LifeUiState = {
   seed: null, picked: [], pointer: 0, result: null, review: false, drawing: false,
-  autoPlay: false, speedIdx: 2, starredLines: new Set(),
+  autoPlay: false, speedIdx: 0, starredLines: new Set(),
 };
 
 /** 速度档位：标签 → 间隔毫秒（对标 80亿分之一 1x~8x） */
@@ -48,10 +48,23 @@ const SPEED_LABELS: Array<[string, number]> = [
   ['8×', 400],
 ];
 
-let autoTimer: ReturnType<typeof setInterval> | null = null;
+let autoTimer: ReturnType<typeof setTimeout> | null = null;
 
 function clearAutoTimer(): void {
-  if (autoTimer !== null) { clearInterval(autoTimer); autoTimer = null; }
+  if (autoTimer !== null) { clearTimeout(autoTimer); autoTimer = null; }
+}
+
+/** 根据当前条目文本长度计算延迟：基础间隔 + 文本长度因子 + 随机延迟 */
+function calcDelay(r: LifeResult): number {
+  const [, baseMs] = SPEED_LABELS[state.speedIdx]!;
+  const lines = narrativeLines(r);
+  const curLine = lines[state.pointer];
+  // 文本长度因子：每 10 字加 100ms，让长叙事读更久
+  const textLen = curLine?.text.length ?? 0;
+  const textDelay = Math.floor(textLen / 10) * 100;
+  // 随机延迟：0~500ms，让节奏不死板
+  const randomDelay = Math.floor(Math.random() * 500);
+  return baseMs + textDelay + randomDelay;
 }
 
 /** 自动播放单步：推进1行，遇抉择 prompt 或末尾自动暂停 */
@@ -67,8 +80,14 @@ function tickAdvance(r: LifeResult): void {
   if (lines[state.pointer - 1]?.isPrompt) {
     state.autoPlay = false;
     clearAutoTimer();
+    rerender();
+    return;
   }
   rerender();
+  // 链式调度下一次——延迟根据新条目内容变化
+  if (state.autoPlay) {
+    autoTimer = setTimeout(() => tickAdvance(r), calcDelay(r));
+  }
 }
 
 /** 叙事渲染缓存——同一 LifeResult 只渲染一次（renderLifeLog 本身确定性） */
@@ -509,12 +528,11 @@ function buildActionArea(r: LifeResult): HTMLElement {
   return area;
 }
 
-/** 启动自动播放定时器 */
+/** 启动自动播放——链式 setTimeout，每步延迟根据内容变化 */
 function startAutoPlay(r: LifeResult): void {
-  const [, ms] = SPEED_LABELS[state.speedIdx]!;
   state.autoPlay = true;
   clearAutoTimer();
-  autoTimer = setInterval(() => tickAdvance(r), ms);
+  autoTimer = setTimeout(() => tickAdvance(r), calcDelay(r));
 }
 
 function buildSaveButtons(): HTMLElement {
@@ -766,6 +784,28 @@ function buildReviewScene(): HTMLElement {
 function rerender(): void {
   const app = document.querySelector<HTMLElement>('#app');
   if (!app) return;
+  // 推进场景下的自动播放——增量更新日志流和属性条，不重建整个 DOM，避免滚动抖动
+  const r = state.result;
+  const lifeMain = app.querySelector<HTMLElement>('.life-main');
+  if (r && !state.review && !state.drawing && lifeMain) {
+    const atEnd = state.pointer >= r.log.length;
+    if (!atEnd || !r.pausedChoice) {
+      // 只更新日志流和属性条
+      const oldStream = lifeMain.querySelector('.log-stream');
+      const newStream = buildLogStream(r);
+      if (oldStream) oldStream.replaceWith(newStream);
+      const sidebar = app.querySelector<HTMLElement>('.life-sidebar');
+      if (sidebar) {
+        const oldAttrs = sidebar.querySelector('.attrs');
+        const newAttrs = buildAttrsBar(r);
+        if (oldAttrs) oldAttrs.replaceWith(newAttrs);
+      }
+      // 保持日志流滚动在顶部（最新条目在顶部）
+      newStream.scrollTop = 0;
+      return;
+    }
+  }
+  // 其他场景——全量重建
   app.replaceChildren();
   renderLifeScreen(app);
 }

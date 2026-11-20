@@ -1000,9 +1000,11 @@ birthAxes:
   era: [ancient, modern]
 
 # ── 修行入口双闸（01 §7.1.1）──
+# 校准：原 0.25/0.15 导致凡人率 75%、修行率仅 3.75%，体验过于平淡
+# 调整为 0.6/0.4：凡人率 40%、埋没天才 36%、入修行 24%
 cultivationGate:
-  step1LiqiManifestP: 0.25
-  step2EntryEventP: 0.15
+  step1LiqiManifestP: 0.6
+  step2EntryEventP: 0.4
   entryEventAgeWindow: [8, 24]
 
 # ── 天赋灵系（03 §5.1 量化）──
