@@ -478,6 +478,27 @@ button.primary:hover { background: #3a80a0; }
 }
 
 /* ── 出生场景 ── */
+.birth-card {
+  background: var(--ink-bg-card);
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-md);
+  padding: var(--gap-md);
+  margin-bottom: var(--gap-md);
+}
+.birth-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  color: var(--ink-accent);
+}
+.birth-seal {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--ink-gold);
+  letter-spacing: 0.15em;
+  margin-bottom: var(--gap-sm);
+  padding-bottom: var(--gap-sm);
+  border-bottom: 1px solid rgba(232, 194, 106, 0.2);
+}
 .birth-scene { text-align: center; }
 .birth-scene .birth-title {
   font-size: 1.3rem;
@@ -520,6 +541,13 @@ button.primary:hover { background: #3a80a0; }
   width: 100%;
   text-align: left;
   padding: 12px var(--gap-md);
+  transition: all var(--dur-fast) var(--ease);
+}
+
+.choice-scene .choice-opt:hover {
+  border-color: var(--ink-accent);
+  background: rgba(159, 200, 232, 0.08);
+  transform: translateX(4px);
 }
 
 /* ── 终局场景 ── */
@@ -528,10 +556,12 @@ button.primary:hover { background: #3a80a0; }
   font-size: 1.6rem;
   color: var(--ink-gold);
   margin: 0 0 var(--gap-sm);
+  letter-spacing: 0.1em;
 }
 .end-scene .end-info {
   color: var(--ink-fg-mid);
   margin: 0 0 var(--gap-lg);
+  line-height: 1.6;
 }
 .end-scene .end-actions {
   display: flex;
@@ -539,6 +569,22 @@ button.primary:hover { background: #3a80a0; }
   justify-content: center;
   gap: var(--gap-sm);
 }
+
+/* 死因氛围色——覆盖终局场景标题色 */
+.end-scene.death-health { background: radial-gradient(ellipse at center, rgba(80, 30, 30, 0.15), transparent 70%); }
+.end-scene.death-health .end-title { color: #c87a6a; }
+
+.end-scene.death-hazard { background: radial-gradient(ellipse at center, rgba(60, 40, 20, 0.15), transparent 70%); }
+.end-scene.death-hazard .end-title { color: #c8a86a; }
+
+.end-scene.death-ascend { background: radial-gradient(ellipse at center, rgba(120, 100, 40, 0.18), transparent 70%); }
+.end-scene.death-ascend .end-title { color: #f0d878; }
+
+.end-scene.death-liquality_exhausted { background: radial-gradient(ellipse at center, rgba(40, 50, 70, 0.15), transparent 70%); }
+.end-scene.death-liquality_exhausted .end-title { color: #8ab8e8; }
+
+.end-scene.death-alive_end { background: radial-gradient(ellipse at center, rgba(50, 60, 50, 0.12), transparent 70%); }
+.end-scene.death-alive_end .end-title { color: #a8c8a8; }
 
 /* ── 回顾场景 ── */
 .review-scene .review-header { text-align: center; margin-bottom: var(--gap-md); }

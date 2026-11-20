@@ -252,8 +252,11 @@ function buildLifeScene(r: LifeResult): HTMLElement {
 
 function buildBirthCard(): HTMLElement {
   const card = el('div', 'birth-card');
+  const seal = el('div', 'birth-seal');
+  seal.textContent = `命签 #${state.seed}`;
+  card.append(seal);
   const h3 = el('h3');
-  h3.textContent = '出生';
+  h3.textContent = '入世';
   card.append(h3);
   const b = state.result?.birth;
   if (!b) return card;
@@ -265,7 +268,6 @@ function buildBirthCard(): HTMLElement {
   if (b.liqiManifest) rows.push(['灵气感应', '已显']);
   if (b.cultivator) rows.push(['修行机缘', '已开启']);
   if (b.reincarnatedSoul) rows.push(['异兆', '转世魂灵']);
-  rows.push(['命签', `#${state.seed}`]);
   const table = el('table', 'kv');
   for (const [k, v] of rows) {
     const tr = el('tr');
@@ -431,6 +433,14 @@ function buildChoiceScene(r: LifeResult): HTMLElement {
 function buildEndScene(r: LifeResult): HTMLElement {
   clearGame();
   const scene = el('section', 'scene end-scene');
+  // 死因氛围色
+  const causeClass = r.deathCause === 'health' ? 'death-health'
+    : r.deathCause === 'hazard' ? 'death-hazard'
+    : r.deathCause === 'terminal:ascend_trigger' ? 'death-ascend'
+    : r.deathCause === 'liquality_exhausted' ? 'death-liquality_exhausted'
+    : r.state.alive ? 'death-alive_end'
+    : '';
+  if (causeClass) scene.classList.add(causeClass);
   const title = el('h3', 'end-title');
   title.textContent = '此生落幕';
   const info = el('p', 'end-info');
