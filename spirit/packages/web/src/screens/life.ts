@@ -29,9 +29,10 @@ interface LifeUiState {
   pointer: number;
   result: LifeResult | null;
   review: boolean;
+  drawing: boolean;
 }
 
-const state: LifeUiState = { seed: null, picked: [], pointer: 0, result: null, review: false };
+const state: LifeUiState = { seed: null, picked: [], pointer: 0, result: null, review: false, drawing: false };
 
 /** 叙事渲染缓存——同一 LifeResult 只渲染一次（renderLifeLog 本身确定性） */
 let renderMemo: { result: LifeResult; lines: RenderedLogLine[] } | null = null;
@@ -105,6 +106,9 @@ function renderLifeScreen(host: HTMLElement): void {
 
 /** 根据当前状态确定场景类型并构建 */
 function buildScene(): HTMLElement {
+  // 命签抽选动画
+  if (state.drawing) return buildDrawAnim();
+
   // 未抽签 → 抽签场景
   if (state.seed === null || state.result === null) return buildDrawScene();
 
@@ -125,6 +129,25 @@ function buildScene(): HTMLElement {
 }
 
 // ═══════════════════════════════════════════════
+// 命签抽选动画
+// ═══════════════════════════════════════════════
+
+function buildDrawAnim(): HTMLElement {
+  const anim = el('section', 'draw-anim');
+  const seal = el('div', 'seal');
+  seal.textContent = '簽';
+  const text = el('div', 'seal-text');
+  text.textContent = '命签已落';
+  anim.append(seal, text);
+  // 动画播完后切换到人生场景
+  setTimeout(() => {
+    state.drawing = false;
+    rerender();
+  }, 1300);
+  return anim;
+}
+
+// ═══════════════════════════════════════════════
 // 抽签场景
 // ═══════════════════════════════════════════════
 
@@ -132,8 +155,8 @@ function buildDrawScene(): HTMLElement {
   const scene = el('section', 'scene draw-scene');
   const title = el('h2', 'draw-title');
   title.textContent = "Souls' Draw";
-  const sub = el('p', 'muted');
-  sub.textContent = '生灵引 · 一签一命';
+  const sub = el('p', 'draw-subtitle');
+  sub.textContent = '生 · 灵 · 引';
   scene.append(title, sub);
 
   const desc = el('p', 'draw-desc');
@@ -151,6 +174,8 @@ function buildDrawScene(): HTMLElement {
     state.review = false;
     state.result = runSegment(world, state.seed, state.picked);
     persist();
+    // 触发命签抽选动画，动画结束后自动进入人生场景
+    state.drawing = true;
     rerender();
   });
   actions.append(btn);
@@ -436,6 +461,7 @@ function buildEndScene(r: LifeResult): HTMLElement {
     state.result = runSegment(world, state.seed, state.picked);
     persist();
     resetFlowUi();
+    state.drawing = true;
     rerender();
   });
   const newBtn = el('button');
