@@ -1,0 +1,411 @@
+/* ═══════════════════════════════════════════════
+   Souls' Draw · 生灵引 — 水墨写意主题系统
+   ═══════════════════════════════════════════════ */
+
+/* ── 主题变量 ── */
+:root {
+  color-scheme: dark;
+
+  /* 背景层 */
+  --ink-bg-deep:    #0d1117;
+  --ink-bg:         #14171c;
+  --ink-bg-card:    #1b2028;
+  --ink-bg-inset:   #171b22;
+  --ink-bg-elevated:#1d2733;
+
+  /* 前景 */
+  --ink-fg:         #dfe6ee;
+  --ink-fg-mid:     #b8c2d0;
+  --ink-fg-muted:   #8a93a3;
+
+  /* 强调 */
+  --ink-accent:     #9fc8e8;
+  --ink-accent-btn: #2f6f8f;
+  --ink-gold:       #e8c26a;
+  --ink-jade:       #7fd4a8;
+  --ink-rose:       #e87a7a;
+
+  /* 边框 */
+  --ink-border:     #2a2f38;
+  --ink-border-hi:  #4a5468;
+
+  /* 字体 */
+  --font-serif: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+  --font-sans:  system-ui, -apple-system, sans-serif;
+  --font-mono:  ui-monospace, Consolas, monospace;
+
+  /* 间距 */
+  --gap-xs: 4px;
+  --gap-sm: 8px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+
+  /* 圆角 */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-full: 999px;
+
+  /* 过渡 */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 0.15s;
+  --dur: 0.3s;
+}
+
+/* ── 基础重置 ── */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-serif);
+  background: var(--ink-bg);
+  color: var(--ink-fg);
+  /* 水墨纹理：多层径向渐变模拟墨韵晕染 */
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(60, 80, 110, 0.12), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(40, 55, 75, 0.10), transparent),
+    radial-gradient(circle at 50% 50%, transparent 60%, rgba(0, 0, 0, 0.15));
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── 导航 ── */
+#nav {
+  display: flex;
+  gap: var(--gap-sm);
+  padding: var(--gap-md);
+  border-bottom: 1px solid var(--ink-border);
+  position: sticky;
+  top: 0;
+  background: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+#nav button {
+  padding: 8px 14px;
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-sm);
+  background: var(--ink-bg-card);
+  color: var(--ink-fg);
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  transition: all var(--dur-fast) var(--ease);
+}
+
+#nav button:hover { border-color: var(--ink-border-hi); }
+
+#nav button.active {
+  background: var(--ink-accent-btn);
+  border-color: var(--ink-accent-btn);
+}
+
+/* ── 通用按钮 ── */
+button {
+  padding: 8px 14px;
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-sm);
+  background: var(--ink-bg-card);
+  color: var(--ink-fg);
+  cursor: pointer;
+  font-family: var(--font-serif);
+  transition: all var(--dur-fast) var(--ease);
+}
+
+button:hover {
+  border-color: var(--ink-border-hi);
+  transform: translateY(-1px);
+}
+
+button:active { transform: translateY(0); }
+
+button.primary {
+  background: var(--ink-accent-btn);
+  border-color: var(--ink-accent-btn);
+  color: #fff;
+}
+
+button.primary:hover { background: #3a80a0; }
+
+/* ── 主容器 ── */
+#app {
+  padding: var(--gap-md);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ── 排版工具 ── */
+.muted { color: var(--ink-fg-muted); }
+
+/* ── 卡片 ── */
+.card {
+  background: var(--ink-bg-card);
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-md);
+  padding: var(--gap-md);
+  margin-bottom: var(--gap-md);
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  color: var(--ink-accent);
+}
+
+/* ── 键值表 ── */
+.kv td { padding: 2px 12px 2px 0; }
+.kv td.k { color: var(--ink-fg-muted); white-space: nowrap; }
+
+/* ── 出生前链 ── */
+.pre-birth {
+  color: var(--ink-fg-muted);
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+/* ── 属性条 ── */
+.attrs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+  margin-bottom: 12px;
+}
+
+.chip {
+  background: var(--ink-bg-inset);
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-full);
+  padding: 2px 10px;
+  font-size: 0.85rem;
+}
+
+/* ── 日志流 ── */
+.log-stream {
+  max-height: 340px;
+  overflow-y: auto;
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  background: var(--ink-bg-inset);
+  margin-bottom: 12px;
+}
+
+.log-line {
+  display: flex;
+  gap: var(--gap-sm);
+  padding: 3px 0;
+  font-size: 0.92rem;
+}
+
+.log-line .age {
+  color: var(--ink-fg-muted);
+  min-width: 3.5em;
+  flex-shrink: 0;
+}
+
+.log-line.milestone .age,
+.log-line.milestone span:nth-child(2) { color: var(--ink-gold); }
+
+.log-line.prompt span:nth-child(2) { color: var(--ink-accent); }
+
+.milestone-caption {
+  color: var(--ink-gold);
+  font-size: 0.85rem;
+}
+
+.picked { color: var(--ink-jade); }
+
+/* ── 抉择 ── */
+.actions {
+  display: flex;
+  gap: var(--gap-sm);
+  flex-wrap: wrap;
+}
+
+.choice-card {
+  border: 1px solid #4a6a8a;
+  border-radius: var(--radius-md);
+  padding: 12px;
+  background: var(--ink-bg-elevated);
+}
+
+.choice-prompt {
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.choice-opt {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: var(--gap-sm);
+  text-align: left;
+}
+
+/* ── 终局 ── */
+.end-card {
+  border: 1px solid #6a5a3a;
+  border-radius: var(--radius-md);
+  padding: 12px;
+  background: #241f16;
+}
+
+.end-card h3 {
+  color: var(--ink-gold);
+  margin: 0 0 8px;
+}
+
+/* ── 回顾 ── */
+.review-list { padding-left: 20px; }
+.review-list li { margin: 2px 0; font-size: 0.92rem; }
+
+/* ── 导入/导出 ── */
+.import-box {
+  margin-top: 12px;
+  border: 1px dashed #3a414d;
+  border-radius: var(--radius-md);
+  padding: 12px;
+}
+
+.import-box textarea {
+  width: 100%;
+  height: 110px;
+  background: var(--ink-bg-inset);
+  color: var(--ink-fg);
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.import-box .actions { margin-top: var(--gap-sm); }
+
+.import-error {
+  color: var(--ink-rose);
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+}
+
+.save-actions {
+  margin-top: 10px;
+  opacity: 0.85;
+}
+
+.save-actions button {
+  font-size: 0.85rem;
+  padding: 4px 10px;
+}
+
+.share-text {
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 280px;
+  overflow-y: auto;
+  background: var(--ink-bg-inset);
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--ink-fg-mid);
+  margin: var(--gap-sm) 0 0;
+}
+
+/* ── 批量看板 ── */
+.progress-track {
+  height: 14px;
+  border-radius: 7px;
+  background: var(--ink-bg-inset);
+  border: 1px solid var(--ink-border);
+  overflow: hidden;
+  margin: var(--gap-sm) 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--ink-accent-btn), #4a9fbf);
+  transition: width 0.2s;
+}
+
+.dist-section { margin-top: var(--gap-md); }
+
+.dist-section h4 {
+  margin: 0 0 6px;
+  color: var(--ink-fg-mid);
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 130px;
+  align-items: center;
+  gap: var(--gap-sm);
+  padding: 2px 0;
+  font-size: 0.9rem;
+}
+
+.bar-label {
+  color: var(--ink-fg);
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bar-track {
+  height: 10px;
+  border-radius: 5px;
+  background: var(--ink-bg-inset);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--ink-accent-btn);
+  border-radius: 5px;
+}
+
+.bar-val {
+  color: var(--ink-fg-muted);
+  font-size: 0.85rem;
+}
+
+/* ═══════════════════════════════════════════════
+   响应式 — 手机优先
+   ═══════════════════════════════════════════════ */
+
+/* 手机：默认即生效 */
+@media (max-width: 480px) {
+  #app { padding: var(--gap-sm); }
+
+  .card { padding: var(--gap-sm); }
+
+  .log-stream { max-height: 50vh; }
+
+  .choice-opt {
+    flex-direction: column;
+    gap: var(--gap-xs);
+  }
+
+  .bar-row {
+    grid-template-columns: 100px 1fr 90px;
+    font-size: 0.82rem;
+  }
+
+  button { padding: 10px 16px; font-size: 1rem; }
+
+  button.primary { padding: 12px 20px; }
+}
+
+/* 平板 */
+@media (min-width: 481px) and (max-width: 768px) {
+  #app { padding: var(--gap-md); }
+}
+
+/* 桌面 */
+@media (min-width: 769px) {
+  #app { padding: var(--gap-lg) var(--gap-md); }
+}
