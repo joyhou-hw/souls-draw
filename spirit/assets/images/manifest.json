@@ -149,6 +149,66 @@
       "variety": "black_wolf"
     },
     {
+      "id": "animal_yao_dog_rural_dog_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/rural_dog/child/plain_robe/standing.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_child_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/rural_dog/child/plain_robe/walking.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/rural_dog/child/guild_uniform/standing.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_child_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/rural_dog/child/guild_uniform/walking.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/rural_dog/child/hermit_garb/standing.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_child_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/rural_dog/child/hermit_garb/walking.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
       "id": "animal_yao_dog_rural_dog_youth_plain_robe_standing",
       "race": "animal_yao",
       "age_band": "youth",
@@ -157,6 +217,236 @@
       "file": "actors/animal_yao/dog/rural_dog/youth/plain_robe/standing.png",
       "form": "dog",
       "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_youth_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/rural_dog/youth/plain_robe/walking.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/rural_dog/youth/guild_uniform/standing.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_youth_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/rural_dog/youth/guild_uniform/walking.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/rural_dog/youth/hermit_garb/standing.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_youth_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/rural_dog/youth/hermit_garb/walking.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_adult_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/rural_dog/adult/plain_robe/standing.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_adult_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/rural_dog/adult/plain_robe/walking.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_adult_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/rural_dog/adult/guild_uniform/standing.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_adult_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/rural_dog/adult/guild_uniform/walking.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_adult_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/rural_dog/adult/hermit_garb/standing.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_adult_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/rural_dog/adult/hermit_garb/walking.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_elder_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/rural_dog/elder/plain_robe/standing.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_elder_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/rural_dog/elder/plain_robe/walking.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_elder_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/rural_dog/elder/guild_uniform/standing.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_elder_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/rural_dog/elder/guild_uniform/walking.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_elder_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/rural_dog/elder/hermit_garb/standing.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_rural_dog_elder_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/rural_dog/elder/hermit_garb/walking.png",
+      "form": "dog",
+      "variety": "rural_dog"
+    },
+    {
+      "id": "animal_yao_dog_shiba_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shiba/child/plain_robe/standing.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_child_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shiba/child/plain_robe/walking.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shiba/child/guild_uniform/standing.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_child_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shiba/child/guild_uniform/walking.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shiba/child/hermit_garb/standing.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_child_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shiba/child/hermit_garb/walking.png",
+      "form": "dog",
+      "variety": "shiba"
     },
     {
       "id": "animal_yao_dog_shiba_youth_plain_robe_standing",
@@ -169,6 +459,236 @@
       "variety": "shiba"
     },
     {
+      "id": "animal_yao_dog_shiba_youth_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shiba/youth/plain_robe/walking.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shiba/youth/guild_uniform/standing.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_youth_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shiba/youth/guild_uniform/walking.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shiba/youth/hermit_garb/standing.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_youth_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shiba/youth/hermit_garb/walking.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_adult_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shiba/adult/plain_robe/standing.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_adult_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shiba/adult/plain_robe/walking.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_adult_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shiba/adult/guild_uniform/standing.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_adult_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shiba/adult/guild_uniform/walking.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_adult_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shiba/adult/hermit_garb/standing.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_adult_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shiba/adult/hermit_garb/walking.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_elder_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shiba/elder/plain_robe/standing.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_elder_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shiba/elder/plain_robe/walking.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_elder_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shiba/elder/guild_uniform/standing.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_elder_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shiba/elder/guild_uniform/walking.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_elder_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shiba/elder/hermit_garb/standing.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shiba_elder_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shiba/elder/hermit_garb/walking.png",
+      "form": "dog",
+      "variety": "shiba"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shorthair/child/plain_robe/standing.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_child_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shorthair/child/plain_robe/walking.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shorthair/child/guild_uniform/standing.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_child_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shorthair/child/guild_uniform/walking.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shorthair/child/hermit_garb/standing.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_child_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shorthair/child/hermit_garb/walking.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
       "id": "animal_yao_dog_shorthair_youth_plain_robe_standing",
       "race": "animal_yao",
       "age_band": "youth",
@@ -177,6 +697,206 @@
       "file": "actors/animal_yao/dog/shorthair/youth/plain_robe/standing.png",
       "form": "dog",
       "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_youth_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shorthair/youth/plain_robe/walking.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shorthair/youth/guild_uniform/standing.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_youth_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shorthair/youth/guild_uniform/walking.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shorthair/youth/hermit_garb/standing.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_youth_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shorthair/youth/hermit_garb/walking.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_adult_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shorthair/adult/plain_robe/standing.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_adult_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shorthair/adult/plain_robe/walking.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_adult_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shorthair/adult/guild_uniform/standing.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_adult_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shorthair/adult/guild_uniform/walking.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_adult_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shorthair/adult/hermit_garb/standing.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_adult_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shorthair/adult/hermit_garb/walking.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_elder_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shorthair/elder/plain_robe/standing.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_elder_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shorthair/elder/plain_robe/walking.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_elder_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shorthair/elder/guild_uniform/standing.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_elder_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shorthair/elder/guild_uniform/walking.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_elder_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/dog/shorthair/elder/hermit_garb/standing.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_dog_shorthair_elder_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/dog/shorthair/elder/hermit_garb/walking.png",
+      "form": "dog",
+      "variety": "shorthair"
+    },
+    {
+      "id": "animal_yao_bull_water_buffalo_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/water_buffalo/child/plain_robe/standing.png",
+      "form": "bull",
+      "variety": "water_buffalo"
+    },
+    {
+      "id": "animal_yao_bull_water_buffalo_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/water_buffalo/child/guild_uniform/standing.png",
+      "form": "bull",
+      "variety": "water_buffalo"
+    },
+    {
+      "id": "animal_yao_bull_water_buffalo_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/water_buffalo/child/hermit_garb/standing.png",
+      "form": "bull",
+      "variety": "water_buffalo"
     },
     {
       "id": "animal_yao_bull_water_buffalo_youth_plain_robe_standing",
@@ -189,6 +909,86 @@
       "variety": "water_buffalo"
     },
     {
+      "id": "animal_yao_bull_water_buffalo_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/water_buffalo/youth/guild_uniform/standing.png",
+      "form": "bull",
+      "variety": "water_buffalo"
+    },
+    {
+      "id": "animal_yao_bull_water_buffalo_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/water_buffalo/youth/hermit_garb/standing.png",
+      "form": "bull",
+      "variety": "water_buffalo"
+    },
+    {
+      "id": "animal_yao_bull_water_buffalo_adult_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/water_buffalo/adult/plain_robe/standing.png",
+      "form": "bull",
+      "variety": "water_buffalo"
+    },
+    {
+      "id": "animal_yao_bull_water_buffalo_adult_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/water_buffalo/adult/guild_uniform/standing.png",
+      "form": "bull",
+      "variety": "water_buffalo"
+    },
+    {
+      "id": "animal_yao_bull_water_buffalo_adult_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/water_buffalo/adult/hermit_garb/standing.png",
+      "form": "bull",
+      "variety": "water_buffalo"
+    },
+    {
+      "id": "animal_yao_bull_ox_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/ox/child/plain_robe/standing.png",
+      "form": "bull",
+      "variety": "ox"
+    },
+    {
+      "id": "animal_yao_bull_ox_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/ox/child/guild_uniform/standing.png",
+      "form": "bull",
+      "variety": "ox"
+    },
+    {
+      "id": "animal_yao_bull_ox_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/ox/child/hermit_garb/standing.png",
+      "form": "bull",
+      "variety": "ox"
+    },
+    {
       "id": "animal_yao_bull_ox_youth_plain_robe_standing",
       "race": "animal_yao",
       "age_band": "youth",
@@ -197,6 +997,86 @@
       "file": "actors/animal_yao/bull/ox/youth/plain_robe/standing.png",
       "form": "bull",
       "variety": "ox"
+    },
+    {
+      "id": "animal_yao_bull_ox_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/ox/youth/guild_uniform/standing.png",
+      "form": "bull",
+      "variety": "ox"
+    },
+    {
+      "id": "animal_yao_bull_ox_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/ox/youth/hermit_garb/standing.png",
+      "form": "bull",
+      "variety": "ox"
+    },
+    {
+      "id": "animal_yao_bull_ox_adult_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/ox/adult/plain_robe/standing.png",
+      "form": "bull",
+      "variety": "ox"
+    },
+    {
+      "id": "animal_yao_bull_ox_adult_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/ox/adult/guild_uniform/standing.png",
+      "form": "bull",
+      "variety": "ox"
+    },
+    {
+      "id": "animal_yao_bull_ox_adult_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/bull/ox/adult/hermit_garb/standing.png",
+      "form": "bull",
+      "variety": "ox"
+    },
+    {
+      "id": "animal_yao_goat_mountain_goat_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/mountain_goat/child/plain_robe/standing.png",
+      "form": "goat",
+      "variety": "mountain_goat"
+    },
+    {
+      "id": "animal_yao_goat_mountain_goat_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/mountain_goat/child/guild_uniform/standing.png",
+      "form": "goat",
+      "variety": "mountain_goat"
+    },
+    {
+      "id": "animal_yao_goat_mountain_goat_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/mountain_goat/child/hermit_garb/standing.png",
+      "form": "goat",
+      "variety": "mountain_goat"
     },
     {
       "id": "animal_yao_goat_mountain_goat_youth_plain_robe_standing",
@@ -209,6 +1089,86 @@
       "variety": "mountain_goat"
     },
     {
+      "id": "animal_yao_goat_mountain_goat_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/mountain_goat/youth/guild_uniform/standing.png",
+      "form": "goat",
+      "variety": "mountain_goat"
+    },
+    {
+      "id": "animal_yao_goat_mountain_goat_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/mountain_goat/youth/hermit_garb/standing.png",
+      "form": "goat",
+      "variety": "mountain_goat"
+    },
+    {
+      "id": "animal_yao_goat_mountain_goat_adult_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/mountain_goat/adult/plain_robe/standing.png",
+      "form": "goat",
+      "variety": "mountain_goat"
+    },
+    {
+      "id": "animal_yao_goat_mountain_goat_adult_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/mountain_goat/adult/guild_uniform/standing.png",
+      "form": "goat",
+      "variety": "mountain_goat"
+    },
+    {
+      "id": "animal_yao_goat_mountain_goat_adult_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/mountain_goat/adult/hermit_garb/standing.png",
+      "form": "goat",
+      "variety": "mountain_goat"
+    },
+    {
+      "id": "animal_yao_goat_dairy_goat_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/dairy_goat/child/plain_robe/standing.png",
+      "form": "goat",
+      "variety": "dairy_goat"
+    },
+    {
+      "id": "animal_yao_goat_dairy_goat_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/dairy_goat/child/guild_uniform/standing.png",
+      "form": "goat",
+      "variety": "dairy_goat"
+    },
+    {
+      "id": "animal_yao_goat_dairy_goat_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/dairy_goat/child/hermit_garb/standing.png",
+      "form": "goat",
+      "variety": "dairy_goat"
+    },
+    {
       "id": "animal_yao_goat_dairy_goat_youth_plain_robe_standing",
       "race": "animal_yao",
       "age_band": "youth",
@@ -217,6 +1177,86 @@
       "file": "actors/animal_yao/goat/dairy_goat/youth/plain_robe/standing.png",
       "form": "goat",
       "variety": "dairy_goat"
+    },
+    {
+      "id": "animal_yao_goat_dairy_goat_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/dairy_goat/youth/guild_uniform/standing.png",
+      "form": "goat",
+      "variety": "dairy_goat"
+    },
+    {
+      "id": "animal_yao_goat_dairy_goat_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/dairy_goat/youth/hermit_garb/standing.png",
+      "form": "goat",
+      "variety": "dairy_goat"
+    },
+    {
+      "id": "animal_yao_goat_dairy_goat_adult_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/dairy_goat/adult/plain_robe/standing.png",
+      "form": "goat",
+      "variety": "dairy_goat"
+    },
+    {
+      "id": "animal_yao_goat_dairy_goat_adult_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/dairy_goat/adult/guild_uniform/standing.png",
+      "form": "goat",
+      "variety": "dairy_goat"
+    },
+    {
+      "id": "animal_yao_goat_dairy_goat_adult_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/goat/dairy_goat/adult/hermit_garb/standing.png",
+      "form": "goat",
+      "variety": "dairy_goat"
+    },
+    {
+      "id": "plant_yao_flower_peony_child_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peony/child/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "peony"
+    },
+    {
+      "id": "plant_yao_flower_peony_child_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peony/child/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "peony"
+    },
+    {
+      "id": "plant_yao_flower_peony_child_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peony/child/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "peony"
     },
     {
       "id": "plant_yao_flower_peony_youth_plain_robe_standing",
@@ -229,6 +1269,86 @@
       "variety": "peony"
     },
     {
+      "id": "plant_yao_flower_peony_youth_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peony/youth/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "peony"
+    },
+    {
+      "id": "plant_yao_flower_peony_youth_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peony/youth/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "peony"
+    },
+    {
+      "id": "plant_yao_flower_peony_adult_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peony/adult/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "peony"
+    },
+    {
+      "id": "plant_yao_flower_peony_adult_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peony/adult/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "peony"
+    },
+    {
+      "id": "plant_yao_flower_peony_adult_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peony/adult/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "peony"
+    },
+    {
+      "id": "plant_yao_flower_peach_blossom_child_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peach_blossom/child/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "peach_blossom"
+    },
+    {
+      "id": "plant_yao_flower_peach_blossom_child_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peach_blossom/child/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "peach_blossom"
+    },
+    {
+      "id": "plant_yao_flower_peach_blossom_child_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peach_blossom/child/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "peach_blossom"
+    },
+    {
       "id": "plant_yao_flower_peach_blossom_youth_plain_robe_standing",
       "race": "plant_yao",
       "age_band": "youth",
@@ -237,6 +1357,86 @@
       "file": "actors/plant_yao/flower/peach_blossom/youth/plain_robe/standing.png",
       "form": "flower",
       "variety": "peach_blossom"
+    },
+    {
+      "id": "plant_yao_flower_peach_blossom_youth_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peach_blossom/youth/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "peach_blossom"
+    },
+    {
+      "id": "plant_yao_flower_peach_blossom_youth_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peach_blossom/youth/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "peach_blossom"
+    },
+    {
+      "id": "plant_yao_flower_peach_blossom_adult_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peach_blossom/adult/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "peach_blossom"
+    },
+    {
+      "id": "plant_yao_flower_peach_blossom_adult_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peach_blossom/adult/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "peach_blossom"
+    },
+    {
+      "id": "plant_yao_flower_peach_blossom_adult_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/peach_blossom/adult/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "peach_blossom"
+    },
+    {
+      "id": "plant_yao_flower_orchid_child_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/orchid/child/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "orchid"
+    },
+    {
+      "id": "plant_yao_flower_orchid_child_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/orchid/child/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "orchid"
+    },
+    {
+      "id": "plant_yao_flower_orchid_child_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/orchid/child/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "orchid"
     },
     {
       "id": "plant_yao_flower_orchid_youth_plain_robe_standing",
@@ -249,6 +1449,86 @@
       "variety": "orchid"
     },
     {
+      "id": "plant_yao_flower_orchid_youth_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/orchid/youth/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "orchid"
+    },
+    {
+      "id": "plant_yao_flower_orchid_youth_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/orchid/youth/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "orchid"
+    },
+    {
+      "id": "plant_yao_flower_orchid_adult_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/orchid/adult/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "orchid"
+    },
+    {
+      "id": "plant_yao_flower_orchid_adult_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/orchid/adult/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "orchid"
+    },
+    {
+      "id": "plant_yao_flower_orchid_adult_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/orchid/adult/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "orchid"
+    },
+    {
+      "id": "plant_yao_flower_epiphyllum_child_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/epiphyllum/child/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "epiphyllum"
+    },
+    {
+      "id": "plant_yao_flower_epiphyllum_child_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/epiphyllum/child/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "epiphyllum"
+    },
+    {
+      "id": "plant_yao_flower_epiphyllum_child_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/epiphyllum/child/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "epiphyllum"
+    },
+    {
       "id": "plant_yao_flower_epiphyllum_youth_plain_robe_standing",
       "race": "plant_yao",
       "age_band": "youth",
@@ -257,6 +1537,86 @@
       "file": "actors/plant_yao/flower/epiphyllum/youth/plain_robe/standing.png",
       "form": "flower",
       "variety": "epiphyllum"
+    },
+    {
+      "id": "plant_yao_flower_epiphyllum_youth_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/epiphyllum/youth/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "epiphyllum"
+    },
+    {
+      "id": "plant_yao_flower_epiphyllum_youth_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/epiphyllum/youth/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "epiphyllum"
+    },
+    {
+      "id": "plant_yao_flower_epiphyllum_adult_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/epiphyllum/adult/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "epiphyllum"
+    },
+    {
+      "id": "plant_yao_flower_epiphyllum_adult_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/epiphyllum/adult/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "epiphyllum"
+    },
+    {
+      "id": "plant_yao_flower_epiphyllum_adult_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/epiphyllum/adult/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "epiphyllum"
+    },
+    {
+      "id": "plant_yao_flower_moonveil_child_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/moonveil/child/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "moonveil"
+    },
+    {
+      "id": "plant_yao_flower_moonveil_child_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/moonveil/child/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "moonveil"
+    },
+    {
+      "id": "plant_yao_flower_moonveil_child_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/moonveil/child/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "moonveil"
     },
     {
       "id": "plant_yao_flower_moonveil_youth_plain_robe_standing",
@@ -269,6 +1629,86 @@
       "variety": "moonveil"
     },
     {
+      "id": "plant_yao_flower_moonveil_youth_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/moonveil/youth/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "moonveil"
+    },
+    {
+      "id": "plant_yao_flower_moonveil_youth_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/moonveil/youth/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "moonveil"
+    },
+    {
+      "id": "plant_yao_flower_moonveil_adult_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/moonveil/adult/plain_robe/standing.png",
+      "form": "flower",
+      "variety": "moonveil"
+    },
+    {
+      "id": "plant_yao_flower_moonveil_adult_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/moonveil/adult/guild_uniform/standing.png",
+      "form": "flower",
+      "variety": "moonveil"
+    },
+    {
+      "id": "plant_yao_flower_moonveil_adult_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/flower/moonveil/adult/hermit_garb/standing.png",
+      "form": "flower",
+      "variety": "moonveil"
+    },
+    {
+      "id": "plant_yao_grass_mugwort_child_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mugwort/child/plain_robe/standing.png",
+      "form": "grass",
+      "variety": "mugwort"
+    },
+    {
+      "id": "plant_yao_grass_mugwort_child_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mugwort/child/guild_uniform/standing.png",
+      "form": "grass",
+      "variety": "mugwort"
+    },
+    {
+      "id": "plant_yao_grass_mugwort_child_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mugwort/child/hermit_garb/standing.png",
+      "form": "grass",
+      "variety": "mugwort"
+    },
+    {
       "id": "plant_yao_grass_mugwort_youth_plain_robe_standing",
       "race": "plant_yao",
       "age_band": "youth",
@@ -277,6 +1717,86 @@
       "file": "actors/plant_yao/grass/mugwort/youth/plain_robe/standing.png",
       "form": "grass",
       "variety": "mugwort"
+    },
+    {
+      "id": "plant_yao_grass_mugwort_youth_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mugwort/youth/guild_uniform/standing.png",
+      "form": "grass",
+      "variety": "mugwort"
+    },
+    {
+      "id": "plant_yao_grass_mugwort_youth_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mugwort/youth/hermit_garb/standing.png",
+      "form": "grass",
+      "variety": "mugwort"
+    },
+    {
+      "id": "plant_yao_grass_mugwort_adult_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mugwort/adult/plain_robe/standing.png",
+      "form": "grass",
+      "variety": "mugwort"
+    },
+    {
+      "id": "plant_yao_grass_mugwort_adult_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mugwort/adult/guild_uniform/standing.png",
+      "form": "grass",
+      "variety": "mugwort"
+    },
+    {
+      "id": "plant_yao_grass_mugwort_adult_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mugwort/adult/hermit_garb/standing.png",
+      "form": "grass",
+      "variety": "mugwort"
+    },
+    {
+      "id": "plant_yao_grass_mimosa_child_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mimosa/child/plain_robe/standing.png",
+      "form": "grass",
+      "variety": "mimosa"
+    },
+    {
+      "id": "plant_yao_grass_mimosa_child_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mimosa/child/guild_uniform/standing.png",
+      "form": "grass",
+      "variety": "mimosa"
+    },
+    {
+      "id": "plant_yao_grass_mimosa_child_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mimosa/child/hermit_garb/standing.png",
+      "form": "grass",
+      "variety": "mimosa"
     },
     {
       "id": "plant_yao_grass_mimosa_youth_plain_robe_standing",
@@ -289,6 +1809,86 @@
       "variety": "mimosa"
     },
     {
+      "id": "plant_yao_grass_mimosa_youth_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mimosa/youth/guild_uniform/standing.png",
+      "form": "grass",
+      "variety": "mimosa"
+    },
+    {
+      "id": "plant_yao_grass_mimosa_youth_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mimosa/youth/hermit_garb/standing.png",
+      "form": "grass",
+      "variety": "mimosa"
+    },
+    {
+      "id": "plant_yao_grass_mimosa_adult_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mimosa/adult/plain_robe/standing.png",
+      "form": "grass",
+      "variety": "mimosa"
+    },
+    {
+      "id": "plant_yao_grass_mimosa_adult_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mimosa/adult/guild_uniform/standing.png",
+      "form": "grass",
+      "variety": "mimosa"
+    },
+    {
+      "id": "plant_yao_grass_mimosa_adult_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/mimosa/adult/hermit_garb/standing.png",
+      "form": "grass",
+      "variety": "mimosa"
+    },
+    {
+      "id": "plant_yao_grass_reed_child_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/reed/child/plain_robe/standing.png",
+      "form": "grass",
+      "variety": "reed"
+    },
+    {
+      "id": "plant_yao_grass_reed_child_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/reed/child/guild_uniform/standing.png",
+      "form": "grass",
+      "variety": "reed"
+    },
+    {
+      "id": "plant_yao_grass_reed_child_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/reed/child/hermit_garb/standing.png",
+      "form": "grass",
+      "variety": "reed"
+    },
+    {
       "id": "plant_yao_grass_reed_youth_plain_robe_standing",
       "race": "plant_yao",
       "age_band": "youth",
@@ -297,6 +1897,86 @@
       "file": "actors/plant_yao/grass/reed/youth/plain_robe/standing.png",
       "form": "grass",
       "variety": "reed"
+    },
+    {
+      "id": "plant_yao_grass_reed_youth_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/reed/youth/guild_uniform/standing.png",
+      "form": "grass",
+      "variety": "reed"
+    },
+    {
+      "id": "plant_yao_grass_reed_youth_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/reed/youth/hermit_garb/standing.png",
+      "form": "grass",
+      "variety": "reed"
+    },
+    {
+      "id": "plant_yao_grass_reed_adult_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/reed/adult/plain_robe/standing.png",
+      "form": "grass",
+      "variety": "reed"
+    },
+    {
+      "id": "plant_yao_grass_reed_adult_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/reed/adult/guild_uniform/standing.png",
+      "form": "grass",
+      "variety": "reed"
+    },
+    {
+      "id": "plant_yao_grass_reed_adult_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/grass/reed/adult/hermit_garb/standing.png",
+      "form": "grass",
+      "variety": "reed"
+    },
+    {
+      "id": "plant_yao_tree_pine_child_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/pine/child/plain_robe/standing.png",
+      "form": "tree",
+      "variety": "pine"
+    },
+    {
+      "id": "plant_yao_tree_pine_child_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/pine/child/guild_uniform/standing.png",
+      "form": "tree",
+      "variety": "pine"
+    },
+    {
+      "id": "plant_yao_tree_pine_child_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/pine/child/hermit_garb/standing.png",
+      "form": "tree",
+      "variety": "pine"
     },
     {
       "id": "plant_yao_tree_pine_youth_plain_robe_standing",
@@ -309,6 +1989,86 @@
       "variety": "pine"
     },
     {
+      "id": "plant_yao_tree_pine_youth_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/pine/youth/guild_uniform/standing.png",
+      "form": "tree",
+      "variety": "pine"
+    },
+    {
+      "id": "plant_yao_tree_pine_youth_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/pine/youth/hermit_garb/standing.png",
+      "form": "tree",
+      "variety": "pine"
+    },
+    {
+      "id": "plant_yao_tree_pine_adult_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/pine/adult/plain_robe/standing.png",
+      "form": "tree",
+      "variety": "pine"
+    },
+    {
+      "id": "plant_yao_tree_pine_adult_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/pine/adult/guild_uniform/standing.png",
+      "form": "tree",
+      "variety": "pine"
+    },
+    {
+      "id": "plant_yao_tree_pine_adult_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/pine/adult/hermit_garb/standing.png",
+      "form": "tree",
+      "variety": "pine"
+    },
+    {
+      "id": "plant_yao_tree_ginkgo_child_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/ginkgo/child/plain_robe/standing.png",
+      "form": "tree",
+      "variety": "ginkgo"
+    },
+    {
+      "id": "plant_yao_tree_ginkgo_child_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/ginkgo/child/guild_uniform/standing.png",
+      "form": "tree",
+      "variety": "ginkgo"
+    },
+    {
+      "id": "plant_yao_tree_ginkgo_child_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/ginkgo/child/hermit_garb/standing.png",
+      "form": "tree",
+      "variety": "ginkgo"
+    },
+    {
       "id": "plant_yao_tree_ginkgo_youth_plain_robe_standing",
       "race": "plant_yao",
       "age_band": "youth",
@@ -319,12 +2079,142 @@
       "variety": "ginkgo"
     },
     {
+      "id": "plant_yao_tree_ginkgo_youth_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/ginkgo/youth/guild_uniform/standing.png",
+      "form": "tree",
+      "variety": "ginkgo"
+    },
+    {
+      "id": "plant_yao_tree_ginkgo_youth_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/ginkgo/youth/hermit_garb/standing.png",
+      "form": "tree",
+      "variety": "ginkgo"
+    },
+    {
+      "id": "plant_yao_tree_ginkgo_adult_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/ginkgo/adult/plain_robe/standing.png",
+      "form": "tree",
+      "variety": "ginkgo"
+    },
+    {
+      "id": "plant_yao_tree_ginkgo_adult_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/ginkgo/adult/guild_uniform/standing.png",
+      "form": "tree",
+      "variety": "ginkgo"
+    },
+    {
+      "id": "plant_yao_tree_ginkgo_adult_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/ginkgo/adult/hermit_garb/standing.png",
+      "form": "tree",
+      "variety": "ginkgo"
+    },
+    {
+      "id": "plant_yao_tree_locust_child_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/locust/child/plain_robe/standing.png",
+      "form": "tree",
+      "variety": "locust"
+    },
+    {
+      "id": "plant_yao_tree_locust_child_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/locust/child/guild_uniform/standing.png",
+      "form": "tree",
+      "variety": "locust"
+    },
+    {
+      "id": "plant_yao_tree_locust_child_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/locust/child/hermit_garb/standing.png",
+      "form": "tree",
+      "variety": "locust"
+    },
+    {
       "id": "plant_yao_tree_locust_youth_plain_robe_standing",
       "race": "plant_yao",
       "age_band": "youth",
       "outfit": "plain_robe",
       "pose": "standing",
       "file": "actors/plant_yao/tree/locust/youth/plain_robe/standing.png",
+      "form": "tree",
+      "variety": "locust"
+    },
+    {
+      "id": "plant_yao_tree_locust_youth_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/locust/youth/guild_uniform/standing.png",
+      "form": "tree",
+      "variety": "locust"
+    },
+    {
+      "id": "plant_yao_tree_locust_youth_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/locust/youth/hermit_garb/standing.png",
+      "form": "tree",
+      "variety": "locust"
+    },
+    {
+      "id": "plant_yao_tree_locust_adult_plain_robe_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/locust/adult/plain_robe/standing.png",
+      "form": "tree",
+      "variety": "locust"
+    },
+    {
+      "id": "plant_yao_tree_locust_adult_guild_uniform_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/locust/adult/guild_uniform/standing.png",
+      "form": "tree",
+      "variety": "locust"
+    },
+    {
+      "id": "plant_yao_tree_locust_adult_hermit_garb_standing",
+      "race": "plant_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/plant_yao/tree/locust/adult/hermit_garb/standing.png",
       "form": "tree",
       "variety": "locust"
     },
@@ -379,12 +2269,84 @@
       "variety": "firefly_glow"
     },
     {
+      "id": "painted_yao_paper_creature_child_plain_robe_standing",
+      "race": "painted_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/painted_yao/paper_creature/child/plain_robe/standing.png",
+      "form": "paper_creature"
+    },
+    {
+      "id": "painted_yao_paper_creature_child_guild_uniform_standing",
+      "race": "painted_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/painted_yao/paper_creature/child/guild_uniform/standing.png",
+      "form": "paper_creature"
+    },
+    {
+      "id": "painted_yao_paper_creature_child_hermit_garb_standing",
+      "race": "painted_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/painted_yao/paper_creature/child/hermit_garb/standing.png",
+      "form": "paper_creature"
+    },
+    {
       "id": "painted_yao_paper_creature_youth_plain_robe_standing",
       "race": "painted_yao",
       "age_band": "youth",
       "outfit": "plain_robe",
       "pose": "standing",
       "file": "actors/painted_yao/paper_creature/youth/plain_robe/standing.png",
+      "form": "paper_creature"
+    },
+    {
+      "id": "painted_yao_paper_creature_youth_guild_uniform_standing",
+      "race": "painted_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/painted_yao/paper_creature/youth/guild_uniform/standing.png",
+      "form": "paper_creature"
+    },
+    {
+      "id": "painted_yao_paper_creature_youth_hermit_garb_standing",
+      "race": "painted_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/painted_yao/paper_creature/youth/hermit_garb/standing.png",
+      "form": "paper_creature"
+    },
+    {
+      "id": "painted_yao_paper_creature_adult_plain_robe_standing",
+      "race": "painted_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/painted_yao/paper_creature/adult/plain_robe/standing.png",
+      "form": "paper_creature"
+    },
+    {
+      "id": "painted_yao_paper_creature_adult_guild_uniform_standing",
+      "race": "painted_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/painted_yao/paper_creature/adult/guild_uniform/standing.png",
+      "form": "paper_creature"
+    },
+    {
+      "id": "painted_yao_paper_creature_adult_hermit_garb_standing",
+      "race": "painted_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/painted_yao/paper_creature/adult/hermit_garb/standing.png",
       "form": "paper_creature"
     }
   ],
