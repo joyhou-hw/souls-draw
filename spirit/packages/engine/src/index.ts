@@ -12,7 +12,14 @@ export {
 } from './engine.ts';
 export { generateBirth, birthFlags, resolveShenglingP, SPIRIT_DENSITY_BONUS } from './birth.ts';
 export { runBatch, statsToCsv, type RunBatchOptions } from './batch.ts';
-export { NarrativeRenderer, buildSlotContext, renderText, type SlotContext } from './narrative.ts';
+export {
+  NarrativeRenderer,
+  buildSlotContext,
+  renderText,
+  renderLifeLog,
+  type SlotContext,
+  type RenderedLogLine,
+} from './narrative.ts';
 export type {
   Attrs,
   AttrCond,

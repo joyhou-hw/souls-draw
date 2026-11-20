@@ -258,4 +258,6 @@ export interface LifeResult {
   deathCause: string;
   birth?: BirthOutcome;
   pausedChoice?: Choice;
+  /** 暂停抉择对应的事件 id——供叙事层渲染 prompt */
+  pausedEventId?: string;
 }

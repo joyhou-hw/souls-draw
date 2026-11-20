@@ -76,7 +76,7 @@ const baseSlots = {
   niche: { guild_servant: '会馆杂役' },
 };
 
-test('T4.5 variety 确定性——同 seed 同 variety', () => {
+test('品种轴 variety 确定性——同 seed 同 variety', () => {
   const world = makeWorldWithVariety();
   const s = 12345;
   const b1 = generateBirth(world, createRng(s));
@@ -87,7 +87,7 @@ test('T4.5 variety 确定性——同 seed 同 variety', () => {
   assert.equal(b1.region, b2.region);
 });
 
-test('T4.5 variety 随 seed 变化——不同 seed 可能产出不同 variety', () => {
+test('品种轴 variety 随 seed 变化——不同 seed 可能产出不同 variety', () => {
   const world = makeWorldWithVariety();
   const seen = new Set<string>();
   for (let s = 0; s < 200; s++) {
@@ -98,7 +98,7 @@ test('T4.5 variety 随 seed 变化——不同 seed 可能产出不同 variety',
   assert.ok(seen.size >= 3, `200 次应至少见到 3 个不同猫品种，实际 ${seen.size}：${[...seen].join(',')}`);
 });
 
-test('T4.5 variety render_only——不进 birthFlags', () => {
+test('品种轴 variety render_only——不进 birthFlags', () => {
   const b1 = makeBirth({ variety: 'orange_cat' });
   const b2 = makeBirth({ variety: 'black_cat' });
   const f1 = birthFlags(b1);
@@ -108,7 +108,7 @@ test('T4.5 variety render_only——不进 birthFlags', () => {
   assert.ok(!f1.some((f) => f.includes('variety')), 'birthFlags 不应包含 variety');
 });
 
-test('T4.5 variety render_only——有/无 speciesVariety 事件流完全一致', () => {
+test('品种轴 variety render_only——有/无 speciesVariety 事件流完全一致', () => {
   const narr: Narratives = {
     version: 1,
     slots: baseSlots,
@@ -142,14 +142,14 @@ test('T4.5 variety render_only——有/无 speciesVariety 事件流完全一致
   }
 });
 
-test('T4.5 variety 槽位呈现——{variety} 替换为中文', () => {
+test('品种轴 variety 槽位呈现——{variety} 替换为中文', () => {
   const text = '一只{variety}{species}在{place}出没。';
   const ctx = buildSlotContext(makeBirth({ variety: 'orange_cat' }))!;
   const out = renderText(text, ctx, baseSlots);
   assert.equal(out, '一只橘猫猫妖在森林出没。');
 });
 
-test('T4.5 variety 槽位缺省——slots 无 variety 块时回退原始枚举值', () => {
+test('品种轴 variety 槽位缺省——slots 无 variety 块时回退原始枚举值', () => {
   const text = '一只{variety}走过。';
   const ctx = buildSlotContext(makeBirth({ variety: 'moonveil' }))!;
   const slotsNoVariety = {
@@ -162,7 +162,7 @@ test('T4.5 variety 槽位缺省——slots 无 variety 块时回退原始枚举�
   assert.equal(out, '一只moonveil走过。');
 });
 
-test('T4.5 variety 缺省——species 无品种池时 variety 为 undefined', () => {
+test('品种轴 variety 缺省——species 无品种池时 variety 为 undefined', () => {
   const world = makeWorldWithVariety();
   // paper_creature 在 speciesPrototype 但 speciesVariety 无对应池
   (world.birthForm as { speciesPrototype: Record<string, string[]> }).speciesPrototype = {
@@ -173,7 +173,7 @@ test('T4.5 variety 缺省——species 无品种池时 variety 为 undefined', (
   assert.equal(b.variety, undefined, '无品种池的 species，variety 应为 undefined');
 });
 
-test('T4.5 variety 出生 label——含 species+variety', () => {
+test('品种轴 variety 出生 label——含 species+variety', () => {
   const world = makeWorldWithVariety();
   // 多次跑直到拿到带 variety 的出生
   let found = false;
@@ -190,7 +190,7 @@ test('T4.5 variety 出生 label——含 species+variety', () => {
   assert.ok(found, '100 次内应至少一次出生带 variety');
 });
 
-test('T4.5 variety 凝形 label——含 species+variety', () => {
+test('品种轴 variety 凝形 label——含 species+variety', () => {
   const world = makeWorldWithVariety();
   let found = false;
   for (let s = 0; s < 100; s++) {

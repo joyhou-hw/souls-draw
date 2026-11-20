@@ -1,4 +1,5 @@
 import { hashLife } from '../../../engine/src/engine.ts';
+import { NarrativeRenderer, renderLifeLog, type RenderedLogLine } from '../../../engine/src/narrative.ts';
 import type { LifeResult } from '../../../engine/src/types.ts';
 import { runSegment } from '../game.ts';
 import { world, worldMilestones } from '../world.ts';
@@ -31,6 +32,23 @@ interface LifeUiState {
 }
 
 const state: LifeUiState = { seed: null, picked: [], pointer: 0, result: null, review: false };
+
+/** 叙事渲染缓存——同一 LifeResult 只渲染一次（renderLifeLog 本身确定性） */
+let renderMemo: { result: LifeResult; lines: RenderedLogLine[] } | null = null;
+
+function narrativeLines(r: LifeResult): RenderedLogLine[] {
+  if (renderMemo?.result !== r) {
+    renderMemo = { result: r, lines: renderLifeLog(world, r) };
+  }
+  return renderMemo.lines;
+}
+
+/** 出生形态呈现——形态 + 品种 + 生态位 */
+function formText(form: string, species?: string, variety?: string, niche?: string): string {
+  const label = FORM_LABELS[form] ?? form;
+  const detail = [species, variety, niche].filter(Boolean).join(' · ');
+  return detail ? `${label} · ${detail}` : label;
+}
 
 let importOpen = false;
 let shareOpen = false;
@@ -180,9 +198,8 @@ function buildBirthCard(): HTMLElement {
   card.append(h3);
   const b = state.result?.birth;
   if (!b) return card;
-  const form = FORM_LABELS[b.form] ?? b.form;
   const rows: Array<[string, string]> = [
-    ['形态', `${form}${b.species ? ` · ${b.species}` : ''}${b.niche ? ` · ${b.niche}` : ''}`],
+    ['形态', formText(b.form, b.species, b.variety, b.niche)],
     ['降生之地', `${b.region} · ${b.era}`],
   ];
   if (b.lixi) rows.push(['灵系显性', b.dualLixi ? `${b.lixi}（双灵质）` : b.lixi]);
@@ -240,21 +257,27 @@ function buildAttrsBar(r: LifeResult): HTMLElement {
 
 function buildLogStream(r: LifeResult): HTMLElement {
   const stream = el('div', 'log-stream');
-  const shown = r.log.slice(0, state.pointer);
-  for (const entry of shown) {
-    const line = el('div', 'log-line');
-    if (worldMilestones.includes(entry.eventId)) line.classList.add('milestone');
+  const shown = narrativeLines(r).slice(0, state.pointer);
+  for (const line of shown) {
+    const row = el('div', 'log-line');
+    if (worldMilestones.includes(line.eventId)) row.classList.add('milestone');
+    if (line.isPrompt) row.classList.add('prompt');
     const age = el('span', 'age');
-    age.textContent = `${entry.tick}岁`;
+    age.textContent = `${line.tick}岁`;
     const text = el('span');
-    text.textContent = entry.label;
-    if (entry.choice) {
+    text.textContent = line.isPrompt ? `❈ ${line.text}` : line.text;
+    if (line.picked) {
       const pick = el('span', 'picked');
-      pick.textContent = `（抉择：${entry.choice.picked}）`;
+      pick.textContent = `（抉择：${line.picked}）`;
       text.append(pick);
     }
-    line.append(age, text);
-    stream.append(line);
+    row.append(age, text);
+    if (line.caption) {
+      const cap = el('span', 'milestone-caption');
+      cap.textContent = `〔${line.caption}〕`;
+      row.append(cap);
+    }
+    stream.append(row);
   }
   const remain = r.log.length - state.pointer;
   if (remain > 0) {
@@ -309,7 +332,11 @@ function buildChoiceCard(r: LifeResult): HTMLElement {
   const choice = r.pausedChoice!;
   const card = el('div', 'choice-card');
   const prompt = el('p', 'choice-prompt');
-  prompt.textContent = choice.prompt;
+  // 抉择点优先用叙事库 prompt（含槽位），缺失时回退世界原文
+  const narratedPrompt = r.pausedEventId
+    ? new NarrativeRenderer(world, r.birth).renderPrompt(r.pausedEventId, r.state)
+    : undefined;
+  prompt.textContent = narratedPrompt ?? choice.prompt;
   card.append(prompt);
   choice.options.forEach((opt, idx) => {
     const btn = el('button', 'choice-opt');
@@ -387,7 +414,7 @@ function buildShareText(r: LifeResult): string {
   const lines: string[] = ['【生灵引 · 罗小黑世界】一签一命'];
   const b = r.birth;
   if (b) {
-    lines.push(`命签 #${state.seed} · ${FORM_LABELS[b.form] ?? b.form}${b.species ? ` · ${b.species}` : ''}`);
+    lines.push(`命签 #${state.seed} · ${formText(b.form, b.species, b.variety, b.niche)}`);
     lines.push(`生于 ${b.region} · ${b.era}`);
   }
   const finalTick = r.deathTick ?? r.state.tick;
@@ -447,15 +474,18 @@ function buildReviewCard(): HTMLElement {
   const b = r.birth;
   if (b) {
     const sub = el('p', 'muted');
-    sub.textContent = `生于 ${b.region} · ${b.era}，${FORM_LABELS[b.form] ?? b.form}${b.species ? ` · ${b.species}` : ''}，共历 ${r.log.length} 段岁月`;
+    sub.textContent = `生于 ${b.region} · ${b.era}，${formText(b.form, b.species, b.variety, b.niche)}，共历 ${r.log.length} 段岁月`;
     card.append(sub);
   }
   const decades = new Map<number, string[]>();
-  for (const entry of r.log) {
-    const dec = Math.floor(entry.tick / 10) * 10;
-    const text = worldMilestones.includes(entry.eventId) ? `★ ${entry.label}` : entry.label;
+  for (const line of narrativeLines(r)) {
+    const dec = Math.floor(line.tick / 10) * 10;
+    let text = line.isPrompt ? `❈ ${line.text}` : line.text;
+    if (worldMilestones.includes(line.eventId)) text = `★ ${text}`;
+    if (line.caption) text += `〔${line.caption}〕`;
+    if (line.picked) text += `（抉择：${line.picked}）`;
     const list = decades.get(dec) ?? [];
-    list.push(`${entry.tick}岁 ${text}${entry.choice ? `（抉择：${entry.choice.picked}）` : ''}`);
+    list.push(`${line.tick}岁 ${text}`);
     decades.set(dec, list);
   }
   for (const dec of [...decades.keys()].sort((a, b2) => a - b2)) {

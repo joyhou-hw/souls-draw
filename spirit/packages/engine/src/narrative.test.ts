@@ -1,8 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createRng } from './rng.ts';
-import { NarrativeRenderer, buildSlotContext, renderText } from './narrative.ts';
-import type { BirthOutcome, Narratives, World } from './types.ts';
+import { NarrativeRenderer, buildSlotContext, renderLifeLog, renderText } from './narrative.ts';
+import type { BirthOutcome, LifeResult, Narratives, World } from './types.ts';
 
 function makeBirth(over: Partial<BirthOutcome> = {}): BirthOutcome {
   return {
@@ -223,4 +223,85 @@ test('T3.2 无 narratives 配置时安全降级——返回 undefined', () => {
   const state = { tick: 1, alive: true, attrs: {}, flags: [], shifts: {} };
   assert.equal(renderer.renderEvent('quiet', state, createRng(1)), undefined);
   assert.equal(renderer.renderPrompt('choice_evt', state), undefined);
+});
+
+function makeLifeResult(world: World, over: Partial<LifeResult> = {}): LifeResult {
+  return {
+    world: world.name,
+    seed: 42,
+    state: { tick: 3, alive: true, attrs: {}, flags: [], shifts: {} },
+    log: [
+      { tick: 1, eventId: 'quiet', label: '平静' },
+      { tick: 2, eventId: 'choice_evt', label: '抉择', choice: { prompt: '选吗？', picked: '是' } },
+      { tick: 3, eventId: 'breakthrough', label: '突破' },
+    ],
+    deathTick: null,
+    deathCause: 'alive_end',
+    birth: makeBirth(),
+    ...over,
+  };
+}
+
+function makeRenderWorld(): World {
+  const narr: Narratives = {
+    version: 1,
+    slots: baseSlots,
+    openers: [{ id: 'op_01', text: '{place}的雨季，' }],
+    closers: [{ id: 'cl_01', text: '这一年就这么过去了。' }],
+    events: {
+      quiet: { fallback: [{ id: 'qy_f_01', text: '你在{place}过了平静的一年。' }] },
+      choice_evt: { prompt: '{place}的岔路口，往哪边走？' },
+      breakthrough: { fallback: [{ id: 'bt_f_01', text: '修为有一次小小的跃升。' }] },
+    },
+    milestones: { breakthrough: [{ id: 'bt_m_01', text: '第一次触到{niche}的门槛。' }] },
+  };
+  const world = makeWorld(narr);
+  world.narrativeFeed = { rule: 'test', trigger: 'test', milestones: ['breakthrough'] };
+  return world;
+}
+
+test('renderLifeLog 确定性——同 seed 重复渲染逐字一致', () => {
+  const world = makeRenderWorld();
+  const result = makeLifeResult(world);
+  assert.deepEqual(renderLifeLog(world, result), renderLifeLog(world, result));
+});
+
+test('renderLifeLog 铁律 render_only——不回写人生结果', () => {
+  const world = makeRenderWorld();
+  const result = makeLifeResult(world);
+  const before = JSON.stringify(result);
+  renderLifeLog(world, result);
+  assert.equal(JSON.stringify(result), before, '渲染不得改动 LifeResult');
+});
+
+test('renderLifeLog 优先级——prompt > 事件叙事 > 原始 label', () => {
+  const world = makeRenderWorld();
+  const lines = renderLifeLog(world, makeLifeResult(world));
+  assert.equal(lines.length, 3);
+  // 普通事件：走叙事库
+  assert.ok(lines[0]!.text.includes('森林'), `应渲染槽位，got: ${lines[0]!.text}`);
+  assert.equal(lines[0]!.isPrompt, false);
+  // 抉择事件：prompt 优先
+  assert.equal(lines[1]!.isPrompt, true);
+  assert.ok(lines[1]!.text.includes('岔路口'), `prompt 优先，got: ${lines[1]!.text}`);
+  assert.equal(lines[1]!.picked, '是');
+  // 普通事件无题注
+  assert.equal(lines[0]!.caption, undefined);
+});
+
+test('renderLifeLog 里程碑——命中 narrativeFeed.milestones 时带题注', () => {
+  const world = makeRenderWorld();
+  const lines = renderLifeLog(world, makeLifeResult(world));
+  const bt = lines[2]!;
+  assert.ok(bt.caption, '里程碑事件应有题注');
+  assert.ok(bt.caption!.includes('会馆杂役'), `题注槽位应替换，got: ${bt.caption}`);
+  assert.ok(bt.text.includes('跃升'), '主文本仍保留事件叙事');
+});
+
+test('renderLifeLog 降级——无 narratives 时回退原始 label', () => {
+  const world = makeWorld({ version: 1 });
+  const lines = renderLifeLog(world, makeLifeResult(world));
+  assert.deepEqual(lines.map((l) => l.text), ['平静', '抉择', '突破']);
+  assert.deepEqual(lines.map((l) => l.isPrompt), [false, false, false]);
+  assert.ok(lines.every((l) => l.caption === undefined));
 });

@@ -11,7 +11,9 @@
  */
 import type {
   BirthOutcome,
+  EventEffects,
   EventNarratives,
+  LifeResult,
   NarrativeBucket,
   NarrativeVariant,
   Narratives,
@@ -20,7 +22,7 @@ import type {
   World,
 } from './types.ts';
 import { NARRATIVE_SLOTS } from './types.ts';
-import type { Rng } from './rng.ts';
+import { createRng, type Rng } from './rng.ts';
 
 const SLOT_RE = /\{([a-z_]+)\}/g;
 
@@ -213,4 +215,57 @@ export class NarrativeRenderer {
     }
     return result;
   }
+}
+
+/** 一条渲染后的人生日志——CLI 与 Web 共用同一份呈现数据 */
+export interface RenderedLogLine {
+  tick: number;
+  eventId: string;
+  /** 主文本：抉择 prompt > 事件叙事 > 原始 label（叙事库缺省时降级） */
+  text: string;
+  /** 该条是否为抉择提示语（prompt 优先渲染） */
+  isPrompt: boolean;
+  /** 里程碑题注——仅 narrativeFeed.milestones 命中的事件才有 */
+  caption?: string;
+  /** 事件原始 label，供对照与降级 */
+  rawLabel: string;
+  /** 抉择已选项文案 */
+  picked?: string;
+  effects?: EventEffects;
+}
+
+/**
+ * 把一整条人生渲染为叙事文本（T3.2-T3.5 的统一出口）
+ *
+ * 铁律：render_only——只读叙事库与人生状态；叙事 rng 从 seed 独立派生，
+ * 与 runLife 的掷骰序列完全隔离，同 seed 必然得到同一份叙事。
+ */
+export function renderLifeLog(
+  world: World,
+  result: LifeResult,
+  seed: number = result.seed,
+): RenderedLogLine[] {
+  const renderer = new NarrativeRenderer(world, result.birth);
+  const narrRng = createRng((seed ^ 0x5a5a5a5a) >>> 0);
+  const milestoneIds = new Set(world.narrativeFeed?.milestones ?? []);
+  return result.log.map((entry) => {
+    const prompt = renderer.renderPrompt(entry.eventId, result.state);
+    const narrated = prompt === undefined
+      ? renderer.renderEvent(entry.eventId, result.state, narrRng)
+      : undefined;
+    const caption = milestoneIds.has(entry.eventId)
+      ? renderer.renderMilestone(entry.eventId, result.state, narrRng)
+      : undefined;
+    const line: RenderedLogLine = {
+      tick: entry.tick,
+      eventId: entry.eventId,
+      text: prompt ?? narrated ?? entry.label,
+      isPrompt: prompt !== undefined,
+      rawLabel: entry.label,
+    };
+    if (caption !== undefined) line.caption = caption;
+    if (entry.choice) line.picked = entry.choice.picked;
+    if (entry.effects) line.effects = entry.effects;
+    return line;
+  });
 }

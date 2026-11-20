@@ -140,6 +140,7 @@ export function runLife(world: World, opts: RunLifeOptions = {}): LifeResult {
             deathCause: deathCause ?? '',
             birth,
             pausedChoice: ev.choice,
+            pausedEventId: ev.id,
           };
         }
         const opt = ev.choice.options[idx]!;

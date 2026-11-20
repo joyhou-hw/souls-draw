@@ -1,10 +1,9 @@
-import { mkdirSync, writeFileSync } from 'node:fs';
-import { dirname } from 'node:path';
+import { mkdirSync, statSync, writeFileSync } from 'node:fs';
+import { basename, dirname } from 'node:path';
 import { loadWorldFile, loadWorldPack } from '../../dsl/src/index.ts';
 import {
   autoResolveChoice,
-  createRng,
-  NarrativeRenderer,
+  renderLifeLog,
   runLife,
   runBatch,
   statsToCsv,
@@ -43,8 +42,9 @@ function parseArgs(argv: string[]): CliArgs {
       }
       args.format = f;
     } else if (a === '--help' || a === '-h') {
-      console.log('用法: node main.ts [--world <path>] [--seed <n>] [--auto] [--choice <n>]... [--out <path>]');
-      console.log('       node main.ts [--world <path>] --batch <n> [--format json|csv] [--out <path>]');
+      console.log('用法: node main.ts [--world <dir|path>] [--seed <n>] [--auto] [--choice <n>]... [--out <path>]');
+      console.log('       node main.ts [--world <dir|path>] --batch <n> [--format json|csv] [--out <path>]');
+      console.log('  --world   世界目录（如 worlds/luoxiaohei，自动加载同目录 narratives.yaml）或单个 yaml 文件路径');
       console.log('  --auto    抉择点按选项权重掷骰自动决定（默认且未指定 --choice 时生效）');
       console.log('  --narrate 叙事渲染模式：用 narratives.yaml 文本库渲染每一年（须世界包含 narratives 块）');
       console.log('  --choice  预设抉择序号（1 起，可多次），按触发顺序消费，耗尽后自动');
@@ -62,10 +62,10 @@ function parseArgs(argv: string[]): CliArgs {
 function renderLife(result: LifeResult, world: World, narrate: boolean): void {
   console.log(`\n《生灵引》一条人生 —— 世界「${result.world}」 seed=${result.seed}`);
   console.log('─'.repeat(56));
-  const renderer = narrate ? new NarrativeRenderer(world, result.birth) : undefined;
-  // 叙事渲染用独立 rng（从 seed 派生），不影响人生掷骰铁律
-  const narrRng = narrate ? createRng((result.seed ^ 0x5a5a5a5a) >>> 0) : undefined;
-  for (const e of result.log) {
+  // 叙事渲染交给 engine 共享出口（叙事 rng 独立，不影响人生掷骰铁律）
+  const lines = narrate ? renderLifeLog(world, result) : undefined;
+  for (let i = 0; i < result.log.length; i++) {
+    const e = result.log[i]!;
     const changes = e.effects
       ? ' ' +
         Object.entries(e.effects)
@@ -73,20 +73,16 @@ function renderLife(result: LifeResult, world: World, narrate: boolean): void {
           .join(' ')
       : '';
     const choiceNote = e.choice ? `（抉择：${e.choice.picked}）` : '';
-    if (renderer && narrRng) {
-      const narrated = renderer.renderEvent(e.eventId, result.state, narrRng);
-      const prompt = renderer.renderPrompt(e.eventId, result.state);
-      if (prompt) {
-        console.log(`  第 ${String(e.tick).padStart(2)} 年 | ❈ ${prompt}`);
-        console.log(`          → ${e.choice?.picked ?? ''}${changes}`);
-      } else if (narrated) {
-        console.log(`  第 ${String(e.tick).padStart(2)} 年 | ${narrated}${changes}${choiceNote}`);
-      } else {
-        console.log(`  第 ${String(e.tick).padStart(2)} 年 | ${e.label}${changes}${choiceNote}`);
-      }
-    } else {
-      console.log(`  第 ${String(e.tick).padStart(2)} 年 | ${e.label}${changes}${choiceNote}`);
+    const age = `  第 ${String(e.tick).padStart(2)} 年 |`;
+    const line = lines?.[i];
+    if (line?.isPrompt) {
+      console.log(`${age} ❈ ${line.text}`);
+      console.log(`          → ${line.picked ?? ''}${changes}`);
+      continue;
     }
+    const text = line?.text ?? e.label;
+    const caption = line?.caption ? ` 〔${line.caption}〕` : '';
+    console.log(`${age} ${text}${changes}${choiceNote}${caption}`);
   }
   console.log('─'.repeat(56));
   if (result.deathTick !== null) {
@@ -143,16 +139,23 @@ function writeOut(path: string, content: string): void {
   writeFileSync(path, content, 'utf-8');
 }
 
+function resolveWorld(worldArg: string): World {
+  // 传目录 → 目录下的 world.yaml + narratives.yaml 一起加载
+  if (statSync(worldArg, { throwIfNoEntry: false })?.isDirectory()) {
+    return loadWorldPack(worldArg);
+  }
+  const base = basename(worldArg);
+  if (base === 'world.yaml' || base === 'world.yml') {
+    // 直接传 world.yaml → 仍按包加载，顺带带上同目录 narratives.yaml
+    return loadWorldPack(dirname(worldArg));
+  }
+  // 任意其他 yaml 文件 → 单文件加载（不含叙事库）
+  return loadWorldFile(worldArg);
+}
+
 function main(): void {
   const args = parseArgs(process.argv.slice(2));
-  const worldPath = args.world;
-  // 若 world.yaml 同目录有 narratives.yaml，自动加载（loadWorldPack 双文件）
-  const worldDir = worldPath.includes('/') || worldPath.includes('\\')
-    ? worldPath.replace(/[\\/][^\\/]+$/, '')
-    : '.';
-  const world = worldPath.endsWith('.yaml') && !worldPath.endsWith('/world.yaml')
-    ? loadWorldFile(worldPath)
-    : loadWorldPack(worldDir);
+  const world = resolveWorld(args.world);
   if (args.batch !== undefined) {
     const stats = runBatch(world, { count: args.batch, seedStart: args.seed });
     renderBatchStats(stats);
