@@ -154,6 +154,15 @@ function validateEventList(
     if (e['firstFlag'] !== undefined && typeof e['firstFlag'] !== 'string') {
       throw new WorldValidateError('firstFlag 必须为字符串', `${p}.firstFlag`);
     }
+    if (e['once'] !== undefined && typeof e['once'] !== 'boolean') {
+      throw new WorldValidateError('once 必须为布尔值', `${p}.once`);
+    }
+    if (e['cooldownTicks'] !== undefined) {
+      checkNumber(e['cooldownTicks'], `${p}.cooldownTicks`);
+      if ((e['cooldownTicks'] as number) < 0) {
+        throw new WorldValidateError('cooldownTicks 必须 ≥ 0', `${p}.cooldownTicks`);
+      }
+    }
     if (e['source'] !== undefined && !['events', 'scenes', 'shocks'].includes(e['source'] as string)) {
       throw new WorldValidateError(`source 必须为 events/scenes/shocks（实际：${JSON.stringify(e['source'])}）`, `${p}.source`);
     }

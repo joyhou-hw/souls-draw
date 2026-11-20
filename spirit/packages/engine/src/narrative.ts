@@ -93,6 +93,8 @@ function matchWhen(
   if (when.form !== undefined && when.form !== ctx.form) return false;
   if (when.region !== undefined && when.region !== ctx.place) return false;
   if (when.era !== undefined && when.era !== ctx.era) return false;
+  if (when.minTick !== undefined && state.tick < when.minTick) return false;
+  if (when.maxTick !== undefined && state.tick > when.maxTick) return false;
   if (when.cultivator !== undefined) {
     const isCultivator = state.flags.includes('cultivator');
     if (when.cultivator !== isCultivator) return false;

@@ -87,7 +87,7 @@ test('T1.5 choice 概率位移：拜师后 training 权重 ×2、婉拒 ×0.1（
   const w = choiceWorld();
   const masterEv = w.events.find((e) => e.id === 'master')!;
 
-  const noShift = { tick: 20, alive: true, attrs: {}, flags: ['met_master'], shifts: {} };
+  const noShift = { tick: 20, alive: true, attrs: {}, flags: ['met_master'], shifts: {}, firedEvents: new Set<string>(), cooldownUntil: {} };
   assert.equal(currentWeight(masterEv, noShift), 1, '无 shift 时基础权重为 1');
 
   const a = runLife(w, { seed: 555, resolveChoice: () => 0 });
@@ -98,7 +98,7 @@ test('T1.5 choice 概率位移：拜师后 training 权重 ×2、婉拒 ×0.1（
   const b = runLife(w, { seed: 555, resolveChoice: () => 1 });
   assert.ok(Math.abs(b.state.shifts['training']! - 0.1) < 1e-9, '婉拒选项应将 training 权重乘以 0.1');
 
-  const cands = candidateEvents(w, { ...noShift, shifts: { training: 0.1 } });
+  const cands = candidateEvents(w, { ...noShift, shifts: { training: 0.1 }, firedEvents: new Set<string>(), cooldownUntil: {} });
   assert.ok(
     cands.some((e) => e.id === 'training'),
     '婉拒后 training 仍在事件池——概率被压低，而非分支消失（公理②）',

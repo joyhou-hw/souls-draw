@@ -11,6 +11,11 @@ export function matchCond(cond: EventCond | undefined, state: PersonState): bool
       if (!state.flags.includes(f)) return false;
     }
   }
+  if (cond.excludeFlags) {
+    for (const f of cond.excludeFlags) {
+      if (state.flags.includes(f)) return false;
+    }
+  }
   if (cond.attrs) {
     for (const [name, c] of Object.entries(cond.attrs)) {
       const v = state.attrs[name] ?? 0;
@@ -33,7 +38,15 @@ export function autoResolveChoice(choice: Choice, _state: PersonState, rng: Rng)
 }
 
 export function candidateEvents(world: World, state: PersonState): WorldEvent[] {
-  return world.events.filter((e) => matchCond(e.cond, state));
+  return world.events.filter((e) => {
+    if (!matchCond(e.cond, state)) return false;
+    // once 事件：已触发过则排除
+    if (e.once && state.firedEvents.has(e.id)) return false;
+    // 冷却期：当前 tick < 冷却截止 tick 则排除
+    const cd = state.cooldownUntil[e.id];
+    if (cd !== undefined && state.tick < cd) return false;
+    return true;
+  });
 }
 
 export function tierOf(state: PersonState): string | undefined {
@@ -82,6 +95,8 @@ export function runLife(world: World, opts: RunLifeOptions = {}): LifeResult {
     attrs: { ...world.initAttrs },
     flags: [],
     shifts: {},
+    firedEvents: new Set<string>(),
+    cooldownUntil: {},
   };
   const log: LogEntry[] = [];
   let birth: BirthOutcome | undefined;
@@ -158,6 +173,10 @@ export function runLife(world: World, opts: RunLifeOptions = {}): LifeResult {
         }
       }
       log.push(entry);
+      // once 事件：标记已触发
+      if (ev.once) state.firedEvents.add(ev.id);
+      // 冷却事件：设置冷却截止 tick
+      if (ev.cooldownTicks) state.cooldownUntil[ev.id] = t + ev.cooldownTicks;
       if (ev.terminal) {
         state.alive = false;
         deathCause = `terminal:${ev.id}`;

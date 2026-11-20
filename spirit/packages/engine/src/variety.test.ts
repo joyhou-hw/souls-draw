@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { createRng } from './rng.ts';
 import { generateBirth, birthFlags } from './birth.ts';
 import { buildSlotContext, renderText, NarrativeRenderer } from './narrative.ts';
-import type { BirthOutcome, Narratives, World } from './types.ts';
+import type { BirthOutcome, Narratives, PersonState, World } from './types.ts';
 
 /** 构造测试用 World——birthForm 含 speciesVariety 品种池 */
 function makeWorldWithVariety(): World {
@@ -135,7 +135,7 @@ test('品种轴 variety render_only——有/无 speciesVariety 事件流完全�
 
   // 100 次渲染，输出应完全一致（桶匹配依据 form/species，与 variety 无关）
   for (let i = 0; i < 100; i++) {
-    const state = { tick: 1, alive: true, attrs: {}, flags: [], shifts: {} };
+    const state: PersonState = { tick: 1, alive: true, attrs: {}, flags: [], shifts: {}, firedEvents: new Set<string>(), cooldownUntil: {} };
     const out1 = r1.renderEvent('quiet', state, createRng(i))!;
     const out2 = r2.renderEvent('quiet', state, createRng(i))!;
     assert.equal(out1, out2, `iteration ${i}: variety 有/无应不影响事件输出`);

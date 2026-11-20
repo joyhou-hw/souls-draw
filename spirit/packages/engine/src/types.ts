@@ -10,6 +10,8 @@ export interface EventCond {
   maxTick?: number;
   attrs?: Record<string, AttrCond>;
   flags?: string[];
+  /** 任一存在则不匹配（排除条件） */
+  excludeFlags?: string[];
 }
 
 export interface ChoiceOption {
@@ -33,6 +35,10 @@ export interface WorldEvent {
   label: string;
   weight: number;
   cond?: EventCond;
+  /** 每人一生仅触发一次（抉择事件、关键突破事件） */
+  once?: boolean;
+  /** 冷却 tick 数：触发后 N tick 内不再进入候选池（日常事件） */
+  cooldownTicks?: number;
   effects?: EventEffects;
   gainFlags?: string[];
   lossFlags?: string[];
@@ -182,6 +188,10 @@ export interface NarrativeWhen {
   era?: string;
   cultivator?: boolean;
   flags?: string[];
+  /** 叙事桶的 tick 下限（用于区分童年/成人等年龄段的叙事变体） */
+  minTick?: number;
+  /** 叙事桶的 tick 上限 */
+  maxTick?: number;
 }
 
 export interface NarrativeBucket {
@@ -247,6 +257,10 @@ export interface PersonState {
   attrs: Attrs;
   flags: string[];
   shifts: Record<string, number>;
+  /** 已触发过的 once 事件 id 集合 */
+  firedEvents: Set<string>;
+  /** 事件 id → 冷却截止 tick（该 tick 之前不可再触发） */
+  cooldownUntil: Record<string, number>;
 }
 
 export interface LifeResult {

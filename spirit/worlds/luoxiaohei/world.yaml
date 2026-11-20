@@ -16,6 +16,7 @@ events:
   - id: quiet_year
     label: 平静的一年
     weight: 8
+    cooldownTicks: 2
     effects:
       liquality: 1
       health: 1
@@ -23,18 +24,21 @@ events:
   - id: liqi_drain
     label: 灵质损耗的一年
     weight: 2
+    cooldownTicks: 3
     effects:
       liquality: -3
 
   - id: liqi_feast
     label: 觅得灵质丰美之地
     weight: 1.5
+    cooldownTicks: 5
     effects:
       liquality: 6
 
   - id: mortal_labor
     label: 营生奔波的一年
     weight: 4
+    cooldownTicks: 2
     cond:
       minTick: 16
     effects:
@@ -44,6 +48,7 @@ events:
   - id: beast_conflict
     label: 与妖兽的冲突
     weight: 1.5
+    cooldownTicks: 3
     cond:
       minTick: 12
     effects:
@@ -53,6 +58,7 @@ events:
   - id: guild_recruit
     label: 会馆招募（抉择点）
     weight: 2
+    once: true
     cond:
       flags: [liqi_manifest]
       minTick: 8
@@ -75,8 +81,10 @@ events:
   - id: witness_exile
     label: 目睹妖精被驱逐（抉择点）
     weight: 2
+    once: true
     cond:
       minTick: 6
+      excludeFlags: [form:human]
     choice:
       prompt: 城郊的同类被强制迁离，求助的目光落在你身上。怎么做？
       options:
@@ -93,6 +101,7 @@ events:
   - id: rich_land_offer
     label: 丰美灵地的前路抉择
     weight: 1.5
+    once: true
     cond:
       minTick: 15
     choice:
@@ -112,8 +121,10 @@ events:
   - id: injured_yao
     label: 遇见受伤的小妖（抉择点）
     weight: 1.5
+    once: true
     cond:
       minTick: 10
+      excludeFlags: [form:human]
     choice:
       prompt: 路边蜷着一只重伤小妖。停下来救的话，你的岁月和气血都会被分走一些。
       options:
@@ -139,6 +150,7 @@ events:
   - id: init_tier
     label: 修行入门，定为凡体
     weight: 4
+    once: true
     cond:
       flags: [cultivator]
     gainFlags:
@@ -147,6 +159,7 @@ events:
   - id: gate_ningxing
     label: 突破凝形
     weight: 1.2
+    once: true
     cond:
       flags: [tier:fanti]
     gainFlags:
@@ -159,6 +172,7 @@ events:
   - id: gate_yuwu
     label: 突破御物
     weight: 1.0
+    once: true
     cond:
       flags: [tier:ningxing]
     gainFlags:
@@ -171,6 +185,7 @@ events:
   - id: gate_lingyu
     label: 突破灵域
     weight: 0.8
+    once: true
     cond:
       flags: [tier:yuwu]
     gainFlags:
@@ -183,6 +198,7 @@ events:
   - id: gate_dayao
     label: 突破大妖
     weight: 0.5
+    once: true
     cond:
       flags: [tier:lingyu]
     gainFlags:
@@ -195,6 +211,7 @@ events:
   - id: gate_shengling
     label: 突破圣灵
     weight: 0.3
+    once: true
     cond:
       flags: [tier:dayao]
     gainFlags:
@@ -207,6 +224,7 @@ events:
   - id: ascend_trigger
     label: 圣灵圆满，飞升离陆
     weight: 0.2
+    once: true
     cond:
       flags: [tier:shengling]
     gainFlags:
@@ -238,6 +256,7 @@ scenes:
   - id: scene_forest_childhood
     label: 森林童年的嬉戏时光
     weight: 3
+    cooldownTicks: 2
     cond:
       flags: [region:forest]
       maxTick: 15
@@ -248,6 +267,7 @@ scenes:
   - id: scene_first_transform
     label: 第一次化形（里程碑）
     weight: 1
+    once: true
     cond:
       flags: [form:animal_yao, cultivator]
       minTick: 6
@@ -257,6 +277,7 @@ scenes:
   - id: scene_city_drift
     label: 城市里的漂泊生计
     weight: 2
+    cooldownTicks: 3
     cond:
       flags: [region:city]
     effects:
@@ -266,6 +287,7 @@ scenes:
   - id: scene_guild_life
     label: 会馆领地的日常
     weight: 2
+    cooldownTicks: 3
     cond:
       flags: [org:guild_registered]
     effects:
@@ -275,6 +297,7 @@ scenes:
   - id: scene_hermit_chance
     label: 隐修岛上遇隐修者指点
     weight: 1.2
+    cooldownTicks: 5
     cond:
       flags: [region:hermit_island, liqi_manifest]
     effects:
@@ -285,6 +308,7 @@ shocks:
   - id: shock_war
     label: 战乱波及，流离失所
     weight: 1
+    cooldownTicks: 5
     cond:
       flags: [era:ancient]
     effects:
@@ -295,6 +319,7 @@ shocks:
   - id: shock_urban_dev
     label: 城市开发，原生林被毁
     weight: 0.8
+    once: true
     cond:
       flags: [era:modern, region:forest]
     lossFlags:
@@ -305,6 +330,7 @@ shocks:
   - id: shock_liqi_tide
     label: 灵气潮汐涌动
     weight: 0.5
+    cooldownTicks: 8
     cond:
       flags: [cultivator]
     effects:
@@ -313,6 +339,7 @@ shocks:
   - id: shock_plague
     label: 疫病流行之年
     weight: 0.6
+    cooldownTicks: 10
     cond:
       minTick: 30
     effects:

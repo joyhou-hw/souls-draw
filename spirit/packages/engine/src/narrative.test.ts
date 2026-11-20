@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createRng } from './rng.ts';
 import { NarrativeRenderer, buildSlotContext, renderLifeLog, renderText } from './narrative.ts';
-import type { BirthOutcome, LifeResult, Narratives, World } from './types.ts';
+import type { BirthOutcome, LifeResult, Narratives, PersonState, World } from './types.ts';
 
 function makeBirth(over: Partial<BirthOutcome> = {}): BirthOutcome {
   return {
@@ -34,6 +34,10 @@ function makeWorld(narr: Narratives): World {
     deathRule: { bands: [{ fromTick: 0, hazard: 0 }] },
     narratives: narr,
   } as unknown as World;
+}
+
+function makeState(tick = 1): PersonState {
+  return { tick, alive: true, attrs: {}, flags: [], shifts: {}, firedEvents: new Set<string>(), cooldownUntil: {} };
 }
 
 const baseSlots = {
@@ -77,7 +81,7 @@ test('T3.2 碎片拼接——opener + 事件句 + closer', () => {
   let gotOpener = false;
   let gotCloser = false;
   for (let i = 0; i < 100; i++) {
-    const state = { tick: 1, alive: true, attrs: {}, flags: [], shifts: {} };
+    const state = makeState();
     const out = renderer.renderEvent('quiet', state, createRng(i))!;
     if (out.includes('雨季来得早')) gotOpener = true;
     if (out.includes('收进心里')) gotCloser = true;
@@ -110,7 +114,7 @@ test('T3.3 条件桶——form=human 匹配 human 桶', () => {
   // human 出生 → 匹配 human 桶
   const humanBirth = makeBirth({ form: 'human', species: undefined });
   const renderer = new NarrativeRenderer(world, humanBirth);
-  const state = { tick: 1, alive: true, attrs: {}, flags: [], shifts: {} };
+  const state = makeState();
   const out = renderer.renderEvent('quiet', state, createRng(1))!;
   assert.ok(out.includes('凡人'), `human 桶应匹配，got: ${out}`);
   // animal_yao 出生 → 匹配 animal_yao 桶
@@ -139,7 +143,7 @@ test('T3.3 条件桶——无匹配时回退 fallback', () => {
   const world = makeWorld(narr);
   const birth = makeBirth({ form: 'human', species: undefined });
   const renderer = new NarrativeRenderer(world, birth);
-  const state = { tick: 1, alive: true, attrs: {}, flags: [], shifts: {} };
+  const state = makeState();
   const out = renderer.renderEvent('quiet', state, createRng(1))!;
   assert.ok(out.includes('兜底'), `无桶匹配应回退 fallback，got: ${out}`);
 });
@@ -159,7 +163,7 @@ test('T3.3 不放回抽样——同桶变体不重复出现', () => {
   const renderer = new NarrativeRenderer(world, birth);
   const seen = new Set<string>();
   for (let i = 0; i < 10; i++) {
-    const state = { tick: 1, alive: true, attrs: {}, flags: [], shifts: {} };
+    const state = makeState();
     const out = renderer.renderEvent('quiet', state, createRng(i))!;
     // 提取变体编号
     const m = out.match(/变体(\d+)/);
@@ -184,7 +188,7 @@ test('T3.3 不放回抽样——桶抽空后回退全池复用', () => {
   const world = makeWorld(narr);
   const birth = makeBirth();
   const renderer = new NarrativeRenderer(world, birth);
-  const state = { tick: 1, alive: true, attrs: {}, flags: [], shifts: {} };
+  const state = makeState();
   // 第一次消耗变体
   const out1 = renderer.renderEvent('quiet', state, createRng(1))!;
   assert.ok(out1.includes('唯一变体'));
@@ -207,7 +211,7 @@ test('T3.2 抉择 prompt 渲染——单条提示语，不走不放回抽样', (
   const world = makeWorld(narr);
   const birth = makeBirth();
   const renderer = new NarrativeRenderer(world, birth);
-  const state = { tick: 1, alive: true, attrs: {}, flags: [], shifts: {} };
+  const state = makeState();
   const prompt = renderer.renderPrompt('choice_evt', state)!;
   assert.ok(prompt.includes('森林'), `prompt 槽位应替换: ${prompt}`);
   assert.ok(prompt.includes('加入会馆吗'));
@@ -220,7 +224,7 @@ test('T3.2 无 narratives 配置时安全降级——返回 undefined', () => {
   const world = makeWorld({ version: 1 });
   const birth = makeBirth();
   const renderer = new NarrativeRenderer(world, birth);
-  const state = { tick: 1, alive: true, attrs: {}, flags: [], shifts: {} };
+  const state = makeState();
   assert.equal(renderer.renderEvent('quiet', state, createRng(1)), undefined);
   assert.equal(renderer.renderPrompt('choice_evt', state), undefined);
 });
@@ -229,7 +233,7 @@ function makeLifeResult(world: World, over: Partial<LifeResult> = {}): LifeResul
   return {
     world: world.name,
     seed: 42,
-    state: { tick: 3, alive: true, attrs: {}, flags: [], shifts: {} },
+    state: makeState(3),
     log: [
       { tick: 1, eventId: 'quiet', label: '平静' },
       { tick: 2, eventId: 'choice_evt', label: '抉择', choice: { prompt: '选吗？', picked: '是' } },
