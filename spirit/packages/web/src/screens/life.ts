@@ -95,32 +95,52 @@ function deathLabel(result: LifeResult): string {
   return DEATH_LABELS[result.deathCause] ?? `亡于「${result.deathCause}」`;
 }
 
+// ═══════════════════════════════════════════════
+// 场景渲染入口
+// ═══════════════════════════════════════════════
+
 function renderLifeScreen(host: HTMLElement): void {
-  host.append(buildHeader(), buildBody());
+  host.append(buildScene());
 }
 
-function buildHeader(): HTMLElement {
-  const head = el('header', 'life-head');
-  const h2 = el('h2');
-  h2.textContent = '人生游玩 · 罗小黑世界';
+/** 根据当前状态确定场景类型并构建 */
+function buildScene(): HTMLElement {
+  // 未抽签 → 抽签场景
+  if (state.seed === null || state.result === null) return buildDrawScene();
+
+  // 回顾态 → 回顾场景
+  if (state.review) return buildReviewScene();
+
+  const r = state.result;
+  const atEnd = state.pointer >= r.log.length;
+
+  // 抉择暂停 → 抉择场景
+  if (atEnd && r.pausedChoice) return buildChoiceScene(r);
+
+  // 终局 → 终局场景
+  if (atEnd) return buildEndScene(r);
+
+  // 推进中 → 推进场景（含出生卡 + 日志）
+  return buildLifeScene(r);
+}
+
+// ═══════════════════════════════════════════════
+// 抽签场景
+// ═══════════════════════════════════════════════
+
+function buildDrawScene(): HTMLElement {
+  const scene = el('section', 'scene draw-scene');
+  const title = el('h2', 'draw-title');
+  title.textContent = "Souls' Draw";
   const sub = el('p', 'muted');
-  sub.textContent = '抽一签入世，逐步走过岁月，遇到岔路时替 TA 做选择。同 seed + 同抉择序列 = 同一生。';
-  head.append(h2, sub);
-  return head;
-}
+  sub.textContent = '生灵引 · 一签一命';
+  scene.append(title, sub);
 
-function buildBody(): HTMLElement {
-  if (state.seed === null || state.result === null) return buildDrawCard();
-  const wrap = el('div', 'life-body');
-  if (state.review) wrap.append(buildReviewCard());
-  else wrap.append(buildBirthCard(), buildLifePanel());
-  return wrap;
-}
+  const desc = el('p', 'draw-desc');
+  desc.textContent = '签落之处，可能是人、是妖、是精怪——是罗小黑世界里的一段小人生。';
+  scene.append(desc);
 
-function buildDrawCard(): HTMLElement {
-  const card = el('section', 'card');
-  const p = el('p');
-  p.textContent = '一签一命。签落之处，可能是人、是妖、是精怪——是罗小黑世界里的一段小人生。';
+  const actions = el('div', 'draw-actions');
   const btn = el('button', 'primary');
   btn.textContent = '抽一签 · 开始此生';
   btn.addEventListener('click', () => {
@@ -133,7 +153,8 @@ function buildDrawCard(): HTMLElement {
     persist();
     rerender();
   });
-  card.append(p, btn);
+  actions.append(btn);
+
   const saved = loadGame();
   if (saved && saved.world === world.name) {
     const resume = el('button');
@@ -141,19 +162,22 @@ function buildDrawCard(): HTMLElement {
     resume.addEventListener('click', () => {
       resumeFromSave(saved);
     });
-    card.append(resume);
+    actions.append(resume);
   } else if (saved) {
     clearGame();
   }
+
   const importBtn = el('button');
   importBtn.textContent = '导入存档…';
   importBtn.addEventListener('click', () => {
     importOpen = !importOpen;
     rerender();
   });
-  card.append(importBtn);
-  if (importOpen) card.append(buildImportBox());
-  return card;
+  actions.append(importBtn);
+  scene.append(actions);
+
+  if (importOpen) scene.append(buildImportBox());
+  return scene;
 }
 
 function buildImportBox(): HTMLElement {
@@ -191,8 +215,18 @@ function buildImportBox(): HTMLElement {
   return box;
 }
 
+// ═══════════════════════════════════════════════
+// 推进场景（出生卡 + 属性条 + 日志流 + 操作区）
+// ═══════════════════════════════════════════════
+
+function buildLifeScene(r: LifeResult): HTMLElement {
+  const scene = el('section', 'scene life-scene');
+  scene.append(buildBirthCard(), buildAttrsBar(r), buildLogStream(r), buildActionArea(r));
+  return scene;
+}
+
 function buildBirthCard(): HTMLElement {
-  const card = el('section', 'card');
+  const card = el('div', 'birth-card');
   const h3 = el('h3');
   h3.textContent = '出生';
   card.append(h3);
@@ -228,13 +262,6 @@ function buildBirthCard(): HTMLElement {
     card.append(pre);
   }
   return card;
-}
-
-function buildLifePanel(): HTMLElement {
-  const r = state.result!;
-  const panel = el('section', 'card');
-  panel.append(buildAttrsBar(r), buildLogStream(r), buildActionArea(r));
-  return panel;
 }
 
 function buildAttrsBar(r: LifeResult): HTMLElement {
@@ -290,15 +317,6 @@ function buildLogStream(r: LifeResult): HTMLElement {
 
 function buildActionArea(r: LifeResult): HTMLElement {
   const area = el('div', 'actions');
-  const atEnd = state.pointer >= r.log.length;
-  if (atEnd && r.pausedChoice) {
-    area.append(buildChoiceCard(r), buildSaveButtons());
-    return area;
-  }
-  if (atEnd) {
-    area.append(buildEndCard(r));
-    return area;
-  }
   const btn = el('button', 'primary');
   btn.textContent = '走过一段岁月';
   btn.addEventListener('click', () => {
@@ -328,16 +346,22 @@ function buildSaveButtons(): HTMLElement {
   return wrap;
 }
 
-function buildChoiceCard(r: LifeResult): HTMLElement {
+// ═══════════════════════════════════════════════
+// 抉择场景
+// ═══════════════════════════════════════════════
+
+function buildChoiceScene(r: LifeResult): HTMLElement {
+  const scene = el('section', 'scene choice-scene');
   const choice = r.pausedChoice!;
-  const card = el('div', 'choice-card');
-  const prompt = el('p', 'choice-prompt');
   // 抉择点优先用叙事库 prompt（含槽位），缺失时回退世界原文
   const narratedPrompt = r.pausedEventId
     ? new NarrativeRenderer(world, r.birth).renderPrompt(r.pausedEventId, r.state)
     : undefined;
+  const prompt = el('p', 'choice-prompt-big');
   prompt.textContent = narratedPrompt ?? choice.prompt;
-  card.append(prompt);
+  scene.append(prompt);
+
+  const options = el('div', 'choice-options');
   choice.options.forEach((opt, idx) => {
     const btn = el('button', 'choice-opt');
     const label = el('span');
@@ -354,20 +378,27 @@ function buildChoiceCard(r: LifeResult): HTMLElement {
       persist();
       rerender();
     });
-    card.append(btn);
+    options.append(btn);
   });
-  return card;
+  scene.append(options);
+  return scene;
 }
 
-function buildEndCard(r: LifeResult): HTMLElement {
+// ═══════════════════════════════════════════════
+// 终局场景
+// ═══════════════════════════════════════════════
+
+function buildEndScene(r: LifeResult): HTMLElement {
   clearGame();
-  const card = el('div', 'end-card');
-  const title = el('h3');
+  const scene = el('section', 'scene end-scene');
+  const title = el('h3', 'end-title');
   title.textContent = '此生落幕';
-  const info = el('p');
+  const info = el('p', 'end-info');
   const finalTick = r.deathTick ?? r.state.tick;
   info.textContent = `${deathLabel(r)} · 终年 ${finalTick} · 人生指纹 ${hashLife(r)}`;
-  const actions = el('div', 'actions');
+  scene.append(title, info);
+
+  const actions = el('div', 'end-actions');
   const reviewBtn = el('button', 'primary');
   reviewBtn.textContent = '回顾一生';
   reviewBtn.addEventListener('click', () => {
@@ -405,13 +436,14 @@ function buildEndCard(r: LifeResult): HTMLElement {
     rerender();
   });
   actions.append(reviewBtn, shareBtn, redoBtn, newBtn);
-  card.append(title, info, actions);
-  if (shareOpen) card.append(buildShareCard(r));
-  return card;
+  scene.append(actions);
+
+  if (shareOpen) scene.append(buildShareCard(r));
+  return scene;
 }
 
 function buildShareText(r: LifeResult): string {
-  const lines: string[] = ['【生灵引 · 罗小黑世界】一签一命'];
+  const lines: string[] = ["【Souls' Draw · 生灵引 · 罗小黑世界】一签一命"];
   const b = r.birth;
   if (b) {
     lines.push(`命签 #${state.seed} · ${formText(b.form, b.species, b.variety, b.niche)}`);
@@ -426,7 +458,7 @@ function buildShareText(r: LifeResult): string {
     lines.push('复现此生（存档 JSON，导入即可重走同一条人生）：');
     lines.push(JSON.stringify({ v: data.v, world: data.world, seed: data.seed, picked: data.picked }));
   }
-  lines.push('同 seed + 同抉择序列 = 同一生 · 生灵引 · 客户端生成 · 零上传');
+  lines.push("同 seed + 同抉择序列 = 同一生 · Souls' Draw · 客户端生成 · 零上传");
   return lines.join('\n');
 }
 
@@ -456,7 +488,7 @@ function buildShareCard(r: LifeResult): HTMLElement {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `shenglingyin-life-${state.seed}.txt`;
+    a.download = `souls-draw-life-${state.seed}.txt`;
     a.click();
     URL.revokeObjectURL(url);
   });
@@ -465,49 +497,70 @@ function buildShareCard(r: LifeResult): HTMLElement {
   return box;
 }
 
-function buildReviewCard(): HTMLElement {
+// ═══════════════════════════════════════════════
+// 回顾场景——岁月长河时间线
+// ═══════════════════════════════════════════════
+
+function buildReviewScene(): HTMLElement {
   const r = state.result!;
-  const card = el('section', 'card');
-  const h3 = el('h3');
-  h3.textContent = `一生回顾 · 终年 ${r.deathTick ?? r.state.tick} · ${deathLabel(r)}`;
-  card.append(h3);
+  const scene = el('section', 'scene review-scene');
+
+  const header = el('div', 'review-header');
+  const h2 = el('h2');
+  h2.textContent = '一生回顾';
+  const sub = el('p', 'muted');
+  const finalTick = r.deathTick ?? r.state.tick;
   const b = r.birth;
-  if (b) {
-    const sub = el('p', 'muted');
-    sub.textContent = `生于 ${b.region} · ${b.era}，${formText(b.form, b.species, b.variety, b.niche)}，共历 ${r.log.length} 段岁月`;
-    card.append(sub);
-  }
-  const decades = new Map<number, string[]>();
+  sub.textContent = `终年 ${finalTick} · ${deathLabel(r)}${b ? ` · 生于 ${b.region} · ${b.era} · ${formText(b.form, b.species, b.variety, b.niche)}` : ''} · 共历 ${r.log.length} 段岁月`;
+  header.append(h2, sub);
+  scene.append(header);
+
+  const timeline = el('div', 'review-timeline');
+  const decades = new Map<number, Array<{ text: string; milestone: boolean }>>();
   for (const line of narrativeLines(r)) {
     const dec = Math.floor(line.tick / 10) * 10;
     let text = line.isPrompt ? `❈ ${line.text}` : line.text;
-    if (worldMilestones.includes(line.eventId)) text = `★ ${text}`;
     if (line.caption) text += `〔${line.caption}〕`;
     if (line.picked) text += `（抉择：${line.picked}）`;
     const list = decades.get(dec) ?? [];
-    list.push(`${line.tick}岁 ${text}`);
+    list.push({ text, milestone: worldMilestones.includes(line.eventId) });
     decades.set(dec, list);
   }
   for (const dec of [...decades.keys()].sort((a, b2) => a - b2)) {
+    const seg = el('div', 'review-segment');
+    const hasMilestone = decades.get(dec)!.some((e) => e.milestone);
+    if (hasMilestone) seg.classList.add('milestone');
     const h4 = el('h4');
     h4.textContent = dec === 0 ? '童年（0-9 岁）' : `${dec} 岁段`;
-    const ul = el('ul', 'review-list');
-    for (const line of decades.get(dec)!) {
+    const ul = el('ul');
+    for (const entry of decades.get(dec)!) {
       const li = el('li');
-      li.textContent = line;
+      if (entry.milestone) {
+        const marker = el('span', 'milestone-marker');
+        marker.textContent = '★ ';
+        li.append(marker);
+      }
+      const span = el('span');
+      span.textContent = entry.text;
+      li.append(span);
       ul.append(li);
     }
-    card.append(h4, ul);
+    seg.append(h4, ul);
+    timeline.append(seg);
   }
+  scene.append(timeline);
+
   const back = el('button');
   back.textContent = '返回终局';
   back.addEventListener('click', () => {
     state.review = false;
     rerender();
   });
-  card.append(back);
-  return card;
+  scene.append(back);
+  return scene;
 }
+
+// ═══════════════════════════════════════════════
 
 function rerender(): void {
   const app = document.querySelector<HTMLElement>('#app');

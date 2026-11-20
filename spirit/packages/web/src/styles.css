@@ -374,6 +374,144 @@ button.primary:hover { background: #3a80a0; }
 }
 
 /* ═══════════════════════════════════════════════
+   场景系统 — 全屏独占视口 + 过渡动画
+   ═══════════════════════════════════════════════ */
+
+.scene {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: scene-fade-in var(--dur) var(--ease);
+}
+
+@keyframes scene-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.scene-header { text-align: center; margin-bottom: var(--gap-lg); }
+.scene-header h2 {
+  font-size: 1.4rem;
+  color: var(--ink-accent);
+  margin: 0 0 var(--gap-xs);
+}
+.scene-header p { margin: 0; }
+
+/* ── 抽签场景 ── */
+.draw-scene { text-align: center; }
+.draw-scene .draw-title {
+  font-size: 1.6rem;
+  color: var(--ink-gold);
+  margin: 0 0 var(--gap-sm);
+}
+.draw-scene .draw-desc {
+  max-width: 420px;
+  margin: 0 auto var(--gap-lg);
+  line-height: 1.8;
+}
+.draw-scene .draw-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-sm);
+}
+.draw-scene .draw-actions button { min-width: 200px; }
+
+/* ── 出生场景 ── */
+.birth-scene { text-align: center; }
+.birth-scene .birth-title {
+  font-size: 1.3rem;
+  color: var(--ink-accent);
+  margin: 0 0 var(--gap-md);
+}
+.birth-scene .birth-table {
+  display: inline-block;
+  text-align: left;
+  margin: 0 auto;
+}
+.birth-scene .pre-birth { text-align: left; max-width: 480px; margin: var(--gap-md) auto 0; }
+
+/* ── 推进场景 ── */
+.life-scene { gap: var(--gap-md); }
+.life-scene .life-attrs { margin-bottom: var(--gap-sm); }
+.life-scene .life-log { flex: 1; }
+
+/* ── 抉择场景 ── */
+.choice-scene { text-align: center; }
+.choice-scene .choice-prompt-big {
+  font-size: 1.2rem;
+  color: var(--ink-accent);
+  max-width: 520px;
+  margin: 0 auto var(--gap-lg);
+  line-height: 1.8;
+  font-weight: 600;
+}
+.choice-scene .choice-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  max-width: 480px;
+  margin: 0 auto;
+}
+.choice-scene .choice-opt {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xs);
+  width: 100%;
+  text-align: left;
+  padding: 12px var(--gap-md);
+}
+
+/* ── 终局场景 ── */
+.end-scene { text-align: center; }
+.end-scene .end-title {
+  font-size: 1.6rem;
+  color: var(--ink-gold);
+  margin: 0 0 var(--gap-sm);
+}
+.end-scene .end-info {
+  color: var(--ink-fg-mid);
+  margin: 0 0 var(--gap-lg);
+}
+.end-scene .end-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap-sm);
+}
+
+/* ── 回顾场景 ── */
+.review-scene .review-header { text-align: center; margin-bottom: var(--gap-md); }
+.review-scene .review-header h2 { font-size: 1.3rem; color: var(--ink-gold); margin: 0 0 var(--gap-xs); }
+.review-timeline {
+  max-width: 600px;
+  margin: 0 auto;
+  border-left: 2px solid var(--ink-border);
+  padding-left: var(--gap-md);
+}
+.review-timeline .review-segment { margin-bottom: var(--gap-md); position: relative; }
+.review-timeline .review-segment::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--gap-md) - 4px);
+  top: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink-border-hi);
+}
+.review-timeline .review-segment.milestone::before {
+  background: var(--ink-gold);
+  box-shadow: 0 0 6px var(--ink-gold);
+}
+.review-timeline .review-segment h4 { margin: 0 0 var(--gap-xs); color: var(--ink-fg-mid); font-size: 0.95rem; }
+.review-timeline .review-segment ul { list-style: none; padding: 0; margin: 0; }
+.review-timeline .review-segment li { padding: 2px 0; font-size: 0.9rem; line-height: 1.6; }
+.review-timeline .review-segment li .milestone-marker { color: var(--ink-gold); }
+.review-timeline .review-segment li .picked-text { color: var(--ink-jade); }
+
+/* ═══════════════════════════════════════════════
    响应式 — 手机优先
    ═══════════════════════════════════════════════ */
 
@@ -398,6 +536,15 @@ button.primary:hover { background: #3a80a0; }
   button { padding: 10px 16px; font-size: 1rem; }
 
   button.primary { padding: 12px 20px; }
+
+  .draw-scene .draw-title { font-size: 1.3rem; }
+  .draw-scene .draw-desc { font-size: 0.9rem; }
+
+  .choice-scene .choice-prompt-big { font-size: 1.05rem; }
+
+  .end-scene .end-title { font-size: 1.3rem; }
+
+  .review-timeline { padding-left: var(--gap-sm); }
 }
 
 /* 平板 */
