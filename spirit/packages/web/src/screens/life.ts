@@ -382,7 +382,7 @@ function deathLabel(result: LifeResult): string {
 // 页面/模拟背景图——按场景类型与（种族×性别×阶段）确定性切换
 // ═══════════════════════════════════════════════
 
-const PAGE_BG: Record<string, string> = {
+const PAGE_BG = {
   draw: './assets/images/backgrounds/pages/home.png',
   drawAnim: './assets/images/backgrounds/pages/draw_anim.png',
   choice: './assets/images/backgrounds/pages/choice.png',
