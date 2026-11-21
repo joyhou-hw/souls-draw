@@ -378,6 +378,48 @@ function deathLabel(result: LifeResult): string {
 // 场景渲染入口
 // ═══════════════════════════════════════════════
 
+// ═══════════════════════════════════════════════
+// 页面/模拟背景图——按场景类型与（种族×性别×阶段）确定性切换
+// ═══════════════════════════════════════════════
+
+const PAGE_BG: Record<string, string> = {
+  draw: './assets/images/backgrounds/pages/home.png',
+  drawAnim: './assets/images/backgrounds/pages/draw_anim.png',
+  choice: './assets/images/backgrounds/pages/choice.png',
+  end: './assets/images/backgrounds/pages/end.png',
+  review: './assets/images/backgrounds/pages/review.png',
+};
+
+function ageBandForTick(tick: number): 'child' | 'youth' | 'adult' | 'elder' {
+  if (tick <= 12) return 'child';
+  if (tick <= 25) return 'youth';
+  if (tick <= 60) return 'adult';
+  return 'elder';
+}
+
+function simBgSrc(form: string, gender: string, tick: number): string {
+  const g = gender === '女' ? 'female' : 'male';
+  const stage = ageBandForTick(tick);
+  return `./assets/images/backgrounds/sim/${form}/${g}_${stage}.png`;
+}
+
+function simBgFor(r: LifeResult): string {
+  const b = r.birth;
+  if (!b) return '';
+  const id = identityFor(b);
+  return simBgSrc(b.form, id.gender, currentAttrs(r).tick);
+}
+
+function setBackground(src: string): void {
+  let el = document.querySelector<HTMLElement>('#app-bg');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'app-bg';
+    document.body.appendChild(el);
+  }
+  el.style.backgroundImage = src ? `url('${src}')` : '';
+}
+
 function renderLifeScreen(host: HTMLElement): void {
   host.append(buildScene());
 }
@@ -385,13 +427,22 @@ function renderLifeScreen(host: HTMLElement): void {
 /** 根据当前状态确定场景类型并构建 */
 function buildScene(): HTMLElement {
   // 命签抽选动画
-  if (state.drawing) return buildDrawAnim();
+  if (state.drawing) {
+    setBackground(PAGE_BG.drawAnim);
+    return buildDrawAnim();
+  }
 
   // 未抽签 → 抽签场景
-  if (state.seed === null || state.result === null) return buildDrawScene();
+  if (state.seed === null || state.result === null) {
+    setBackground(PAGE_BG.draw);
+    return buildDrawScene();
+  }
 
   // 回顾态 → 回顾场景
-  if (state.review) return buildReviewScene();
+  if (state.review) {
+    setBackground(PAGE_BG.review);
+    return buildReviewScene();
+  }
 
   const r = state.result;
   const atEnd = state.pointer >= r.log.length;
@@ -399,6 +450,7 @@ function buildScene(): HTMLElement {
   // 抉择暂停 → 抉择场景
   if (atEnd && r.pausedChoice) {
     if (state.autoPlay) { state.autoPlay = false; clearAutoTimer(); }
+    setBackground(PAGE_BG.choice);
     return buildChoiceScene(r);
   }
 
@@ -406,10 +458,12 @@ function buildScene(): HTMLElement {
   if (atEnd) {
     if (state.autoPlay) { state.autoPlay = false; clearAutoTimer(); }
     clearAutoChoiceTimer();
+    setBackground(PAGE_BG.end);
     return buildEndScene(r);
   }
 
   // 推进中 → 推进场景（含出生卡 + 日志）
+  setBackground(simBgFor(r));
   return buildLifeScene(r);
 }
 
@@ -1419,6 +1473,8 @@ function rerender(): void {
         const newAttrs = buildAttrsBar(r);
         if (oldAttrs) oldAttrs.replaceWith(newAttrs);
       }
+      // 随着人生阶段推进，切换对应的模拟背景色调
+      setBackground(simBgFor(r));
       newStream.scrollTop = 0;
       return;
     }
