@@ -686,13 +686,15 @@ function buildBirthCard(): HTMLElement {
 
 function buildAttrsBar(r: LifeResult): HTMLElement {
   const bar = el('div', 'attrs');
+  // 根据 pointer 位置计算当前进度对应的中间状态
+  const cur = currentAttrs(r);
   const pairs: Array<[string, number | string]> = [
-    ['岁', r.state.tick],
-    ['健康', Math.round(r.state.attrs['health'] ?? 0)],
-    ['灵质', Math.round(r.state.attrs['liquality'] ?? 0)],
-    ['灵力', Math.round(r.state.attrs['spirit'] ?? 0)],
+    ['岁', cur.tick],
+    ['健康', Math.round(cur.attrs['health'] ?? 0)],
+    ['灵质', Math.round(cur.attrs['liquality'] ?? 0)],
+    ['灵力', Math.round(cur.attrs['spirit'] ?? 0)],
   ];
-  const tier = r.state.flags.find((f) => f.startsWith('tier:'));
+  const tier = cur.flags.find((f) => f.startsWith('tier:'));
   if (tier) pairs.push(['阶位', tier.slice(5)]);
   for (const [k, v] of pairs) {
     const chip = el('span', 'chip');
@@ -700,6 +702,33 @@ function buildAttrsBar(r: LifeResult): HTMLElement {
     bar.append(chip);
   }
   return bar;
+}
+
+/** 根据当前 pointer 位置，从初始属性累加 effects，得到当前进度对应的中间状态 */
+function currentAttrs(r: LifeResult): { tick: number; attrs: Record<string, number>; flags: string[] } {
+  const lines = narrativeLines(r);
+  const shown = lines.slice(0, state.pointer);
+  // 从初始属性开始累加
+  const attrs: Record<string, number> = { ...world.initAttrs };
+  const flags: string[] = [];
+  let tick = world.startTick;
+  for (const line of shown) {
+    tick = line.tick;
+    if (line.effects) {
+      for (const [k, v] of Object.entries(line.effects)) {
+        attrs[k] = (attrs[k] ?? 0) + v;
+      }
+    }
+  }
+  // flags 从最终状态中按 tick 截取（LogEntry 不记录 flag 变更，只能近似取最终状态）
+  // 但 tier 等关键 flag 在 log label 中有体现，这里用最终 flags 做近似
+  for (const f of r.state.flags) {
+    if (f.startsWith('tier:')) {
+      // 阶位 flag 在推进过程中可能已获得，这里保守取最终值
+      flags.push(f);
+    }
+  }
+  return { tick, attrs, flags };
 }
 
 function buildLogStream(r: LifeResult): HTMLElement {
