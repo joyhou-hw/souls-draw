@@ -4632,6 +4632,435 @@ events:
           - id: sht_hi_06
             text: 海雾漫上来时，你在雾里练吐纳，像吞进了一整片海。
 
+  scene_city_childhood:
+    fallback:
+      - id: scc_f_01
+        text: 你在巷口追着纸鸢跑，鞋底磨得又薄又亮。
+      - id: scc_f_02
+        text: 你把糖葫芦藏在袖子里，想留到天黑再吃。
+      - id: scc_f_03
+        text: 你蹲在井边看蚂蚁搬家，一看就是小半日。
+      - id: scc_f_04
+        text: 邻居家的孩子在墙头放风，你替他望了好久的街。
+      - id: scc_f_05
+        text: 你用捡来的瓦片画跳房，跳了一半就摔了跤。
+      - id: scc_f_06
+        text: 你跟着卖货郎走了一条街，只为听那声拨浪鼓。
+      - id: scc_f_07
+        text: 你在雨后的水洼里踩水，衣裳湿了半截。
+      - id: scc_f_08
+        text: 你帮人照看了一会儿货摊，得了颗硬糖。
+      - id: scc_f_09
+        text: 你在天井里数星星，数着数着就睡着了。
+      - id: scc_f_10
+        text: 你把捡来的蝉蜕串成串，挂在门楣上。
+    buckets:
+      - when:
+          region: city
+        variants:
+          - id: scc_ci_01
+            text: 你在{place}的巷弄里捉迷藏，藏在一扇旧门后。
+          - id: scc_ci_02
+            text: 城里的孩子分你半块糖饼，你们坐在台阶上吃。
+          - id: scc_ci_03
+            text: 你在{place}的早市里认菜名，摊主笑你认错了萝卜。
+          - id: scc_ci_04
+            text: 你扒着石桥栏杆看船过，船娘朝你挥了挥手。
+          - id: scc_ci_05
+            text: 你在{place}的街灯下等晚归的大人，影子拉得很长。
+          - id: scc_ci_06
+            text: 你跟着巷子里的野猫钻来钻去，找到个没人的角落。
+
+  scene_guild_childhood:
+    fallback:
+      - id: sgc_f_01
+        text: 你在学堂里跟着念口诀，念错了音也大声。
+      - id: sgc_f_02
+        text: 先生教你认第一个字，你在沙盘上描了好多遍。
+      - id: sgc_f_03
+        text: 你踮着脚看师兄们练功，眼睛一眨不眨。
+      - id: sgc_f_04
+        text: 你把会馆发的书用旧布包好，页角都压得平平的。
+      - id: sgc_f_05
+        text: 你在藏书楼外偷听讲经，听得入了神。
+      - id: sgc_f_06
+        text: 你替师兄磨墨，墨香沾了满手。
+      - id: sgc_f_07
+        text: 你在会馆的院子里追蝴蝶，被长辈笑着叫住。
+      - id: sgc_f_08
+        text: 你把课上的字写歪了，又擦掉重写。
+      - id: sgc_f_09
+        text: 你分到半块灵糕，含在嘴里舍不得咽。
+      - id: sgc_f_10
+        text: 你学着大人的样子作揖，差点把自己绊倒。
+    buckets:
+      - when:
+          region: guild_land
+        variants:
+          - id: sgc_gl_01
+            text: 你在{place}的学堂里背完一整篇，先生摸摸你的头。
+          - id: sgc_gl_02
+            text: 会馆的孩童都有一盏小灯，你提着自己的灯巡了一圈。
+          - id: sgc_gl_03
+            text: 你在{place}的门槛上坐了一下午，看人来人往。
+          - id: sgc_gl_04
+            text: 领地的师兄把你举上墙头，你看清了整条街。
+          - id: sgc_gl_05
+            text: 你在{place}的灵田边认草药，蹲得腿都麻了。
+          - id: sgc_gl_06
+            text: 你把新学的字写给门口的石狮看，像在跟它说话。
+
+  scene_hermit_childhood:
+    fallback:
+      - id: shk_f_01
+        text: 你在滩涂上捡贝壳，口袋装得沉甸甸的。
+      - id: shk_f_02
+        text: 你把海浪追退又追回，光脚踩出一串水花。
+      - id: shk_f_03
+        text: 你在礁石上等退潮，日头把影子晒得发烫。
+      - id: shk_f_04
+        text: 你学着海鸟叫，海鸟竟也回了一声。
+      - id: shk_f_05
+        text: 你把捡来的海螺贴在耳边，听里面的潮声。
+      - id: shk_f_06
+        text: 你在沙滩上画了条大鱼，涨潮时被浪带走。
+      - id: shk_f_07
+        text: 你抱着一兜海菜往回跑，风把头发吹得乱糟糟。
+      - id: shk_f_08
+        text: 你蹲在潮池边看小蟹，看得忘了回家。
+      - id: shk_f_09
+        text: 你用海玻璃串了条链子，挂在手腕上。
+      - id: shk_f_10
+        text: 你在海风里睡了个午觉，醒来满脸是沙。
+    buckets:
+      - when:
+          region: hermit_island
+        variants:
+          - id: shk_hi_01
+            text: 你在{place}的海边拾了一整篮贝壳，摆成一圈。
+          - id: shk_hi_02
+            text: 岛上的老渔夫把你这日的贝壳夸了又夸。
+          - id: shk_hi_03
+            text: 你在{place}的潮池里发现一颗会发光的石子。
+          - id: shk_hi_04
+            text: 你追着退潮线走走停停，捡到一只完整的海星。
+          - id: shk_hi_05
+            text: 你在{place}的崖下躲日头，听浪拍岩壁。
+          - id: shk_hi_06
+            text: 海风把一只纸风筝吹上天，你追着跑了好远。
+
+  scene_forest_guard:
+    fallback:
+      - id: sfa_f_01
+        text: 你沿着山径巡了一整圈，标记下新长的灵草。
+      - id: sfa_f_02
+        text: 你在夜里守灵脉，篝火把影子照得晃动。
+      - id: sfa_f_03
+        text: 你替受伤的小兽包扎，它朝你呜咽了一声。
+      - id: sfa_f_04
+        text: 你把倒伏的树扶正，根边的土踩得结结实实。
+      - id: sfa_f_05
+        text: 你在林口拦住几个偷伐的人，好言劝了回去。
+      - id: sfa_f_06
+        text: 你巡查时遇见山洪前的异动，敲钟示警。
+      - id: sfa_f_07
+        text: 你把一窝被风吹落的雏鸟送回了巢。
+      - id: sfa_f_08
+        text: 你在老树下值夜，听着风穿过林梢。
+      - id: sfa_f_09
+        text: 你沿途给干枯的灵泉通了通泉眼。
+      - id: sfa_f_10
+        text: 你巡完一圈，把见闻刻进一块木牌里。
+    buckets:
+      - when:
+          region: forest
+        variants:
+          - id: sfa_fo_01
+            text: 你在{place}的深林里巡山，惊起一排宿鸟。
+          - id: sfa_fo_02
+            text: 山里的老猎人托你顺路照看一处陷阱，你应下了。
+          - id: sfa_fo_03
+            text: 你在{place}的山口立了块新的路碑。
+          - id: sfa_fo_04
+            text: 你在{place}的林火季前除净了一条防火沟。
+          - id: sfa_fo_05
+            text: 灵脉边有野兽的脚印，你循迹探查了大半日。
+          - id: sfa_fo_06
+            text: 你在{place}的密林里给迷路的香客指了路。
+
+  scene_city_career:
+    fallback:
+      - id: sca_f_01
+        text: 你在铺子里守了整日，账页翻得起了毛边。
+      - id: sca_f_02
+        text: 你熬了一夜赶货，窗外的天泛起鱼肚白。
+      - id: sca_f_03
+        text: 你把攒下的工钱细细点过，又添进钱袋。
+      - id: sca_f_04
+        text: 你跟着东家跑生意，学会了看货验成色。
+      - id: sca_f_05
+        text: 你在码头接了批大货，肩上的担子沉了两分。
+      - id: sca_f_06
+        text: 你把家小安置进一间背街的小屋。
+      - id: sca_f_07
+        text: 你在市集里为货讨价还价，嗓子都喊哑了。
+      - id: sca_f_08
+        text: 你替人写契书，一字一句写得工工整整。
+      - id: sca_f_09
+        text: 你盘下一小块铺面，擦亮门板迎客。
+      - id: sca_f_10
+        text: 你在灯下补旧衣，针脚密得能挡风。
+    buckets:
+      - when:
+          region: city
+        variants:
+          - id: sca_ci_01
+            text: 你在{place}的街市里谈成一笔生意，手心都是汗。
+          - id: sca_ci_02
+            text: 城里的同行给你递了张帖子，约着一起进货。
+          - id: sca_ci_03
+            text: 你在{place}的码头等船，账本揣在怀里不敢离身。
+          - id: sca_ci_04
+            text: 你在{place}的老街盘下铺面，招牌还是旧的。
+          - id: sca_ci_05
+            text: 你送完最后一趟货，靠在桥栏上喘了口气。
+          - id: sca_ci_06
+            text: 你在{place}的集市忙到散场，月亮都升了起来。
+
+  scene_guild_senior:
+    fallback:
+      - id: sgd_f_01
+        text: 你把会馆的事务一件件理清，墨迹排了半张纸。
+      - id: sgd_f_02
+        text: 你带着新来的弟子认路，一路讲着规矩。
+      - id: sgd_f_03
+        text: 你在议事厅里替人分说，话说得缓而稳。
+      - id: sgd_f_04
+        text: 你核对了仓库的账目，多出的半袋灵粮记下待查。
+      - id: sgd_f_05
+        text: 你替出远门的同门照看铺子，日日点卯。
+      - id: sgd_f_06
+        text: 你把争执的双方劝到廊下，一人一盏茶。
+      - id: sgd_f_07
+        text: 你整理名册到深夜，灯芯剪了三回。
+      - id: sgd_f_08
+        text: 你替会馆跑了一趟远处的灵田，带回收成。
+      - id: sgd_f_09
+        text: 你把新章程抄了数份，分发给各房。
+      - id: sgd_f_10
+        text: 你在晨会上把分内的事交代得清清楚楚。
+    buckets:
+      - when:
+          region: guild_land
+        variants:
+          - id: sgd_gl_01
+            text: 你在{place}的会馆里值事，把门牌擦得锃亮。
+          - id: sgd_gl_02
+            text: 领地的长辈把一处杂务托给你打理，你应了下来。
+          - id: sgd_gl_03
+            text: 你在{place}的议事厅里记下这一季的开支。
+          - id: sgd_gl_04
+            text: 你带着几个新人在{place}巡过一遍院墙。
+          - id: sgd_gl_05
+            text: 你在{place}的会馆门口接引来客，揖让得周到。
+          - id: sgd_gl_06
+            text: 你把这一月的差事办得妥帖，得了长辈一句赞。
+
+  scene_hermit_meditation:
+    fallback:
+      - id: sha_f_01
+        text: 你在静室里坐了半日，只听得见自己的呼吸。
+      - id: sha_f_02
+        text: 你把灵质沿经脉缓缓引过，像在梳洗内里。
+      - id: sha_f_03
+        text: 你在月下打坐，月光把周身照得发凉。
+      - id: sha_f_04
+        text: 你数息数到第一千下，心头才渐渐沉静。
+      - id: sha_f_05
+        text: 你在崖顶静候日出，灵质随天光一点点转暖。
+      - id: sha_f_06
+        text: 你把杂念一一放下，像把石子丢进深潭。
+      - id: sha_f_07
+        text: 你在海雾里炼灵，呼吸都带着咸湿。
+      - id: sha_f_08
+        text: 你一整夜未眠，只守着丹田里那一缕灵。
+      - id: sha_f_09
+        text: 你在案前调息，香灰落了一小撮。
+      - id: sha_f_10
+        text: 你把自己融进海潮的节奏里，物我一时不分。
+    buckets:
+      - when:
+          region: hermit_island
+        variants:
+          - id: sha_hi_01
+            text: 你在{place}的静室里闭关，七日才推门而出。
+          - id: sha_hi_02
+            text: 岛上的隐修者隔墙指点了你半句，你琢磨了整夜。
+          - id: sha_hi_03
+            text: 你在{place}的海风里练吐纳，气息越来越绵长。
+          - id: sha_hi_04
+            text: 你在{place}的礁石上打坐，浪声成了你的经文。
+          - id: sha_hi_05
+            text: 你把新悟到的一层境界写在沙上，又被潮抹平。
+          - id: sha_hi_06
+            text: 你在{place}的月夜静坐，灵质在掌心凝成一滴露。
+
+  scene_forest_elder:
+    fallback:
+      - id: sfe_f_01
+        text: 你坐在老树下看叶落，一片一片数得出神。
+      - id: sfe_f_02
+        text: 你把旧巢给过冬的鸟留了下来，添了些软草。
+      - id: sfe_f_03
+        text: 你在林间慢慢走，把认得的路又走了一遍。
+      - id: sfe_f_04
+        text: 你给年轻的小妖讲了段旧事，讲得很慢。
+      - id: sfe_f_05
+        text: 你把积攒的灵籽分了一半，撒在向阳的山坡。
+      - id: sfe_f_06
+        text: 你在溪边洗了把脸，水里的影子已满是风霜。
+      - id: sfe_f_07
+        text: 你守着最后一炉炭火，听风从北边来。
+      - id: sfe_f_08
+        text: 你把一生的见闻刻进树皮，刀痕很浅。
+      - id: sfe_f_09
+        text: 你在晨露里打坐，醒来时肩头落满桂花。
+      - id: sfe_f_10
+        text: 你望向林子的尽头，天光正一点点沉下去。
+    buckets:
+      - when:
+          region: forest
+        variants:
+          - id: sfe_fo_01
+            text: 你在{place}的深林里静养，与小兽共分一掬山泉。
+          - id: sfe_fo_02
+            text: 林子里的后辈常来听你讲古，围坐成一圈。
+          - id: sfe_fo_03
+            text: 你在{place}的老松下埋下一颗灵种。
+          - id: sfe_fo_04
+            text: 你在{place}的山路上慢慢走回，落叶铺了满地。
+          - id: sfe_fo_05
+            text: 你把一处空地让给新来的小妖，自己搬到林深处。
+          - id: sfe_fo_06
+            text: 你在{place}的林口看了一整天云，直到暮色四合。
+
+  scene_city_elder:
+    fallback:
+      - id: sce_f_01
+        text: 你在巷口的棋摊上与人下棋，一局下到日头偏西。
+      - id: sce_f_02
+        text: 你摇着蒲扇看人来人往，茶凉了又续。
+      - id: sce_f_03
+        text: 你把走过的老街又走了一遍，认得许多旧门牌。
+      - id: sce_f_04
+        text: 你听卖报的孩童讲新鲜事，听完微微一笑。
+      - id: sce_f_05
+        text: 你在院子里晒着太阳，逗着脚边的小猫。
+      - id: sce_f_06
+        text: 你把陈年的旧物拿出来理了理，又轻轻放回。
+      - id: sce_f_07
+        text: 你与老街坊在灯下闲话，说到年轻时都笑了。
+      - id: sce_f_08
+        text: 你在桥边喂了半把食给河里的鱼。
+      - id: sce_f_09
+        text: 你数着檐下的风铃，数着数着就出了神。
+      - id: sce_f_10
+        text: 你在黄昏里慢慢散着步，影子拉得又长又缓。
+    buckets:
+      - when:
+          region: city
+        variants:
+          - id: sce_ci_01
+            text: 你在{place}的棋摊边看棋，观棋不语只点头。
+          - id: sce_ci_02
+            text: 城里的老友给你捎来一包新茶，你煮了一下午。
+          - id: sce_ci_03
+            text: 你在{place}的老茶馆里听人说书，听到天黑才散。
+          - id: sce_ci_04
+            text: 你在{place}的巷口给迷路的孩子指了回家的路。
+          - id: sce_ci_05
+            text: 你把自家门前的青石扫得干干净净，坐在竹椅上晒太阳。
+          - id: sce_ci_06
+            text: 你在{place}的河边看灯影，一圈一圈荡开。
+
+  scene_guild_elder:
+    fallback:
+      - id: sge_f_01
+        text: 你在回廊下给后辈讲心法，讲一句停一停。
+      - id: sge_f_02
+        text: 你把手艺传给新来的学徒，一遍遍不嫌烦。
+      - id: sge_f_03
+        text: 你在藏经楼里翻阅旧卷，指尖拂过泛黄的书页。
+      - id: sge_f_04
+        text: 你替会馆修订了一条老规矩，落笔郑重。
+      - id: sge_f_05
+        text: 你在桂花树下看年轻人练功，偶尔出声指点。
+      - id: sge_f_06
+        text: 你把珍藏的一枚旧符传给合适的人。
+      - id: sge_f_07
+        text: 你在议事时只拣要紧的说，众人皆点头。
+      - id: sge_f_08
+        text: 你给远行的后辈写了封家书，字字都是叮嘱。
+      - id: sge_f_09
+        text: 你在灯下补完一本散页的旧籍。
+      - id: sge_f_10
+        text: 你把这一生的门道，都摊开讲给愿意听的人。
+    buckets:
+      - when:
+          region: guild_land
+        variants:
+          - id: sge_gl_01
+            text: 你在{place}的会馆里收了个小徒，教他第一课。
+          - id: sge_gl_02
+            text: 领地的后辈抬来一张软椅，让你在廊下歇脚。
+          - id: sge_gl_03
+            text: 你在{place}的演武场边，为年轻弟子喊了几声好。
+          - id: sge_gl_04
+            text: 你在{place}的灵田边转了一圈，指出几处疏漏。
+          - id: sge_gl_05
+            text: 会馆把一册新谱递给你校订，你逐页批注。
+          - id: sge_gl_06
+            text: 你在{place}的桂花树下，给一群孩子讲起旧年的事。
+
+  scene_hermit_elder:
+    fallback:
+      - id: she_f_01
+        text: 你坐在崖边看海，一看就是一天。
+      - id: she_f_02
+        text: 你把半生所悟都交给海风，心中反倒轻了。
+      - id: she_f_03
+        text: 你在潮声里闭目，像是听懂了海的呼吸。
+      - id: she_f_04
+        text: 你把一枚旧螺放回潮池，看它慢慢探出。
+      - id: she_f_05
+        text: 你在月下看潮起潮落，悟得一分不留。
+      - id: she_f_06
+        text: 你把悟到的一鳞半爪写在沙上，天明便被抹平。
+      - id: she_f_07
+        text: 你在海雾中独坐，衣衫被潮气浸得发沉。
+      - id: she_f_08
+        text: 你望着海天相接处，把执念一点点松开。
+      - id: she_f_09
+        text: 你在黄昏里听海，浪声像一位老友在搭话。
+      - id: she_f_10
+        text: 你把最后一点灵质融进晚潮，了无挂碍。
+    buckets:
+      - when:
+          region: hermit_island
+        variants:
+          - id: she_hi_01
+            text: 你在{place}的崖顶守到入夜，海面亮起点点渔火。
+          - id: she_hi_02
+            text: 岛上的后生给你端来一碗热汤，你分他半句心得。
+          - id: she_hi_03
+            text: 你在{place}的礁石间打坐，像与整座岛同息。
+          - id: she_hi_04
+            text: 你在{place}的海边放下一盏灯，任它随潮漂远。
+          - id: she_hi_05
+            text: 你把旧日的贝壳串成串，送给岛上的孩子。
+          - id: she_hi_06
+            text: 你在{place}的潮声中安坐，晨光与海雾同来。
+
 # ── 里程碑题注（narrativeFeed.milestones 声明的事件 → 照片式文本快照）──
 milestones:
   scene_first_transform:

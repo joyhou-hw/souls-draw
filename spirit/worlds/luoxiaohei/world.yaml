@@ -594,6 +594,143 @@ scenes:
       liquality: 7
       health: 1
 
+  # ── 区域×童年场景（少量试点：同区域同阶段新增类型）──
+  - id: scene_city_childhood
+    label: 市井巷弄里的童年
+    weight: 2.5
+    cooldownTicks: 3
+    cond:
+      flags: [region:city]
+      maxTick: 15
+      excludeFlags: [rooted, intangible]
+    effects:
+      wealth: 2
+      health: 1
+
+  - id: scene_guild_childhood
+    label: 会馆蒙学启蒙
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [region:guild_land]
+      maxTick: 15
+    effects:
+      liquality: 3
+      wealth: 1
+
+  - id: scene_hermit_childhood
+    label: 隐修岛听潮拾贝
+    weight: 1.2
+    cooldownTicks: 5
+    cond:
+      flags: [region:hermit_island]
+      maxTick: 15
+    effects:
+      liquality: 4
+      health: 1
+
+  # ── 区域×成年场景（少量试点：同区域同阶段新增类型）──
+  - id: scene_forest_guard
+    label: 林间巡守护灵
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [region:forest]
+      minTick: 41
+      maxTick: 70
+      excludeFlags: [rooted, intangible]
+    effects:
+      liquality: 3
+      health: -2
+      wealth: 2
+
+  - id: scene_city_career
+    label: 市井立业养家
+    weight: 2.2
+    cooldownTicks: 3
+    cond:
+      flags: [region:city]
+      minTick: 41
+      maxTick: 70
+      excludeFlags: [rooted, intangible]
+    effects:
+      wealth: 6
+      health: -2
+      liquality: -2
+
+  - id: scene_guild_senior
+    label: 会馆执事分忧
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [region:guild_land]
+      minTick: 41
+      maxTick: 70
+    effects:
+      wealth: 4
+      liquality: 3
+      health: -1
+
+  - id: scene_hermit_meditation
+    label: 隐修岛静坐炼灵
+    weight: 1.2
+    cooldownTicks: 5
+    cond:
+      flags: [region:hermit_island]
+      minTick: 41
+      maxTick: 70
+    effects:
+      liquality: 8
+      health: -1
+
+  # ── 区域×老年场景（少量试点：同区域同阶段新增类型）──
+  - id: scene_forest_elder
+    label: 林间落叶归根
+    weight: 1.5
+    cooldownTicks: 5
+    cond:
+      flags: [region:forest]
+      minTick: 71
+      excludeFlags: [rooted, intangible]
+    effects:
+      liquality: 4
+      health: -2
+
+  - id: scene_city_elder
+    label: 市井夕阳下棋
+    weight: 1.5
+    cooldownTicks: 4
+    cond:
+      flags: [region:city]
+      minTick: 71
+      excludeFlags: [rooted, intangible]
+    effects:
+      wealth: 1
+      health: 2
+      liquality: -1
+
+  - id: scene_guild_elder
+    label: 会馆老成指点
+    weight: 1.2
+    cooldownTicks: 5
+    cond:
+      flags: [region:guild_land]
+      minTick: 71
+    effects:
+      liquality: 4
+      wealth: 2
+
+  - id: scene_hermit_elder
+    label: 隐修岛观海悟道
+    weight: 1
+    cooldownTicks: 6
+    cond:
+      flags: [region:hermit_island]
+      minTick: 71
+    effects:
+      liquality: 9
+      health: -1
+
   # ── 种族×阶段专属事件（6 form × 童年/青年/成年/老年）──
   # 人类专属
   - id: human_school_days
