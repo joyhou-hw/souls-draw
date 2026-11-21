@@ -696,6 +696,7 @@ function buildAttrsBar(r: LifeResult): HTMLElement {
   ];
   const tier = cur.flags.find((f) => f.startsWith('tier:'));
   if (tier) pairs.push(['阶位', tier.slice(5)]);
+  if (r.birth?.cultivator) pairs.push(['修行', '在道']);
   for (const [k, v] of pairs) {
     const chip = el('span', 'chip');
     chip.textContent = `${k} ${v}`;
@@ -939,7 +940,8 @@ function buildEndScene(r: LifeResult): HTMLElement {
   title.textContent = '此生落幕';
   const info = el('p', 'end-info');
   const finalTick = r.deathTick ?? r.state.tick;
-  info.textContent = `${deathLabel(r)} · 终年 ${finalTick} · 人生指纹 ${hashLife(r)}`;
+  const cultivatorNote = r.birth?.cultivator ? ' · 修行者' : '';
+  info.textContent = `${deathLabel(r)} · 终年 ${finalTick}${cultivatorNote} · 人生指纹 ${hashLife(r)}`;
   scene.append(title, info);
 
   // 人生纹理（仅活到成年 tick≥18 才显示）
@@ -1085,7 +1087,8 @@ function buildReviewScene(): HTMLElement {
   const timeline = el('div', 'review-timeline');
   const decades = new Map<number, Array<{ text: string; milestone: boolean }>>();
   for (const line of narrativeLines(r)) {
-    const dec = Math.floor(line.tick / 10) * 10;
+    const segSize = line.tick < 100 ? 10 : 50;
+    const dec = Math.floor(line.tick / segSize) * segSize;
     let text = line.isPrompt ? `❈ ${line.text}` : line.text;
     if (line.caption) text += `〔${line.caption}〕`;
     if (line.picked) text += `（抉择：${line.picked}）`;
@@ -1098,7 +1101,9 @@ function buildReviewScene(): HTMLElement {
     const hasMilestone = decades.get(dec)!.some((e) => e.milestone);
     if (hasMilestone) seg.classList.add('milestone');
     const h4 = el('h4');
-    h4.textContent = dec === 0 ? `童年（0-9 岁 · ${calendarYear(0)}起）` : `${dec} 岁段 · ${calendarYear(dec)}起`;
+    const segSize = dec < 100 ? 10 : 50;
+    const segEnd = dec + segSize - 1;
+    h4.textContent = dec === 0 ? `童年（0-9 岁 · ${calendarYear(0)}起）` : `${dec}-${segEnd} 岁段 · ${calendarYear(dec)}起`;
     const ul = el('ul');
     for (const entry of decades.get(dec)!) {
       const li = el('li');

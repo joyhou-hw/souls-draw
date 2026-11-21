@@ -70,6 +70,8 @@ export interface DeathRule {
   attrMod?: { attr: string; below: number; multiplier: number };
   /** 按形态覆盖/缩放危害曲线（key 为出生形态，如 plant_yao） */
   forms?: Record<string, FormDeathRule>;
+  /** 修行者寿命加成：有 cultivator flag 时 hazard 乘以此系数（<1 延寿） */
+  cultivatorMultiplier?: number;
 }
 
 export interface World {

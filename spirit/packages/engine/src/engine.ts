@@ -91,6 +91,10 @@ export function deathCheck(world: World, state: PersonState, rng: Rng): string |
   if (override?.multiplier !== undefined) {
     hazard *= override.multiplier;
   }
+  // 修行者寿命加成
+  if (rule.cultivatorMultiplier !== undefined && state.flags.includes('cultivator')) {
+    hazard *= rule.cultivatorMultiplier;
+  }
   if (rng.next() < hazard) return 'hazard';
   return null;
 }

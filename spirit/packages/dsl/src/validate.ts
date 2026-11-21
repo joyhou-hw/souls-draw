@@ -97,6 +97,9 @@ export function validateWorld(raw: unknown): World {
       validateFormDeathRule(sub, `$.deathRule.forms.${form}`);
     }
   }
+  if (deathRule['cultivatorMultiplier'] !== undefined) {
+    checkNumber(deathRule['cultivatorMultiplier'], '$.deathRule.cultivatorMultiplier');
+  }
   let deathModel: World['deathModel'];
   if (raw['deathModel'] !== undefined) {
     if (raw['deathModel'] !== 'lifetable' && raw['deathModel'] !== 'liquality_balance') {

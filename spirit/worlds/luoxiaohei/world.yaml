@@ -4,7 +4,7 @@
 name: 罗小黑世界
 tickName: 年
 startTick: 0
-endTick: 120
+endTick: 300
 initAttrs:
   liquality: 100
   health: 80
@@ -1297,6 +1297,10 @@ talent:
     forest: {shengling: 1.5}
 
 # ── 死亡规则（灵质收支表 01 §7.3；T2.7 校准：hazard 曲线软化，妖精寿长于人类 02 §3.2）──
+# 形态独立寿命曲线：每种形态用 bands 完全覆盖全局曲线
+# 人类 ~80-100 岁；动物妖 ~150-200 岁；植物妖 ~200-280 岁；真菌妖 ~180-250 岁
+# 灵体妖 ~220-300 岁；器物妖 ~150-220 岁
+# 修行者额外延寿：cultivatorMultiplier 0.5（hazard 减半）
 deathRule:
   bands:
     - { fromTick: 0, hazard: 0.003 }
@@ -1311,12 +1315,51 @@ deathRule:
     attr: liquality
     below: 20
     multiplier: 2
+  cultivatorMultiplier: 0.5
   forms:
-    animal_yao: { multiplier: 0.7 }
-    plant_yao: { multiplier: 0.4 }
-    fungus_yao: { multiplier: 0.5 }
-    spirit_yao: { multiplier: 0.35 }
-    painted_yao: { multiplier: 0.45 }
+    human:
+      bands:
+        - { fromTick: 0, hazard: 0.002 }
+        - { fromTick: 50, hazard: 0.008 }
+        - { fromTick: 70, hazard: 0.02 }
+        - { fromTick: 85, hazard: 0.06 }
+        - { fromTick: 100, hazard: 0.15 }
+    animal_yao:
+      bands:
+        - { fromTick: 0, hazard: 0.001 }
+        - { fromTick: 60, hazard: 0.003 }
+        - { fromTick: 100, hazard: 0.008 }
+        - { fromTick: 150, hazard: 0.02 }
+        - { fromTick: 200, hazard: 0.06 }
+        - { fromTick: 250, hazard: 0.12 }
+    plant_yao:
+      bands:
+        - { fromTick: 0, hazard: 0.0005 }
+        - { fromTick: 100, hazard: 0.002 }
+        - { fromTick: 180, hazard: 0.006 }
+        - { fromTick: 250, hazard: 0.02 }
+        - { fromTick: 300, hazard: 0.08 }
+    fungus_yao:
+      bands:
+        - { fromTick: 0, hazard: 0.0008 }
+        - { fromTick: 80, hazard: 0.003 }
+        - { fromTick: 150, hazard: 0.008 }
+        - { fromTick: 200, hazard: 0.02 }
+        - { fromTick: 260, hazard: 0.08 }
+    spirit_yao:
+      bands:
+        - { fromTick: 0, hazard: 0.0003 }
+        - { fromTick: 100, hazard: 0.0015 }
+        - { fromTick: 200, hazard: 0.005 }
+        - { fromTick: 280, hazard: 0.02 }
+        - { fromTick: 320, hazard: 0.08 }
+    painted_yao:
+      bands:
+        - { fromTick: 0, hazard: 0.001 }
+        - { fromTick: 80, hazard: 0.004 }
+        - { fromTick: 120, hazard: 0.01 }
+        - { fromTick: 180, hazard: 0.03 }
+        - { fromTick: 230, hazard: 0.08 }
 
 # ── 灵力阶梯七档 + 突破门（03 §5.1）──
 powerLadder:
