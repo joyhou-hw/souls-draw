@@ -5673,6 +5673,446 @@
       "variety": "calico"
     },
     {
+      "id": "animal_yao_cat_calico_elder_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/elder/hermit_garb/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/elder/hermit_garb/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/elder/mortal_clothes/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/elder/mortal_clothes/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/elder/mortal_clothes/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/elder/mortal_clothes/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/elder/mortal_clothes/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/elder/mortal_clothes/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/cat/calico/elder/ritual_dress/standing.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/cat/calico/elder/ritual_dress/walking.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/cat/calico/elder/ritual_dress/sitting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/cat/calico/elder/ritual_dress/meditating.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/cat/calico/elder/ritual_dress/fighting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_cat_calico_elder_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/cat/calico/elder/ritual_dress/resting.png",
+      "form": "cat",
+      "variety": "calico"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/plain_robe/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/plain_robe/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/plain_robe/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/plain_robe/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/plain_robe/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/plain_robe/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/guild_uniform/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/guild_uniform/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/guild_uniform/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/guild_uniform/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/guild_uniform/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/guild_uniform/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/hermit_garb/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/hermit_garb/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/hermit_garb/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/hermit_garb/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/hermit_garb/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/hermit_garb/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/mortal_clothes/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/mortal_clothes/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/mortal_clothes/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/mortal_clothes/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/mortal_clothes/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/mortal_clothes/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/ritual_dress/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/ritual_dress/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/ritual_dress/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/ritual_dress/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/ritual_dress/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_child_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/child/ritual_dress/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
       "id": "animal_yao_wolf_snow_wolf_youth_plain_robe_standing",
       "race": "animal_yao",
       "age_band": "youth",
@@ -5681,6 +6121,1196 @@
       "file": "actors/animal_yao/wolf/snow_wolf/youth/plain_robe/standing.png",
       "form": "wolf",
       "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/plain_robe/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/plain_robe/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/plain_robe/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/plain_robe/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/plain_robe/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/guild_uniform/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/guild_uniform/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/guild_uniform/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/guild_uniform/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/guild_uniform/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/guild_uniform/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/hermit_garb/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/hermit_garb/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/hermit_garb/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/hermit_garb/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/hermit_garb/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/hermit_garb/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/mortal_clothes/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/mortal_clothes/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/mortal_clothes/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/mortal_clothes/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/mortal_clothes/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/mortal_clothes/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/ritual_dress/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/ritual_dress/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/ritual_dress/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/ritual_dress/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/ritual_dress/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_youth_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/youth/ritual_dress/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/plain_robe/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/plain_robe/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/plain_robe/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/plain_robe/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/plain_robe/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/plain_robe/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/guild_uniform/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/guild_uniform/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/guild_uniform/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/guild_uniform/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/guild_uniform/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/guild_uniform/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/hermit_garb/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/hermit_garb/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/hermit_garb/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/hermit_garb/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/hermit_garb/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/hermit_garb/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/mortal_clothes/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/mortal_clothes/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/mortal_clothes/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/mortal_clothes/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/mortal_clothes/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/mortal_clothes/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/ritual_dress/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/ritual_dress/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/ritual_dress/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/ritual_dress/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/ritual_dress/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_adult_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/adult/ritual_dress/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/plain_robe/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/plain_robe/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/plain_robe/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/plain_robe/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/plain_robe/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/plain_robe/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/guild_uniform/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/guild_uniform/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/guild_uniform/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/guild_uniform/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/guild_uniform/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/guild_uniform/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/hermit_garb/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/hermit_garb/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/hermit_garb/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/hermit_garb/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/hermit_garb/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/hermit_garb/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/mortal_clothes/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/mortal_clothes/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/mortal_clothes/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/mortal_clothes/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/mortal_clothes/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/mortal_clothes/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/ritual_dress/standing.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/ritual_dress/walking.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/ritual_dress/sitting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/ritual_dress/meditating.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/ritual_dress/fighting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_snow_wolf_elder_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/snow_wolf/elder/ritual_dress/resting.png",
+      "form": "wolf",
+      "variety": "snow_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/plain_robe/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/plain_robe/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/plain_robe/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/plain_robe/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/plain_robe/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/plain_robe/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/guild_uniform/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/guild_uniform/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/guild_uniform/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/guild_uniform/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/guild_uniform/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/guild_uniform/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/hermit_garb/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/hermit_garb/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/hermit_garb/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/hermit_garb/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/hermit_garb/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/hermit_garb/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/mortal_clothes/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/mortal_clothes/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/mortal_clothes/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/mortal_clothes/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/mortal_clothes/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/mortal_clothes/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/ritual_dress/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/ritual_dress/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/ritual_dress/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/ritual_dress/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/ritual_dress/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_child_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/child/ritual_dress/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
     },
     {
       "id": "animal_yao_wolf_grey_wolf_youth_plain_robe_standing",
@@ -5693,12 +7323,1382 @@
       "variety": "grey_wolf"
     },
     {
+      "id": "animal_yao_wolf_grey_wolf_youth_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/plain_robe/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/plain_robe/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/plain_robe/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/plain_robe/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/plain_robe/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/guild_uniform/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/guild_uniform/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/guild_uniform/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/guild_uniform/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/guild_uniform/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/guild_uniform/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/hermit_garb/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/hermit_garb/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/hermit_garb/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/hermit_garb/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/hermit_garb/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/hermit_garb/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/mortal_clothes/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/mortal_clothes/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/mortal_clothes/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/mortal_clothes/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/mortal_clothes/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/mortal_clothes/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/ritual_dress/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/ritual_dress/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/ritual_dress/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/ritual_dress/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/ritual_dress/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_youth_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/youth/ritual_dress/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/plain_robe/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/plain_robe/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/plain_robe/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/plain_robe/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/plain_robe/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/plain_robe/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/guild_uniform/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/guild_uniform/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/guild_uniform/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/guild_uniform/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/guild_uniform/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/guild_uniform/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/hermit_garb/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/hermit_garb/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/hermit_garb/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/hermit_garb/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/hermit_garb/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/hermit_garb/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/mortal_clothes/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/mortal_clothes/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/mortal_clothes/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/mortal_clothes/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/mortal_clothes/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/mortal_clothes/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/ritual_dress/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/ritual_dress/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/ritual_dress/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/ritual_dress/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/ritual_dress/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_adult_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "adult",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/adult/ritual_dress/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/plain_robe/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/plain_robe/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/plain_robe/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/plain_robe/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/plain_robe/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/plain_robe/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/guild_uniform/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/guild_uniform/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/guild_uniform/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/guild_uniform/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/guild_uniform/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/guild_uniform/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/hermit_garb/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/hermit_garb/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/hermit_garb/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/hermit_garb/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/hermit_garb/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/hermit_garb/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/mortal_clothes/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/mortal_clothes/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/mortal_clothes/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/mortal_clothes/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/mortal_clothes/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/mortal_clothes/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/ritual_dress/standing.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/ritual_dress/walking.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/ritual_dress/sitting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/ritual_dress/meditating.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/ritual_dress/fighting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_grey_wolf_elder_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "elder",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/grey_wolf/elder/ritual_dress/resting.png",
+      "form": "wolf",
+      "variety": "grey_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_plain_robe_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/black_wolf/child/plain_robe/standing.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/black_wolf/child/plain_robe/walking.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/plain_robe/sitting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/black_wolf/child/plain_robe/meditating.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/plain_robe/fighting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/plain_robe/resting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/black_wolf/child/guild_uniform/standing.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/black_wolf/child/guild_uniform/walking.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/guild_uniform/sitting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/black_wolf/child/guild_uniform/meditating.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/guild_uniform/fighting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/guild_uniform/resting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/black_wolf/child/hermit_garb/standing.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/black_wolf/child/hermit_garb/walking.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/hermit_garb/sitting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/black_wolf/child/hermit_garb/meditating.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/hermit_garb/fighting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/hermit_garb/resting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/black_wolf/child/mortal_clothes/standing.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_mortal_clothes_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/black_wolf/child/mortal_clothes/walking.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_mortal_clothes_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/mortal_clothes/sitting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_mortal_clothes_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/black_wolf/child/mortal_clothes/meditating.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_mortal_clothes_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/mortal_clothes/fighting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_mortal_clothes_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "mortal_clothes",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/mortal_clothes/resting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_ritual_dress_standing",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/black_wolf/child/ritual_dress/standing.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_ritual_dress_walking",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/black_wolf/child/ritual_dress/walking.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_ritual_dress_sitting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/ritual_dress/sitting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_ritual_dress_meditating",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/black_wolf/child/ritual_dress/meditating.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_ritual_dress_fighting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/ritual_dress/fighting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_child_ritual_dress_resting",
+      "race": "animal_yao",
+      "age_band": "child",
+      "outfit": "ritual_dress",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/black_wolf/child/ritual_dress/resting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
       "id": "animal_yao_wolf_black_wolf_youth_plain_robe_standing",
       "race": "animal_yao",
       "age_band": "youth",
       "outfit": "plain_robe",
       "pose": "standing",
       "file": "actors/animal_yao/wolf/black_wolf/youth/plain_robe/standing.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_plain_robe_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/plain_robe/walking.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_plain_robe_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/plain_robe/sitting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_plain_robe_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/plain_robe/meditating.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_plain_robe_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/plain_robe/fighting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_plain_robe_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "plain_robe",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/plain_robe/resting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_guild_uniform_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/guild_uniform/standing.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_guild_uniform_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/guild_uniform/walking.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_guild_uniform_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/guild_uniform/sitting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_guild_uniform_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/guild_uniform/meditating.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_guild_uniform_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/guild_uniform/fighting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_guild_uniform_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "guild_uniform",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/guild_uniform/resting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_hermit_garb_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/hermit_garb/standing.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_hermit_garb_walking",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "walking",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/hermit_garb/walking.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_hermit_garb_sitting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "sitting",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/hermit_garb/sitting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_hermit_garb_meditating",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "meditating",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/hermit_garb/meditating.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_hermit_garb_fighting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "fighting",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/hermit_garb/fighting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_hermit_garb_resting",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "hermit_garb",
+      "pose": "resting",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/hermit_garb/resting.png",
+      "form": "wolf",
+      "variety": "black_wolf"
+    },
+    {
+      "id": "animal_yao_wolf_black_wolf_youth_mortal_clothes_standing",
+      "race": "animal_yao",
+      "age_band": "youth",
+      "outfit": "mortal_clothes",
+      "pose": "standing",
+      "file": "actors/animal_yao/wolf/black_wolf/youth/mortal_clothes/standing.png",
       "form": "wolf",
       "variety": "black_wolf"
     },
