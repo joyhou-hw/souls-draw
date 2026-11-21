@@ -267,9 +267,11 @@ function identityFor(birth: BirthOutcome): BirthIdentity {
   const seed = state.seed ?? 0;
   if (identityMemo?.seed === seed) return identityMemo.identity;
   const rng = createRng((seed ^ 0x9e3779b9) >>> 0);
-  const gender = rng.pick(['男', '女']);
+  const isHuman = birth.form === 'human';
+  const gender = rng.pick(isHuman ? ['男', '女'] : ['雄', '雌']);
   const surname = rng.pick(SURNAMES);
-  const given = gender === '男' ? rng.pick(GIVEN_MALE) : rng.pick(GIVEN_FEMALE);
+  const given = (isHuman ? gender === '男' : gender === '雄')
+    ? rng.pick(GIVEN_MALE) : rng.pick(GIVEN_FEMALE);
   const place = slotText('place', birth.region);
   const locality = rng.pick(LOCALITY_BY_REGION[birth.region] ?? ['无名之地']);
   const era = slotText('era', birth.era);
@@ -454,7 +456,7 @@ function buildDrawAnim(): HTMLElement {
   // 四个跳动字段
   const fields: Array<{ label: string; pool: string[]; final: string }> = [
     { label: '名字', pool: shufflePool([...SURNAMES, ...GIVEN_MALE, ...GIVEN_FEMALE]), final: id.name },
-    { label: '性别', pool: ['男', '女', '男', '女'], final: id.gender },
+    { label: '性别', pool: b.form === 'human' ? ['男', '女', '男', '女'] : ['雄', '雌', '雄', '雌'], final: id.gender },
     { label: '形态', pool: Object.values(FORM_LABELS), final: FORM_LABELS[b.form] ?? b.form },
     { label: '降生地', pool: Object.values(LOCALITY_BY_REGION).flat(), final: id.birthplace },
   ];
@@ -519,16 +521,12 @@ function buildDrawAnim(): HTMLElement {
     const nameEl = el('h2', 'soul-name');
     nameEl.textContent = id.name;
     card.append(nameEl);
-    // 信息表
+    // 信息表——模拟前只显示性别、形态大类、降生之地；细分（品种/生态位/灵系/修行等）随模拟过程显现
     const infoRows: Array<[string, string]> = [
       ['性别', id.gender],
-      ['形态', formText(birth.form, birth.species, birth.variety, birth.niche)],
+      ['形态', FORM_LABELS[birth.form] ?? birth.form],
       ['降生之地', id.birthplace],
     ];
-    if (birth.lixi) infoRows.push(['灵系显性', lixiText(birth.lixi, birth.dualLixi)]);
-    if (birth.liqiManifest) infoRows.push(['灵气感应', '已显']);
-    if (birth.cultivator) infoRows.push(['修行机缘', '已开启']);
-    if (birth.reincarnatedSoul) infoRows.push(['异兆', '转世魂灵']);
     const table = el('table', 'soul-table');
     for (const [k, v] of infoRows) {
       const tr = el('tr');
@@ -859,6 +857,17 @@ function buildLogStream(r: LifeResult): HTMLElement {
       text.append(cap);
     }
     row.append(star, age, text);
+    // 图片预览按钮——出生后（tick >= 0）的日志行显示
+    if (line.tick >= 0 && birth) {
+      const imgBtn = el('span', 'image-preview-btn');
+      imgBtn.textContent = '🖼';
+      imgBtn.title = '查看此景';
+      imgBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showImagePreview(r, line.tick, line.eventId);
+      });
+      row.append(imgBtn);
+    }
     // 点击整行切换星标
     row.addEventListener('click', () => {
       const idx = Number(row.dataset.idx);
@@ -1051,9 +1060,15 @@ function buildEndScene(r: LifeResult): HTMLElement {
     texLabel.textContent = '人生纹理';
     const texCode = el('p', 'texture-code');
     texCode.textContent = r.texture.label;
+    // SVG 图腾印章
+    const seal = el('div', 'texture-seal');
+    seal.innerHTML = buildTextureSealSVG(r.texture.code);
+    // 诗句
+    const texVerse = el('p', 'texture-verse');
+    texVerse.textContent = `「${r.texture.verse}」`;
     const texDesc = el('p', 'texture-desc');
     texDesc.textContent = r.texture.desc;
-    texBox.append(texLabel, texCode, texDesc);
+    texBox.append(texLabel, texCode, seal, texVerse, texDesc);
     scene.append(texBox);
   }
 
@@ -1108,6 +1123,44 @@ function buildEndScene(r: LifeResult): HTMLElement {
   return scene;
 }
 
+/**
+ * 根据 4 位纹理 code 生成 SVG 图腾印章。
+ *
+ * 正方形画布分 4 个象限，每象限对应一条 grainAxis：
+ *   左上=扎根/漂泊  右上=合群/隐逸
+ *   左下=守序/激进  右下=共处/独行
+ * 每条轴 0=左极（阴：圆/柔/静），1=右极（阳：角/刚/动）
+ * 整体呈朱红印章风格。
+ */
+function buildTextureSealSVG(code: string): string {
+  const bits = code.split('').map((c) => c === '1');
+  // 4 个象限的中心坐标（100x100 画布）
+  const quads = [
+    { cx: 30, cy: 30 },   // 左上：扎根/漂泊
+    { cx: 70, cy: 30 },   // 右上：合群/隐逸
+    { cx: 30, cy: 70 },   // 左下：守序/激进
+    { cx: 70, cy: 70 },   // 右下：共处/独行
+  ];
+  const shapes: string[] = [];
+  for (let i = 0; i < 4; i++) {
+    const { cx, cy } = quads[i]!;
+    const isRight = bits[i];
+    if (isRight) {
+      // 右极：菱形（刚/动）
+      shapes.push(`<polygon points="${cx},${cy - 12} ${cx + 12},${cy} ${cx},${cy + 12} ${cx - 12},${cy}" fill="currentColor"/>`);
+    } else {
+      // 左极：圆形（柔/静）
+      shapes.push(`<circle cx="${cx}" cy="${cy}" r="12" fill="currentColor"/>`);
+    }
+  }
+  // 中心连接十字
+  const cross = '<line x1="50" y1="18" x2="50" y2="82" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>'
+    + '<line x1="18" y1="50" x2="82" y2="50" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>';
+  // 外框
+  const border = '<rect x="6" y="6" width="88" height="88" fill="none" stroke="currentColor" stroke-width="2.5" rx="4"/>';
+  return `<svg viewBox="0 0 100 100" width="72" height="72" xmlns="http://www.w3.org/2000/svg">${border}${cross}${shapes.join('')}</svg>`;
+}
+
 function buildShareText(r: LifeResult): string {
   const lines: string[] = ["【Souls' Draw · 生灵引 · 罗小黑世界】一签一命"];
   const b = r.birth;
@@ -1118,7 +1171,11 @@ function buildShareText(r: LifeResult): string {
   }
   const finalTick = r.deathTick ?? r.state.tick;
   lines.push(`终年 ${finalTick} · ${deathLabel(r)}`);
-  if (r.texture) lines.push(`人生纹理 ${r.texture.label}（${r.texture.desc}）`);
+  if (r.texture) {
+    lines.push(`人生纹理 ${r.texture.label}`);
+    lines.push(`「${r.texture.verse}」`);
+    lines.push(r.texture.desc);
+  }
   lines.push(`人生指纹 ${hashLife(r)} · 替 TA 抉择 ${state.picked.length} 次`);
   lines.push('——');
   const data = currentSave();
@@ -1222,6 +1279,12 @@ function buildReviewScene(): HTMLElement {
   }
   scene.append(timeline);
 
+  // 照片长廊
+  const galleryTitle = el('h3');
+  galleryTitle.textContent = '此生光影';
+  scene.append(galleryTitle);
+  scene.append(buildPhotoGallery(r));
+
   const back = el('button');
   back.textContent = '返回终局';
   back.addEventListener('click', () => {
@@ -1230,6 +1293,104 @@ function buildReviewScene(): HTMLElement {
   });
   scene.append(back);
   return scene;
+}
+
+// ═══════════════════════════════════════════════
+// 图片预览弹窗
+// ═══════════════════════════════════════════════
+
+/** 弹出图片预览模态窗——异步合成场景图并展示 */
+function showImagePreview(r: LifeResult, tick: number, eventId: string): void {
+  const b = r.birth;
+  if (!b) return;
+  // 模态遮罩
+  const overlay = el('div', 'image-modal-overlay');
+  overlay.addEventListener('click', () => overlay.remove());
+  // 模态框
+  const modal = el('div', 'image-modal');
+  modal.addEventListener('click', (e) => e.stopPropagation());
+  // 关闭按钮
+  const closeBtn = el('button', 'image-modal-close');
+  closeBtn.textContent = '✕';
+  closeBtn.addEventListener('click', () => overlay.remove());
+  modal.append(closeBtn);
+  // 标题
+  const title = el('p', 'image-modal-title');
+  title.textContent = `${ageLabel(tick)} · ${calendarYear(tick)}`;
+  modal.append(title);
+  // 占位
+  const loading = el('p', 'muted');
+  loading.textContent = '正在绘景…';
+  modal.append(loading);
+  overlay.append(modal);
+  document.body.append(overlay);
+  // 异步合成
+  const milestone = worldMilestones.includes(eventId) ? eventId : undefined;
+  const params = deriveParams(b, tick, milestone);
+  composeScene(params).then((canvas) => {
+    if (canvas) {
+      loading.remove();
+      canvas.className = 'image-modal-canvas';
+      modal.append(canvas);
+    } else {
+      loading.textContent = '景图缺失';
+    }
+  }).catch(() => {
+    loading.textContent = '景图缺失';
+  });
+}
+
+// ═══════════════════════════════════════════════
+// 回顾场景——照片长廊
+// ═══════════════════════════════════════════════
+
+/** 收集回顾场景的照片长廊节点——按 tick 采样关键节点合成场景图 */
+function buildPhotoGallery(r: LifeResult): HTMLElement {
+  const gallery = el('div', 'photo-gallery');
+  const b = r.birth;
+  if (!b) return gallery;
+  const lines = narrativeLines(r);
+  // 采样策略：里程碑事件 + 每 20 岁一个采样点（去重）
+  const sampled = new Map<number, { tick: number; eventId: string; label: string }>();
+  for (const line of lines) {
+    if (line.tick < 0) continue;
+    if (worldMilestones.includes(line.eventId)) {
+      sampled.set(line.tick, { tick: line.tick, eventId: line.eventId, label: line.text });
+    }
+  }
+  // 每 20 岁采样
+  for (const line of lines) {
+    if (line.tick < 0) continue;
+    const sampleTick = Math.floor(line.tick / 20) * 20;
+    if (!sampled.has(sampleTick) && line.tick === sampleTick) {
+      sampled.set(sampleTick, { tick: line.tick, eventId: line.eventId, label: line.text });
+    }
+  }
+  // 降生时刻
+  if (!sampled.has(0)) {
+    sampled.set(0, { tick: 0, eventId: 'birth', label: '降生' });
+  }
+  const sorted = [...sampled.values()].sort((a, b2) => a.tick - b2.tick);
+  for (const entry of sorted) {
+    const thumb = el('div', 'photo-thumb');
+    thumb.title = `${ageLabel(entry.tick)} · ${entry.label}`;
+    const label = el('span', 'photo-thumb-label');
+    label.textContent = ageLabel(entry.tick);
+    thumb.append(label);
+    gallery.append(thumb);
+    // 异步合成缩略图
+    const milestone = worldMilestones.includes(entry.eventId) ? entry.eventId : undefined;
+    const params = deriveParams(b, entry.tick, milestone);
+    composeScene(params).then((canvas) => {
+      if (canvas) {
+        canvas.className = 'photo-thumb-canvas';
+        thumb.prepend(canvas);
+      }
+    }).catch(() => { /* 静默 */ });
+    // 点击放大预览
+    thumb.addEventListener('click', () => showImagePreview(r, entry.tick, entry.eventId));
+  }
+  return gallery;
 }
 
 // ═══════════════════════════════════════════════

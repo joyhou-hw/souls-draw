@@ -303,4 +303,6 @@ export interface LifeTexture {
   label: string;
   /** 纹理描述文案 */
   desc: string;
+  /** 五言诗句（两句十字），为每种纹理专属 */
+  verse: string;
 }
