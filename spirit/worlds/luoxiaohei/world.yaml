@@ -541,6 +541,59 @@ scenes:
     effects:
       liquality: 10
 
+  # ── 区域×青年期场景（少量试点：同区域同阶段新增类型）──
+  - id: scene_forest_forage
+    label: 森林采灵觅食
+    weight: 2.2
+    cooldownTicks: 4
+    cond:
+      flags: [region:forest]
+      minTick: 16
+      maxTick: 40
+      excludeFlags: [rooted, intangible]
+    effects:
+      liquality: 4
+      health: -1
+
+  - id: scene_city_market
+    label: 市井营生赶集
+    weight: 2.2
+    cooldownTicks: 3
+    cond:
+      flags: [region:city]
+      minTick: 16
+      maxTick: 40
+      excludeFlags: [rooted, intangible]
+    effects:
+      wealth: 5
+      liquality: -2
+      health: -1
+
+  - id: scene_guild_apprentice
+    label: 会馆学徒历练
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [region:guild_land]
+      minTick: 16
+      maxTick: 40
+    effects:
+      liquality: 3
+      wealth: 3
+      health: -1
+
+  - id: scene_hermit_tide
+    label: 隐修观潮悟灵
+    weight: 1.2
+    cooldownTicks: 5
+    cond:
+      flags: [region:hermit_island]
+      minTick: 16
+      maxTick: 40
+    effects:
+      liquality: 7
+      health: 1
+
   # ── 种族×阶段专属事件（6 form × 童年/青年/成年/老年）──
   # 人类专属
   - id: human_school_days

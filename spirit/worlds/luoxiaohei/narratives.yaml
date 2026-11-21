@@ -4476,6 +4476,162 @@ events:
       - id: pfa_f_15
         text: 你最后变成桌上一片薄薄的纸，风一吹，散进了窗外的光里。
 
+  scene_forest_forage:
+    fallback:
+      - id: sff_f_01
+        text: 你在林间翻找灵草，露水把袖口浸得透湿。
+      - id: sff_f_02
+        text: 晨雾未散，你循着灵气钻进一片老藤深处。
+      - id: sff_f_03
+        text: 一株灵芝长在朽木上，你采下来，指间还沾着木屑。
+      - id: sff_f_04
+        text: 你学松鼠埋灵果，半日只寻到三颗，手却被荆棘划破。
+      - id: sff_f_05
+        text: 溪边有株会发光的苔，你俯身看了许久，才小心取走。
+      - id: sff_f_06
+        text: 你在山径上遇见同来的小妖，交换了各自的灵草。
+      - id: sff_f_07
+        text: 灵芝没采到，你只捡回一兜野菌，煮了锅清汤。
+      - id: sff_f_08
+        text: 你追着一缕灵气走了半天，最后只寻到半捧山泉。
+      - id: sff_f_09
+        text: 林深处灵果熟了，你爬上去摘，摔下来滚了一身泥。
+      - id: sff_f_10
+        text: 你把采来的灵草摊在石上晾晒，风里都是草香。
+    buckets:
+      - when:
+          region: forest
+        variants:
+          - id: sff_fo_01
+            text: 密林里的灵藤绊了你一跤，你顺势扒出几段灵根。
+          - id: sff_fo_02
+            text: 你认得老林子里那棵会结灵露的树，这次正好赶上。
+          - id: sff_fo_03
+            text: 山雀替你衔来几颗灵籽，你在树下接了个满怀。
+          - id: sff_fo_04
+            text: 你在{place}的山涧边淘了半日，淘出几粒泛光的砂。
+          - id: sff_fo_05
+            text: 老猎户指给你一条采灵的小路，路尽头灵草成片。
+          - id: sff_fo_06
+            text: 你在松林里捡到一窝灵菇，采了一半，留了一半。
+
+  scene_city_market:
+    fallback:
+      - id: scm_f_01
+        text: 你在早市摆了个小摊，卖的是连夜赶出的灵符。
+      - id: scm_f_02
+        text: 集市人挤人，你护着摊子，也护着怀里的几枚铜钱。
+      - id: scm_f_03
+        text: 你替人跑腿送了一上午货，鞋底磨薄了一层。
+      - id: scm_f_04
+        text: 街角的糖人摊边，你数着进账，铜板在掌心发凉。
+      - id: scm_f_05
+        text: 你收了半筐旧书，转手卖了个好价钱。
+      - id: scm_f_06
+        text: 有个客人赖账，你追过两条街才讨回工钱。
+      - id: scm_f_07
+        text: 你把采来的灵草换了粮，肩上扁担压得生疼。
+      - id: scm_f_08
+        text: 夜晚的鬼市开张，你揣着货去，天亮才回。
+      - id: scm_f_09
+        text: 你在码头搬了半日货，工钱不多，倒也实在。
+      - id: scm_f_10
+        text: 赶集回来，你数了数钱袋，买了块热饼边走边吃。
+    buckets:
+      - when:
+          region: city
+        variants:
+          - id: scm_ci_01
+            text: 你在{place}的集市里支起摊，吆喝声盖过了人潮。
+          - id: scm_ci_02
+            text: 菜贩让给你一个角落，你把货摆得整整齐齐。
+          - id: scm_ci_03
+            text: 城里有人收灵材，你讨价还价，多得了几枚铜钱。
+          - id: scm_ci_04
+            text: 你在桥头帮人看摊，换来一饭一汤，吃得踏实。
+          - id: scm_ci_05
+            text: 集市散了，你扫起剩下的碎货，心里也松了口气。
+          - id: scm_ci_06
+            text: 你跟着运货的车队跑了一趟，回来时腿都发软。
+
+  scene_guild_apprentice:
+    fallback:
+      - id: sga_f_01
+        text: 你在会馆里跟着师傅打熬筋骨，木桩被你敲得发亮。
+      - id: sga_f_02
+        text: 学徒的晨课很早，你哈着白气站桩，直到日头起来。
+      - id: sga_f_03
+        text: 你替会馆抄了一整日名册，手腕酸得抬不起来。
+      - id: sga_f_04
+        text: 师兄带你练步法，你在演武场上绕了十几圈。
+      - id: sga_f_05
+        text: 你分到一件旧制服，改小了穿，倒也合身。
+      - id: sga_f_06
+        text: 会馆药房里你学着辨认灵材，鼻子都闻麻了。
+      - id: sga_f_07
+        text: 你在伙房帮工，切菜切到指节发红，饭却格外香。
+      - id: sga_f_08
+        text: 师傅考你吐纳，你憋着气坚持，额头沁出汗。
+      - id: sga_f_09
+        text: 你打扫藏经楼，扫到窗边时，光里浮着细小的灰。
+      - id: sga_f_10
+        text: 月末你领到一份薄酬，揣在怀里，步子都轻了。
+    buckets:
+      - when:
+          region: guild_land
+        variants:
+          - id: sga_gl_01
+            text: 你在{place}的会馆后院练剑，剑风惊起一树落叶。
+          - id: sga_gl_02
+            text: 领地的长辈手把手教你扎马步，你咬牙不肯先倒。
+          - id: sga_gl_03
+            text: 你替会馆跑腿送信，回来时天已经擦黑。
+          - id: sga_gl_04
+            text: 学徒们挤在通铺上，你听着外头的更声慢慢睡去。
+          - id: sga_gl_05
+            text: 你在会馆的灵田里拔草，日头晒得后颈发烫。
+          - id: sga_gl_06
+            text: 师傅赏了你半块灵糕，你掰成两半，留了一半给同伴。
+
+  scene_hermit_tide:
+    fallback:
+      - id: sht_f_01
+        text: 你坐在礁石上看潮水，一看就是大半个下午。
+      - id: sht_f_02
+        text: 潮涨时你静立岸边，浪花扑上来又退回去。
+      - id: sht_f_03
+        text: 你跟着退潮走，捡起几枚被浪磨圆的石子。
+      - id: sht_f_04
+        text: 海风又咸又凉，你闭目吐纳，灵气随潮气入肺。
+      - id: sht_f_05
+        text: 你数着浪的节奏呼吸，心也跟着一涨一落。
+      - id: sht_f_06
+        text: 礁石缝里有灵光一闪，你俯身去看，是只小螺。
+      - id: sht_f_07
+        text: 你在海边打坐，直到日头沉进海平线。
+      - id: sht_f_08
+        text: 观潮三夜，你似有所悟，灵质里多了些沉静。
+      - id: sht_f_09
+        text: 你赤脚踩在湿沙上，每一步都留下浅浅的印。
+      - id: sht_f_10
+        text: 海鸟掠过你头顶，你抬头，天光正从云后漏下来。
+    buckets:
+      - when:
+          region: hermit_island
+        variants:
+          - id: sht_hi_01
+            text: 你在{place}的海岸守了一夜潮，晨光把你整个人镀亮。
+          - id: sht_hi_02
+            text: 岛上的老渔夫教你听潮，说潮声里藏着灵气。
+          - id: sht_hi_03
+            text: 你攀上断崖看海，风把衣摆吹得猎猎作响。
+          - id: sht_hi_04
+            text: 退潮后你在滩涂上画符，涨潮时被浪轻轻抹去。
+          - id: sht_hi_05
+            text: 你借着一轮明月观海，浪尖碎成满海银片。
+          - id: sht_hi_06
+            text: 海雾漫上来时，你在雾里练吐纳，像吞进了一整片海。
+
 # ── 里程碑题注（narrativeFeed.milestones 声明的事件 → 照片式文本快照）──
 milestones:
   scene_first_transform:
