@@ -690,6 +690,37 @@ button.primary:hover { background: #3a80a0; }
   letter-spacing: 0.2em;
 }
 
+/* 引·开启此生 过场动画 */
+.enter-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  background: var(--ink-bg-deep, #1a1a2e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enter-transition-fadein {
+  animation: enter-fadein 0.8s var(--ease, ease) forwards;
+}
+
+.enter-transition-fadeout {
+  animation: enter-fadeout 0.6s var(--ease, ease) forwards;
+}
+
+@keyframes enter-fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes enter-fadeout {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 @keyframes draw-anim-bg {
   0%   { background: var(--ink-bg); }
   50%  { background: var(--ink-bg-deep); }
@@ -862,6 +893,40 @@ button.primary:hover { background: #3a80a0; }
   border-color: var(--ink-accent);
   background: rgba(159, 200, 232, 0.08);
   transform: translateX(4px);
+}
+
+/* 自动抉择开关 */
+.auto-choice-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-sm);
+  margin-top: var(--gap-md);
+  font-size: 0.9rem;
+  color: var(--ink-fg-muted);
+}
+
+.auto-choice-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.auto-choice-toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--ink-gold, #c8a96a);
+}
+
+.auto-choice-countdown {
+  font-size: 1.2rem;
+  color: var(--ink-gold, #c8a96a);
+  min-width: 1.5em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ── 终局场景 ── */

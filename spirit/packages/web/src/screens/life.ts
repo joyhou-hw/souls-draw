@@ -16,6 +16,16 @@ const FORM_LABELS: Record<string, string> = {
   painted_yao: '器灵',
 };
 
+const TIER_LABELS: Record<string, string> = {
+  fanti: '凡体',
+  ningxing: '凝形',
+  yuwu: '御物',
+  lingyu: '灵域',
+  dayao: '大妖',
+  shengling: '生灵',
+  ascend: '飞升',
+};
+
 const DEATH_LABELS: Record<string, string> = {
   health: '油尽灯枯（健康归零）',
   hazard: '命数无常（灾祸）',
@@ -83,12 +93,68 @@ interface LifeUiState {
   starredLines: Set<number>;
   /** 抽签过渡动画阶段：0=无, 1=跳动中, 2=卡片展示 */
   drawPhase: number;
+  /** 抉择自动选择开关：开启后每次抉择倒计时自动随机选 */
+  autoChoice: boolean;
 }
 
 const state: LifeUiState = {
   seed: null, picked: [], pointer: 0, result: null, review: false, drawing: false,
   autoPlay: false, speedIdx: 0, starredLines: new Set(), drawPhase: 0,
+  autoChoice: false,
 };
+
+let autoChoiceTimer: ReturnType<typeof setTimeout | typeof setInterval> | null = null;
+
+function clearAutoChoiceTimer(): void {
+  if (autoChoiceTimer !== null) { clearInterval(autoChoiceTimer); clearTimeout(autoChoiceTimer); autoChoiceTimer = null; }
+}
+
+/** 抉择自动选择：倒计时结束后随机选一项 */
+function startAutoChoiceCountdown(scene: HTMLElement, r: LifeResult): void {
+  clearAutoChoiceTimer();
+  let remaining = 3;
+  const updateCountdown = (): void => {
+    const display = scene.querySelector<HTMLElement>('.auto-choice-countdown');
+    if (!display) return;
+    if (remaining <= 0) {
+      display.textContent = '代为抉择中…';
+    } else {
+      display.textContent = `${remaining}`;
+    }
+  };
+  updateCountdown();
+  autoChoiceTimer = setInterval((): void => {
+    remaining--;
+    if (remaining <= 0) {
+      clearAutoChoiceTimer();
+      const display = scene.querySelector<HTMLElement>('.auto-choice-countdown');
+      if (display) display.textContent = '代为抉择中…';
+      // 延迟 300ms 再选，给"代为抉择中…"一个短暂展示
+      setTimeout((): void => {
+        const choice = r.pausedChoice!;
+        const idx = Math.floor(Math.random() * choice.options.length);
+        executeChoice(r, idx);
+      }, 300);
+    } else {
+      updateCountdown();
+    }
+  }, 1000);
+}
+
+/** 执行抉择——提取为公共函数，供手动点击和自动选择复用 */
+function executeChoice(r: LifeResult, idx: number): void {
+  clearAutoChoiceTimer();
+  state.picked.push(idx);
+  state.result = runSegment(world, state.seed!, state.picked);
+  persist();
+  const lines = narrativeLines(state.result!);
+  while (state.pointer < lines.length && lines[state.pointer]?.isPrompt) {
+    state.pointer++;
+  }
+  state.autoPlay = true;
+  rerender();
+  if (state.result) startAutoPlay(state.result);
+}
 
 /** 速度档位：标签 → 间隔毫秒（对标 80亿分之一 1x~8x） */
 const SPEED_LABELS: Array<[string, number]> = [
@@ -337,6 +403,7 @@ function buildScene(): HTMLElement {
   // 终局 → 终局场景
   if (atEnd) {
     if (state.autoPlay) { state.autoPlay = false; clearAutoTimer(); }
+    clearAutoChoiceTimer();
     return buildEndScene(r);
   }
 
@@ -477,11 +544,22 @@ function buildDrawAnim(): HTMLElement {
     const enterBtn = el('button', 'primary soul-enter');
     enterBtn.textContent = '引 · 开启此生';
     enterBtn.addEventListener('click', () => {
-      state.drawing = false;
-      state.drawPhase = 0;
-      state.autoPlay = true;
-      rerender();
-      if (state.result) startAutoPlay(state.result);
+      // 过场效果：全屏墨色淡入 → 淡出 → 进入人生
+      const overlay = el('div', 'enter-transition');
+      document.body.append(overlay);
+      // 强制 reflow 触发动画
+      void overlay.offsetWidth;
+      overlay.classList.add('enter-transition-fadein');
+      setTimeout(() => {
+        state.drawing = false;
+        state.drawPhase = 0;
+        state.autoPlay = true;
+        rerender();
+        overlay.classList.remove('enter-transition-fadein');
+        overlay.classList.add('enter-transition-fadeout');
+        setTimeout(() => overlay.remove(), 600);
+        if (state.result) startAutoPlay(state.result);
+      }, 800);
     });
     card.append(enterBtn);
     // 替换跳动区域
@@ -695,7 +773,10 @@ function buildAttrsBar(r: LifeResult): HTMLElement {
     ['灵力', Math.round(cur.attrs['spirit'] ?? 0)],
   ];
   const tier = cur.flags.find((f) => f.startsWith('tier:'));
-  if (tier) pairs.push(['阶位', tier.slice(5)]);
+  if (tier) {
+    const tierKey = tier.slice(5);
+    pairs.push(['阶位', TIER_LABELS[tierKey] ?? tierKey]);
+  }
   if (r.birth?.cultivator) pairs.push(['修行', '在道']);
   for (const [k, v] of pairs) {
     const chip = el('span', 'chip');
@@ -814,7 +895,7 @@ function buildControlBanner(r: LifeResult): HTMLElement {
   // 左侧：播放/暂停 + 速度
   const left = el('div', 'ctrl-left');
   const playBtn = el('button', state.autoPlay ? 'pause-btn' : 'primary');
-  playBtn.textContent = state.autoPlay ? '⏸ 暂停' : '▶ 播放';
+  playBtn.textContent = state.autoPlay ? '⏸ 停下脚步' : '▶ 继续此生';
   playBtn.addEventListener('click', () => {
     if (state.autoPlay) {
       state.autoPlay = false;
@@ -900,24 +981,43 @@ function buildChoiceScene(r: LifeResult): HTMLElement {
       desc.textContent = opt.desc;
       btn.append(desc);
     }
-    btn.addEventListener('click', () => {
-      state.picked.push(idx);
-      state.result = runSegment(world, state.seed!, state.picked);
-      persist();
-      // 跳过当前抉择 prompt 行，从下一条叙事继续播放
-      const lines = narrativeLines(state.result!);
-      // pointer 当前指向抉择 prompt 的下一条，但如果新 result 在此位置仍是 prompt，则跳过
-      while (state.pointer < lines.length && lines[state.pointer]?.isPrompt) {
-        state.pointer++;
-      }
-      // 抉择后自动恢复播放
-      state.autoPlay = true;
-      rerender();
-      if (state.result) startAutoPlay(state.result);
-    });
+    btn.addEventListener('click', () => executeChoice(r, idx));
     options.append(btn);
   });
   scene.append(options);
+
+  // 自动选择开关
+  const autoBar = el('div', 'auto-choice-bar');
+  const toggle = el('label', 'auto-choice-toggle');
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.checked = state.autoChoice;
+  checkbox.addEventListener('change', () => {
+    state.autoChoice = checkbox.checked;
+    if (state.autoChoice) {
+      startAutoChoiceCountdown(scene, r);
+    } else {
+      clearAutoChoiceTimer();
+      const display = scene.querySelector<HTMLElement>('.auto-choice-countdown');
+      if (display) display.textContent = '';
+      rerender();
+    }
+  });
+  const toggleLabel = el('span');
+  toggleLabel.textContent = '代为抉择';
+  toggle.append(checkbox, toggleLabel);
+  autoBar.append(toggle);
+  // 倒计时显示
+  const countdown = el('span', 'auto-choice-countdown');
+  if (state.autoChoice) countdown.textContent = '3';
+  autoBar.append(countdown);
+  scene.append(autoBar);
+
+  // 如果开关已开，启动倒计时
+  if (state.autoChoice) {
+    startAutoChoiceCountdown(scene, r);
+  }
+
   return scene;
 }
 
