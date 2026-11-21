@@ -21,6 +21,8 @@ export interface ChoiceOption {
   weight?: number;
   weightShifts?: Record<string, number>;
   gainFlags?: string[];
+  /** 人格粒度轴倾向：grainAxis → +1（左极）/ -1（右极） */
+  grainShifts?: Record<string, number>;
 }
 
 export interface Choice {
@@ -268,6 +270,8 @@ export interface PersonState {
   attrs: Attrs;
   flags: string[];
   shifts: Record<string, number>;
+  /** 人格粒度轴累积值：grainAxis → 正数（左极）/ 负数（右极） */
+  grainShifts: Record<string, number>;
   /** 已触发过的 once 事件 id 集合 */
   firedEvents: Set<string>;
   /** 事件 id → 冷却截止 tick（该 tick 之前不可再触发） */
@@ -285,4 +289,16 @@ export interface LifeResult {
   pausedChoice?: Choice;
   /** 暂停抉择对应的事件 id——供叙事层渲染 prompt */
   pausedEventId?: string;
+  /** 人生纹理（16 种之一，仅活到成年 tick≥18 才有值） */
+  texture?: LifeTexture;
+}
+
+/** 人生纹理：4 条粒度轴 × 2 极 = 16 种组合 */
+export interface LifeTexture {
+  /** 4 位编码，每位对应一条 grainAxis：0=左极，1=右极 */
+  code: string;
+  /** 4 字标签（每条轴取极字首字） */
+  label: string;
+  /** 纹理描述文案 */
+  desc: string;
 }

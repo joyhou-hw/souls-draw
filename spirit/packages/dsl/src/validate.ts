@@ -183,6 +183,14 @@ function validateEventList(
           throw new WorldValidateError('label 必须为字符串', `${op}.label`);
         }
         if (o['weight'] !== undefined) checkNumber(o['weight'], `${op}.weight`);
+        if (o['grainShifts'] !== undefined) {
+          if (!isObj(o['grainShifts'])) {
+            throw new WorldValidateError('grainShifts 必须为映射对象（grainAxis → 数值）', `${op}.grainShifts`);
+          }
+          for (const [k, v] of Object.entries(o['grainShifts'] as Record<string, unknown>)) {
+            checkNumber(v, `${op}.grainShifts.${k}`);
+          }
+        }
       }
     }
     if (e['terminal'] !== undefined && typeof e['terminal'] !== 'boolean') {

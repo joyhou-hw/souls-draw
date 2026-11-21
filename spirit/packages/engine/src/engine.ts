@@ -110,6 +110,7 @@ export function runLife(world: World, opts: RunLifeOptions = {}): LifeResult {
     attrs: { ...world.initAttrs },
     flags: [],
     shifts: {},
+    grainShifts: {},
     firedEvents: new Set<string>(),
     cooldownUntil: {},
   };
@@ -189,6 +190,11 @@ export function runLife(world: World, opts: RunLifeOptions = {}): LifeResult {
             state.shifts[id] = (state.shifts[id] ?? 1) * m;
           }
         }
+        if (opt.grainShifts) {
+          for (const [axis, delta] of Object.entries(opt.grainShifts)) {
+            state.grainShifts[axis] = (state.grainShifts[axis] ?? 0) + delta;
+          }
+        }
       }
       log.push(entry);
       // once 事件：标记已触发
@@ -208,6 +214,8 @@ export function runLife(world: World, opts: RunLifeOptions = {}): LifeResult {
       }
     }
   }
+  // 人生纹理：仅活到成年（tick≥18）才有
+  const texture = state.tick >= 18 ? computeLifeTexture(state.grainShifts, world.grainAxes) : undefined;
   return {
     world: world.name,
     seed: opts.seed ?? rng.seed,
@@ -216,6 +224,7 @@ export function runLife(world: World, opts: RunLifeOptions = {}): LifeResult {
     deathTick: state.alive ? null : state.tick,
     deathCause: deathCause ?? '',
     birth,
+    texture,
   };
 }
 
@@ -251,4 +260,88 @@ export function hashLife(result: LifeResult): string {
     h = Math.imul(h, 0x01000193);
   }
   return (h >>> 0).toString(16).padStart(8, '0');
+}
+
+// ═══════════════════════════════════════════════
+// 人生纹理（16 种）：4 条 grainAxes × 2 极
+// ═══════════════════════════════════════════════
+
+/** 每条轴的左极词（+）和右极词（−） */
+const GRAIN_POLARITIES: Record<string, [string, string]> = {
+  rooted_vs_drifting: ['扎根', '漂泊'],
+  kin_vs_recluse: ['合群', '隐逸'],
+  order_vs_radical: ['守序', '激进'],
+  coexist_vs_solo: ['共处', '独行'],
+};
+
+/** 16 种纹理描述（按 code → desc，code 格式 "XXXX"，每位 0=左极/1=右极） */
+const TEXTURE_DESCS: Record<string, string> = {
+  '0000': '安土重迁，群居和顺，循规蹈矩，与世共处——这是最安稳的一生',
+  '0001': '安土重迁，群居和顺，循规蹈矩，却偏爱独走自己的路',
+  '0010': '安土重迁，群居和顺，却心中激进，与世共处中暗藏锋芒',
+  '0011': '安土重迁，群居和顺，行事激进，独走逆行——温和表象下的叛逆',
+  '0100': '安土重迁，群居和顺，却偏守序孤行——看似合群实则疏离',
+  '0101': '安土重迁，合群守矩，独善其身——社区中的安静一隅',
+  '0110': '安土重迁，合群却激进，与世共处——乡土中的变革者',
+  '0111': '安土重迁，合群激进，独走己路——不安分的乡邻',
+  '1000': '安土重迁，却天性隐逸，守序共处——喧嚣中的沉默者',
+  '1001': '安土重迁，隐逸守矩，独行于世——山中隐士的雏形',
+  '1010': '安土重迁，隐逸激进，与世共处——不问世俗却心系天下',
+  '1011': '安土重迁，隐逸激进，独走己路——山林中的孤狼',
+  '1100': '安土重迁，隐逸守序，与世共处——矛盾而平和的隐者',
+  '1101': '安土重迁，隐逸守序，独行于世——最彻底的隐居者',
+  '1110': '安土重迁，隐逸激进，与世共处——隐于野而心激荡',
+  '1111': '安土重迁，隐逸激进，独走己路——彻底的独行者',
+};
+
+/** 16 种纹理描述（漂泊系，code 首位为 1） */
+const TEXTURE_DESCS_DRIFT: Record<string, string> = {
+  '0000': '漂泊天涯，合群守序，与世共处——四海为家的温和旅人',
+  '0001': '漂泊天涯，合群守序，独走天涯——人群中独行',
+  '0010': '漂泊天涯，合群激进，与世共处——路途中的变革者',
+  '0011': '漂泊天涯，合群激进，独走己路——流亡中的斗士',
+  '0100': '漂泊天涯，合群守序，与世共处——漂泊中的和事佬',
+  '0101': '漂泊天涯，合群守矩，独善其身——漂泊中的旁观者',
+  '0110': '漂泊天涯，合群激进，与世共处——流浪中的鼓动者',
+  '0111': '漂泊天涯，合群激进，独走己路——逆流的浪人',
+  '1000': '漂泊天涯，隐逸守序，与世共处——沉默的行者',
+  '1001': '漂泊天涯，隐逸守矩，独行于世——天涯孤客',
+  '1010': '漂泊天涯，隐逸激进，与世共处——心怀天下的游荡者',
+  '1011': '漂泊天涯，隐逸激进，独走己路——荒野中的反叛者',
+  '1100': '漂泊天涯，隐逸守序，与世共处——漂泊隐者的平和',
+  '1101': '漂泊天涯，隐逸守序，独行于世——彻底的流浪隐士',
+  '1110': '漂泊天涯，隐逸激进，与世共处——不羁的游魂',
+  '1111': '漂泊天涯，隐逸激进，独走己路——最自由的独行者',
+};
+
+/**
+ * 从 grainShifts 累积值计算人生纹理（16 种之一）
+ *
+ * 每条轴：累积值 ≥ 0 → 左极（0），< 0 → 右极（1）
+ * 4 条轴组合为 4 位 code → 16 种纹理
+ */
+export function computeLifeTexture(
+  grainShifts: Record<string, number>,
+  grainAxes?: string[],
+): import('./types.ts').LifeTexture {
+  const axes = grainAxes ?? ['rooted_vs_drifting', 'kin_vs_recluse', 'order_vs_radical', 'coexist_vs_solo'];
+  const bits: number[] = [];
+  const labels: string[] = [];
+  for (const axis of axes) {
+    const val = grainShifts[axis] ?? 0;
+    const [left, right] = GRAIN_POLARITIES[axis] ?? ['左', '右'];
+    if (val >= 0) {
+      bits.push(0);
+      labels.push(left);
+    } else {
+      bits.push(1);
+      labels.push(right);
+    }
+  }
+  const code = bits.map((b) => String(b)).join('');
+  const isDrift = bits[0] === 1;
+  const descPool = isDrift ? TEXTURE_DESCS_DRIFT : TEXTURE_DESCS;
+  const subCode = code.slice(1);
+  const desc = descPool[subCode] ?? TEXTURE_DESCS[code] ?? '不可名状的一生';
+  return { code, label: labels.join(''), desc };
 }

@@ -36,6 +36,7 @@ function personOf(tick: number, form: string): PersonState {
     attrs: { health: 50, liquality: 50 },
     flags: [`form:${form}`],
     shifts: {},
+    grainShifts: {},
     firedEvents: new Set(),
     cooldownUntil: {},
   };
@@ -157,7 +158,7 @@ test('T2.4 tierOf：取人物最新阶梯档', () => {
   });
   const r = runLife(w, { seed: 7 });
   assert.equal(tierOf(r.state), 'ningxing');
-  const noTier: PersonState = { tick: 0, alive: true, attrs: {}, flags: [], shifts: {}, firedEvents: new Set<string>(), cooldownUntil: {} };
+  const noTier: PersonState = { tick: 0, alive: true, attrs: {}, flags: [], shifts: {}, grainShifts: {}, firedEvents: new Set<string>(), cooldownUntil: {} };
   assert.equal(tierOf(noTier), undefined);
 });
 

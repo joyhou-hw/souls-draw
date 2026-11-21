@@ -37,7 +37,7 @@ function makeWorld(narr: Narratives): World {
 }
 
 function makeState(tick = 1): PersonState {
-  return { tick, alive: true, attrs: {}, flags: [], shifts: {}, firedEvents: new Set<string>(), cooldownUntil: {} };
+  return { tick, alive: true, attrs: {}, flags: [], shifts: {}, grainShifts: {}, firedEvents: new Set<string>(), cooldownUntil: {} };
 }
 
 const baseSlots = {

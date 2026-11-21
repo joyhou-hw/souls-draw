@@ -87,7 +87,7 @@ test('T1.5 choice 概率位移：拜师后 training 权重 ×2、婉拒 ×0.1（
   const w = choiceWorld();
   const masterEv = w.events.find((e) => e.id === 'master')!;
 
-  const noShift = { tick: 20, alive: true, attrs: {}, flags: ['met_master'], shifts: {}, firedEvents: new Set<string>(), cooldownUntil: {} };
+  const noShift = { tick: 20, alive: true, attrs: {}, flags: ['met_master'], shifts: {}, grainShifts: {}, firedEvents: new Set<string>(), cooldownUntil: {} };
   assert.equal(currentWeight(masterEv, noShift), 1, '无 shift 时基础权重为 1');
 
   const a = runLife(w, { seed: 555, resolveChoice: () => 0 });

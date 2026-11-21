@@ -458,7 +458,7 @@ function buildDrawAnim(): HTMLElement {
       ['形态', formText(birth.form, birth.species, birth.variety, birth.niche)],
       ['降生之地', id.birthplace],
     ];
-    if (birth.lixi) infoRows.push(['灵系显性', birth.dualLixi ? `${birth.lixi}（双灵质）` : birth.lixi]);
+    if (birth.lixi) infoRows.push(['灵系显性', lixiText(birth.lixi, birth.dualLixi)]);
     if (birth.liqiManifest) infoRows.push(['灵气感应', '已显']);
     if (birth.cultivator) infoRows.push(['修行机缘', '已开启']);
     if (birth.reincarnatedSoul) infoRows.push(['异兆', '转世魂灵']);
@@ -942,6 +942,19 @@ function buildEndScene(r: LifeResult): HTMLElement {
   info.textContent = `${deathLabel(r)} · 终年 ${finalTick} · 人生指纹 ${hashLife(r)}`;
   scene.append(title, info);
 
+  // 人生纹理（仅活到成年 tick≥18 才显示）
+  if (r.texture) {
+    const texBox = el('div', 'life-texture');
+    const texLabel = el('p', 'texture-label');
+    texLabel.textContent = '人生纹理';
+    const texCode = el('p', 'texture-code');
+    texCode.textContent = r.texture.label;
+    const texDesc = el('p', 'texture-desc');
+    texDesc.textContent = r.texture.desc;
+    texBox.append(texLabel, texCode, texDesc);
+    scene.append(texBox);
+  }
+
   const actions = el('div', 'end-actions');
   const reviewBtn = el('button', 'primary');
   reviewBtn.textContent = '回顾一生';
@@ -1003,6 +1016,7 @@ function buildShareText(r: LifeResult): string {
   }
   const finalTick = r.deathTick ?? r.state.tick;
   lines.push(`终年 ${finalTick} · ${deathLabel(r)}`);
+  if (r.texture) lines.push(`人生纹理 ${r.texture.label}（${r.texture.desc}）`);
   lines.push(`人生指纹 ${hashLife(r)} · 替 TA 抉择 ${state.picked.length} 次`);
   lines.push('——');
   const data = currentSave();
