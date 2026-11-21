@@ -64,6 +64,7 @@ events:
       flags: [liqi_manifest]
       minTick: 8
       maxTick: 24
+      excludeFlags: [home:rich_land]
     choice:
       prompt: 会馆妖精师向你伸出橄榄枝。加入会馆吗？
       options:
@@ -84,6 +85,7 @@ events:
     weight: 2
     once: true
     cond:
+      flags: [region:city]
       minTick: 6
       excludeFlags: [form:human]
     choice:
@@ -105,7 +107,7 @@ events:
     once: true
     cond:
       minTick: 15
-      excludeFlags: [rooted, intangible]
+      excludeFlags: [rooted, intangible, org:guild_registered]
     choice:
       prompt: 一处灵质丰美的山林愿意收留你，但需交出积蓄安家。去吗？
       options:
@@ -114,6 +116,8 @@ events:
           effects:
             liquality: 8
             wealth: -5
+          gainFlags:
+            - home:rich_land
         - label: 继续漂泊
           desc: 天地为家
           effects:
