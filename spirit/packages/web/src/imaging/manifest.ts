@@ -64,7 +64,7 @@ export interface ComposeParams {
   milestone?: string;
 }
 
-const ASSET_BASE = './assets/images/';
+const ASSET_BASE = './images/';
 
 let cachedManifest: Manifest | null = null;
 

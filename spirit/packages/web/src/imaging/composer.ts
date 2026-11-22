@@ -23,7 +23,7 @@ import {
   loadManifest,
 } from './manifest.ts';
 
-const ASSET_BASE = './assets/images/';
+const ASSET_BASE = './images/';
 
 /** Canvas 输出尺寸（4:3 宽高比） */
 export const CANVAS_WIDTH = 800;

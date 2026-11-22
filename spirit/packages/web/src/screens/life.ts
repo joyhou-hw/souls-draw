@@ -383,11 +383,11 @@ function deathLabel(result: LifeResult): string {
 // ═══════════════════════════════════════════════
 
 const PAGE_BG = {
-  draw: './assets/images/backgrounds/pages/home.png',
-  drawAnim: './assets/images/backgrounds/pages/draw_anim.png',
-  choice: './assets/images/backgrounds/pages/choice.png',
-  end: './assets/images/backgrounds/pages/end.png',
-  review: './assets/images/backgrounds/pages/review.png',
+  draw: './images/backgrounds/pages/home.png',
+  drawAnim: './images/backgrounds/pages/draw_anim.png',
+  choice: './images/backgrounds/pages/choice.png',
+  end: './images/backgrounds/pages/end.png',
+  review: './images/backgrounds/pages/review.png',
 };
 
 function ageBandForTick(tick: number): 'child' | 'youth' | 'adult' | 'elder' {
@@ -400,7 +400,7 @@ function ageBandForTick(tick: number): 'child' | 'youth' | 'adult' | 'elder' {
 function simBgSrc(form: string, gender: string, tick: number): string {
   const g = gender === '女' ? 'female' : 'male';
   const stage = ageBandForTick(tick);
-  return `./assets/images/backgrounds/sim/${form}/${g}_${stage}.png`;
+  return `./images/backgrounds/sim/${form}/${g}_${stage}.png`;
 }
 
 function simBgFor(r: LifeResult): string {
@@ -757,7 +757,7 @@ function buildSceneImage(r: LifeResult): HTMLElement {
       const img = el('img');
       img.alt = identityFor(b).birthplace;
       img.loading = 'lazy';
-      img.src = `./assets/images/scenes/${place}_${era}.png`;
+      img.src = `./images/scenes/${place}_${era}.png`;
       img.onerror = () => { wrap.style.display = 'none'; };
       wrap.append(img);
     }
