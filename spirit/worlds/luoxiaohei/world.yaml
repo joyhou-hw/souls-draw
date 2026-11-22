@@ -232,7 +232,7 @@ events:
 
   - id: gate_dayao
     label: 突破大妖
-    weight: 0.8
+    weight: 1.2
     once: true
     cond:
       flags: [tier:lingyu]
@@ -245,7 +245,7 @@ events:
 
   - id: gate_shengling
     label: 突破圣灵
-    weight: 0.6
+    weight: 1.0
     once: true
     cond:
       flags: [tier:dayao]
@@ -258,7 +258,7 @@ events:
 
   - id: ascend_trigger
     label: 圣灵圆满，飞升离陆
-    weight: 0.4
+    weight: 0.8
     once: true
     cond:
       flags: [tier:shengling]
@@ -1832,9 +1832,9 @@ preBirthChain:
     reincarnatedSoulP: 0.001
   humanLine: human
 
-# ── 出生形态轴（01 §7.1；T2.7 校准：妖精体验主导——人类 0.25 演示底线，妖精内部分布按 02 §3.6 案例池 7:4:2:5:1 派生）──
+# ── 出生形态轴（01 §7.1；T2.7 校准：妖精体验主导——人类减半至 0.125，妖精内部分布按比例放大）──
 birthForm:
-  weights: {human: 0.25, animal_yao: 0.28, plant_yao: 0.16, fungus_yao: 0.08, spirit_yao: 0.19, painted_yao: 0.04}
+  weights: {human: 0.125, animal_yao: 0.31, plant_yao: 0.18, fungus_yao: 0.09, spirit_yao: 0.265, painted_yao: 0.03}
   speciesPrototype:
     animal_yao: [cat, wolf, dog, bull, goat]
     plant_yao: [flower, grass, tree]
@@ -1859,11 +1859,11 @@ birthAxes:
   era: [ancient, modern]
 
 # ── 修行入口双闸（01 §7.1.1）──
-# 校准：原 0.25/0.15 导致凡人率 75%、修行率仅 3.75%，体验过于平淡
-# 调整为 0.75/0.55：凡人率 25%、埋没天才 34%、入修行 41%
+# 校准：凡人率降至 12.5%，修行入口大幅提升
+# step1 0.85 / step2 0.70：凡人率 12.5%、埋没天才 27%、入修行 60%
 cultivationGate:
-  step1LiqiManifestP: 0.75
-  step2EntryEventP: 0.55
+  step1LiqiManifestP: 0.85
+  step2EntryEventP: 0.70
   entryEventAgeWindow: [8, 24]
 
 # ── 天赋灵系（03 §5.1 量化）──
