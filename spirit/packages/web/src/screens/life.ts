@@ -1004,23 +1004,31 @@ function buildLifeScene(r: LifeResult): HTMLElement {
   const scene = el('section', 'scene life-scene');
   // 顶部 sticky banner：播放控制 + 速度 + 进度条
   scene.append(buildControlBanner(r));
-  // 双栏主体
+  // 主体——所有元素平铺到 life-body，桌面/手机分别用 CSS order 控制排列
   const body = el('div', 'life-body');
-  // 左侧面板：场景图（含状态栏叠加） + 身份卡
-    const sidebar = el('div', 'life-sidebar');
-    const imgWrap = buildSceneImage(r);
-    imgWrap.append(buildAttrsBar(r));
-    sidebar.append(imgWrap, buildBirthCard());
-  // 右侧面板：人生记录流
-  const main = el('div', 'life-main');
+
+  // 场景图（含状态栏叠加）
+  const imgWrap = buildSceneImage(r);
+  imgWrap.append(buildAttrsBar(r));
+  imgWrap.classList.add('life-scene-image');
+
+  // 身份卡
+  const birthCard = buildBirthCard();
+  birthCard.classList.add('life-birth-card');
+
+  // 岁月长卷标题 + 手机端内联属性摘要
   const logTitle = el('div', 'log-title');
   logTitle.textContent = '岁月长卷';
-  // 手机端：标题后跟一行属性摘要（岁 健康 灵质 灵力）
   const attrsInline = buildAttrsBar(r);
   attrsInline.classList.add('attrs-inline');
   logTitle.append(attrsInline);
-  main.append(logTitle, buildLogStream(r));
-  body.append(sidebar, main);
+  logTitle.classList.add('life-log-title');
+
+  // 日志流
+  const logStream = buildLogStream(r);
+  logStream.classList.add('life-log-stream');
+
+  body.append(logTitle, imgWrap, birthCard, logStream);
   scene.append(body);
   return scene;
 }
@@ -1784,8 +1792,8 @@ function rerender(): void {
   if (!app) return;
   // 推进场景下的自动播放——增量更新控制栏+日志流+属性条，不重建整个 DOM，避免滚动抖动
   const r = state.result;
-  const lifeMain = app.querySelector<HTMLElement>('.life-main');
-  if (r && !state.review && !state.drawing && lifeMain) {
+  const lifeBody = app.querySelector<HTMLElement>('.life-body');
+  if (r && !state.review && !state.drawing && lifeBody) {
     const atEnd = state.pointer >= r.log.length;
     // 只在未到末尾时走增量更新；到末尾需全量重建以切换到抉择/终局场景
     if (!atEnd) {
@@ -1793,18 +1801,19 @@ function rerender(): void {
       const oldBanner = app.querySelector('.control-banner');
       if (oldBanner) oldBanner.replaceWith(buildControlBanner(r));
       // 更新日志流
-      const oldStream = lifeMain.querySelector('.log-stream');
+      const oldStream = lifeBody.querySelector('.log-stream');
       const newStream = buildLogStream(r);
+      newStream.classList.add('life-log-stream');
       if (oldStream) oldStream.replaceWith(newStream);
       // 更新属性条（叠加在场景图内）
-      const sceneImg = app.querySelector<HTMLElement>('.scene-image');
+      const sceneImg = lifeBody.querySelector<HTMLElement>('.scene-image');
       if (sceneImg) {
         const oldAttrs = sceneImg.querySelector('.attrs');
         const newAttrs = buildAttrsBar(r);
         if (oldAttrs) oldAttrs.replaceWith(newAttrs);
       }
       // 更新手机端标题内联属性条
-      const logTitle = lifeMain.querySelector('.log-title');
+      const logTitle = lifeBody.querySelector('.log-title');
       if (logTitle) {
         const oldInline = logTitle.querySelector('.attrs-inline');
         const newInline = buildAttrsBar(r);
