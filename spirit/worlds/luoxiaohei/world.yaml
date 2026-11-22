@@ -736,6 +736,145 @@ events:
             coexist_vs_solo: 1
             kin_vs_recluse: 1
 
+  # ── 流浪/独行线入口（org:unregistered：无籍行者）──
+  - id: wander_path_choice
+    label: 无籍行者之路（抉择点）
+    weight: 1.2
+    once: true
+    cond:
+      minTick: 10
+      maxTick: 30
+      excludeFlags: [rooted, intangible, home:rich_land, org:guild_registered, org:folk_mutual, org:mutual_aid, org:trade_guild, org:dynasty_remnant, org:apprenticed, org:hermit_network]
+    choice:
+      prompt: 你厌倦了被人催促寻个归处，干脆做个无籍的行者，浪迹四方。踏上这条路吗？
+      options:
+        - label: 浪迹四方
+          desc: 无归处，亦无牵挂
+          effects:
+            liquality: 3
+            health: -2
+            wealth: -2
+          gainFlags:
+            - org:unregistered
+          weightShifts:
+            scene_unregistered_vista: 1.5
+            scene_unregistered_epiphany: 1.5
+          grainShifts:
+            rooted_vs_drifting: -1
+            coexist_vs_solo: -1
+            kin_vs_recluse: -1
+        - label: 还是寻个归处
+          desc: 漂泊终非长久
+          effects:
+            health: 2
+          grainShifts:
+            rooted_vs_drifting: 1
+            coexist_vs_solo: 1
+
+  # ── 隐修网络入口（org:hermit_network）──
+  - id: hermit_network_recruit
+    label: 隐修网络相邀（抉择点）
+    weight: 1
+    once: true
+    cond:
+      flags: [cultivator]
+      minTick: 15
+      maxTick: 45
+      excludeFlags: [org:guild_registered, org:hermit_network, org:dynasty_remnant]
+    choice:
+      prompt: 你曾在幽静处偶遇几位不问世事的隐修，他们以密信相邀，结成一个互不打扰却彼此照应的隐修网络。加入吗？
+      options:
+        - label: 加入隐修网络
+          desc: 各修各的，危时相援
+          effects:
+            liquality: 6
+            health: 1
+            wealth: -2
+          gainFlags:
+            - org:hermit_network
+          weightShifts:
+            scene_hermit_network_gather: 1.5
+            scene_hermit_network_cultivate: 1.5
+          grainShifts:
+            kin_vs_recluse: -1
+            rooted_vs_drifting: 1
+            order_vs_radical: 1
+        - label: 婉谢隐修
+          desc: 不入任何网
+          effects:
+            liquality: 2
+          grainShifts:
+            coexist_vs_solo: -1
+
+  # ── 跨分支可玩性事件（bond / stance 轴）──
+  - id: old_friend_revisit
+    label: 故友重逢（抉择点）
+    weight: 1.2
+    once: true
+    cond:
+      minTick: 20
+      maxTick: 50
+      excludeFlags: [rooted, intangible]
+    choice:
+      prompt: 一位失散多年的故友忽然找上门来，问你是否愿意再续前缘、同住一段。留他还是各自安好？
+      options:
+        - label: 再续前缘
+          desc: 故人相守，心有所依
+          effects:
+            health: 4
+            wealth: -3
+          gainFlags:
+            - flag:old_friend_stayed
+          weightShifts:
+            quiet_year: 1.5
+            beast_conflict: 0.5
+          grainShifts:
+            kin_vs_recluse: 1
+            coexist_vs_solo: 1
+        - label: 各自安好
+          desc: 见面即是最好的告别
+          effects:
+            liquality: 3
+          grainShifts:
+            kin_vs_recluse: -1
+            coexist_vs_solo: -1
+
+  - id: crossroad_choice
+    label: 十字路口抉择
+    weight: 1.2
+    once: true
+    cond:
+      minTick: 18
+      maxTick: 40
+      excludeFlags: [rooted, intangible]
+    choice:
+      prompt: 人生走到一个岔口：一边是入世的热闹与机缘，一边是出世的清净与专注。往后的日子，你更愿押在哪一边？
+      options:
+        - label: 入世闯荡
+          desc: 人间烟火，机缘多风险也多
+          effects:
+            wealth: 5
+            liquality: -3
+          weightShifts:
+            scene_city_drift: 1.5
+            scene_city_market: 1.5
+            folk_mutual_recruit: 1.3
+          grainShifts:
+            rooted_vs_drifting: 1
+            order_vs_radical: 1
+        - label: 出世清修
+          desc: 远离尘嚣，专精致志
+          effects:
+            liquality: 5
+            health: 1
+            wealth: -2
+          weightShifts:
+            cultivation_year: 1.5
+            scene_hermit_chance: 1.5
+          grainShifts:
+            rooted_vs_drifting: -1
+            kin_vs_recluse: -1
+
 # ── 场景模板池（触发条件轴组合：地区/形态/组织/年龄窗）──
 scenes:
   - id: scene_forest_childhood
@@ -1533,6 +1672,110 @@ scenes:
       liquality: 15
       health: -5
       wealth: -3
+
+  # ── 流浪/独行线场景（org:unregistered）──
+  - id: scene_unregistered_bivouac
+    label: 露宿避风
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [org:unregistered]
+    effects:
+      health: 2
+      wealth: -1
+
+  - id: scene_unregistered_vista
+    label: 看尽山河
+    weight: 1.6
+    cooldownTicks: 5
+    cond:
+      flags: [org:unregistered]
+    effects:
+      liquality: 5
+      health: -1
+
+  - id: scene_unregistered_fellow
+    label: 偶遇同路人
+    weight: 1.6
+    cooldownTicks: 5
+    cond:
+      flags: [org:unregistered]
+    effects:
+      liquality: 3
+      wealth: 2
+
+  - id: scene_unregistered_epiphany
+    label: 独行顿悟
+    weight: 1.2
+    cooldownTicks: 6
+    cond:
+      flags: [org:unregistered]
+      minTick: 40
+    effects:
+      liquality: 8
+      health: 1
+
+  # ── 师承线场景（org:apprenticed）──
+  - id: scene_apprentice_trial
+    label: 师门试炼
+    weight: 1.8
+    cooldownTicks: 5
+    cond:
+      flags: [org:apprenticed]
+    effects:
+      liquality: 6
+      health: -2
+
+  - id: scene_apprentice_discourse
+    label: 云游论道
+    weight: 1.6
+    cooldownTicks: 6
+    cond:
+      flags: [org:apprenticed]
+    effects:
+      liquality: 7
+      wealth: -1
+
+  - id: scene_apprentice_rite
+    label: 焚香立心
+    weight: 1.2
+    cooldownTicks: 7
+    cond:
+      flags: [org:apprenticed]
+      minTick: 45
+    effects:
+      liquality: 9
+      health: 2
+
+  # ── 隐修网络场景（org:hermit_network）──
+  - id: scene_hermit_network_gather
+    label: 隐修集会
+    weight: 1.6
+    cooldownTicks: 6
+    cond:
+      flags: [org:hermit_network]
+    effects:
+      liquality: 6
+
+  - id: scene_hermit_network_cultivate
+    label: 共参灵悟
+    weight: 1.4
+    cooldownTicks: 7
+    cond:
+      flags: [org:hermit_network]
+    effects:
+      liquality: 8
+      health: -1
+
+  - id: scene_hermit_network_hide
+    label: 遁世避祸
+    weight: 1.4
+    cooldownTicks: 6
+    cond:
+      flags: [org:hermit_network]
+    effects:
+      health: 4
+      wealth: -2
 
 # ── 时代冲击波池（era 轴 × 地区轴的灾害/危机/战争）──
 shocks:

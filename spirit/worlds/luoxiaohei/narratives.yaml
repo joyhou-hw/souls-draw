@@ -5805,6 +5805,354 @@ events:
           - id: spdh_mo_04
             text: 猎物倒下后，你在{place}的便利店买水，手抖得付不了账。
 
+  wander_path_choice:
+    prompt: 你厌倦了被人催促寻个归处，干脆做个无籍的行者，浪迹四方。踏上这条路吗？
+    fallback:
+      - id: wpc_f_01
+        text: 你数了数这些年走过的路，鞋底磨出的洞比走过的桥还多。
+      - id: wpc_f_02
+        text: 有人劝你寻个归处，你望着天边的云，只觉得哪儿都不是家。
+      - id: wpc_f_03
+        text: 你把行囊里的家当倒出来，竟没有一件是非带走不可的。
+      - id: wpc_f_04
+        text: 风从{place}的方向吹来，你忽然想顺着它走，不问去向。
+      - id: wpc_f_05
+        text: 归处二字像块石头压在心上，你更想把它远远甩开。
+      - id: wpc_f_06
+        text: 你在{place}的路口站了半晌，往哪边走都像离家，也像回家。
+      - id: wpc_f_07
+        text: 无籍行者的名头听来落魄，可你眼里却有点发亮。
+      - id: wpc_f_08
+        text: 你摸了摸空空的荷包，又摸了摸怀里那点暖乎的灵质。
+      - id: wpc_f_09
+        text: 路过的货郎问你安家没有，你笑了笑，说天就是屋顶。
+      - id: wpc_f_10
+        text: 你给{species}的自己编了个无牵无挂的由头，心里却翻腾着。
+      - id: wpc_f_11
+        text: 驿站边的老树见过许多行者，你在它脚下坐了一夜。
+      - id: wpc_f_12
+        text: 漂泊的滋味你尝过，像风，像{place}夜里的凉，也像自由。
+    buckets:
+      - when:
+          era: ancient
+        variants:
+          - id: wpc_an_01
+            text: 你背上粗布包袱，竹杖点着{place}的官道，一路往山里去。
+          - id: wpc_an_02
+            text: 旧时的关隘不收无籍客，你绕了条荒径，反而得见好景。
+          - id: wpc_an_03
+            text: 你在{place}的野店打尖，听人说起前朝的行者传说。
+          - id: wpc_an_04
+            text: 古道西风里，你与一只{species}的影子并排走，谁也不问谁。
+      - when:
+          era: modern
+        variants:
+          - id: wpc_mo_01
+            text: 你把家当塞进一个旧帆布包，{place}的车站灯亮得刺眼。
+          - id: wpc_mo_02
+            text: 你在{place}的长途车上睡过一站又一站，梦里全是大路。
+          - id: wpc_mo_03
+            text: 无籍在如今意味着没个登记处，你却觉着这样更自在。
+          - id: wpc_mo_04
+            text: 你把手机里的地址一条条删掉，只留了{place}的方向。
+
+  hermit_network_recruit:
+    prompt: 你曾在幽静处偶遇几位不问世事的隐修，他们以密信相邀，结成一个互不打扰却彼此照应的隐修网络。加入吗？
+    fallback:
+      - id: hnr_f_01
+        text: 一封没署名的密信压在你的门缝下，墨香淡得像山里的雾。
+      - id: hnr_f_02
+        text: 送信的是只灰雀，放下信就飞，你追不上也拦不住。
+      - id: hnr_f_03
+        text: 信上说隐修们各修各的，只在危难时互通声气。
+      - id: hnr_f_04
+        text: 你在{place}的幽静处见过他们，彼此只点头，不寒暄。
+      - id: hnr_f_05
+        text: 隐修网络的规矩很简单：不扰、不欠、不忘。
+      - id: hnr_f_06
+        text: 你把信翻来覆去看了三遍，纸角都磨得起了毛。
+      - id: hnr_f_07
+        text: 不入网便少了份照应，入了网又多了份牵绊。
+      - id: hnr_f_08
+        text: 那几位隐修的面孔你记得清，眼神都淡得像远山。
+      - id: hnr_f_09
+        text: 密信在灯下一照，透出半句旧时的切口。
+      - id: hnr_f_10
+        text: 你想起自己独修的清苦，也想起独行的孤独。
+      - id: hnr_f_11
+        text: 灰雀又落在你窗台上，歪着头，像在等你的回话。
+      - id: hnr_f_12
+        text: 隐修网络没有会费，只认一个"心照不宣"。
+
+  old_friend_revisit:
+    prompt: 一位失散多年的故友忽然找上门来，问你是否愿意再续前缘、同住一段。留他还是各自安好？
+    fallback:
+      - id: ofr_f_01
+        text: 敲门声响起时，你愣了一下，那声音和多年前一模一样。
+      - id: ofr_f_02
+        text: 故友站在门口，鬓角添了风霜，眼睛还是那双眼睛。
+      - id: ofr_f_03
+        text: 你端出两碗粗茶，氤氲的热气里，旧事一件件浮上来。
+      - id: ofr_f_04
+        text: 失散这些年，你们各自都攒了一肚子话，却先对坐无言。
+      - id: ofr_f_05
+        text: 他说路过{place}，忽然想起你还在这里，就拐了进来。
+      - id: ofr_f_06
+        text: 你算了算，上次一别，{place}的树都换了三回叶子。
+      - id: ofr_f_07
+        text: 故友把一包土产推到你面前，说是路上顺手带的。
+      - id: ofr_f_08
+        text: 同住一段这四个字，暖得像冬天炉子里的炭。
+      - id: ofr_f_09
+        text: 你怕重逢又别离，更怕这一次错过就真不见了。
+      - id: ofr_f_10
+        text: 你们的影子在灯下并排，像又回到了结伴的年少。
+      - id: ofr_f_11
+        text: 故友没有催你，只把你最爱的那碟小菜摆上了桌。
+      - id: ofr_f_12
+        text: 留与不留，说到底是你心里还认不认这段旧缘。
+
+  crossroad_choice:
+    prompt: 人生走到一个岔口：一边是入世的热闹与机缘，一边是出世的清净与专注。往后的日子，你更愿押在哪一边？
+    fallback:
+      - id: crc_f_01
+        text: 岔路口的老石碑上，两条路各指向一方，字迹都被磨平了。
+      - id: crc_f_02
+        text: 一边的市声远远传来，一边的山风轻轻吹过，你站在中间。
+      - id: crc_f_03
+        text: 你在{place}的岔口来回踱步，脚印叠成了小小的圆。
+      - id: crc_f_04
+        text: 入世有酒有火，出世有山有雪，你哪个都舍不得。
+      - id: crc_f_05
+        text: 你问路边的野草，它不答，只朝风来的方向弯了弯腰。
+      - id: crc_f_06
+        text: 热闹是别人的热闹，清净也是别人的清净，你得自己选。
+      - id: crc_f_07
+        text: 你把{species}的爪子搭在额前，望了望两条路的天。
+      - id: crc_f_08
+        text: 往后的日子像摊开的两张牌，你迟迟不肯翻开。
+      - id: crc_f_09
+        text: 一条路通向灯，一条路通向月，你心里那杆秤晃了晃。
+      - id: crc_f_10
+        text: 你想起自己到底图什么，答案慢慢浮了上来。
+      - id: crc_f_11
+        text: 岔口的风不小，吹得你衣角乱飞，也吹得心思透亮。
+      - id: crc_f_12
+        text: 天快暗了，你得赶在星光出来前做个了断。
+    buckets:
+      - when:
+          era: ancient
+        variants:
+          - id: crc_an_01
+            text: 古道上一条入城，一条上山，车马声与松涛声一左一右。
+          - id: crc_an_02
+            text: 你在{place}的驿亭里听赶路人说，城里如今又添了灯会。
+          - id: crc_an_03
+            text: 山里的樵夫劝你莫入红尘，城里的货郎劝你莫守清苦。
+          - id: crc_an_04
+            text: 旧年历书说{place}有两条命途，你偏就站在命途中央。
+      - when:
+          era: modern
+        variants:
+          - id: crc_mo_01
+            text: 一条路亮着广告牌的彩光，一条路黑得只听见虫鸣。
+          - id: crc_mo_02
+            text: 你在{place}的地图软件上放大又缩小，还是拿不定主意。
+          - id: crc_mo_03
+            text: 城市的班车和山里的班车同时发车，你站在两辆车之间。
+          - id: crc_mo_04
+            text: 手机没信号的山谷和信号满格的街口，你各看了一眼。
+
+  scene_unregistered_bivouac:
+    fallback:
+      - id: sunb_f_01
+        text: 你在{place}的背风处铺开干草，裹紧衣裳睡了一夜。
+      - id: sunb_f_02
+        text: 山洞避风，篝火不旺，你数着星星慢慢入眠。
+      - id: sunb_f_03
+        text: 你把{species}的身子蜷成一团，暖意从自己身上来。
+      - id: sunb_f_04
+        text: 露宿虽苦，可抬头就是满天的星，比屋瓦还亮堂。
+      - id: sunb_f_05
+        text: 风在洞口打了个旋，没吹到你，你睡得倒安稳。
+      - id: sunb_f_06
+        text: 你寻了棵老树靠着，树根凸起，正好垫着腰。
+      - id: sunb_f_07
+        text: 一夜无梦，醒时露水打湿了你的袖口。
+      - id: sunb_f_08
+        text: 你把自己裹成个球，{place}的夜静得能听见呼吸。
+
+  scene_unregistered_vista:
+    fallback:
+      - id: sunv_f_01
+        text: 你登上一处高地，山河在脚下铺开，风把心事都吹散了。
+      - id: sunv_f_02
+        text: 一路走来，{place}的山水你已看得眼熟，却总也看不够。
+      - id: sunv_f_03
+        text: 你站在崖边，看云海翻涌，只觉天地宽得没边。
+      - id: sunv_f_04
+        text: 大江在你脚下拐了个弯，像在替你记下来时的路。
+      - id: sunv_f_05
+        text: 你看过春山秋江，看过冬雪夏溪，一颗心越走越静。
+      - id: sunv_f_06
+        text: 山河无言，你也不说话，只把这一眼记进灵里。
+      - id: sunv_f_07
+        text: 远处的城郭小得像块砚台，你觉得自由大过了天。
+      - id: sunv_f_08
+        text: 你{species}的脚力已磨得结实，走多远都不觉累。
+
+  scene_unregistered_fellow:
+    fallback:
+      - id: sunf_f_01
+        text: 途中偶遇一个同样无籍的旅人，你们结伴走了一程又一程。
+      - id: sunf_f_02
+        text: 同路人在{place}的桥头分你半个馍，也分了半路的话。
+      - id: sunf_f_03
+        text: 你们不问彼此来处，只问下一处水甜不甜。
+      - id: sunf_f_04
+        text: 那旅人教你一套省脚力的法子，你记在心里。
+      - id: sunf_f_05
+        text: 同路的日子短，可你觉着两条影子里都有光。
+      - id: sunf_f_06
+        text: 临别时他留给你一包干粮，你留给他一句珍重。
+      - id: sunf_f_07
+        text: 原来世上还有和你一样不愿停下的人，你心里一暖。
+      - id: sunf_f_08
+        text: 你们在{place}的岔口各自上路，谁也没说再见。
+
+  scene_unregistered_epiphany:
+    fallback:
+      - id: sune_f_01
+        text: 独行多年，你在一个无人的清晨忽然想通了一件大事。
+      - id: sune_f_02
+        text: 你盘坐在{place}的山石上，灵质如潮水般澄澈起来。
+      - id: sune_f_03
+        text: 没有师门没有同修，你反倒在寂静里听见了自己的道。
+      - id: sune_f_04
+        text: 一路的风霜都化作了底子，你只觉浑身一轻。
+      - id: sune_f_05
+        text: 你仰面躺在{place}的草坡上，天光直直照进灵海。
+      - id: sune_f_06
+        text: 顿悟来时不声不响，像{place}的第一场雪。
+      - id: sune_f_07
+        text: 你把这些年走过的路在心头过了一遍，越走越明。
+      - id: sune_f_08
+        text: 独行的尽头不是荒凉，是一份谁也拿不走的通透。
+
+  scene_apprentice_trial:
+    fallback:
+      - id: sapt_f_01
+        text: 师门试炼设在{place}的深谷里，你咬着牙走了进去。
+      - id: sapt_f_02
+        text: 师傅只丢下一句"去吧"，你便独自面对那场试炼。
+      - id: sapt_f_03
+        text: 试炼的罡风刮得你睁不开眼，你却一步没退。
+      - id: sapt_f_04
+        text: 你在试炼里把所学都用了一遍，灵质耗去了大半。
+      - id: sapt_f_05
+        text: 过关那刻，师傅在谷口点了点头，你浑身一松。
+      - id: sapt_f_06
+        text: 同门在谷外替你捏着汗，你在谷内只盯着前方的光。
+      - id: sapt_f_07
+        text: 试炼磨的是心，你熬过来，气性都沉了三分。
+      - id: sapt_f_08
+        text: 你把{species}的本事使到极致，终于闯出了那条窄路。
+
+  scene_apprentice_discourse:
+    fallback:
+      - id: sapd_f_01
+        text: 你随师傅云游，与四方道友论道，各执一理也各有所得。
+      - id: sapd_f_02
+        text: 论道时你话不多，却句句都点在要紧处。
+      - id: sapd_f_03
+        text: 一位老修与你辩了整夜，天亮时竟朝你拱了拱手。
+      - id: sapd_f_04
+        text: 你在{place}的道场听人谈玄，心里的疑团解开不少。
+      - id: sapd_f_05
+        text: 云游路上所见所闻，都成了你论道时的底气。
+      - id: sapd_f_06
+        text: 你与师傅在{place}的松亭对坐，一问一答直到月升。
+      - id: sapd_f_07
+        text: 论道不论输赢，你悟的是自己的那一条路。
+      - id: sapd_f_08
+        text: 众道友散去后，师傅说你的道，已有了自己的影子。
+
+  scene_apprentice_rite:
+    fallback:
+      - id: sapr_f_01
+        text: 你在{place}的静室焚香，一炷香里，把此心立得端端正正。
+      - id: sapr_f_02
+        text: 师门立心之礼，你三拜之后，只觉灵台一片清明。
+      - id: sapr_f_03
+        text: 香灰落在你掌心，你合上眼，把浮躁一点一点沉下去。
+      - id: sapr_f_04
+        text: 师傅替你点香，火光映着两代人，也映着一份传承。
+      - id: sapr_f_05
+        text: 你立下心志那刻，{place}的风都静了下来。
+      - id: sapr_f_06
+        text: 这些年的苦修，都在这一炷香里有了着落。
+      - id: sapr_f_07
+        text: 你把心迹说给香听，香不答，烟却直直向上。
+      - id: sapr_f_08
+        text: 立心之后，你看山是山，看水是水，眼里却更亮了。
+
+  scene_hermit_network_gather:
+    fallback:
+      - id: shng_f_01
+        text: 隐修们约在{place}的僻静处集会，席地而坐，各述所得。
+      - id: shng_f_02
+        text: 集会无主无客，谁有心得便说，你听得入神。
+      - id: shng_f_03
+        text: 你带着一壶清茶赴会，回来时带了一肚子真知。
+      - id: shng_f_04
+        text: 隐修网络的集会从不多留客，散时各自隐入山中。
+      - id: shng_f_05
+        text: 会上有人抚琴，有人静坐，你便也寻了处安静。
+      - id: shng_f_06
+        text: 你在集会上见到几位久仰的隐修，只以目示意。
+      - id: shng_f_07
+        text: 集会的灯火极暗，可你心里却亮堂了许多。
+      - id: shng_f_08
+        text: 隐修们不问世事，只问一句：近来可有所得。
+
+  scene_hermit_network_cultivate:
+    fallback:
+      - id: shnc_f_01
+        text: 你与几位隐修共参一处灵悟，彼此印证，进境又快了几分。
+      - id: shnc_f_02
+        text: 共参时无人多言，只以灵息相照，你悟得格外通透。
+      - id: shnc_f_03
+        text: 一位隐修点破你修行的滞处，你如拨云见日。
+      - id: shnc_f_04
+        text: 你们在{place}的静地同修，山气与灵息混成一片。
+      - id: shnc_f_05
+        text: 共参一场下来，你只觉灵海里的暗角都亮了起来。
+      - id: shnc_f_06
+        text: 隐修之间不问回报，只把彼此的体悟相赠。
+      - id: shnc_f_07
+        text: 你把自己的心得也毫无保留地说了出来，心里反而更满。
+      - id: shnc_f_08
+        text: 共参之后，你在{place}独坐半日，把所得慢慢化开。
+
+  scene_hermit_network_hide:
+    fallback:
+      - id: shnh_f_01
+        text: 世道将乱，隐修网络早得了风声，你随众人遁入深野避祸。
+      - id: shnh_f_02
+        text: 你依着网络的指引，在{place}的隐秘处躲过一场大祸。
+      - id: shnh_f_03
+        text: 避祸的日子清苦，可性命无虞，你心里踏实。
+      - id: shnh_f_04
+        text: 隐修们散而不乱，各寻生路，又互通声气。
+      - id: shnh_f_05
+        text: 你把居所又往深处挪了挪，只留一条极窄的小径。
+      - id: shnh_f_06
+        text: 危急时一封密信递来，你连夜动身，避开了凶险。
+      - id: shnh_f_07
+        text: 遁世非逃，是待时而动，你把这话嚼了又嚼。
+      - id: shnh_f_08
+        text: 风声过后你重回{place}，人瘦了些，心却更稳了。
+
 # ── 里程碑题注（narrativeFeed.milestones 声明的事件 → 照片式文本快照）──
 milestones:
   scene_first_transform:
