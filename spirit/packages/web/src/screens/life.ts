@@ -153,7 +153,10 @@ function executeChoice(r: LifeResult, idx: number): void {
     state.pointer++;
   }
   state.autoPlay = true;
+  // 保存滚动位置，rerender 后恢复
+  const savedScrollY = window.scrollY;
   rerender();
+  window.scrollTo(0, savedScrollY);
   if (state.result) startAutoPlay(state.result);
 }
 
@@ -824,19 +827,27 @@ function buildLifeScene(r: LifeResult): HTMLElement {
 }
 
 /** 根据 birth 信息构建场景图片——CSS 分层叠加（场景底图 + 主角图层 + 特效图层） */
+// 图片元素缓存：src → HTMLImageElement，避免重建 DOM 时图片重新加载闪烁
+const imgElementCache = new Map<string, HTMLImageElement>();
+
 function buildSceneImage(r: LifeResult, tickOverride?: number, milestone?: string): HTMLElement {
   const wrap = el('div', 'scene-image layered');
   const b = r.birth;
   if (!b) return wrap;
   const tick = tickOverride ?? r.log?.[0]?.tick ?? 0;
   const params = deriveParams(b, tick, milestone);
-  // 立即放置场景底图（同步，无需等待 manifest）
+  // 立即放置场景底图（同步，无需等待 manifest）——使用缓存的 img 元素避免闪烁
   const place = normalizePlace(b.region);
   const era = normalizeEra(b.era);
-  const sceneImg = el('img', 'layer-scene');
-  sceneImg.alt = identityFor(b).birthplace;
-  sceneImg.src = `${ASSET_BASE}scenes/${place}_${era}.webp`;
-  sceneImg.onerror = () => { sceneImg.style.display = 'none'; };
+  const sceneSrc = `${ASSET_BASE}scenes/${place}_${era}.webp`;
+  const sceneImg = (imgElementCache.get(sceneSrc) ?? el('img', 'layer-scene')).cloneNode(true) as HTMLImageElement;
+  if (!imgElementCache.has(sceneSrc)) {
+    sceneImg.className = 'layer-scene';
+    sceneImg.alt = identityFor(b).birthplace;
+    sceneImg.src = sceneSrc;
+    sceneImg.onerror = () => { sceneImg.style.display = 'none'; };
+    imgElementCache.set(sceneSrc, sceneImg);
+  }
   wrap.append(sceneImg);
   // 异步加载 manifest，叠加主角图层和特效图层
   const manifest = getManifest();

@@ -219,6 +219,10 @@ button.primary:hover { background: #3a80a0; }
   padding: 4px 2px 6px;
   border-bottom: 1px solid var(--ink-border);
   margin-bottom: var(--gap-sm);
+  position: sticky;
+  top: 0;
+  background: var(--ink-bg);
+  z-index: 5;
 }
 
 .log-stream {
@@ -228,6 +232,7 @@ button.primary:hover { background: #3a80a0; }
   background: var(--ink-bg-inset);
   flex: 1;
   overflow-y: auto;
+  max-height: calc(100vh - 140px);
 }
 
 .log-line {
@@ -1060,13 +1065,15 @@ button.primary:hover { background: #3a80a0; }
 /* 手机：单栏 */
 @media (max-width: 768px) {
   .life-body { flex-direction: column; }
-  .life-sidebar { flex: none; }
+  .life-sidebar { flex: none; align-items: center; }
+  .life-sidebar .scene-image { max-width: 320px; width: 100%; }
+  .life-sidebar .birth-card { max-width: 320px; width: 100%; }
   .control-banner { padding: 6px 10px; gap: var(--gap-sm); }
   .control-banner .ctrl-left button { padding: 4px 8px; font-size: 0.8rem; }
   .speed-ctrl button { padding: 3px 6px; font-size: 0.72rem; }
   .year-label { font-size: 0.8rem; }
-  .life-main { min-height: 320px; }
-  .log-stream { max-height: 260px; }
+  .log-title { position: sticky; top: 36px; background: var(--ink-bg); z-index: 5; }
+  .log-stream { max-height: calc(100vh - 180px); }
 }
 
 /* ── 抉择场景 ── */
