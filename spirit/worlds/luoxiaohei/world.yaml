@@ -560,6 +560,178 @@ events:
             order_vs_radical: -1
             coexist_vs_solo: -1
 
+  # ── 民间组织入口（03 §6：街坊互助/野妖互助/行商商团/王朝遗脉）──
+  - id: folk_mutual_recruit
+    label: 街坊互助会邀约（抉择点）
+    weight: 1.5
+    once: true
+    cond:
+      flags: [region:city]
+      minTick: 10
+      maxTick: 30
+      excludeFlags: [org:guild_registered, form:human]
+    choice:
+      prompt: 市井妖精间流传着一个互帮互信的街坊会。入会结邻吗？
+      options:
+        - label: 入会结邻
+          desc: 有落脚处，也有消息网
+          effects:
+            wealth: 4
+            health: 2
+          gainFlags:
+            - org:folk_mutual
+          grainShifts:
+            rooted_vs_drifting: 1
+            coexist_vs_solo: 1
+            kin_vs_recluse: 1
+        - label: 独来独往
+          desc: 不愿欠人情
+          effects:
+            liquality: 2
+          grainShifts:
+            rooted_vs_drifting: -1
+            coexist_vs_solo: -1
+
+  - id: mutual_aid_recruit
+    label: 野妖互助会邀约（抉择点）
+    weight: 1.5
+    once: true
+    cond:
+      flags: [region:forest]
+      minTick: 8
+      maxTick: 25
+      excludeFlags: [form:human, org:guild_registered]
+    choice:
+      prompt: 山林间的散修结成互助会，抱团采灵避祸。入伙吗？
+      options:
+        - label: 入伙抱团
+          desc: 采灵分食，共御凶险
+          effects:
+            liquality: 5
+            health: 2
+          gainFlags:
+            - org:mutual_aid
+          grainShifts:
+            kin_vs_recluse: 1
+            coexist_vs_solo: 1
+            rooted_vs_drifting: 1
+        - label: 独修自守
+          desc: 不喜热闹
+          effects:
+            liquality: 3
+          grainShifts:
+            kin_vs_recluse: -1
+            coexist_vs_solo: -1
+
+  - id: trade_guild_recruit
+    label: 行商商会招揽（抉择点）
+    weight: 1.5
+    once: true
+    cond:
+      minTick: 14
+      maxTick: 40
+      excludeFlags: [rooted, intangible, org:guild_registered]
+    choice:
+      prompt: 一支商队看中你的脚程，邀你入伙跑商。跟商队走吗？
+      options:
+        - label: 入伙行商
+          desc: 财路广，风餐露宿
+          effects:
+            wealth: 8
+            health: -3
+          gainFlags:
+            - org:trade_guild
+          grainShifts:
+            rooted_vs_drifting: -1
+            order_vs_radical: 1
+        - label: 谢绝商途
+          desc: 安稳为先
+          effects:
+            health: 2
+          grainShifts:
+            rooted_vs_drifting: 1
+
+  - id: dynasty_remnant_recruit
+    label: 旧朝遗脉相认（抉择点）
+    weight: 1
+    once: true
+    cond:
+      flags: [cultivator]
+      minTick: 20
+      maxTick: 60
+    choice:
+      prompt: 一位旧朝供奉认出你的血脉，邀你共守王朝残祀。承此名分吗？
+      options:
+        - label: 承接遗志
+          desc: 守旧祀，得传承
+          effects:
+            liquality: 10
+            wealth: -4
+          gainFlags:
+            - org:dynasty_remnant
+          grainShifts:
+            order_vs_radical: 1
+            rooted_vs_drifting: 1
+            kin_vs_recluse: 1
+        - label: 婉辞旧缘
+          desc: 不愿背负前朝
+          effects:
+            liquality: 3
+          grainShifts:
+            order_vs_radical: -1
+            coexist_vs_solo: -1
+
+  # ── 被剥夺灵质（通用，补充空间系/御灵系专属剥夺之外的一般化夺灵）──
+  - id: lixi_deprived
+    label: 遭夺灵者暗算，灵质被掠
+    weight: 0.5
+    cooldownTicks: 12
+    cond:
+      flags: [cultivator]
+      minTick: 12
+    effects:
+      liquality: -18
+      health: -4
+
+  # ── 走向反派：夺灵深渊再抉择 ──
+  - id: predator_abyss
+    label: 夺灵深渊再抉择
+    weight: 1.2
+    once: true
+    cond:
+      flags: [flag:liqi_predator]
+      minTick: 18
+    choice:
+      prompt: 夺灵让力量来得容易，也让你越陷越深。继续沉沦，还是悬崖勒马？
+      options:
+        - label: 继续沉沦
+          desc: 力量至上，不择手段
+          effects:
+            liquality: 20
+            health: -10
+          gainFlags:
+            - flag:villain_deep
+          weightShifts:
+            scene_predator_drain: 2.0
+            beast_conflict: 2.0
+          grainShifts:
+            order_vs_radical: -1
+            coexist_vs_solo: -1
+            kin_vs_recluse: -1
+        - label: 悬崖勒马
+          desc: 收起爪牙，偿还旧债
+          effects:
+            health: 3
+            liquality: -10
+          weightShifts:
+            cultivation_year: 1.5
+            quiet_year: 1.5
+            scene_predator_drain: 0.2
+          grainShifts:
+            order_vs_radical: 1
+            coexist_vs_solo: 1
+            kin_vs_recluse: 1
+
 # ── 场景模板池（触发条件轴组合：地区/形态/组织/年龄窗）──
 scenes:
   - id: scene_forest_childhood
@@ -1198,6 +1370,166 @@ scenes:
       health: -3
       liquality: -2
 
+  # ── 民间组织场景：街坊互助会（org:folk_mutual）──
+  - id: scene_folk_mutual_market
+    label: 街坊互市帮衬
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [org:folk_mutual]
+    effects:
+      wealth: 4
+      liquality: 1
+
+  - id: scene_folk_mutual_tidings
+    label: 邻里消息互通
+    weight: 1.8
+    cooldownTicks: 4
+    cond:
+      flags: [org:folk_mutual]
+    effects:
+      liquality: 3
+      wealth: 1
+
+  - id: scene_folk_mutual_elder
+    label: 街坊老幼相扶
+    weight: 1.2
+    cooldownTicks: 5
+    cond:
+      flags: [org:folk_mutual]
+      minTick: 60
+    effects:
+      health: 2
+      liquality: 1
+      wealth: 1
+
+  # ── 民间组织场景：野妖互助会（org:mutual_aid）──
+  - id: scene_mutual_aid_forage
+    label: 互助采灵分食
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [org:mutual_aid]
+    effects:
+      liquality: 4
+      health: 1
+
+  - id: scene_mutual_aid_shelter
+    label: 抱团避祸
+    weight: 1.8
+    cooldownTicks: 4
+    cond:
+      flags: [org:mutual_aid]
+    effects:
+      health: 3
+      wealth: 1
+
+  - id: scene_mutual_aid_elder
+    label: 老妖传灯
+    weight: 1.2
+    cooldownTicks: 5
+    cond:
+      flags: [org:mutual_aid]
+      minTick: 60
+    effects:
+      liquality: 5
+      health: -1
+
+  # ── 民间组织场景：行商商团（org:trade_guild）──
+  - id: scene_trade_caravan
+    label: 随商队走南闯北
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [org:trade_guild]
+    effects:
+      wealth: 6
+      health: -2
+
+  - id: scene_trade_deal
+    label: 谈成一桩大买卖
+    weight: 1.8
+    cooldownTicks: 5
+    cond:
+      flags: [org:trade_guild]
+    effects:
+      wealth: 8
+      liquality: -1
+
+  - id: scene_trade_elder
+    label: 商团掌柜退隐
+    weight: 1.2
+    cooldownTicks: 6
+    cond:
+      flags: [org:trade_guild]
+      minTick: 60
+    effects:
+      wealth: 5
+      health: 1
+
+  # ── 民间组织场景：王朝遗脉（org:dynasty_remnant）──
+  - id: scene_remnant_ritual
+    label: 旧朝祭祀守灵
+    weight: 1.5
+    cooldownTicks: 5
+    cond:
+      flags: [org:dynasty_remnant]
+    effects:
+      liquality: 5
+      wealth: -2
+
+  - id: scene_remnant_archive
+    label: 守护王朝残卷
+    weight: 1.5
+    cooldownTicks: 6
+    cond:
+      flags: [org:dynasty_remnant]
+    effects:
+      liquality: 6
+
+  - id: scene_remnant_elder
+    label: 遗脉长辈传史
+    weight: 1.2
+    cooldownTicks: 6
+    cond:
+      flags: [org:dynasty_remnant]
+      minTick: 60
+    effects:
+      liquality: 5
+      health: -1
+
+  # ── 反派场景（flag:liqi_predator / flag:villain_deep）──
+  - id: scene_predator_drain
+    label: 暗夜夺灵
+    weight: 2
+    cooldownTicks: 4
+    cond:
+      flags: [flag:liqi_predator]
+    effects:
+      liquality: 10
+      health: -2
+
+  - id: scene_predator_gloom
+    label: 邪气缠身
+    weight: 1.5
+    cooldownTicks: 5
+    cond:
+      flags: [flag:villain_deep]
+    effects:
+      health: -4
+      liquality: 3
+
+  - id: scene_predator_hunt
+    label: 猎取弱小妖灵
+    weight: 1.8
+    cooldownTicks: 5
+    cond:
+      flags: [flag:villain_deep]
+    effects:
+      liquality: 15
+      health: -5
+      wealth: -3
+
 # ── 时代冲击波池（era 轴 × 地区轴的灾害/危机/战争）──
 shocks:
   - id: shock_war
@@ -1387,7 +1719,7 @@ hardThresholds:
   multiSystemCap: {1: common, 2: elite, 3: dayao_cap}
   healSystemWorldwide: 7
 
-# ── 组织光谱（03 §6：会馆籍/黑户/师承线/隐修网络等六类）──
+# ── 组织光谱（03 §6：会馆籍/黑户/师承线/隐修网络/民间互助/商团/王朝遗脉等八类）──
 orgAffiliation:
   guild_registered: {resourceAccess: plus, shelter: plus}
   unregistered: {riskEventWeight: plus}
@@ -1395,6 +1727,8 @@ orgAffiliation:
   hermit_network: {seclusion: plus}
   mutual_aid: {livelihood: plus}
   trade_guild: {wealth: plus}
+  folk_mutual: {settleHelp: plus, infoNetwork: plus, powerCeiling: low}
+  dynasty_remnant: {legacyGuard: plus, dynastyMemory: plus}
 
 # ── 命名皮肤（render_only，03 §6）──
 namingSkins:

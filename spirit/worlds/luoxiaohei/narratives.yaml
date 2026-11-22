@@ -5061,6 +5061,750 @@ events:
           - id: she_hi_06
             text: 你在{place}的潮声中安坐，晨光与海雾同来。
 
+  folk_mutual_recruit:
+    prompt: 市井妖精间流传着一个互帮互信的街坊会。入会结邻吗？
+    fallback:
+      - id: fmr_f_01
+        text: 街坊会把一盏写着"互"字的灯笼挂到你家门前，风里晃了晃。
+      - id: fmr_f_02
+        text: 你在{place}的巷口被人拦下，说是街坊会里早给你留了个位子。
+      - id: fmr_f_03
+        text: 东家的婶子塞来一包热糕，附了张街坊会的帖子。
+      - id: fmr_f_04
+        text: 你在{place}的水井边听说，散妖们结成了个互帮的会。
+      - id: fmr_f_05
+        text: 街坊会的名册在几家之间传着，就差你一个签字。
+      - id: fmr_f_06
+        text: 你夜里听见街坊商量轮值守夜，忽然觉得这屋子不空了。
+      - id: fmr_f_07
+        text: 一块"有难同当"的木牌被摆在摊上，你多看了两眼。
+      - id: fmr_f_08
+        text: 你替邻家看了一日铺子，回来时门口已多了串新邻居的灯。
+      - id: fmr_f_09
+        text: 街坊会的人说，入了会，下雨有人递伞，天黑有人照灯。
+      - id: fmr_f_10
+        text: 你在{place}的茶摊听了一下午街坊会的规矩，听得心里发暖。
+      - id: fmr_f_11
+        text: 邻里的东西在你家寄存过一冬，你便也算半个会里人。
+      - id: fmr_f_12
+        text: 你把{species}的名帖递过去，那边笑得眼角都是褶子。
+    buckets:
+      - when:
+          region: city
+        variants:
+          - id: fmr_ci_01
+            text: 你在{place}的弄堂里听街坊会分派冬粮，名单念到一半停了停。
+          - id: fmr_ci_02
+            text: 街坊会把{place}巷尾的空屋收拾出来，做了大家的落脚点。
+          - id: fmr_ci_03
+            text: 你在{place}的夜市口接过街坊会的贴，纸还带着油香。
+          - id: fmr_ci_04
+            text: 瓦檐下挂着的街坊会旗子湿了雨，你替它挪到了干燥处。
+          - id: fmr_ci_05
+            text: 你在{place}的老墙根听邻里互报平安，狗在脚边打盹。
+          - id: fmr_ci_06
+            text: 街坊会的人把半篮青菜挂在你门扣上，没留一句话。
+      - when:
+          region: forest
+        variants:
+          - id: fmr_fo_01
+            text: 林边的散妖把{place}的草棚修了修，做个临时的会所。
+          - id: fmr_fo_02
+            text: 你在{place}的小溪边听散妖们商定采灵的份额。
+          - id: fmr_fo_03
+            text: 林间的灯盏一盏接一盏点亮，串起整个街坊会。
+          - id: fmr_fo_04
+            text: 你把一捆柴送到会所前，门口已堆着别家送来的吃食。
+          - id: fmr_fo_05
+            text: 街坊会的人在{place}的树下说，入会就不必总躲着人走。
+          - id: fmr_fo_06
+            text: 你在{place}的草径上捡到一块街坊会的木牌，边角磨得发亮。
+
+  mutual_aid_recruit:
+    prompt: 山林间的散修结成互助会，抱团采灵避祸。入伙吗？
+    fallback:
+      - id: mar_f_01
+        text: 山林里的散修围坐成一圈，中间的火堆分你一个位置。
+      - id: mar_f_02
+        text: 互助会的人在{place}的溪边擦着刀，说以后一路走。
+      - id: mar_f_03
+        text: 你把采来的灵草摊开，散修们按人头分，谁也没有多占。
+      - id: mar_f_04
+        text: 互助会的号子在林间一响，散修的影子便从四面聚来。
+      - id: mar_f_05
+        text: 你被领到{place}的山洞前，里头早已生了火、铺了草。
+      - id: mar_f_06
+        text: 散修们把避祸的路画在地上，指给你哪条最稳。
+      - id: mar_f_07
+        text: 互助会说，采灵分食，遇险同当，你听得心头一热。
+      - id: mar_f_08
+        text: 你把{species}的本事报给互助会，他们给你排了个守夜的班。
+      - id: mar_f_09
+        text: 会里的人替你补了件蓑衣，针脚粗，却密。
+      - id: mar_f_10
+        text: 你在{place}的密林里跟会众走过第一遭，脚步都轻了。
+      - id: mar_f_11
+        text: 互助会的拜把酒不烈，一口下去，喉咙到心口都是热的。
+      - id: mar_f_12
+        text: 你入伙那日，众人把你的名字也写进一块树皮做的牌上。
+    buckets:
+      - when:
+          region: forest
+        variants:
+          - id: mar_fo_01
+            text: 你在{place}的老林里赶上互助会的采灵队，走在前头。
+          - id: mar_fo_02
+            text: 会众在{place}的泉眼处取水分食，给你留了最清的一瓢。
+          - id: mar_fo_03
+            text: 你在{place}的山道上接过会众递来的绳，一步步攀稳。
+          - id: mar_fo_04
+            text: 互助会把{place}的藤屋加固一遍，你搭了把手。
+          - id: mar_fo_05
+            text: 你在{place}的林雾里听清会众的暗号，学了几遍才准。
+          - id: mar_fo_06
+            text: 会众在{place}的山洞外点了篝火，轮值守到天明。
+      - when:
+          region: city
+        variants:
+          - id: mar_ci_01
+            text: 城里的散修把{place}的杂院辟成临时的会所，你帮着洒扫。
+          - id: mar_ci_02
+            text: 你在{place}的旧楼里见着互助会的人，他们都压低着声音。
+          - id: mar_ci_03
+            text: 互助会在{place}的夜市里分批采买，你负责望风。
+          - id: mar_ci_04
+            text: 会众在{place}的天桥下分了半袋口粮给你。
+          - id: mar_ci_05
+            text: 你在{place}的巷子里跟会众对了暗语，才敢相认。
+          - id: mar_ci_06
+            text: 互助会的人在{place}的屋顶间传信，像一群成了精的猫。
+
+  trade_guild_recruit:
+    prompt: 一支商队看中你的脚程，邀你入伙跑商。跟商队走吗？
+    fallback:
+      - id: tgr_f_01
+        text: 商队的头儿把一袋盘缠搁在你面前，等你一句话。
+      - id: tgr_f_02
+        text: 你在{place}的驿道上遇见商队，骡铃响了一路。
+      - id: tgr_f_03
+        text: 商队的人说，跟着走，年底分账，亏了算他们的。
+      - id: tgr_f_04
+        text: 你替商队牵了半日牲口，掌鞭的便说要留下你。
+      - id: tgr_f_05
+        text: 商队的旗子在{place}的风里一展，你心里的账也跟着翻。
+      - id: tgr_f_06
+        text: 头儿看你的脚力，又看你的{niche}，点头说合用。
+      - id: tgr_f_07
+        text: 商队夜里宿在{place}，你听他们讲一路上的买卖经。
+      - id: tgr_f_08
+        text: 你跟商队走了半程，鞋底磨薄了，心却活泛了。
+      - id: tgr_f_09
+        text: 商队许你份子和路上的口粮，只问你吃不吃得下苦。
+      - id: tgr_f_10
+        text: 你把{species}的底细压了压，跟着报了个去处。
+      - id: tgr_f_11
+        text: 商队把一块腰牌挂给你，木牌上烫着商号的字。
+      - id: tgr_f_12
+        text: 你在{place}的渡口看商队装货，箱笼堆得比人高。
+    buckets:
+      - when:
+          region: city
+        variants:
+          - id: tgr_ci_01
+            text: 商队在{place}的码头卸货，你顺手搭了把力。
+          - id: tgr_ci_02
+            text: 你在{place}的市集里见商队与人讲价，唇枪舌剑。
+          - id: tgr_ci_03
+            text: 商号的伙计把{place}的仓房打开，货味扑面。
+          - id: tgr_ci_04
+            text: 你在{place}的茶楼听商队盘账，算珠声密得像雨。
+          - id: tgr_ci_05
+            text: 商队的人说，{place}的行情好，就差个可靠的人。
+          - id: tgr_ci_06
+            text: 你在{place}的街口替商队看摊，学会了吆喝。
+      - when:
+          region: forest
+        variants:
+          - id: tgr_fo_01
+            text: 商队在{place}的林道边歇脚，顺手采了几把山货。
+          - id: tgr_fo_02
+            text: 你在{place}的山路上替商队开路，刀劈下几根蔓。
+          - id: tgr_fo_03
+            text: 商队的骡马在{place}的溪边饮饱了水，铃铛都响得脆。
+          - id: tgr_fo_04
+            text: 你在{place}的密林里为商队带路，分得半程辛苦钱。
+          - id: tgr_fo_05
+            text: 商队的人教你认{place}的野货，哪些能卖上好价。
+          - id: tgr_fo_06
+            text: 你在{place}的山雾里跟着商队，肩上担子越走越沉也越踏实。
+
+  dynasty_remnant_recruit:
+    prompt: 一位旧朝供奉认出你的血脉，邀你共守王朝残祀。承此名分吗？
+    fallback:
+      - id: drr_f_01
+        text: 旧朝供奉把一枚残符托在掌心，火光里若隐若现。
+      - id: drr_f_02
+        text: 那老者在{place}的暗处等你，目光像隔着许多年。
+      - id: drr_f_03
+        text: 他问你还记不记得先祖的名讳，你答不上，他也不怪。
+      - id: drr_f_04
+        text: 王朝的残卷在你眼前展开，墨迹早已失了当年的亮。
+      - id: drr_f_05
+        text: 供奉说，守的是旧朝的灯火，也是在守你自己的来处。
+      - id: drr_f_06
+        text: 你把那枚残徽接了，凉得像握着一块化不开的冰。
+      - id: drr_f_07
+        text: 旧朝的祀堂只剩半间，香火却还续着。
+      - id: drr_f_08
+        text: 供奉把当年的事讲给你听，说到一半，声音就低了。
+      - id: drr_f_09
+        text: 你在{place}的旧祠前听了一夜更鼓，像听前朝的回声。
+      - id: drr_f_10
+        text: 那老者说你的血脉里有些东西，旁人学不来。
+      - id: drr_f_11
+        text: 旧朝的冠服一一摆开，你在其间认出了自己的影子。
+      - id: drr_f_12
+        text: 供奉把你领到残碑前，碑上的字被雨磨去了大半。
+    buckets:
+      - when:
+          era: ancient
+        variants:
+          - id: drr_an_01
+            text: 前朝的宫灯已熄了多年，老者却在{place}为你点起一盏。
+          - id: drr_an_02
+            text: 你在{place}的旧驿道上听老者讲那朝覆灭的旧事。
+          - id: drr_an_03
+            text: 残存的门阀在{place}的荒祠里相认，皆是一身旧衣。
+          - id: drr_an_04
+            text: 老者在{place}的断墙下展开一幅旧朝舆图，指尖点住你的来处。
+          - id: drr_an_05
+            text: 你随老者在{place}的旧都遗址前焚了半炷香。
+          - id: drr_an_06
+            text: 前朝的铜钱在老者袖里叮当，像一段没说完的年号。
+      - when:
+          era: modern
+        variants:
+          - id: drr_mo_01
+            text: 旧朝供奉在{place}的旧仓库里等你，门牌早已锈了。
+          - id: drr_mo_02
+            text: 你在{place}的老宅里见着残卷，被塑料膜裹得严实。
+          - id: drr_mo_03
+            text: 老者用手机翻出旧朝的谱系，指给你看自己的名字。
+          - id: drr_mo_04
+            text: 旧朝的残徽被锁在{place}的保险柜里，取出来还带着凉。
+          - id: drr_mo_05
+            text: 你在{place}的旧城区听老者念一段前朝的家训。
+          - id: drr_mo_06
+            text: 残存遗脉在{place}的茶室里低声议事，外头车水马龙。
+
+  lixi_deprived:
+    fallback:
+      - id: ldp_f_01
+        text: 暗处伸来一只手，把你的灵质生生抽走一截。
+      - id: ldp_f_02
+        text: 你醒来时浑身发冷，像有什么被从骨缝里拔走了。
+      - id: ldp_f_03
+        text: 夺灵者绕着你念了一夜，你的灵质便薄了几分。
+      - id: ldp_f_04
+        text: 你在{place}的暗巷里被暗算，醒来只记得一阵剧痛。
+      - id: ldp_f_05
+        text: 你种的灵草一夜枯了，你也跟着蔫了半条命。
+      - id: ldp_f_06
+        text: 有什么咬住你的灵质不松口，扯走时你连声音都发不出。
+      - id: ldp_f_07
+        text: 你跌坐在{place}的地上，掌心那点微光一点点黯淡。
+      - id: ldp_f_08
+        text: 夺灵者得手后散去，你像被抽空的口袋，瘫在原地。
+      - id: ldp_f_09
+        text: 你本命里那点灵质被割去，疼得你几日都直不起腰。
+      - id: ldp_f_10
+        text: 冷意从心口漫到指尖，你知道，自己被人夺了灵。
+
+  predator_abyss:
+    prompt: 夺灵让力量来得容易，也让你越陷越深。继续沉沦，还是悬崖勒马？
+    fallback:
+      - id: pda_f_01
+        text: 夺灵得来的力量在血脉里叫嚣，催着你再出手。
+      - id: pda_f_02
+        text: 你看着自己的手，那上面已染了别人的灵质。
+      - id: pda_f_03
+        text: 夜里有个声音在你耳边低语，说下一个就在{place}。
+      - id: pda_f_04
+        text: 你越夺越轻车熟路，心也跟着一点点变硬。
+      - id: pda_f_05
+        text: 有人在你面前跪下求饶，你却在掂量他的灵质。
+      - id: pda_f_06
+        text: 你照见{place}水面里的自己，眼里已没了从前的光。
+      - id: pda_f_07
+        text: 夺灵是条下坡路，你走得太快，停也停不住。
+      - id: pda_f_08
+        text: 你收起爪牙的一瞬，心底又冒起一阵焦渴。
+      - id: pda_f_09
+        text: 曾经的同伴看你时，眼里多了几分躲闪。
+      - id: pda_f_10
+        text: 你在岔口站住，一边是更深的渊，一边是难还的债。
+    buckets:
+      - when:
+          era: ancient
+        variants:
+          - id: pda_an_01
+            text: 你在{place}的荒山里设下陷阱，等着落单的妖。
+          - id: pda_an_02
+            text: 夺灵者结成的暗会在{place}招揽你，许你更多血食。
+          - id: pda_an_03
+            text: 你在{place}的古道上劫了一道灵，心口却愈发空。
+          - id: pda_an_04
+            text: 山门里的同道开始传言，说{place}出了个专夺人灵的邪修。
+          - id: pda_an_05
+            text: 你在{place}的乱葬岗里打坐，四周阴气都往你身上聚。
+          - id: pda_an_06
+            text: 有人把一纸缉凶令贴到{place}的城头，画的正是你的轮廓。
+      - when:
+          era: modern
+        variants:
+          - id: pda_mo_01
+            text: 你在{place}的废弃厂房里练着夺灵，灯管明灭不定。
+          - id: pda_mo_02
+            text: 有人在{place}的论坛里挂出你的照片，说你害人。
+          - id: pda_mo_03
+            text: 你在{place}的天台截住目标，霓虹把影子拉得又冷又长。
+          - id: pda_mo_04
+            text: 夺灵的黑市在{place}向你报价，一次比一次高。
+          - id: pda_mo_05
+            text: 你在{place}的地下通道里被巡夜的人追了三条街。
+          - id: pda_mo_06
+            text: 手机的来电一个接一个，你却只听见血管里的焦渴。
+
+  scene_folk_mutual_market:
+    fallback:
+      - id: sfmm_f_01
+        text: 街坊互市上，你帮衬着搬货、算账，也赚了份情面。
+      - id: sfmm_f_02
+        text: 你把自己晒的干货摆上街坊的摊，邻里都来捧场。
+      - id: sfmm_f_03
+        text: 街坊会的小市集里，你替老人挑担，替孩子看摊。
+      - id: sfmm_f_04
+        text: 你在{place}的巷市里与人换货，各取所需，皆有笑颜。
+      - id: sfmm_f_05
+        text: 你得了街坊的帮衬，也把自家的余粮分了出去。
+      - id: sfmm_f_06
+        text: 街坊会的秤最公道，你在那儿做了一日公平人。
+      - id: sfmm_f_07
+        text: 你在{place}的街市里叫卖，喉咙都喊出了调子。
+      - id: sfmm_f_08
+        text: 一笔小买卖做下来，你的荷包鼓了，心也热了。
+
+  scene_folk_mutual_tidings:
+    fallback:
+      - id: sfmt_f_01
+        text: 街坊之间递着消息，你早一步避开了城里的风头。
+      - id: sfmt_f_02
+        text: 邻里的口信你一字不落地记下，又转给该听的人。
+      - id: sfmt_f_03
+        text: 你在{place}的井台边听来一桩要紧事，夜里便有了数。
+      - id: sfmt_f_04
+        text: 街坊会的消息网最灵，你靠着它躲过几回麻烦。
+      - id: sfmt_f_05
+        text: 你替街坊传了句话，回来时手里多了半块热饼。
+      - id: sfmt_f_06
+        text: 一条暗语在邻里间传开，你听懂了，也守住了。
+      - id: sfmt_f_07
+        text: 你在{place}的茶摊边听人闲谈，拼出个有用的信。
+      - id: sfmt_f_08
+        text: 街坊们待你不薄，有什么风吹草动都先想到你。
+
+  scene_folk_mutual_elder:
+    fallback:
+      - id: sfme_f_01
+        text: 你搀着街坊的老人过街，听他把旧年的规矩讲给你。
+      - id: sfme_f_02
+        text: 街坊的孩子们围着你，你给他们分糖，也分道理。
+      - id: sfme_f_03
+        text: 你在{place}的屋檐下替老人梳头，也替自己梳了梳心事。
+      - id: sfme_f_04
+        text: 邻里把最软和的椅子让给你，你摆手，却笑得舒坦。
+      - id: sfme_f_05
+        text: 你帮幼小的妖精补了课，末了还搭了顿饭。
+      - id: sfme_f_06
+        text: 街坊说，有你在，这一片就有了个能倚老的人。
+    buckets:
+      - when:
+          era: ancient
+        variants:
+          - id: sfme_an_01
+            text: 你在{place}的街口给后生们讲老理，一讲便是半日。
+          - id: sfme_an_02
+            text: 邻里的娃娃把蒲扇递到你手上，你摇着摇着就笑了。
+          - id: sfme_an_03
+            text: 你在{place}的门楼下主持一场邻里和事，两家都服你。
+          - id: sfme_an_04
+            text: 街坊把一壶新茶先敬你，你啜一口，满巷都是茶香。
+      - when:
+          era: modern
+        variants:
+          - id: sfme_mo_01
+            text: 你在{place}的小区里帮老人按电梯，顺带聊了半路。
+          - id: sfme_mo_02
+            text: 邻里的孩子放学都爱往你屋里跑，你便成了个孩子王。
+          - id: sfme_mo_03
+            text: 你在{place}的社区角教老人用手机，笑声一串串。
+          - id: sfme_mo_04
+            text: 街坊把你当成自家长辈，逢年过节都先来敲门。
+
+  scene_mutual_aid_forage:
+    fallback:
+      - id: smaf_f_01
+        text: 你和会众结队采灵，各分所得，谁也不眼红。
+      - id: smaf_f_02
+        text: 你在{place}的山坡上采得几株灵草，分了大半给伙伴。
+      - id: smaf_f_03
+        text: 互助会的人分你一份刚采的灵食，鲜得你眯起眼。
+      - id: smaf_f_04
+        text: 你替走不快的同伴多背了半筐，回来时心里踏实。
+      - id: smaf_f_05
+        text: 采灵的路你越走越熟，会众都爱跟你搭伙。
+      - id: smaf_f_06
+        text: 你在{place}的野地里寻到一处灵泉，众人皆来分食。
+      - id: smaf_f_07
+        text: 会众把最肥的一份留给你，说是还你上次的照顾。
+      - id: smaf_f_08
+        text: 采灵归来，你与众人围着火分食，一夜无话也暖。
+
+  scene_mutual_aid_shelter:
+    fallback:
+      - id: smas_f_01
+        text: 凶险来临时，互助会的人把你拉进了最里头的山洞。
+      - id: smas_f_02
+        text: 你在{place}的山洞外守夜，替会众挡下了一回窥探。
+      - id: smas_f_03
+        text: 抱团避祸的日子，你学会了把后背交给别人。
+      - id: smas_f_04
+        text: 会众在{place}的藤屋里挤作一团，挤着挤着就暖了。
+      - id: smas_f_05
+        text: 你替受伤的同伴包扎，动作笨，却格外小心。
+      - id: smas_f_06
+        text: 夜里会众轮番值更，你在火堆边睡得格外安稳。
+      - id: smas_f_07
+        text: 避难时你分了半张铺给新来的，对方记了你一辈子。
+      - id: smas_f_08
+        text: 有难同当的话，你在{place}的风雨里总算信了。
+
+  scene_mutual_aid_elder:
+    fallback:
+      - id: smae_f_01
+        text: 老妖把一盏心灯传给你，火光颤了颤，终于稳稳地落。
+      - id: smae_f_02
+        text: 你在{place}的洞府里听老妖讲半生所悟，如饮甘泉。
+      - id: smae_f_03
+        text: 老妖把手搭在你肩上，把最后一口气的灵都渡给了你。
+      - id: smae_f_04
+        text: 你替老妖收拾遗物，翻出一部传了不知几代的手札。
+      - id: smae_f_05
+        text: 老妖临终前只点你一人，把毕生门道都交到你手上。
+      - id: smae_f_06
+        text: 传灯那夜，你跪在{place}的灵前，接下了沉甸甸的托付。
+    buckets:
+      - when:
+          era: ancient
+        variants:
+          - id: smae_an_01
+            text: 老妖在{place}的松林里传你口诀，一句句都带着风。
+          - id: smae_an_02
+            text: 你在{place}的山巅看老妖坐化，一缕灵光直上云霄。
+          - id: smae_an_03
+            text: 老妖把一枚兽牙塞进你手心，说这是会里的根。
+          - id: smae_an_04
+            text: 传灯过后，{place}的百兽都来朝你，似在认新主。
+      - when:
+          era: modern
+        variants:
+          - id: smae_mo_01
+            text: 老妖在{place}的旧屋中教你心法，窗外是整座不夜城。
+          - id: smae_mo_02
+            text: 你把老妖的录音一遍遍听，笔记写满了半本。
+          - id: smae_mo_03
+            text: 老妖走后，你在{place}替他打理了所有身后事。
+          - id: smae_mo_04
+            text: 会众把老妖的旧物封存进{place}的仓库，留你一把钥匙。
+
+  scene_trade_caravan:
+    fallback:
+      - id: stcc_f_01
+        text: 你随商队走过一程又一程，货越卖越远。
+      - id: stcc_f_02
+        text: 商队晓行夜宿，你在{place}的驿道上练出一双铁脚。
+      - id: stcc_f_03
+        text: 你跟商队翻山渡水，风霜都写进了账本里。
+      - id: stcc_f_04
+        text: 骡铃在{place}的山谷里回响，你赶着货也赶着日子。
+      - id: stcc_f_05
+        text: 商队把你当自己人，分账时从不少你一文。
+      - id: stcc_f_06
+        text: 你在{place}的渡口帮着装船，浪头打湿了半截裤脚。
+      - id: stcc_f_07
+        text: 走南闯北的日子，你攒下的不止是盘缠，还有见识。
+      - id: stcc_f_08
+        text: 商队歇在{place}，你数着新到的货，数出了满心踏实。
+
+  scene_trade_deal:
+    fallback:
+      - id: stcd_f_01
+        text: 你谈成一桩大买卖，对方签字时手都在抖。
+      - id: stcd_f_02
+        text: 你在{place}的货栈里与人周旋半日，总算敲定了价。
+      - id: stcd_f_03
+        text: 一单大生意落袋，你把算盘拨得噼啪响。
+      - id: stcd_f_04
+        text: 买主信你的{niche}，你把货交得漂亮，也卖得漂亮。
+      - id: stcd_f_05
+        text: 你在{place}的茶楼里三言两语，把价抬到了顶。
+      - id: stcd_f_06
+        text: 这桩买卖油水足，你数银钱数到后半夜。
+      - id: stcd_f_07
+        text: 你替商号谈下一单长契，掌柜破例多给你封了红。
+      - id: stcd_f_08
+        text: 大买卖成了，你在{place}摆了一桌，请众人吃酒。
+
+  scene_trade_elder:
+    fallback:
+      - id: stce_f_01
+        text: 商团掌柜要退隐，把半生的门路都交代给你。
+      - id: stce_f_02
+        text: 老掌柜把账房的钥匙交到你手上，你掂出了分量。
+      - id: stce_f_03
+        text: 你在{place}的商号里送别老掌柜，众人皆敬你一杯。
+      - id: stce_f_04
+        text: 老掌柜退隐前，把你拉到一边，讲了几桩要命的忌讳。
+      - id: stce_f_05
+        text: 商团的老账本摊在你面前，你一笔笔核对到天明。
+      - id: stce_f_06
+        text: 你接过老掌柜的位子，也接过了一整个商号的担子。
+    buckets:
+      - when:
+          era: ancient
+        variants:
+          - id: stce_an_01
+            text: 老掌柜在{place}的码头拱手而别，你送出去三里地。
+          - id: stce_an_02
+            text: 你在{place}的会馆里接过账本，众人俯首称你一声新掌柜。
+          - id: stce_an_03
+            text: 老掌柜把一枚祖传的算盘留给你，珠子拨起来还是旧年的声。
+          - id: stce_an_04
+            text: 退隐宴设在{place}的临河酒楼，你替他挡了三巡酒。
+      - when:
+          era: modern
+        variants:
+          - id: stce_mo_01
+            text: 老掌柜在{place}的写字楼里办交接，把客户名单递给你。
+          - id: stce_mo_02
+            text: 你在{place}的库房里盘点交接，扫码枪响了一整天。
+          - id: stce_mo_03
+            text: 老掌柜把车钥匙和仓库门卡留给你，说商号交你了。
+          - id: stce_mo_04
+            text: 你在{place}的饭局上送别老掌柜，众人举杯，你都记在心里。
+
+  scene_remnant_ritual:
+    fallback:
+      - id: srmr_f_01
+        text: 旧朝的祭祀上，你按古礼焚香、奠酒，一丝不差。
+      - id: srmr_f_02
+        text: 你守着残祀的香火，看青烟升了又散，散了又升。
+      - id: srmr_f_03
+        text: 祭礼之中，你诵起旧朝的祷词，声音沉而稳。
+      - id: srmr_f_04
+        text: 你在{place}的旧祠里擦拭供器，像擦拭一段不肯凉的心事。
+      - id: srmr_f_05
+        text: 残祀的香火本弱，你添了一炷，火光便旺了几分。
+      - id: srmr_f_06
+        text: 你在祭台上奉上自己的一分灵质，换旧朝英灵一夜安寝。
+      - id: srmr_f_07
+        text: 守灵的夜里，你听见风中似有故人的应和。
+      - id: srmr_f_08
+        text: 你把散佚的祭仪一点点补全，同门皆叹你记得牢。
+    buckets:
+      - when:
+          era: ancient
+        variants:
+          - id: srmr_an_01
+            text: 你在{place}的旧都祭坛上主祭，钟磬之声久久不歇。
+          - id: srmr_an_02
+            text: 残存的旧臣在{place}的荒庙里同你一起跪拜，皆是泪眼。
+          - id: srmr_an_03
+            text: 你把前朝的礼服再穿一遍，铜镜里竟像是换了个人。
+          - id: srmr_an_04
+            text: 祭火在{place}的夜风里明灭，照出四壁斑驳的旧画。
+      - when:
+          era: modern
+        variants:
+          - id: srmr_mo_01
+            text: 你在{place}的旧仓库里摆开祭台，电闸都替你暗着。
+          - id: srmr_mo_02
+            text: 遗脉们在{place}的老宅里压低声音行祭，生怕惊动四邻。
+          - id: srmr_mo_03
+            text: 你用投影仪投出旧朝的纹样，香火与冷光交叠。
+          - id: srmr_mo_04
+            text: 残祀在{place}的顶楼悄悄进行，城市的霓虹在外头明灭。
+
+  scene_remnant_archive:
+    fallback:
+      - id: srma_f_01
+        text: 你守着王朝的残卷，一页页修补，像缝补旧朝的伤口。
+      - id: srma_f_02
+        text: 你在{place}的暗室里誊抄旧典，笔尖不敢有一丝抖。
+      - id: srma_f_03
+        text: 一卷散佚的国史被你重新编次，字里行间都是前尘。
+      - id: srma_f_04
+        text: 你读着残卷，读到故国的旧事，久久没有翻页。
+      - id: srma_f_05
+        text: 残卷里记着你的先祖，你一笔笔描着，像描自己的根。
+      - id: srma_f_06
+        text: 你从虫蛀的书页里救出半句遗训，如获至宝。
+      - id: srma_f_07
+        text: 守护残卷的日子，你在{place}的灯下熬白了几根发。
+      - id: srma_f_08
+        text: 有人想毁掉这批旧典，你以身护住，分毫不让。
+
+  scene_remnant_elder:
+    fallback:
+      - id: srme_f_01
+        text: 遗脉的长辈把前朝旧史一段段讲给你，听得你眼眶发热。
+      - id: srme_f_02
+        text: 老供奉把毕生所记的口传史都托给了你。
+      - id: srme_f_03
+        text: 你在{place}的旧祠里听长辈讲那朝兴亡，一讲就是一夜。
+      - id: srme_f_04
+        text: 长辈把最后一枚旧朝信物系在你腕上，似有千钧。
+      - id: srme_f_05
+        text: 老供奉讲史时咳嗽连连，你忙递上热茶，他摆摆手继续。
+      - id: srme_f_06
+        text: 传史之后，你在{place}的残碑前坐了很久，像接过了什么。
+    buckets:
+      - when:
+          era: ancient
+        variants:
+          - id: srme_an_01
+            text: 长辈在{place}的荒祠里翻着旧牒，讲一段，叹一声。
+          - id: srme_an_02
+            text: 你在{place}的老槐下听遗史，落花沾了满肩。
+          - id: srme_an_03
+            text: 老供奉把一幅旧朝舆图挂起，指给你看当年的山河。
+          - id: srme_an_04
+            text: 传史的夜里，{place}起了风，火盆里的灰都飞起来了。
+      - when:
+          era: modern
+        variants:
+          - id: srme_mo_01
+            text: 长辈在{place}的旧屋中放老照片，一张张指给你看。
+          - id: srme_mo_02
+            text: 你把老供奉的口述录下来，生怕漏掉半句。
+          - id: srme_mo_03
+            text: 遗脉的长辈在{place}的茶室里讲旧朝，一屋子人屏息。
+          - id: srme_mo_04
+            text: 老供奉把一册家谱扫描进电脑，也把你写进了末尾。
+
+  scene_predator_drain:
+    fallback:
+      - id: spdr_f_01
+        text: 暗夜里你再次出手，把一缕灵质从无辜者身上抽走。
+      - id: spdr_f_02
+        text: 你在{place}的暗处伏击，得手后却迟迟没有快意。
+      - id: spdr_f_03
+        text: 夺灵的一瞬，你的力量涨了，心却空了一块。
+      - id: spdr_f_04
+        text: 你看着掌心的灵光，知道那不属于自己，却贪它温热。
+      - id: spdr_f_05
+        text: 受害者倒下前望了你一眼，你硬生生别开头。
+      - id: spdr_f_06
+        text: 你在{place}的废墟里练着夺灵，越练越熟，也越练越冷。
+      - id: spdr_f_07
+        text: 每夺一分灵，你便觉得离从前的自己远了一分。
+      - id: spdr_f_08
+        text: 你的名号在暗处传开，成了让人夜里睡不着的鬼影。
+    buckets:
+      - when:
+          era: ancient
+        variants:
+          - id: spdr_an_01
+            text: 你在{place}的古道上劫灵，月色都替你掩了行藏。
+          - id: spdr_an_02
+            text: 山门悬赏缉你，你却还在{place}的山道上下手。
+          - id: spdr_an_03
+            text: 你在{place}的乱坟间炼化夺来的灵，阴火幽幽。
+          - id: spdr_an_04
+            text: 夜猎归来，你在{place}的破庙里数着夺来的灵，像数着罪。
+      - when:
+          era: modern
+        variants:
+          - id: spdr_mo_01
+            text: 你在{place}的暗巷里下手，监控的灯却亮得刺眼。
+          - id: spdr_mo_02
+            text: 夺灵得手后，你在{place}的地铁里坐过一站又一站，不敢回家。
+          - id: spdr_mo_03
+            text: 你在{place}的废弃楼里炼化灵质，霓虹照不进窗。
+          - id: spdr_mo_04
+            text: 夜里的{place}像个猎物，你行走其间，心却越来越慌。
+
+  scene_predator_gloom:
+    fallback:
+      - id: spdg_f_01
+        text: 邪气在你体内乱窜，搅得你整夜难眠。
+      - id: spdg_f_02
+        text: 你身上的戾气越来越重，连影子都像带着刺。
+      - id: spdg_f_03
+        text: 旁人见你便躲，说你的眼睛里有股子冷光。
+      - id: spdg_f_04
+        text: 你在{place}的夜里惊醒，一身冷汗，邪气绕腕不散。
+      - id: spdg_f_05
+        text: 夺来的灵在体内反噬，你疼得咬破了嘴唇。
+      - id: spdg_f_06
+        text: 你照镜子时，竟有些认不出镜中那个阴沉的人。
+      - id: spdg_f_07
+        text: 邪气缠身的日子里，你吃不下，也睡不沉。
+      - id: spdg_f_08
+        text: 你的名声越来越坏，连{place}的野狗见了你都夹着尾巴。
+
+  scene_predator_hunt:
+    fallback:
+      - id: spdh_f_01
+        text: 你把目标锁定在弱小的妖灵身上，一步步逼近。
+      - id: spdh_f_02
+        text: 猎取弱小的一瞬，你尝到了从未有过的饱足，与更深的饥。
+      - id: spdh_f_03
+        text: 弱小的妖灵在你面前瑟瑟发抖，你却只看见它的灵质。
+      - id: spdh_f_04
+        text: 你在{place}的偏僻处设伏，专门挑落单的下手。
+      - id: spdh_f_05
+        text: 每猎取一个，你便更冷一分，也更怕自己一分。
+      - id: spdh_f_06
+        text: 你抢走了猎物的灵，也抢走了自己在{place}的容身之处。
+      - id: spdh_f_07
+        text: 猎来的灵在你体内灼烧，力量与代价一并涌来。
+      - id: spdh_f_08
+        text: 你的手上沾满了弱者的灵，洗也洗不净。
+    buckets:
+      - when:
+          era: ancient
+        variants:
+          - id: spdh_an_01
+            text: 你在{place}的山坳里伏击小妖，林鸟惊得四散。
+          - id: spdh_an_02
+            text: 弱小的妖灵跪在{place}的草径上求你，你只抬了抬手。
+          - id: spdh_an_03
+            text: 你在{place}的古庙后劫了只尚未化形的小妖。
+          - id: spdh_an_04
+            text: 夜风把{place}的火把吹得忽明忽暗，像在替你遮掩。
+      - when:
+          era: modern
+        variants:
+          - id: spdh_mo_01
+            text: 你在{place}的地下通道里堵住目标，脚步声空得吓人。
+          - id: spdh_mo_02
+            text: 弱小的妖灵在{place}的天台边退无可退，眼里全是惧色。
+          - id: spdh_mo_03
+            text: 你在{place}的停车场里下手，警报声在不远处尖响。
+          - id: spdh_mo_04
+            text: 猎物倒下后，你在{place}的便利店买水，手抖得付不了账。
+
 # ── 里程碑题注（narrativeFeed.milestones 声明的事件 → 照片式文本快照）──
 milestones:
   scene_first_transform:
