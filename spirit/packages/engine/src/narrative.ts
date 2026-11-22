@@ -298,12 +298,14 @@ export function renderLifeLog(
 
   for (let i = 0; i < logLen; i++) {
     const entry = result.log[i]!;
-    const prompt = renderer.renderPrompt(entry.eventId, result.state);
+    // 用 entry.tick 构造临时 state，确保 bucket 的 minTick/maxTick 匹配正确
+    const entryState = { ...result.state, tick: entry.tick };
+    const prompt = renderer.renderPrompt(entry.eventId, entryState);
     const narrated = prompt === undefined
-      ? renderer.renderEvent(entry.eventId, result.state, narrRng)
+      ? renderer.renderEvent(entry.eventId, entryState, narrRng)
       : undefined;
     const caption = milestoneIds.has(entry.eventId)
-      ? renderer.renderMilestone(entry.eventId, result.state, narrRng)
+      ? renderer.renderMilestone(entry.eventId, entryState, narrRng)
       : undefined;
     const line: RenderedLogLine = {
       tick: entry.tick,
@@ -324,7 +326,7 @@ export function renderLifeLog(
       && i < logLen - 1             // 不在最后一行（结局行）后插入
       && narrRng.next() < INTERLUDE_P
     ) {
-      const text = renderer.pickInterlude(result.state, narrRng);
+      const text = renderer.pickInterlude(entryState, narrRng);
       if (text !== undefined) {
         lines.push({
           tick: entry.tick,
