@@ -636,65 +636,82 @@ function buildDrawAnim(): HTMLElement {
   }
   drawAnimTimer = setTimeout(animateStep, 500);
 
-  /** 显示生灵卡片 + "引"按钮 */
+  /** 显示生灵卡片 + "引"按钮——逐项飞入 */
   function showSoulCard(): void {
     const birth = state.result?.birth;
     if (!birth) return;
     state.drawPhase = 2;
-    const card = el('div', 'soul-card');
-    // 场景图
-    const imgWrap = buildSceneImage(state.result!);
-    card.append(imgWrap);
-    // 命签
-    const seal = el('div', 'soul-seal');
-    seal.textContent = `命签 #${state.seed}`;
-    card.append(seal);
-    // 姓名
-    const nameEl = el('h2', 'soul-name');
-    nameEl.textContent = id.name;
-    card.append(nameEl);
-    // 信息表——模拟前只显示性别、形态大类、降生之地；细分（品种/生态位/灵系/修行等）随模拟过程显现
-    const infoRows: Array<[string, string]> = [
-      ['性别', id.gender],
-      ['形态', FORM_LABELS[birth.form] ?? birth.form],
-      ['降生之地', id.birthplace],
-    ];
-    const table = el('table', 'soul-table');
-    for (const [k, v] of infoRows) {
-      const tr = el('tr');
-      const td1 = el('td', 'k');
-      td1.textContent = k;
-      const td2 = el('td');
-      td2.textContent = v;
-      tr.append(td1, td2);
-      table.append(tr);
-    }
-    card.append(table);
-    // "引"按钮
-    const enterBtn = el('button', 'primary soul-enter');
-    enterBtn.textContent = '引 · 开启此生';
-    enterBtn.addEventListener('click', () => {
-      // 过场效果：全屏墨色淡入 → 淡出 → 进入人生
-      const overlay = el('div', 'enter-transition');
-      document.body.append(overlay);
-      // 强制 reflow 触发动画
-      void overlay.offsetWidth;
-      overlay.classList.add('enter-transition-fadein');
-      setTimeout(() => {
-        state.drawing = false;
-        state.drawPhase = 0;
-        state.autoPlay = true;
-        rerender();
-        overlay.classList.remove('enter-transition-fadein');
-        overlay.classList.add('enter-transition-fadeout');
-        setTimeout(() => overlay.remove(), 600);
-        if (state.result) startAutoPlay(state.result);
-      }, 800);
-    });
-    card.append(enterBtn);
-    // 替换跳动区域
+
+    // roll-area 飞出
     const oldRoll = anim.querySelector('.roll-area');
-    if (oldRoll) oldRoll.replaceWith(card);
+    if (oldRoll) oldRoll.classList.add('roll-area-flyout');
+
+    setTimeout(() => {
+      const card = el('div', 'soul-card');
+      // 场景图
+      const imgWrap = buildSceneImage(state.result!);
+      card.append(imgWrap);
+      // 命签
+      const seal = el('div', 'soul-seal');
+      seal.textContent = `命签 #${state.seed}`;
+      card.append(seal);
+
+      // 信息表——先行出现
+      const infoRows: Array<[string, string]> = [
+        ['性别', id.gender],
+        ['形态', FORM_LABELS[birth.form] ?? birth.form],
+        ['降生之地', id.birthplace],
+      ];
+      const table = el('table', 'soul-table');
+      for (const [k, v] of infoRows) {
+        const tr = el('tr');
+        const td1 = el('td', 'k');
+        td1.textContent = k;
+        const td2 = el('td');
+        td2.textContent = v;
+        tr.append(td1, td2);
+        table.append(tr);
+      }
+      card.append(table);
+
+      // 替换 roll-area
+      if (oldRoll) oldRoll.replaceWith(card);
+      else anim.append(card);
+
+      // 名字延后飞入 + 发光
+      setTimeout(() => {
+        const nameEl = el('h2', 'soul-name soul-name-glow');
+        nameEl.textContent = id.name;
+        // 插入到 seal 之后、table 之前
+        table.before(nameEl);
+        void nameEl.offsetWidth;
+        nameEl.classList.add('soul-name-glow-on');
+      }, 600);
+
+      // "引"按钮最后出现
+      setTimeout(() => {
+        const enterBtn = el('button', 'primary soul-enter');
+        enterBtn.textContent = '引 · 开启此生';
+        enterBtn.addEventListener('click', () => {
+          // 过场效果：全屏墨色淡入 → 淡出 → 进入人生
+          const overlay = el('div', 'enter-transition');
+          document.body.append(overlay);
+          void overlay.offsetWidth;
+          overlay.classList.add('enter-transition-fadein');
+          setTimeout(() => {
+            state.drawing = false;
+            state.drawPhase = 0;
+            state.autoPlay = true;
+            rerender();
+            overlay.classList.remove('enter-transition-fadein');
+            overlay.classList.add('enter-transition-fadeout');
+            setTimeout(() => overlay.remove(), 600);
+            if (state.result) startAutoPlay(state.result);
+          }, 800);
+        });
+        card.append(enterBtn);
+      }, 1200);
+    }, 500);
   }
 
   return anim;
@@ -1168,7 +1185,19 @@ function buildChoiceScene(r: LifeResult): HTMLElement {
       desc.textContent = opt.desc;
       btn.append(desc);
     }
-    btn.addEventListener('click', () => executeChoice(r, idx));
+    btn.addEventListener('click', () => {
+      // 选中的选项注入效果，其它选项破裂消散
+      const allOpts = options.querySelectorAll('.choice-opt');
+      allOpts.forEach((o, i) => {
+        if (i === idx) {
+          o.classList.add('choice-opt-injected');
+        } else {
+          o.classList.add('choice-opt-shatter');
+        }
+      });
+      // 延迟执行抉择，等动画完成
+      setTimeout(() => executeChoice(r, idx), 500);
+    });
     options.append(btn);
   });
   scene.append(options);
@@ -1588,7 +1617,7 @@ function rerender(): void {
   }
   // 其他场景——全量重建
   // 如果模拟刚到末尾且不是抉择暂停，播放过场动画
-  if (r && !state.review && !state.drawing && state.pointer >= r.log.length && !endTransitionPlayed) {
+  if (r && !state.review && !state.drawing && state.pointer >= r.log.length && !r.pausedChoice && !endTransitionPlayed) {
     endTransitionPlayed = true;
     playEndTransition(r);
     return;

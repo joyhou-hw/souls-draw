@@ -219,10 +219,6 @@ button.primary:hover { background: #3a80a0; }
   padding: 4px 2px 6px;
   border-bottom: 1px solid var(--ink-border);
   margin-bottom: var(--gap-sm);
-  position: sticky;
-  top: 0;
-  background: var(--ink-bg);
-  z-index: 5;
 }
 
 .log-stream {
@@ -233,6 +229,7 @@ button.primary:hover { background: #3a80a0; }
   flex: 1;
   overflow-y: auto;
   max-height: calc(100vh - 140px);
+  min-height: 80px;
 }
 
 .log-line {
@@ -769,6 +766,45 @@ button.primary:hover { background: #3a80a0; }
   color: var(--ink-gold);
 }
 
+/* roll-area 飞出 */
+.roll-area-flyout {
+  animation: roll-flyout 0.4s var(--ease) both;
+}
+
+@keyframes roll-flyout {
+  to {
+    opacity: 0;
+    transform: scale(0.8) translateY(-30px);
+    filter: blur(6px);
+  }
+}
+
+/* 名字发光 */
+.soul-name-glow {
+  opacity: 0;
+}
+
+.soul-name-glow-on {
+  animation: soul-name-appear 0.8s var(--ease) both;
+}
+
+@keyframes soul-name-appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    text-shadow: 0 0 0 rgba(232, 194, 106, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0) scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    text-shadow: 0 0 16px rgba(232, 194, 106, 0.6), 0 0 32px rgba(232, 194, 106, 0.2);
+  }
+}
+
 /* 生灵卡片 */
 .soul-card {
   display: flex;
@@ -1093,7 +1129,6 @@ button.primary:hover { background: #3a80a0; }
   .control-banner .ctrl-left button { padding: 4px 8px; font-size: 0.8rem; }
   .speed-ctrl button { padding: 3px 6px; font-size: 0.72rem; }
   .year-label { font-size: 0.8rem; }
-  .log-title { position: sticky; top: 36px; background: var(--ink-bg); z-index: 5; }
   .log-stream { max-height: calc(100vh - 180px); }
 }
 
@@ -1122,12 +1157,76 @@ button.primary:hover { background: #3a80a0; }
   text-align: left;
   padding: 12px var(--gap-md);
   transition: all var(--dur-fast) var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.choice-scene .choice-opt::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(232, 194, 106, 0.15), transparent, rgba(127, 212, 168, 0.1));
+  opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .choice-scene .choice-opt:hover {
   border-color: var(--ink-accent);
-  background: rgba(159, 200, 232, 0.08);
+  background: rgba(232, 194, 106, 0.06);
   transform: translateX(4px);
+  box-shadow: 0 0 12px rgba(232, 194, 106, 0.15);
+}
+
+.choice-scene .choice-opt:hover::before {
+  opacity: 1;
+}
+
+/* 选中选项注入效果 */
+.choice-opt-injected {
+  animation: choice-inject 0.5s var(--ease) both;
+}
+
+@keyframes choice-inject {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(232, 194, 106, 0);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(232, 194, 106, 0.4);
+    border-color: var(--ink-gold);
+    background: rgba(232, 194, 106, 0.15);
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.3;
+    box-shadow: 0 0 40px rgba(232, 194, 106, 0.1);
+  }
+}
+
+/* 未选选项破裂消散 */
+.choice-opt-shatter {
+  animation: choice-shatter 0.5s var(--ease) both;
+}
+
+@keyframes choice-shatter {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  30% {
+    opacity: 0.6;
+    transform: scale(1.02) translateX(2px);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9) translateX(-10px);
+    filter: blur(4px);
+  }
 }
 
 /* 自动抉择开关——滑块式 toggle */
