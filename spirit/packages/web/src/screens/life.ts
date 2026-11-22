@@ -182,9 +182,78 @@ function ageLabel(tick: number): string {
 }
 
 let autoTimer: ReturnType<typeof setTimeout> | null = null;
+let endTransitionPlayed = false;
 
 function clearAutoTimer(): void {
   if (autoTimer !== null) { clearTimeout(autoTimer); autoTimer = null; }
+}
+
+/** 终局过场动画：模拟页面渐隐 → 图像居中变灰 → 年岁/成就依次浮现 → 切到终局 */
+function playEndTransition(r: LifeResult): void {
+  const app = document.querySelector<HTMLElement>('#app');
+  if (!app) { rerender(); return; }
+
+  // 全屏覆盖层
+  const overlay = el('div', 'end-transition-overlay');
+  // 克隆当前场景图作为居中图像
+  const sceneImg = app.querySelector<HTMLImageElement>('.layer-scene');
+  const actorImg = app.querySelector<HTMLImageElement>('.layer-actor');
+  const imgBox = el('div', 'end-transition-img');
+  if (sceneImg) {
+    const bg = el('img');
+    bg.src = sceneImg.src;
+    bg.style.cssText = 'width:100%;height:100%;object-fit:cover;position:absolute;inset:0;';
+    imgBox.append(bg);
+  }
+  if (actorImg) {
+    const ac = el('img');
+    ac.src = actorImg.src;
+    ac.style.cssText = 'width:100%;height:100%;object-fit:contain;object-position:center bottom;position:absolute;inset:0;';
+    imgBox.append(ac);
+  }
+  overlay.append(imgBox);
+
+  // 信息文本容器
+  const infoBox = el('div', 'end-transition-info');
+  overlay.append(infoBox);
+
+  document.body.append(overlay);
+  void overlay.offsetWidth; // 强制 reflow
+  overlay.classList.add('end-transition-active');
+
+  const finalTick = r.deathTick ?? r.state.tick;
+  const id = r.birth ? identityFor(r.birth) : null;
+  const name = id?.name ?? '此生';
+
+  // 依次浮现的信息
+  const steps: Array<{ text: string; delay: number }> = [
+    { text: `${name} · ${calendarYear(0)}`, delay: 800 },
+    { text: `生于 ${id?.birthplace ?? '此世'}，终于 ${finalTick} 岁`, delay: 1600 },
+    { text: deathLabel(r), delay: 1400 },
+    { text: '此生落幕', delay: 1200 },
+  ];
+
+  let totalDelay = 600; // 初始等待页面渐隐
+  for (const step of steps) {
+    setTimeout((t) => {
+      const line = el('p', 'end-transition-line');
+      line.textContent = t;
+      infoBox.append(line);
+      void line.offsetWidth;
+      line.classList.add('end-transition-line-show');
+    }, totalDelay, step.text);
+    totalDelay += step.delay;
+  }
+
+  // 最后一步：淡出切到终局
+  setTimeout(() => {
+    overlay.classList.add('end-transition-fadeout');
+    setTimeout(() => {
+      overlay.remove();
+      endTransitionPlayed = true;
+      rerender();
+    }, 800);
+  }, totalDelay + 400);
 }
 
 /** 根据当前条目文本长度计算延迟：基础间隔 + 文本长度因子 + 随机延迟 */
@@ -206,7 +275,7 @@ function tickAdvance(r: LifeResult): void {
   if (state.pointer >= lines.length) {
     state.autoPlay = false;
     clearAutoTimer();
-    rerender();
+    playEndTransition(r);
     return;
   }
   state.pointer++;
@@ -636,26 +705,36 @@ function buildDrawScene(): HTMLElement {
   scene.append(title, sub);
 
   const desc = el('p', 'draw-desc');
-  desc.innerHTML = '签落无声，人妖精怪各有归途<br>引命成线，罗小黑世界一卷浮生';
+  desc.innerHTML = '<span class="desc-accent">签落无声</span>，人妖精怪各有归途<br><span class="desc-accent">引命成线</span>，罗小黑世界一卷浮生';
   scene.append(desc);
 
   const actions = el('div', 'draw-actions');
   const btn = el('button', 'primary');
   btn.textContent = '抽一签 · 开始此生';
   btn.addEventListener('click', () => {
-    resetFlowUi();
-    clearAutoTimer();
-    state.seed = drawSeed();
-    state.picked = [];
-    state.pointer = 0;
-    state.review = false;
-    state.autoPlay = false;
-    state.starredLines.clear();
-    state.result = runSegment(world, state.seed, state.picked);
-    persist();
-    // 触发命签抽选动画，动画结束后自动进入人生场景
-    state.drawing = true;
-    rerender();
+    // 元素向后飞走动画
+    const drawScene = document.querySelector('.draw-scene');
+    if (drawScene) {
+      drawScene.classList.add('draw-scene-flyaway');
+      // 处理已保存存档按钮（如果有）
+      const savedRow = drawScene.querySelector('.draw-saved');
+      if (savedRow) savedRow.classList.add('draw-scene-flyaway');
+    }
+    setTimeout(() => {
+      resetFlowUi();
+      clearAutoTimer();
+      state.seed = drawSeed();
+      state.picked = [];
+      state.pointer = 0;
+      state.review = false;
+      state.autoPlay = false;
+      state.starredLines.clear();
+      state.result = runSegment(world, state.seed, state.picked);
+      persist();
+      // 触发命签抽选动画，动画结束后自动进入人生场景
+      state.drawing = true;
+      rerender();
+    }, 600);
   });
   actions.append(btn);
 
@@ -729,9 +808,11 @@ function buildLifeScene(r: LifeResult): HTMLElement {
   scene.append(buildControlBanner(r));
   // 双栏主体
   const body = el('div', 'life-body');
-  // 左侧面板：状态指数 + 场景图 + 身份卡
+  // 左侧面板：场景图（含状态栏叠加） + 身份卡
     const sidebar = el('div', 'life-sidebar');
-    sidebar.append(buildAttrsBar(r), buildSceneImage(r), buildBirthCard());
+    const imgWrap = buildSceneImage(r);
+    imgWrap.append(buildAttrsBar(r));
+    sidebar.append(imgWrap, buildBirthCard());
   // 右侧面板：人生记录流
   const main = el('div', 'life-main');
   const logTitle = el('div', 'log-title');
@@ -1476,10 +1557,10 @@ function rerender(): void {
       const oldStream = lifeMain.querySelector('.log-stream');
       const newStream = buildLogStream(r);
       if (oldStream) oldStream.replaceWith(newStream);
-      // 更新属性条
-      const sidebar = app.querySelector<HTMLElement>('.life-sidebar');
-      if (sidebar) {
-        const oldAttrs = sidebar.querySelector('.attrs');
+      // 更新属性条（叠加在场景图内）
+      const sceneImg = app.querySelector<HTMLElement>('.scene-image');
+      if (sceneImg) {
+        const oldAttrs = sceneImg.querySelector('.attrs');
         const newAttrs = buildAttrsBar(r);
         if (oldAttrs) oldAttrs.replaceWith(newAttrs);
       }
@@ -1490,6 +1571,13 @@ function rerender(): void {
     }
   }
   // 其他场景——全量重建
+  // 如果模拟刚到末尾且不是抉择暂停，播放过场动画
+  if (r && !state.review && !state.drawing && state.pointer >= r.log.length && !endTransitionPlayed) {
+    endTransitionPlayed = true;
+    playEndTransition(r);
+    return;
+  }
+  endTransitionPlayed = false;
   app.replaceChildren();
   renderLifeScreen(app);
 }
