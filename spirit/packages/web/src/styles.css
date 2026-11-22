@@ -571,7 +571,16 @@ button.primary:hover { background: #3a80a0; }
 .scene-header p { margin: 0; }
 
 /* ── 抽签场景 ── */
-.draw-scene { text-align: center; }
+.draw-scene {
+  text-align: center;
+  background: transparent;
+}
+.draw-scene > * {
+  background: rgba(34, 30, 26, 0.55);
+  backdrop-filter: blur(4px);
+  border-radius: var(--radius-md);
+  padding: var(--gap-sm) var(--gap-md);
+}
 .draw-scene .draw-title {
   font-size: 1.6rem;
   color: var(--ink-gold);
@@ -604,7 +613,7 @@ button.primary:hover { background: #3a80a0; }
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 56px);
-  animation: draw-anim-bg 1.2s var(--ease) forwards;
+  background: transparent;
 }
 
 .draw-anim .seal {
@@ -619,6 +628,10 @@ button.primary:hover { background: #3a80a0; }
   flex-direction: column;
   gap: var(--gap-md);
   align-items: center;
+  background: rgba(34, 30, 26, 0.5);
+  backdrop-filter: blur(4px);
+  border-radius: var(--radius-md);
+  padding: var(--gap-lg) var(--gap-xl);
 }
 
 .roll-field {
@@ -663,6 +676,11 @@ button.primary:hover { background: #3a80a0; }
   width: 100%;
   animation: fade-up 0.6s var(--ease) forwards;
   text-align: center;
+  background: rgba(34, 30, 26, 0.55);
+  backdrop-filter: blur(4px);
+  border-radius: var(--radius-md);
+  padding: var(--gap-md);
+  border: 1px solid var(--ink-border);
 }
 
 .soul-card .scene-image {
@@ -866,6 +884,7 @@ button.primary:hover { background: #3a80a0; }
   border: 1px solid var(--ink-border);
   aspect-ratio: 4 / 3;
   background: var(--ink-bg-inset);
+  position: relative;
 }
 
 .scene-image img,
@@ -874,6 +893,30 @@ button.primary:hover { background: #3a80a0; }
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* CSS 分层叠加——场景底图 + 主角图层 + 特效图层 */
+.scene-image.layered {
+  position: relative;
+}
+
+.scene-image.layered .layer-scene,
+.scene-image.layered .layer-actor,
+.scene-image.layered .layer-effect {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.scene-image.layered .layer-actor {
+  object-position: center bottom;
+}
+
+.scene-image.layered .layer-effect {
+  pointer-events: none;
 }
 
 /* 手机：单栏 */

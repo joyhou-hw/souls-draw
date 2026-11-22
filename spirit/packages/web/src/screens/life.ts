@@ -5,7 +5,8 @@ import { createRng } from '../../../engine/src/rng.ts';
 import { runSegment } from '../game.ts';
 import { world, worldMilestones } from '../world.ts';
 import { saveGame, loadGame, clearGame, parseSave, downloadSave, type SaveData } from '../save.ts';
-import { composeScene, deriveParams, normalizePlace, normalizeEra } from '../imaging/composer.ts';
+import { deriveParams, normalizePlace, normalizeEra } from '../imaging/composer.ts';
+import { getManifest, loadManifest, findActor, findEffect, ASSET_BASE, type ComposeParams, type Manifest } from '../imaging/manifest.ts';
 
 const FORM_LABELS: Record<string, string> = {
   human: '凡人',
@@ -383,11 +384,11 @@ function deathLabel(result: LifeResult): string {
 // ═══════════════════════════════════════════════
 
 const PAGE_BG = {
-  draw: './images/backgrounds/pages/home.png',
-  drawAnim: './images/backgrounds/pages/draw_anim.png',
-  choice: './images/backgrounds/pages/choice.png',
-  end: './images/backgrounds/pages/end.png',
-  review: './images/backgrounds/pages/review.png',
+  draw: './images/backgrounds/pages/home.webp',
+  drawAnim: './images/backgrounds/pages/draw_anim.webp',
+  choice: './images/backgrounds/pages/choice.webp',
+  end: './images/backgrounds/pages/end.webp',
+  review: './images/backgrounds/pages/review.webp',
 };
 
 function ageBandForTick(tick: number): 'child' | 'youth' | 'adult' | 'elder' {
@@ -400,7 +401,7 @@ function ageBandForTick(tick: number): 'child' | 'youth' | 'adult' | 'elder' {
 function simBgSrc(form: string, gender: string, tick: number): string {
   const g = gender === '女' ? 'female' : 'male';
   const stage = ageBandForTick(tick);
-  return `./images/backgrounds/sim/${form}/${g}_${stage}.png`;
+  return `./images/backgrounds/sim/${form}/${g}_${stage}.webp`;
 }
 
 function simBgFor(r: LifeResult): string {
@@ -739,30 +740,58 @@ function buildLifeScene(r: LifeResult): HTMLElement {
   return scene;
 }
 
-/** 根据 birth 信息合成场景图片（场景底图 + 主角图层 + 特效图层） */
-function buildSceneImage(r: LifeResult): HTMLElement {
-  const wrap = el('div', 'scene-image');
+/** 根据 birth 信息构建场景图片——CSS 分层叠加（场景底图 + 主角图层 + 特效图层） */
+function buildSceneImage(r: LifeResult, tickOverride?: number, milestone?: string): HTMLElement {
+  const wrap = el('div', 'scene-image layered');
   const b = r.birth;
   if (!b) return wrap;
-  // 异步合成：Canvas 纸娃娃合成器
-  const params = deriveParams(b, r.log?.[0]?.tick ?? 0);
-  composeScene(params).then((canvas) => {
-    if (canvas) {
-      canvas.setAttribute('aria-label', identityFor(b).birthplace);
-      wrap.append(canvas);
-    } else {
-      // 合成失败：回退到纯场景底图
-      const place = normalizePlace(b.region);
-      const era = normalizeEra(b.era);
-      const img = el('img');
-      img.alt = identityFor(b).birthplace;
-      img.loading = 'lazy';
-      img.src = `./images/scenes/${place}_${era}.png`;
-      img.onerror = () => { wrap.style.display = 'none'; };
-      wrap.append(img);
-    }
-  }).catch(() => { wrap.style.display = 'none'; });
+  const tick = tickOverride ?? r.log?.[0]?.tick ?? 0;
+  const params = deriveParams(b, tick, milestone);
+  // 立即放置场景底图（同步，无需等待 manifest）
+  const place = normalizePlace(b.region);
+  const era = normalizeEra(b.era);
+  const sceneImg = el('img', 'layer-scene');
+  sceneImg.alt = identityFor(b).birthplace;
+  sceneImg.src = `${ASSET_BASE}scenes/${place}_${era}.png`;
+  sceneImg.onerror = () => { sceneImg.style.display = 'none'; };
+  wrap.append(sceneImg);
+  // 异步加载 manifest，叠加主角图层和特效图层
+  const manifest = getManifest();
+  if (manifest) {
+    appendActorLayer(wrap, manifest, params);
+    appendEffectLayer(wrap, manifest, params);
+  } else {
+    loadManifest().then((m) => {
+      appendActorLayer(wrap, m, params);
+      appendEffectLayer(wrap, m, params);
+    }).catch(() => { /* 场景底图已兜底 */ });
+  }
   return wrap;
+}
+
+/** 叠加主角图层 */
+function appendActorLayer(wrap: HTMLElement, manifest: Manifest, params: ComposeParams): void {
+  const actor = findActor(manifest, params);
+  if (!actor) return;
+  const img = el('img', 'layer-actor');
+  img.alt = '主角';
+  img.loading = 'lazy';
+  img.src = `${ASSET_BASE}${actor.file}`;
+  img.onerror = () => { img.remove(); };
+  wrap.append(img);
+}
+
+/** 叠加特效图层 */
+function appendEffectLayer(wrap: HTMLElement, manifest: Manifest, params: ComposeParams): void {
+  if (!params.milestone) return;
+  const effect = findEffect(manifest, params.milestone);
+  if (!effect) return;
+  const img = el('img', 'layer-effect');
+  img.alt = '特效';
+  img.loading = 'lazy';
+  img.src = `${ASSET_BASE}${effect.file}`;
+  img.onerror = () => { img.remove(); };
+  wrap.append(img);
 }
 
 function buildBirthCard(): HTMLElement {
@@ -911,8 +940,8 @@ function buildLogStream(r: LifeResult): HTMLElement {
       text.append(cap);
     }
     row.append(star, age, text);
-    // 图片预览按钮——出生后（tick >= 0）的日志行显示
-    if (line.tick >= 0 && birth) {
+    // 图片预览按钮——仅里程碑事件显示（普通事件无独立景图，避免重复展示同一张）
+    if (line.tick >= 0 && birth && worldMilestones.includes(line.eventId)) {
       const imgBtn = el('span', 'image-preview-btn');
       imgBtn.textContent = '🖼';
       imgBtn.title = '查看此景';
@@ -1353,7 +1382,7 @@ function buildReviewScene(): HTMLElement {
 // 图片预览弹窗
 // ═══════════════════════════════════════════════
 
-/** 弹出图片预览模态窗——异步合成场景图并展示 */
+/** 弹出图片预览模态窗——CSS 分层叠加展示 */
 function showImagePreview(r: LifeResult, tick: number, eventId: string): void {
   const b = r.birth;
   if (!b) return;
@@ -1372,26 +1401,13 @@ function showImagePreview(r: LifeResult, tick: number, eventId: string): void {
   const title = el('p', 'image-modal-title');
   title.textContent = `${ageLabel(tick)} · ${calendarYear(tick)}`;
   modal.append(title);
-  // 占位
-  const loading = el('p', 'muted');
-  loading.textContent = '正在绘景…';
-  modal.append(loading);
+  // CSS 分层场景图（场景底图立即可见）
+  const milestone = worldMilestones.includes(eventId) ? eventId : undefined;
+  const sceneWrap = buildSceneImage(r, tick, milestone);
+  sceneWrap.classList.add('image-modal-scene');
+  modal.append(sceneWrap);
   overlay.append(modal);
   document.body.append(overlay);
-  // 异步合成
-  const milestone = worldMilestones.includes(eventId) ? eventId : undefined;
-  const params = deriveParams(b, tick, milestone);
-  composeScene(params).then((canvas) => {
-    if (canvas) {
-      loading.remove();
-      canvas.className = 'image-modal-canvas';
-      modal.append(canvas);
-    } else {
-      loading.textContent = '景图缺失';
-    }
-  }).catch(() => {
-    loading.textContent = '景图缺失';
-  });
 }
 
 // ═══════════════════════════════════════════════
@@ -1432,15 +1448,11 @@ function buildPhotoGallery(r: LifeResult): HTMLElement {
     label.textContent = ageLabel(entry.tick);
     thumb.append(label);
     gallery.append(thumb);
-    // 异步合成缩略图
+    // CSS 分层叠加缩略图（场景底图立即可见）
     const milestone = worldMilestones.includes(entry.eventId) ? entry.eventId : undefined;
-    const params = deriveParams(b, entry.tick, milestone);
-    composeScene(params).then((canvas) => {
-      if (canvas) {
-        canvas.className = 'photo-thumb-canvas';
-        thumb.prepend(canvas);
-      }
-    }).catch(() => { /* 静默 */ });
+    const sceneWrap = buildSceneImage(r, entry.tick, milestone);
+    sceneWrap.classList.add('photo-thumb-scene');
+    thumb.prepend(sceneWrap);
     // 点击放大预览
     thumb.addEventListener('click', () => showImagePreview(r, entry.tick, entry.eventId));
   }
