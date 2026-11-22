@@ -920,7 +920,7 @@ function buildDrawScene(): HTMLElement {
   scene.append(title, sub);
 
   const desc = el('p', 'draw-desc');
-  desc.innerHTML = '<span class="desc-accent">签落无声</span>，人妖精怪各有归途<br><span class="desc-accent">引命成线</span>，罗小黑世界一卷浮生';
+  desc.innerHTML = `<span class="desc-accent">签落无声</span>，人妖精怪各有归途<br><span class="desc-accent">引命成线</span>，${world.name}一卷浮生`;
   scene.append(desc);
 
   const actions = el('div', 'draw-actions');
@@ -983,7 +983,7 @@ function buildImportBox(): HTMLElement {
   const tip = el('p', 'muted');
   tip.textContent = '粘贴存档 JSON（含 seed 与抉择记录），换设备可携带同一段人生。';
   const ta = el('textarea');
-  ta.placeholder = '{"v":1,"world":"罗小黑世界","seed":42,"picked":[0,1],...}';
+  ta.placeholder = `{"v":1,"world":"${world.name}","seed":42,"picked":[0,1],...}`;
   const err = el('p', 'import-error');
   err.hidden = true;
   const actions = el('div', 'actions');
@@ -1585,7 +1585,7 @@ function buildTextureSealSVG(code: string): string {
 }
 
 function buildShareText(r: LifeResult): string {
-  const lines: string[] = ["【Souls' Draw · 生灵引 · 罗小黑世界】一签一命"];
+  const lines: string[] = [`【Souls' Draw · 生灵引 · ${world.name}】一签一命`];
   const b = r.birth;
   if (b) {
     const id = identityFor(b);
