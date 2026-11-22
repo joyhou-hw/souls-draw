@@ -731,7 +731,7 @@ function buildLifeScene(r: LifeResult): HTMLElement {
   const body = el('div', 'life-body');
   // 左侧面板：状态指数 + 场景图 + 身份卡
     const sidebar = el('div', 'life-sidebar');
-    sidebar.append(buildAttrsBar(r), buildSceneImage(r), buildBirthCard(r));
+    sidebar.append(buildAttrsBar(r), buildSceneImage(r), buildBirthCard());
   // 右侧面板：人生记录流
   const main = el('div', 'life-main');
   const logTitle = el('div', 'log-title');

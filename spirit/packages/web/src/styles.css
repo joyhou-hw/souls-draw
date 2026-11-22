@@ -187,25 +187,42 @@ button.primary:hover { background: #3a80a0; }
 .attrs {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--gap-sm);
-  margin-bottom: 12px;
+  gap: var(--gap-xs);
+  margin-bottom: 0;
+  padding: 6px 10px;
+  background: var(--ink-bg-inset);
+  border: 1px solid var(--ink-border);
+  border-radius: var(--radius-sm);
 }
 
 .chip {
-  background: var(--ink-bg-inset);
+  background: var(--ink-bg-card);
   border: 1px solid var(--ink-border);
   border-radius: var(--radius-full);
-  padding: 2px 10px;
-  font-size: 0.85rem;
+  padding: 1px 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 /* ── 日志流 ── */
+.log-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-gold);
+  letter-spacing: 0.2em;
+  padding: 4px 2px 6px;
+  border-bottom: 1px solid var(--ink-border);
+  margin-bottom: var(--gap-sm);
+}
+
 .log-stream {
   border: 1px solid var(--ink-border);
   border-radius: var(--radius-sm);
   padding: 10px;
   background: var(--ink-bg-inset);
-  margin-bottom: 12px;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .log-line {
@@ -520,9 +537,34 @@ button.primary:hover { background: #3a80a0; }
 .year-label {
   font-family: var(--font-serif);
   color: var(--ink-gold);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   white-space: nowrap;
   flex-shrink: 0;
+  text-shadow: 0 0 6px rgba(232, 194, 106, 0.25);
+}
+
+/* 纪年滚动动画——新年份从下方滑入 */
+.year-roll {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.year-roll .year-label {
+  display: inline-block;
+  animation: year-scroll-in 0.6s var(--ease) both;
+}
+
+@keyframes year-scroll-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .progress-bar {
@@ -924,6 +966,12 @@ button.primary:hover { background: #3a80a0; }
 @media (max-width: 768px) {
   .life-body { flex-direction: column; }
   .life-sidebar { flex: none; }
+  .control-banner { padding: 6px 10px; gap: var(--gap-sm); }
+  .control-banner .ctrl-left button { padding: 4px 8px; font-size: 0.8rem; }
+  .speed-ctrl button { padding: 3px 6px; font-size: 0.72rem; }
+  .year-label { font-size: 0.8rem; }
+  .life-main { min-height: 320px; }
+  .log-stream { max-height: 260px; }
 }
 
 /* ── 抉择场景 ── */
