@@ -1330,11 +1330,20 @@ function buildControlBanner(r: LifeResult): HTMLElement {
   return banner;
 }
 
-/** 启动自动播放——链式 setTimeout，每步延迟根据内容变化 */
+/** 启动自动播放——若 pointer 尚在 0（刚入世），先立即显示第一行再开始链式调度 */
 function startAutoPlay(r: LifeResult): void {
   state.autoPlay = true;
   clearAutoTimer();
-  autoTimer = setTimeout(() => tickAdvance(r), calcDelay(r));
+  if (state.pointer === 0) {
+    // 第一行立即显示，不等待延迟
+    state.pointer++;
+    rerender();
+    if (state.autoPlay) {
+      autoTimer = setTimeout(() => tickAdvance(r), calcDelay(r));
+    }
+  } else {
+    autoTimer = setTimeout(() => tickAdvance(r), calcDelay(r));
+  }
 }
 
 function buildSaveButtons(): HTMLElement {
