@@ -1860,10 +1860,10 @@ birthAxes:
 
 # ── 修行入口双闸（01 §7.1.1）──
 # 校准：原 0.25/0.15 导致凡人率 75%、修行率仅 3.75%，体验过于平淡
-# 调整为 0.6/0.4：凡人率 40%、埋没天才 36%、入修行 24%
+# 调整为 0.75/0.55：凡人率 25%、埋没天才 34%、入修行 41%
 cultivationGate:
-  step1LiqiManifestP: 0.6
-  step2EntryEventP: 0.4
+  step1LiqiManifestP: 0.75
+  step2EntryEventP: 0.55
   entryEventAgeWindow: [8, 24]
 
 # ── 天赋灵系（03 §5.1 量化）──
@@ -1883,10 +1883,10 @@ talent:
 deathRule:
   bands:
     - { fromTick: 0, hazard: 0.003 }
-    - { fromTick: 40, hazard: 0.008 }
-    - { fromTick: 80, hazard: 0.025 }
-    - { fromTick: 100, hazard: 0.05 }
-    - { fromTick: 115, hazard: 0.12 }
+    - { fromTick: 40, hazard: 0.006 }
+    - { fromTick: 80, hazard: 0.015 }
+    - { fromTick: 100, hazard: 0.03 }
+    - { fromTick: 130, hazard: 0.08 }
   attrDeath:
     attr: health
     below: 1
@@ -1894,51 +1894,51 @@ deathRule:
     attr: liquality
     below: 20
     multiplier: 2
-  cultivatorMultiplier: 0.5
+  cultivatorMultiplier: 0.35
   forms:
     human:
       bands:
         - { fromTick: 0, hazard: 0.002 }
-        - { fromTick: 50, hazard: 0.008 }
-        - { fromTick: 70, hazard: 0.02 }
-        - { fromTick: 85, hazard: 0.06 }
-        - { fromTick: 100, hazard: 0.15 }
+        - { fromTick: 50, hazard: 0.006 }
+        - { fromTick: 70, hazard: 0.015 }
+        - { fromTick: 85, hazard: 0.04 }
+        - { fromTick: 100, hazard: 0.10 }
     animal_yao:
       bands:
         - { fromTick: 0, hazard: 0.001 }
-        - { fromTick: 60, hazard: 0.003 }
-        - { fromTick: 100, hazard: 0.008 }
-        - { fromTick: 150, hazard: 0.02 }
-        - { fromTick: 200, hazard: 0.06 }
-        - { fromTick: 250, hazard: 0.12 }
+        - { fromTick: 60, hazard: 0.002 }
+        - { fromTick: 100, hazard: 0.005 }
+        - { fromTick: 150, hazard: 0.012 }
+        - { fromTick: 200, hazard: 0.04 }
+        - { fromTick: 250, hazard: 0.08 }
     plant_yao:
       bands:
         - { fromTick: 0, hazard: 0.0005 }
-        - { fromTick: 100, hazard: 0.002 }
-        - { fromTick: 180, hazard: 0.006 }
-        - { fromTick: 250, hazard: 0.02 }
-        - { fromTick: 300, hazard: 0.08 }
+        - { fromTick: 100, hazard: 0.0015 }
+        - { fromTick: 180, hazard: 0.004 }
+        - { fromTick: 250, hazard: 0.012 }
+        - { fromTick: 300, hazard: 0.05 }
     fungus_yao:
       bands:
         - { fromTick: 0, hazard: 0.0008 }
-        - { fromTick: 80, hazard: 0.003 }
-        - { fromTick: 150, hazard: 0.008 }
-        - { fromTick: 200, hazard: 0.02 }
-        - { fromTick: 260, hazard: 0.08 }
+        - { fromTick: 80, hazard: 0.002 }
+        - { fromTick: 150, hazard: 0.005 }
+        - { fromTick: 200, hazard: 0.012 }
+        - { fromTick: 260, hazard: 0.05 }
     spirit_yao:
       bands:
         - { fromTick: 0, hazard: 0.0003 }
-        - { fromTick: 100, hazard: 0.0015 }
-        - { fromTick: 200, hazard: 0.005 }
-        - { fromTick: 280, hazard: 0.02 }
-        - { fromTick: 320, hazard: 0.08 }
+        - { fromTick: 100, hazard: 0.001 }
+        - { fromTick: 200, hazard: 0.003 }
+        - { fromTick: 280, hazard: 0.012 }
+        - { fromTick: 320, hazard: 0.05 }
     painted_yao:
       bands:
         - { fromTick: 0, hazard: 0.001 }
-        - { fromTick: 80, hazard: 0.004 }
-        - { fromTick: 120, hazard: 0.01 }
-        - { fromTick: 180, hazard: 0.03 }
-        - { fromTick: 230, hazard: 0.08 }
+        - { fromTick: 80, hazard: 0.003 }
+        - { fromTick: 120, hazard: 0.007 }
+        - { fromTick: 180, hazard: 0.02 }
+        - { fromTick: 230, hazard: 0.05 }
 
 # ── 灵力阶梯七档 + 突破门（03 §5.1）──
 powerLadder:
