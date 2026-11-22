@@ -752,7 +752,7 @@ function buildSceneImage(r: LifeResult, tickOverride?: number, milestone?: strin
   const era = normalizeEra(b.era);
   const sceneImg = el('img', 'layer-scene');
   sceneImg.alt = identityFor(b).birthplace;
-  sceneImg.src = `${ASSET_BASE}scenes/${place}_${era}.png`;
+  sceneImg.src = `${ASSET_BASE}scenes/${place}_${era}.webp`;
   sceneImg.onerror = () => { sceneImg.style.display = 'none'; };
   wrap.append(sceneImg);
   // 异步加载 manifest，叠加主角图层和特效图层
