@@ -159,10 +159,10 @@ function executeChoice(r: LifeResult, idx: number): void {
 
 /** 速度档位：标签 → 间隔毫秒（对标 80亿分之一 1x~8x） */
 const SPEED_LABELS: Array<[string, number]> = [
-  ['1×', 5000],
-  ['2×', 2500],
-  ['4×', 1200],
-  ['8×', 600],
+  ['1×', 8000],
+  ['2×', 4000],
+  ['4×', 2000],
+  ['8×', 800],
 ];
 
 /** 无限纪元年——出生时为无限418年 */
@@ -729,12 +729,14 @@ function buildLifeScene(r: LifeResult): HTMLElement {
   scene.append(buildControlBanner(r));
   // 双栏主体
   const body = el('div', 'life-body');
-  // 左侧面板：场景图 + 身份卡 + 状态指数
-  const sidebar = el('div', 'life-sidebar');
-  sidebar.append(buildSceneImage(r), buildBirthCard(), buildAttrsBar(r));
+  // 左侧面板：状态指数 + 场景图 + 身份卡
+    const sidebar = el('div', 'life-sidebar');
+    sidebar.append(buildAttrsBar(r), buildSceneImage(r), buildBirthCard(r));
   // 右侧面板：人生记录流
   const main = el('div', 'life-main');
-  main.append(buildLogStream(r));
+  const logTitle = el('div', 'log-title');
+  logTitle.textContent = '岁月长卷';
+  main.append(logTitle, buildLogStream(r));
   body.append(sidebar, main);
   scene.append(body);
   return scene;
@@ -960,12 +962,6 @@ function buildLogStream(r: LifeResult): HTMLElement {
     });
     stream.append(row);
   }
-  const remain = r.log.length - state.pointer;
-  if (remain > 0) {
-    const more = el('div', 'muted');
-    more.textContent = `……岁月长河还有 ${remain} 段未展开`;
-    stream.append(more);
-  }
   return stream;
 }
 
@@ -1016,15 +1012,17 @@ function buildControlBanner(r: LifeResult): HTMLElement {
   }
   left.append(speedWrap);
   banner.append(left);
-  // 中间：日历年（保留纪年，移除进度条）
+  // 中间：日历年——滚动动画，新年份从下方滑入
   const center = el('div', 'ctrl-center');
+  const yearRoll = el('div', 'year-roll');
   const yearLabel = el('span', 'year-label');
   const curTick = state.pointer > 0 ? narrativeLines(r)[state.pointer - 1]!.tick : 0;
-  yearLabel.textContent = calendarYear(curTick);
-  center.append(yearLabel);
+  const yearStr = calendarYear(curTick);
+  yearLabel.textContent = yearStr;
+  yearRoll.dataset.year = yearStr;
+  yearRoll.append(yearLabel);
+  center.append(yearRoll);
   banner.append(center);
-  // 右侧：存档
-  banner.append(buildSaveButtons());
   return banner;
 }
 
