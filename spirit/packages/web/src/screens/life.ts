@@ -145,19 +145,24 @@ function startAutoChoiceCountdown(scene: HTMLElement, r: LifeResult): void {
 /** 执行抉择——提取为公共函数，供手动点击和自动选择复用 */
 function executeChoice(r: LifeResult, idx: number): void {
   clearAutoChoiceTimer();
-  state.picked.push(idx);
-  state.result = runSegment(world, state.seed!, state.picked);
-  persist();
-  const lines = narrativeLines(state.result!);
-  while (state.pointer < lines.length && lines[state.pointer]?.isPrompt) {
-    state.pointer++;
-  }
-  state.autoPlay = true;
-  // 保存滚动位置，rerender 后恢复
-  const savedScrollY = window.scrollY;
-  rerender();
-  window.scrollTo(0, savedScrollY);
-  if (state.result) startAutoPlay(state.result);
+  // 当前场景飞走动画
+  const currentScene = document.querySelector('.choice-scene');
+  if (currentScene) currentScene.classList.add('scene-flyaway');
+  setTimeout(() => {
+    state.picked.push(idx);
+    state.result = runSegment(world, state.seed!, state.picked);
+    persist();
+    const lines = narrativeLines(state.result!);
+    while (state.pointer < lines.length && lines[state.pointer]?.isPrompt) {
+      state.pointer++;
+    }
+    state.autoPlay = true;
+    // 保存滚动位置，rerender 后恢复
+    const savedScrollY = window.scrollY;
+    rerender();
+    window.scrollTo(0, savedScrollY);
+    if (state.result) startAutoPlay(state.result);
+  }, 400);
 }
 
 /** 速度档位：标签 → 间隔毫秒（对标 80亿分之一 1x~8x） */
