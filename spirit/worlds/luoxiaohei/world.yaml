@@ -1832,9 +1832,9 @@ preBirthChain:
     reincarnatedSoulP: 0.001
   humanLine: human
 
-# ── 出生形态轴（01 §7.1；T2.7 校准：妖精体验主导——人类减半至 0.125，妖精内部分布按比例放大）──
+# ── 出生形态轴（01 §7.1；T2.7 校准：概率平均化，减少两极差距）──
 birthForm:
-  weights: {human: 0.125, animal_yao: 0.31, plant_yao: 0.18, fungus_yao: 0.09, spirit_yao: 0.265, painted_yao: 0.03}
+  weights: {human: 0.125, animal_yao: 0.22, plant_yao: 0.18, fungus_yao: 0.16, spirit_yao: 0.195, painted_yao: 0.12}
   speciesPrototype:
     animal_yao: [cat, wolf, dog, bull, goat]
     plant_yao: [flower, grass, tree]

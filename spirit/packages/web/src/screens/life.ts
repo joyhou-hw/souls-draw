@@ -222,9 +222,25 @@ function ageLabel(tick: number): string {
 
 let autoTimer: ReturnType<typeof setTimeout> | null = null;
 let endTransitionPlayed = false;
+let visibilityBound = false;
 
 function clearAutoTimer(): void {
   if (autoTimer !== null) { clearTimeout(autoTimer); autoTimer = null; }
+}
+
+/** 页面可见性变化——切走自动暂停，回来不自动恢复（用户手动点继续） */
+function bindVisibilityPause(): void {
+  if (visibilityBound) return;
+  visibilityBound = true;
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && state.autoPlay) {
+      state.autoPlay = false;
+      clearAutoTimer();
+      // 更新播放按钮为"继续此生"
+      const btn = document.querySelector<HTMLButtonElement>('.control-banner .pause-btn, .control-banner .primary');
+      if (btn) { btn.textContent = '▶ 继续此生'; btn.className = 'primary'; }
+    }
+  });
 }
 
 /** 终局过场动画：模拟页面渐隐 → 图像居中变灰 → 年岁/成就依次浮现 → 切到终局 */
@@ -668,6 +684,7 @@ function setBackground(src: string): void {
 }
 
 function renderLifeScreen(host: HTMLElement): void {
+  bindVisibilityPause();
   host.append(buildScene());
 }
 
