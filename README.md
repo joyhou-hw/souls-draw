@@ -4,7 +4,7 @@
 
 [在线体验](https://joyhou-hw.github.io/souls-draw/)
 
-![生灵引](assets/screenshot.png)
+![生灵引](spirit/assets/screenshot.png)
 
 ---
 
