@@ -13,6 +13,7 @@ import type {
   BirthOutcome,
   EventEffects,
   EventNarratives,
+  InterludeCategory,
   LifeResult,
   NarrativeBucket,
   NarrativeVariant,
@@ -217,6 +218,40 @@ export class NarrativeRenderer {
     }
     return result;
   }
+
+  /** 挑选一条插页文本——从 interludes 中按 tick 和修行者状态筛选可用类别，不放回抽样 */
+  pickInterlude(state: PersonState, rng: Rng): string | undefined {
+    if (!this.narratives?.interludes) return undefined;
+    const isCultivator = state.flags.includes('cultivator');
+    // 收集所有可用类别中未用过的变体
+    const pool: NarrativeVariant[] = [];
+    for (const cat of Object.values(this.narratives.interludes) as InterludeCategory[]) {
+      if (cat.minTick !== undefined && state.tick < cat.minTick) continue;
+      if (cat.maxTick !== undefined && state.tick > cat.maxTick) continue;
+      if (cat.cultivatorOnly && !isCultivator) continue;
+      if (cat.mortalOnly && isCultivator) continue;
+      for (const v of cat.variants) {
+        if (!this.usedIds.has(v.id)) pool.push(v);
+      }
+    }
+    if (pool.length === 0) {
+      // 不放回抽空——回退到全池复用
+      const all: NarrativeVariant[] = [];
+      for (const cat of Object.values(this.narratives.interludes) as InterludeCategory[]) {
+        if (cat.minTick !== undefined && state.tick < cat.minTick) continue;
+        if (cat.maxTick !== undefined && state.tick > cat.maxTick) continue;
+        if (cat.cultivatorOnly && !isCultivator) continue;
+        if (cat.mortalOnly && isCultivator) continue;
+        all.push(...cat.variants);
+      }
+      if (all.length === 0) return undefined;
+      const v = rng.pick(all);
+      return this.renderVariant(v);
+    }
+    const v = rng.pick(pool);
+    this.usedIds.add(v.id);
+    return this.renderVariant(v);
+  }
 }
 
 /** 一条渲染后的人生日志——CLI 与 Web 共用同一份呈现数据 */
@@ -227,6 +262,8 @@ export interface RenderedLogLine {
   text: string;
   /** 该条是否为抉择提示语（prompt 优先渲染） */
   isPrompt: boolean;
+  /** 该条是否为插页（他人动态/坊间传闻，纯叙事无效果） */
+  isInterlude?: boolean;
   /** 里程碑题注——仅 narrativeFeed.milestones 命中的事件才有 */
   caption?: string;
   /** 事件原始 label，供对照与降级 */
@@ -241,6 +278,9 @@ export interface RenderedLogLine {
  *
  * 铁律：render_only——只读叙事库与人生状态；叙事 rng 从 seed 独立派生，
  * 与 runLife 的掷骰序列完全隔离，同 seed 必然得到同一份叙事。
+ *
+ * 插页机制：在主日志渲染后，遍历日志行，每行后有概率插入一条"他人动态/坊间传闻"。
+ * 不插入的位置：出生前日志（tick < 0）、抉择 prompt 行后、最后一条（结局行）。
  */
 export function renderLifeLog(
   world: World,
@@ -250,7 +290,14 @@ export function renderLifeLog(
   const renderer = new NarrativeRenderer(world, result.birth);
   const narrRng = createRng((seed ^ 0x5a5a5a5a) >>> 0);
   const milestoneIds = new Set(world.narrativeFeed?.milestones ?? []);
-  return result.log.map((entry) => {
+  const hasInterludes = world.narratives?.interludes !== undefined;
+  const INTERLUDE_P = 0.12;
+
+  const lines: RenderedLogLine[] = [];
+  const logLen = result.log.length;
+
+  for (let i = 0; i < logLen; i++) {
+    const entry = result.log[i]!;
     const prompt = renderer.renderPrompt(entry.eventId, result.state);
     const narrated = prompt === undefined
       ? renderer.renderEvent(entry.eventId, result.state, narrRng)
@@ -268,6 +315,27 @@ export function renderLifeLog(
     if (caption !== undefined) line.caption = caption;
     if (entry.choice) line.picked = entry.choice.picked;
     if (entry.effects) line.effects = entry.effects;
-    return line;
-  });
+    lines.push(line);
+
+    // 插页判定：有 interludes 配置且当前行适合插入
+    if (hasInterludes
+      && entry.tick >= 0            // 不在出生前日志后插入
+      && !line.isPrompt             // 不在抉择 prompt 后插入
+      && i < logLen - 1             // 不在最后一行（结局行）后插入
+      && narrRng.next() < INTERLUDE_P
+    ) {
+      const text = renderer.pickInterlude(result.state, narrRng);
+      if (text !== undefined) {
+        lines.push({
+          tick: entry.tick,
+          eventId: 'interlude',
+          text,
+          isPrompt: false,
+          isInterlude: true,
+          rawLabel: '',
+        });
+      }
+    }
+  }
+  return lines;
 }

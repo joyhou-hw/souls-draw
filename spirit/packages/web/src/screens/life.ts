@@ -1190,6 +1190,16 @@ function buildLogStream(r: LifeResult): HTMLElement {
     const row = el('div', 'log-line');
     // 最新展开的一行加淡入动画
     if (i === shown.length - 1 && state.pointer > 0) row.classList.add('log-fresh');
+    if (line.isInterlude) {
+      row.classList.add('interlude');
+      const tag = el('span', 'interlude-tag');
+      tag.textContent = '传闻';
+      const text = el('span', 'log-text');
+      text.textContent = line.text;
+      row.append(tag, text);
+      stream.append(row);
+      continue;
+    }
     if (worldMilestones.includes(line.eventId)) row.classList.add('milestone');
     if (line.isPrompt) row.classList.add('prompt');
     if (state.starredLines.has(i)) row.classList.add('starred');
@@ -1621,11 +1631,18 @@ function buildReviewScene(): HTMLElement {
   for (const line of narrativeLines(r)) {
     const segSize = line.tick < 100 ? 10 : 50;
     const dec = Math.floor(line.tick / segSize) * segSize;
-    let text = line.isPrompt ? `❈ ${line.text}` : line.text;
-    if (line.caption) text += `〔${line.caption}〕`;
-    if (line.picked) text += `（抉择：${line.picked}）`;
+    let text: string;
+    let milestone = false;
+    if (line.isInterlude) {
+      text = `〔传闻〕${line.text}`;
+    } else {
+      text = line.isPrompt ? `❈ ${line.text}` : line.text;
+      if (line.caption) text += `〔${line.caption}〕`;
+      if (line.picked) text += `（抉择：${line.picked}）`;
+      milestone = worldMilestones.includes(line.eventId);
+    }
     const list = decades.get(dec) ?? [];
-    list.push({ text, milestone: worldMilestones.includes(line.eventId) });
+    list.push({ text, milestone });
     decades.set(dec, list);
   }
   for (const dec of [...decades.keys()].sort((a, b2) => a - b2)) {
@@ -1722,7 +1739,7 @@ function buildPhotoGallery(r: LifeResult): HTMLElement {
   }
   // 每 20 岁采样
   for (const line of lines) {
-    if (line.tick < 0) continue;
+    if (line.tick < 0 || line.isInterlude) continue;
     const sampleTick = Math.floor(line.tick / 20) * 20;
     if (!sampled.has(sampleTick) && line.tick === sampleTick) {
       sampled.set(sampleTick, { tick: line.tick, eventId: line.eventId, label: line.text });

@@ -1,4 +1,4 @@
-import type { EventNarratives, Narratives, NarrativeVariant, World } from '../../engine/src/types.ts';
+import type { EventNarratives, InterludeCategory, Narratives, NarrativeVariant, World } from '../../engine/src/types.ts';
 import { NARRATIVE_SLOTS } from '../../engine/src/types.ts';
 
 export class NarrativesValidateError extends Error {
@@ -186,7 +186,39 @@ export function validateNarratives(raw: unknown, world: World, source = '<narrat
     out.milestones = milestonesOut;
   }
 
-  if (!out.events && !out.milestones && !out.openers && !out.closers) {
+  const interludesRaw = raw['interludes'];
+  if (interludesRaw !== undefined) {
+    if (!isObj(interludesRaw)) throw err('interludes 必须为映射（类别名 → 插页配置）', '$.interludes');
+    const interludesOut: Record<string, InterludeCategory> = {};
+    for (const [catName, catRaw] of Object.entries(interludesRaw)) {
+      const p = `$.interludes.${catName}`;
+      if (!isObj(catRaw)) throw err(`插页类别 "${catName}" 必须为映射对象`, p);
+      const cat: InterludeCategory = { variants: [] };
+      if (catRaw['minTick'] !== undefined) {
+        if (typeof catRaw['minTick'] !== 'number') throw err('minTick 必须为数字', `${p}.minTick`);
+        cat.minTick = catRaw['minTick'];
+      }
+      if (catRaw['maxTick'] !== undefined) {
+        if (typeof catRaw['maxTick'] !== 'number') throw err('maxTick 必须为数字', `${p}.maxTick`);
+        cat.maxTick = catRaw['maxTick'];
+      }
+      if (catRaw['cultivatorOnly'] !== undefined) {
+        if (typeof catRaw['cultivatorOnly'] !== 'boolean') throw err('cultivatorOnly 必须为布尔值', `${p}.cultivatorOnly`);
+        cat.cultivatorOnly = catRaw['cultivatorOnly'];
+      }
+      if (catRaw['mortalOnly'] !== undefined) {
+        if (typeof catRaw['mortalOnly'] !== 'boolean') throw err('mortalOnly 必须为布尔值', `${p}.mortalOnly`);
+        cat.mortalOnly = catRaw['mortalOnly'];
+      }
+      if (catRaw['variants'] === undefined) throw err(`插页类别 "${catName}" 缺少 variants`, `${p}.variants`);
+      checkVariantList(catRaw['variants'], `${p}.variants`, seenIds);
+      cat.variants = catRaw['variants'] as NarrativeVariant[];
+      interludesOut[catName] = cat;
+    }
+    out.interludes = interludesOut;
+  }
+
+  if (!out.events && !out.milestones && !out.openers && !out.closers && !out.interludes) {
     err('narratives 不能为空（至少一个事件变体或里程碑题注）', '$');
   }
   return out;

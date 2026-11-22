@@ -275,6 +275,26 @@ button.primary:hover { background: #3a80a0; }
 
 .log-line.prompt .log-text { color: var(--ink-accent); }
 
+/* 插页行——他人动态/坊间传闻，淡灰斜体，无星标无年龄 */
+.log-line.interlude {
+  padding-left: var(--gap-md);
+  opacity: 0.7;
+}
+.log-line.interlude .interlude-tag {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  color: var(--ink-muted, #8a8a8a);
+  background: rgba(128, 128, 128, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 1px 6px;
+  margin-right: var(--gap-sm);
+}
+.log-line.interlude .log-text {
+  font-style: italic;
+  color: var(--ink-muted, #8a8a8a);
+  font-size: 0.88rem;
+}
+
 /* 最新展开的一行——淡入动画 */
 .log-line.log-fresh {
   animation: line-fade-in var(--dur) var(--ease);

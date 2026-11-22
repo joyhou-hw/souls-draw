@@ -220,6 +220,19 @@ export interface EventNarratives {
   buckets?: NarrativeBucket[];
 }
 
+export interface InterludeCategory {
+  /** 触发的最小 tick（不含出生前日志） */
+  minTick?: number;
+  /** 触发的最大 tick */
+  maxTick?: number;
+  /** 仅修行者可见 */
+  cultivatorOnly?: boolean;
+  /** 仅凡人可见 */
+  mortalOnly?: boolean;
+  /** 变体列表 */
+  variants: NarrativeVariant[];
+}
+
 export interface Narratives {
   version: number;
   slots?: Record<string, Record<string, string>>;
@@ -227,6 +240,8 @@ export interface Narratives {
   closers?: NarrativeVariant[];
   events?: Record<string, EventNarratives>;
   milestones?: Record<string, NarrativeVariant[]>;
+  /** 插页——他人动态/坊间传闻，穿插在人生日志中增添世界感 */
+  interludes?: Record<string, InterludeCategory>;
 }
 
 export const NARRATIVE_SLOTS = ['place', 'species', 'variety', 'niche', 'era'] as const;
