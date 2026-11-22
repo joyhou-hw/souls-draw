@@ -173,13 +173,39 @@ const SPEED_LABELS: Array<[string, number]> = [
   ['8×', 800],
 ];
 
-/** 无限纪元年——出生时为无限418年 */
-const BIRTH_YEAR = 418;
-const ERA_NAME = '无限';
+/** 纪元名称与起始年份范围——古代/现代分别有不同波动区间 */
+const ERA_CONFIG: Record<string, { name: string; yearRange: [number, number] }> = {
+  ancient: { name: '太古', yearRange: [320, 580] },
+  modern: { name: '新元', yearRange: [1180, 1420] },
+};
+const DEFAULT_ERA = 'ancient';
+
+/** 根据 era 生成确定性起始年份（由 seed 决定，同一 seed 同一年份） */
+let birthYearMemo: { seed: number; era: string; year: number } | null = null;
+function birthYearFor(era: string, seed: number): number {
+  if (birthYearMemo?.seed === seed && birthYearMemo?.era === era) return birthYearMemo.year;
+  const cfg = ERA_CONFIG[era] ?? ERA_CONFIG[DEFAULT_ERA]!;
+  const rng = createRng((seed ^ 0x12345678) >>> 0);
+  const year = cfg.yearRange[0] + Math.floor(rng.next() * (cfg.yearRange[1] - cfg.yearRange[0] + 1));
+  birthYearMemo = { seed, era, year };
+  return year;
+}
+
+/** 获取当前人生的纪元名称 */
+function eraName(): string {
+  const era = state.result?.birth?.era ?? DEFAULT_ERA;
+  return (ERA_CONFIG[era] ?? ERA_CONFIG[DEFAULT_ERA]!).name;
+}
+
+/** 获取当前人生的出生年份 */
+function birthYear(): number {
+  const era = state.result?.birth?.era ?? DEFAULT_ERA;
+  return birthYearFor(era, state.seed ?? 0);
+}
 
 /** 根据 tick 计算日历年 */
 function calendarYear(tick: number): string {
-  return `${ERA_NAME}${BIRTH_YEAR + tick}年`;
+  return `${eraName()}${birthYear() + tick}年`;
 }
 
 /** 日志行年龄标注——出生前/降生/岁数 */
@@ -435,6 +461,144 @@ function resumeFromSave(data: SaveData): void {
   persist();
   resetFlowUi();
   rerender();
+}
+
+// ═══════════════════════════════════════════════
+// 引导页词库——按 era × region 组合生成时代背景叙述
+// ═══════════════════════════════════════════════
+
+interface IntroLines {
+  eraYear: string;      // 哪一年
+  eraEvent: string;    // 社会上刚发生了什么
+  placeDesc: string;   // 这是什么地方
+  placeFeature: string; // 有什么特色
+}
+
+const INTRO_POOL: Record<string, IntroLines[]> = {
+  // ── 古代 ──
+  'ancient:forest': [
+    { eraYear: '太古年间', eraEvent: '天地灵气初凝，妖兽蛰伏深林', placeDesc: '一片人迹罕至的原始幽林', placeFeature: '古木参天，灵药遍地，兽语可闻' },
+    { eraYear: '洪荒末年', eraEvent: '大妖陨落，山林震动', placeDesc: '妖兽盘踞的密林深处', placeFeature: '瘴气弥漫，险兽出没，偶见仙草' },
+    { eraYear: '灵寂初年', eraEvent: '灵脉沉寂百年后初现复苏', placeDesc: '被遗忘的远古森林', placeFeature: '枯木逢春，灵泉涌动，生机暗涌' },
+  ],
+  'ancient:city': [
+    { eraYear: '太古年间', eraEvent: '人族筑城自守，妖族虎视城外', placeDesc: '一座依山而建的古城', placeFeature: '青石铺街，符阵护城，坊市林立' },
+    { eraYear: '洪荒末年', eraEvent: '城主更替，新令初颁', placeDesc: '烟火气缭绕的繁华旧城', placeFeature: '夜市灯火，酒旗招展，各色人等混杂' },
+    { eraYear: '灵寂初年', eraEvent: '百年封城令解除，商队复通', placeDesc: '一座沉寂百年的古城', placeFeature: '城门重开，百业待兴，暗流涌动' },
+  ],
+  'ancient:guild_land': [
+    { eraYear: '太古年间', eraEvent: '修行会馆初立门规，广纳门徒', placeDesc: '修行者聚居的会馆领地', placeFeature: '藏经阁高耸，练法坪开阔，规矩森严' },
+    { eraYear: '洪荒末年', eraEvent: '会馆长老闭关，弟子各怀心思', placeDesc: '内忧外患的修行会馆', placeFeature: '禁地封锁，阵法闪烁，人心浮动' },
+    { eraYear: '灵寂初年', eraEvent: '会馆重开山门，广收新徒', placeDesc: '百废待兴的修行会馆', placeFeature: '残垣断壁间灵光重现，师承断续' },
+  ],
+  'ancient:hermit_island': [
+    { eraYear: '太古年间', eraEvent: '隐士封岛，不问世事', placeDesc: '碧海孤悬的隐修之岛', placeFeature: '潮声如诵经，崖上有仙鹤，洞府隐现' },
+    { eraYear: '洪荒末年', eraEvent: '岛上老祖渡劫，天象异变', placeDesc: '劫云笼罩的孤岛', placeFeature: '雷光冲天，海兽退避，灵气暴涌' },
+    { eraYear: '灵寂初年', eraEvent: '封岛禁制松动，隐士渐出', placeDesc: '解封后的隐修之岛', placeFeature: '云雾散去，石径重见，修士下山' },
+  ],
+  // ── 现代 ──
+  'modern:forest': [
+    { eraYear: '新元年间', eraEvent: '灵气复苏，城市边缘的森林异变', placeDesc: '被钢筋水泥包围的残存绿地', placeFeature: '古树与霓虹共存，灵兽与流浪猫争地盘' },
+    { eraYear: '新元末年', eraEvent: '灵脉贯通地底，森林公园异象频发', placeDesc: '城市中的灵气异常区', placeFeature: '游客夜见荧光，保安不敢巡逻，妖怪摆摊' },
+    { eraYear: '新元初年', eraEvent: '灵气监测站刚建成，数据异常', placeDesc: '被围栏圈起的保护林区', placeFeature: '仪器闪烁红光，松鼠体型异常，空气发甜' },
+  ],
+  'modern:city': [
+    { eraYear: '新元年间', eraEvent: '妖族身份合法化法案刚通过', placeDesc: '一座灵气与科技交融的都市', placeFeature: '高楼林立，符文路灯，地铁可直达妖市' },
+    { eraYear: '新元末年', eraEvent: '灵气科技公司股价暴涨，社会热议', placeDesc: '霓虹闪烁的繁华都市', placeFeature: '外卖骑手踩着飞剑，写字楼里人妖共事' },
+    { eraYear: '新元初年', eraEvent: '第一次人妖联合大学刚开学', placeDesc: '正在适应新时代的古城', placeFeature: '老城区巷弄有灵宠医院，新城区有灵气充电桩' },
+  ],
+  'modern:guild_land': [
+    { eraYear: '新元年间', eraEvent: '修行会馆转型注册，纳入管理体系', placeDesc: '挂着企业牌照的修行会馆', placeFeature: '练法坪改成了健身房，藏经阁装了WiFi' },
+    { eraYear: '新元末年', eraEvent: '会馆内部改革，老派弟子与新时代冲突', placeDesc: '新旧交替的修行会馆', placeFeature: '电子门禁旁刻着古老符阵，食堂兼供辟谷餐' },
+    { eraYear: '新元初年', eraEvent: '修行资格证考试刚落地，报考火爆', placeDesc: '转型中的现代修行会馆', placeFeature: '大屏幕滚动播放考试公告，灵气检测仪嗡嗡作响' },
+  ],
+  'modern:hermit_island': [
+    { eraYear: '新元年间', eraEvent: '隐士岛被划为灵气保护区', placeDesc: '立了石碑的隐修之岛', placeFeature: '禁飞令牌立在码头，渡轮每天一班，仙鹤戴了脚环' },
+    { eraYear: '新元末年', eraEvent: '岛上灵气潮汐异常，研究团队登岛', placeDesc: '科研与隐修共存的孤岛', placeFeature: '气象站与洞府比邻，数据线缠在古松上' },
+    { eraYear: '新元初年', eraEvent: '隐士岛首次开放旅游，限额登岛', placeDesc: '刚通 ferry 的隐修之岛', placeFeature: '石阶上嵌了引导灯，崖边装了护栏，隐士摆摊卖手串' },
+  ],
+};
+
+/** 根据出生结果选取引导页内容 */
+function pickIntroLines(birth: BirthOutcome, seed: number): IntroLines {
+  const era = normalizeEra(birth.era);
+  const region = normalizePlace(birth.region);
+  const key = `${era}:${region}`;
+  const pool = INTRO_POOL[key] ?? INTRO_POOL['ancient:forest']!;
+  const rng = createRng((seed ^ 0xabcd1234) >>> 0);
+  return rng.pick(pool);
+}
+
+/** 显示引导页——与模拟页同一背景，逐行文字出现后消失，点击进入模拟 */
+function showIntroPage(birth: BirthOutcome, seed: number, bgSrc: string, onEnter: () => void): void {
+  const lines = pickIntroLines(birth, seed);
+  const eraLabel = slotText('era', birth.era);
+  const yearStr = calendarYear(0);
+  const id = identityFor(birth);
+  const place = slotText('place', birth.region);
+  const locality = LOCALITY_BY_REGION[birth.region]?.[0] ?? '无名之地';
+
+  const overlay = el('div', 'intro-overlay');
+  // 背景——与模拟页同
+  overlay.style.backgroundImage = `url('${bgSrc}')`;
+
+  const dim = el('div', 'intro-dim');
+  overlay.append(dim);
+
+  const container = el('div', 'intro-container');
+  overlay.append(container);
+
+  document.body.append(overlay);
+  void overlay.offsetWidth;
+  overlay.classList.add('intro-active');
+
+  const texts: string[] = [
+    yearStr,
+    `${eraLabel} · ${lines.eraYear}`,
+    lines.eraEvent,
+    `降生之地 · ${place} · ${locality}`,
+    lines.placeDesc,
+    lines.placeFeature,
+    `${id.name} · ${id.gender} · ${FORM_LABELS[birth.form] ?? birth.form}`,
+  ];
+
+  let idx = 0;
+  function showNext(): void {
+    if (idx >= texts.length) {
+      // 全部展示完 → 显示"入世"按钮
+      const enterBtn = el('button', 'primary intro-enter');
+      enterBtn.textContent = '入世';
+      enterBtn.addEventListener('click', () => {
+        overlay.classList.remove('intro-active');
+        overlay.classList.add('intro-fadeout');
+        setTimeout(() => {
+          overlay.remove();
+          onEnter();
+        }, 600);
+      });
+      container.append(enterBtn);
+      void enterBtn.offsetWidth;
+      enterBtn.classList.add('intro-enter-show');
+      return;
+    }
+    const line = el('p', 'intro-line');
+    line.textContent = texts[idx]!;
+    container.append(line);
+    void line.offsetWidth;
+    line.classList.add('intro-line-show');
+
+    const delay = texts[idx]!.length > 12 ? 2800 : 2200;
+    idx++;
+    setTimeout(() => {
+      line.classList.add('intro-line-hide');
+      setTimeout(() => {
+        line.remove();
+        showNext();
+      }, 500);
+    }, delay);
+  }
+
+  setTimeout(showNext, 400);
 }
 
 function el<K extends keyof HTMLElementTagNameMap>(tag: K, cls?: string): HTMLElementTagNameMap[K] {
@@ -693,7 +857,7 @@ function buildDrawAnim(): HTMLElement {
         const enterBtn = el('button', 'primary soul-enter');
         enterBtn.textContent = '引 · 开启此生';
         enterBtn.addEventListener('click', () => {
-          // 过场效果：全屏墨色淡入 → 淡出 → 进入人生
+          // 过场效果：全屏墨色淡入 → 显示引导页 → 进入人生
           const overlay = el('div', 'enter-transition');
           document.body.append(overlay);
           void overlay.offsetWidth;
@@ -701,12 +865,16 @@ function buildDrawAnim(): HTMLElement {
           setTimeout(() => {
             state.drawing = false;
             state.drawPhase = 0;
-            state.autoPlay = true;
-            rerender();
+            const bgSrc = state.result ? simBgFor(state.result) : '';
+            // 显示引导页，结束后淡出进入模拟
+            showIntroPage(birth, state.seed ?? 0, bgSrc, () => {
+              state.autoPlay = true;
+              rerender();
+              if (state.result) startAutoPlay(state.result);
+            });
             overlay.classList.remove('enter-transition-fadein');
             overlay.classList.add('enter-transition-fadeout');
             setTimeout(() => overlay.remove(), 600);
-            if (state.result) startAutoPlay(state.result);
           }, 800);
         });
         card.append(enterBtn);

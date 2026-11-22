@@ -1119,6 +1119,112 @@ button.primary:hover { background: #3a80a0; }
   transition: opacity 0.8s var(--ease);
 }
 
+/* ── 引导页 ── */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+}
+
+.intro-overlay.intro-active {
+  opacity: 1;
+}
+
+.intro-overlay.intro-fadeout {
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+}
+
+.intro-dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.72);
+}
+
+.intro-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-md, 16px);
+  max-width: 560px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.intro-line {
+  margin: 0;
+  font-size: 1.15rem;
+  color: rgba(232, 230, 224, 0.9);
+  line-height: 2;
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(4px);
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+}
+
+.intro-line.intro-line-show {
+  animation: intro-line-appear 0.6s var(--ease, ease) forwards;
+}
+
+.intro-line.intro-line-hide {
+  animation: intro-line-vanish 0.5s var(--ease, ease) forwards;
+}
+
+@keyframes intro-line-appear {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes intro-line-vanish {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+    filter: blur(6px);
+  }
+}
+
+.intro-enter {
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  transition: all 0.6s var(--ease, ease);
+  font-size: 1.1rem;
+  padding: 10px 36px;
+}
+
+.intro-enter.intro-enter-show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 手机：引导页 */
+@media (max-width: 768px) {
+  .intro-line { font-size: 1rem; line-height: 1.8; }
+  .intro-container { gap: 12px; padding: 0 16px; }
+}
+
 /* 手机：单栏 */
 @media (max-width: 768px) {
   .life-body { flex-direction: column; min-height: calc(100vh - 50px); }
