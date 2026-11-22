@@ -200,6 +200,11 @@ button.primary:hover { background: #3a80a0; }
   z-index: 2;
 }
 
+/* 手机端标题内联属性条——桌面端隐藏 */
+.attrs-inline {
+  display: none;
+}
+
 .chip {
   background: var(--ink-bg-card);
   border: 1px solid var(--ink-border);
@@ -1247,16 +1252,41 @@ button.primary:hover { background: #3a80a0; }
 
 /* 手机：单栏 */
 @media (max-width: 768px) {
-  .life-body { flex-direction: column; min-height: calc(100vh - 50px); }
-  .life-sidebar { flex: none; align-items: center; }
-  .life-sidebar .scene-image { max-width: 320px; width: 100%; }
-  .life-sidebar .birth-card { max-width: 320px; width: 100%; }
+  .life-body {
+    flex-direction: column;
+    min-height: calc(100vh - 50px);
+  }
+  /* 展开子容器，让内部元素直接参与 life-body 的排序 */
+  .life-sidebar,
+  .life-main {
+    display: contents;
+  }
+  /* 排序：岁月长卷标题(含属性)在最上 → 人物图+信息 → 日志流 */
+  .life-sidebar .scene-image { order: 2; max-width: 100%; width: 100%; }
+  .life-sidebar .birth-card { order: 3; max-width: 100%; width: 100%; }
+  .life-main .log-title { order: 1; }
+  .life-main .log-stream { order: 4; max-height: none; flex: 1; }
+
+  /* 手机端标题内联属性条显示 */
+  .attrs-inline {
+    display: flex;
+    position: static;
+    background: none;
+    border: none;
+    backdrop-filter: none;
+    padding: 0;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .attrs-inline .chip {
+    font-size: 0.72rem;
+    padding: 1px 6px;
+  }
+
   .control-banner { padding: 6px 10px; gap: var(--gap-sm); }
   .control-banner .ctrl-left button { padding: 4px 8px; font-size: 0.8rem; }
   .speed-ctrl button { padding: 3px 6px; font-size: 0.72rem; }
   .year-label { font-size: 0.8rem; }
-  .life-main { flex: 1; min-height: 300px; }
-  .log-stream { max-height: none; flex: 1; }
 }
 
 /* ── 抉择场景 ── */
@@ -1655,7 +1685,7 @@ button.primary:hover { background: #3a80a0; }
 
   .card { padding: var(--gap-sm); }
 
-  .log-stream { max-height: 50vh; overflow-y: auto; }
+  .log-stream { max-height: none; overflow-y: auto; }
 
   .choice-opt {
     flex-direction: column;

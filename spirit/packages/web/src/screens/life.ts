@@ -157,9 +157,14 @@ function executeChoice(r: LifeResult, idx: number): void {
       state.pointer++;
     }
     state.autoPlay = true;
-    // 保存滚动位置，rerender 后恢复
+    // 保存滚动位置（log-stream 内部 + 窗口），rerender 后恢复
+    const oldStream = document.querySelector('.log-stream');
+    const savedStreamTop = oldStream ? oldStream.scrollTop : 0;
     const savedScrollY = window.scrollY;
     rerender();
+    // 恢复 log-stream 内部滚动位置
+    const newStream = document.querySelector('.log-stream');
+    if (newStream) newStream.scrollTop = savedStreamTop;
     window.scrollTo(0, savedScrollY);
     if (state.result) startAutoPlay(state.result);
   }, 400);
@@ -1010,6 +1015,10 @@ function buildLifeScene(r: LifeResult): HTMLElement {
   const main = el('div', 'life-main');
   const logTitle = el('div', 'log-title');
   logTitle.textContent = '岁月长卷';
+  // 手机端：标题后跟一行属性摘要（岁 健康 灵质 灵力）
+  const attrsInline = buildAttrsBar(r);
+  attrsInline.classList.add('attrs-inline');
+  logTitle.append(attrsInline);
   main.append(logTitle, buildLogStream(r));
   body.append(sidebar, main);
   scene.append(body);
@@ -1793,6 +1802,14 @@ function rerender(): void {
         const oldAttrs = sceneImg.querySelector('.attrs');
         const newAttrs = buildAttrsBar(r);
         if (oldAttrs) oldAttrs.replaceWith(newAttrs);
+      }
+      // 更新手机端标题内联属性条
+      const logTitle = lifeMain.querySelector('.log-title');
+      if (logTitle) {
+        const oldInline = logTitle.querySelector('.attrs-inline');
+        const newInline = buildAttrsBar(r);
+        newInline.classList.add('attrs-inline');
+        if (oldInline) oldInline.replaceWith(newInline);
       }
       // 随着人生阶段推进，切换对应的模拟背景色调
       setBackground(simBgFor(r));
