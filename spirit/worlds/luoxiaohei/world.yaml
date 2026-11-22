@@ -193,7 +193,7 @@ events:
 
   - id: gate_ningxing
     label: 突破凝形
-    weight: 1.2
+    weight: 1.5
     once: true
     cond:
       flags: [tier:fanti]
@@ -206,7 +206,7 @@ events:
 
   - id: gate_yuwu
     label: 突破御物
-    weight: 1.0
+    weight: 1.3
     once: true
     cond:
       flags: [tier:ningxing]
@@ -219,7 +219,7 @@ events:
 
   - id: gate_lingyu
     label: 突破灵域
-    weight: 0.8
+    weight: 1.2
     once: true
     cond:
       flags: [tier:yuwu]
@@ -232,7 +232,7 @@ events:
 
   - id: gate_dayao
     label: 突破大妖
-    weight: 0.5
+    weight: 0.8
     once: true
     cond:
       flags: [tier:lingyu]
@@ -245,7 +245,7 @@ events:
 
   - id: gate_shengling
     label: 突破圣灵
-    weight: 0.3
+    weight: 0.6
     once: true
     cond:
       flags: [tier:dayao]
@@ -258,7 +258,7 @@ events:
 
   - id: ascend_trigger
     label: 圣灵圆满，飞升离陆
-    weight: 0.2
+    weight: 0.4
     once: true
     cond:
       flags: [tier:shengling]
