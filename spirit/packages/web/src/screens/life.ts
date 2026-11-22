@@ -1004,31 +1004,26 @@ function buildLifeScene(r: LifeResult): HTMLElement {
   const scene = el('section', 'scene life-scene');
   // 顶部 sticky banner：播放控制 + 速度 + 进度条
   scene.append(buildControlBanner(r));
-  // 主体——所有元素平铺到 life-body，桌面/手机分别用 CSS order 控制排列
+  // 主体——桌面端双栏(左:图+信息 / 右:标题+日志)，手机端单列(标题→日志→图→信息)
   const body = el('div', 'life-body');
 
-  // 场景图（含状态栏叠加）
+  // 左侧栏：场景图（含状态栏叠加） + 身份卡
+  const sidebar = el('div', 'life-sidebar');
   const imgWrap = buildSceneImage(r);
   imgWrap.append(buildAttrsBar(r));
-  imgWrap.classList.add('life-scene-image');
+  sidebar.append(imgWrap, buildBirthCard());
 
-  // 身份卡
-  const birthCard = buildBirthCard();
-  birthCard.classList.add('life-birth-card');
-
-  // 岁月长卷标题 + 手机端内联属性摘要
+  // 右侧栏：岁月长卷标题 + 日志流
+  const main = el('div', 'life-main');
   const logTitle = el('div', 'log-title');
   logTitle.textContent = '岁月长卷';
+  // 手机端：标题后跟一行属性摘要（岁 健康 灵质 灵力）
   const attrsInline = buildAttrsBar(r);
   attrsInline.classList.add('attrs-inline');
   logTitle.append(attrsInline);
-  logTitle.classList.add('life-log-title');
+  main.append(logTitle, buildLogStream(r));
 
-  // 日志流
-  const logStream = buildLogStream(r);
-  logStream.classList.add('life-log-stream');
-
-  body.append(logTitle, imgWrap, birthCard, logStream);
+  body.append(sidebar, main);
   scene.append(body);
   return scene;
 }

@@ -756,7 +756,10 @@ button.primary:hover { background: #3a80a0; }
   background: rgba(34, 30, 26, 0.5);
   backdrop-filter: blur(4px);
   border-radius: var(--radius-md);
-  padding: var(--gap-lg) var(--gap-xl);
+  padding: var(--gap-lg) var(--gap-xl) var(--gap-xl);
+  width: 360px;
+  max-width: 90vw;
+  box-sizing: border-box;
 }
 
 .roll-field {
@@ -1021,33 +1024,24 @@ button.primary:hover { background: #3a80a0; }
 
 .life-body {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--gap-lg);
+}
+
+.life-sidebar {
+  flex: 0 0 280px;
+  display: flex;
   flex-direction: column;
   gap: var(--gap-md);
 }
 
-/* 桌面端：CSS grid 双栏布局 */
-@media (min-width: 769px) {
-  .life-body {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    grid-template-areas:
-      "sidebar main-title"
-      "sidebar main-stream";
-    gap: var(--gap-lg);
-    align-items: start;
-  }
-  .life-scene-image { grid-area: sidebar; }
-  .life-birth-card { grid-area: sidebar; margin-top: var(--gap-md); }
-  .life-log-title { grid-area: main-title; }
-  .life-log-stream { grid-area: main-stream; }
-}
-
-/* 手机端：flex column，order 控制顺序 */
-@media (max-width: 768px) {
-  .life-log-title { order: 1; }
-  .life-scene-image { order: 2; }
-  .life-birth-card { order: 3; }
-  .life-log-stream { order: 4; flex: 1; }
+.life-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+  min-width: 0;
 }
 
 /* 场景图 */
@@ -1262,11 +1256,19 @@ button.primary:hover { background: #3a80a0; }
 /* 手机：单栏 */
 @media (max-width: 768px) {
   .life-body {
+    flex-direction: column;
     min-height: calc(100vh - 50px);
   }
-  .life-scene-image { max-width: 100%; width: 100%; }
-  .life-birth-card { max-width: 100%; width: 100%; }
-  .life-log-stream { max-height: none; }
+  /* 展开子容器，让内部元素直接参与 life-body 的排序 */
+  .life-sidebar,
+  .life-main {
+    display: contents;
+  }
+  /* 排序：标题(含属性) → 日志流 → 人物图 → 人物信息 */
+  .life-main .log-title { order: 1; }
+  .life-main .log-stream { order: 2; flex: 1; max-height: none; }
+  .life-sidebar .scene-image { order: 3; max-width: 100%; width: 100%; }
+  .life-sidebar .birth-card { order: 4; max-width: 100%; width: 100%; }
 
   /* 手机端标题内联属性条显示 */
   .attrs-inline {
