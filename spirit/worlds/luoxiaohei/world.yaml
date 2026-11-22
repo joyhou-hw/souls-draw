@@ -25,6 +25,8 @@ events:
     label: 灵质损耗的一年
     weight: 2
     cooldownTicks: 3
+    cond:
+      minTick: 6
     effects:
       liquality: -3
 
@@ -32,6 +34,8 @@ events:
     label: 觅得灵质丰美之地
     weight: 1.5
     cooldownTicks: 5
+    cond:
+      minTick: 6
     effects:
       liquality: 6
 
