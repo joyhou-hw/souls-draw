@@ -1121,7 +1121,7 @@ button.primary:hover { background: #3a80a0; }
 
 /* 手机：单栏 */
 @media (max-width: 768px) {
-  .life-body { flex-direction: column; }
+  .life-body { flex-direction: column; min-height: calc(100vh - 50px); }
   .life-sidebar { flex: none; align-items: center; }
   .life-sidebar .scene-image { max-width: 320px; width: 100%; }
   .life-sidebar .birth-card { max-width: 320px; width: 100%; }
@@ -1129,7 +1129,8 @@ button.primary:hover { background: #3a80a0; }
   .control-banner .ctrl-left button { padding: 4px 8px; font-size: 0.8rem; }
   .speed-ctrl button { padding: 3px 6px; font-size: 0.72rem; }
   .year-label { font-size: 0.8rem; }
-  .log-stream { max-height: calc(100vh - 180px); }
+  .life-main { flex: 1; min-height: 300px; }
+  .log-stream { max-height: none; flex: 1; }
 }
 
 /* ── 抉择场景 ── */

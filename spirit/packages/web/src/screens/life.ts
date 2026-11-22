@@ -1611,7 +1611,7 @@ function rerender(): void {
       }
       // 随着人生阶段推进，切换对应的模拟背景色调
       setBackground(simBgFor(r));
-      newStream.scrollTop = 0;
+      // 不强制滚到顶部，保持用户阅读位置
       return;
     }
   }
