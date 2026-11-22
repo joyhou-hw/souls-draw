@@ -636,7 +636,7 @@ function buildDrawScene(): HTMLElement {
   scene.append(title, sub);
 
   const desc = el('p', 'draw-desc');
-  desc.textContent = '签落之处，可能是人、是妖、是精怪——是罗小黑世界里的一段小人生。';
+  desc.innerHTML = '签落无声，人妖精怪各有归途<br>引命成线，罗小黑世界一卷浮生';
   scene.append(desc);
 
   const actions = el('div', 'draw-actions');
