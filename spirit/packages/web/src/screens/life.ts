@@ -180,8 +180,8 @@ const SPEED_LABELS: Array<[string, number]> = [
 
 /** 纪元名称与起始年份范围——古代/现代分别有不同波动区间 */
 const ERA_CONFIG: Record<string, { name: string; yearRange: [number, number] }> = {
-  ancient: { name: '太古', yearRange: [320, 580] },
-  modern: { name: '新元', yearRange: [1180, 1420] },
+  ancient: { name: '古代', yearRange: [320, 580] },
+  modern: { name: '现代', yearRange: [1180, 1420] },
 };
 const DEFAULT_ERA = 'ancient';
 

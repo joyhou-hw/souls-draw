@@ -478,6 +478,7 @@ events:
       - when:
           form: human
           minTick: 13
+          maxTick: 64
         variants:
           - id: qy_h_01
             text: 挤地铁，缴房租，偶尔抬头看云——凡人的一年就这么过去。
