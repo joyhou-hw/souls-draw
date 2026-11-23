@@ -188,6 +188,7 @@ events:
     once: true
     cond:
       flags: [cultivator]
+      minTick: 6
     gainFlags:
       - tier:fanti
 

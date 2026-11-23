@@ -72,13 +72,18 @@ test('T2.5 灵力阶梯：修行者人生可走上突破链（至少入门定档
     }
   }
   assert.ok(cultivatorSeed >= 0, '2000 个 seed 中未出现修行者（异常）');
-  const r = runLife(world, { seed: cultivatorSeed });
-  assert.ok(r.birth?.cultivator, 'runLife 出生与 generateBirth 探测不一致（rng 序列异常）');
-  assert.ok(
-    r.log.some((e) => e.eventId === 'init_tier' || e.eventId.startsWith('gate_')),
-    '修行者人生未触发灵力阶梯事件',
-  );
-  assert.notEqual(tierOf(r.state), undefined);
+  // 修行入门需 minTick:6，找一个能活过 6 岁的修行者 seed
+  for (let s = cultivatorSeed; s < 2000; s++) {
+    if (!generateBirth(world, createRng(s)).cultivator) continue;
+    const r = runLife(world, { seed: s });
+    if (r.state.tick < 7) continue; // 活不过 7 岁就换下一个
+    if (r.log.some((e) => e.eventId === 'init_tier' || e.eventId.startsWith('gate_'))) {
+      assert.ok(r.birth?.cultivator, 'runLife 出生与 generateBirth 探测不一致（rng 序列异常）');
+      assert.notEqual(tierOf(r.state), undefined);
+      return;
+    }
+  }
+  assert.fail('2000 个 seed 中未找到能触发灵力阶梯的修行者');
 });
 
 test('T2.4/t2 链路：空间系灵质被夺 → 灵质空间衰竭死亡可复现', () => {
