@@ -307,11 +307,13 @@ export function renderLifeLog(
     const caption = milestoneIds.has(entry.eventId)
       ? renderer.renderMilestone(entry.eventId, entryState, narrRng)
       : undefined;
+    // autoResolved 的抉择不弹选择页面，渲染为普通叙事
+    const showPrompt = prompt !== undefined && !entry.autoResolved;
     const line: RenderedLogLine = {
       tick: entry.tick,
       eventId: entry.eventId,
-      text: prompt ?? narrated ?? entry.label,
-      isPrompt: prompt !== undefined,
+      text: showPrompt ? prompt! : (narrated ?? entry.label),
+      isPrompt: showPrompt,
       rawLabel: entry.label,
     };
     if (caption !== undefined) line.caption = caption;

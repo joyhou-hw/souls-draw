@@ -164,7 +164,14 @@ export function runLife(world: World, opts: RunLifeOptions = {}): LifeResult {
         }
       }
       if (ev.choice) {
-        const idx = resolveChoice(ev.choice, state, rng);
+        // 抉择冷却：上一个抉择后 N tick 内的抉择自动代选，不暂停等待用户
+        const cd = world.choiceCooldownTicks;
+        const inCooldown = cd !== undefined && cd > 0
+          && state.lastChoiceTick !== undefined
+          && (t - state.lastChoiceTick) <= cd;
+        const idx = inCooldown
+          ? autoResolveChoice(ev.choice, state, rng)
+          : resolveChoice(ev.choice, state, rng);
         if (idx < 0) {
           return {
             world: world.name,
@@ -180,6 +187,9 @@ export function runLife(world: World, opts: RunLifeOptions = {}): LifeResult {
         }
         const opt = ev.choice.options[idx]!;
         entry.choice = { prompt: ev.choice.prompt, picked: opt.label };
+        if (inCooldown) entry.autoResolved = true;
+        // 记录抉择 tick，用于抉择冷却判断
+        state.lastChoiceTick = t;
         if (opt.effects) {
           applyAttrs(state, opt.effects);
           entry.effects = { ...(entry.effects ?? {}), ...opt.effects };

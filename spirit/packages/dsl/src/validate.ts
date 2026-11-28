@@ -396,4 +396,9 @@ function checkOptionalBlocks(raw: Record<string, unknown>, world: World): void {
   if (raw['choiceAxes'] !== undefined) world.choiceAxes = raw['choiceAxes'] as string[];
   if (raw['grainAxes'] !== undefined) checkStringArray(raw['grainAxes'], '$.grainAxes');
   if (raw['grainAxes'] !== undefined) world.grainAxes = raw['grainAxes'] as string[];
+  if (raw['choiceCooldownTicks'] !== undefined) {
+    const v = raw['choiceCooldownTicks'];
+    if (typeof v !== 'number' || v < 0) throw new WorldValidateError('必须为非负整数', '$.choiceCooldownTicks');
+    world.choiceCooldownTicks = v;
+  }
 }

@@ -98,6 +98,8 @@ export interface World {
   presentation?: Presentation;
   choiceAxes?: string[];
   grainAxes?: string[];
+  /** 抉择冷却 tick 数：上一个抉择后 N tick 内的抉择自动代选，不暂停等待用户 */
+  choiceCooldownTicks?: number;
 }
 
 export type DeathModel = 'lifetable' | 'liquality_balance';
@@ -279,6 +281,8 @@ export interface LogEntry {
   label: string;
   effects?: EventEffects;
   choice?: { prompt: string; picked: string };
+  /** 抉择冷却期内自动代选的抉择标记（前端不弹选择页面） */
+  autoResolved?: boolean;
 }
 
 export interface PersonState {
@@ -293,6 +297,8 @@ export interface PersonState {
   firedEvents: Set<string>;
   /** 事件 id → 冷却截止 tick（该 tick 之前不可再触发） */
   cooldownUntil: Record<string, number>;
+  /** 上一个抉择事件的 tick（用于抉择冷却判断） */
+  lastChoiceTick?: number;
 }
 
 export interface LifeResult {

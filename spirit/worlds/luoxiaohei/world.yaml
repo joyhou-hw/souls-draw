@@ -1859,6 +1859,9 @@ birthAxes:
   region: [forest, city, guild_land, hermit_island]
   era: [ancient, modern]
 
+# 抉择冷却：上一个抉择后 3 tick 内的抉择自动代选，避免连续弹出选择页面
+choiceCooldownTicks: 3
+
 # ── 修行入口双闸（01 §7.1.1）──
 # 校准：凡人率降至 12.5%，修行入口大幅提升
 # step1 0.85 / step2 0.70：凡人率 12.5%、埋没天才 27%、入修行 60%
